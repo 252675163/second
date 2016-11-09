@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <title ng-bind="($state.current.title||dynamicTitle||$state.current.name)"></title>
+    <link href="/app/css/ionic.app.css" rel="stylesheet" type="text/css" />
+    <link href="/app/libs/cropper/cropper.min.css" rel="stylesheet" type="text/css" />
+    <link href="/app/libs/islider/iSlider.min.css" rel="stylesheet" type="text/css" />
+    <link href="/app/libs/mobiscrolldatetime/css/mobiscroll.custom-2.17.0.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        window.dev = true;
+        window.microShopSynQrCodeUrl = 'https://mp.weixin.qq.com/safe/safeqrcode?action=bindcomponent&uuid=021ahhPO-dZIdabr';
+        window.shareServer = 'http://dev.xbx100.cn';
+        window.microShopShareServerName = '';
+        window.server = '';
+        window.activityServer = 'http://dev.xbx100.cn';
+        window.resourceDoMain = '';
+        window.ticks = 'version=-560015176';
+        window.cdnDoMain = 'http://greedyint-dev.oss-cn-hangzhou.aliyuncs.com';
+        window.creativeViewShareRouter = 'GameView';
+        window.baiduGetUserLocationApiKey = '4iL61ZlKnOKY7ZlPf9LOHwFEpZh4xdI5';
+        window.schoolPalAuthenticationServer = 'http://m.test.schoolpal.cn';
+        window.defaultBaseHref = '/home/index/';
+
+        window.appId = 'wx2e744542e7684cab';
+        window.timestamp = 1478692148;
+        window.nonceStr = 'ShiningStar';
+        window.signature = '4cce374c3650be4b81389a2f03a5d0bf555ef595';
+        window.isSchoolpalUser = 'false';
+
+        window.isAllowDirectShare = false;
+        window.isUseWeixinShare = true;
+        window.isMustHaveWxShare = false;
+        //提现金额限制
+        window.withdrawalAmount = 100;
+        if (window.isUseWeixinShare || !window.isAllowDirectShare || isMustHaveWxShare) {
+            window.wxlib = "//res.wx.qq.com/open/js/jweixin-1.0.0.js";
+        }
+    </script>
+</head>
+
+<body>
+    <img id="wxShareImage" style="display: none;" />
+    <div class="lockMask-loading2"></div>
+    <ion-nav-view>
+        <stop-move></stop-move>
+    </ion-nav-view>
+    <div id="csshardow" style="display: none">
+        <div class="lockMask_darker"></div>
+        <div class="rotate_phone">
+            <div class="icon_phone"></div>
+            <div class="rotate_text">当前显示效果不佳哦，请把手机转回来</div>
+        </div>
+    </div>
+
+    <div id="csshardow2" style="display: none">
+        <div class="lockMask_light"></div>
+        <div class="change_account">
+            <div class="change_account_text">
+                <p class="change_account_title">机构账号异常</p>
+                <p class="change_account_content">检测到默认关联的机构账号异常，请前往用户中心进行设置。</p>
+            </div>
+            <div class="change_account_button" onclick="javascript:window.location.href='/Home/ErpOrgUserStateRoute?p=userAccount'">前往校宝ERP账号设置</div>
+        </div>
+    </div>
+
+    <!-- ionic/angularjs js -->
+    <script>
+        var require = {
+            urlArgs: '',
+            baseUrl: '/app'
+        };
+    </script>
+    <script src="/app/libs/requirejs/require.min.js" type="text/javascript" data-main="/app/main.js"></script>
+
+
+</body>
+
+</html>

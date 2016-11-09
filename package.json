@@ -19,5 +19,8 @@
     "load-grunt-tasks": "latest",
     "grunt-autoprefixer": "latest",
     "grunt-postcss": "latest"
+  },
+  "dependencies": {
+    "mime": "^1.3.4"
   }
 }
