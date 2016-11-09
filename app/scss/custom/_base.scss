@@ -1,0 +1,158 @@
+﻿//========================
+//前端样式组件规范（有通用的分类添加） 
+//========================
+/*基本样式*/
+.bg-color-gray{background-color:#dee4ed;}//灰色背景  
+
+//内边距
+.pad-20{padding: temSize(20);}
+.pad-lr-20{padding-left: temSize(20);padding-right: temSize(20);}
+.pad-tb-20{padding-top: temSize(20);padding-bottom: temSize(20);}
+.pad-t-20{padding-top: temSize(20);}
+.pad-l-20{padding-left: temSize(20);}
+.pad-r-20{padding-right: temSize(20);}
+.pad-b-20{padding-bottom: temSize(20);}
+
+.pad-40{padding: temSize(40);}
+.pad-lr-40{padding-left: temSize(40);padding-right: temSize(40);}
+.pad-tb-40{padding-top: temSize(40);padding-bottom: temSize(40);}
+.pad-t-40{padding-top: temSize(40);}
+.pad-l-40{padding-left: temSize(40);}
+.pad-r-40{padding-right: temSize(40);}
+.pad-b-40{padding-bottom: temSize(40);}
+
+.pad-80{padding: temSize(80);}
+.pad-lr-80{padding-left: temSize(80);padding-right: temSize(80);}
+.pad-tb-B80{padding-top: temSize(80);padding-bottom: temSize(80);}
+.pad-t-80{padding-top: temSize(80);}
+.pad-l-80{padding-left: temSize(80);}
+.pad-r-80{padding-right: temSize(80);}
+.pad-b-80{padding-bottom: temSize(80);}
+//外边距
+.mar-10{margin: temSize(10);}
+.mar-lr-10{margin-left: temSize(10);margin-right: temSize(10);}
+.mar-tb-10{margin-top: temSize(10);margin-bottom: temSize(10);}
+.mar-t-10{margin-top: temSize(10);}
+.mar-l-10{margin-left: temSize(10);}
+.mar-r-10{margin-right: temSize(10);}
+.mar-b-10{margin-bottom: temSize(10);}
+
+.mar-20{margin: temSize(20);}
+.mar-lr-20{margin-left: temSize(20);margin-right: temSize(20);}
+.mar-tb-20{margin-top: temSize(20);margin-bottom: temSize(20);}
+.mar-t-20{margin-top: temSize(20);}
+.mar-l-20{margin-left: temSize(20);}
+.mar-r-20{margin-right: temSize(20);}
+.mar-b-20{margin-bottom: temSize(20);}
+
+.mar-40{margin: temSize(40);}
+.mar-lr-40{margin-left: temSize(40);margin-right: temSize(40);}
+.mar-tb-40{margin-top: temSize(40);margin-bottom: temSize(40);}
+.mar-t-40{margin-top: temSize(40);}
+.mar-l-40{margin-left: temSize(40);}
+.mar-r-40{margin-right: temSize(40);}
+.mar-b-40{margin-bottom: temSize(40);}
+
+.mar-80{margin: temSize(80);}
+.mar-lr-80{margin-left: temSize(80);margin-right: temSize(80);}
+.mar-tb-B80{margin-top: temSize(80);margin-bottom: temSize(80);}
+.mar-t-80{margin-top: temSize(80);}
+.mar-l-80{margin-left: temSize(80);}
+.mar-r-80{margin-right: temSize(80);}
+.mar-b-80{margin-bottom: temSize(80);}
+
+/* 文字样式 */
+.font-title{font-size: temSize(28); color: #333;}
+.font-body{font-size: temSize(24); color: #333;}
+.font-sub{font-size: temSize(28); color: #aaa;}
+.font-help{font-size: temSize(20); color: #81a2cd;}
+.text-shadow{text-shadow: 0 1px 4px #ddd; -webkit-text-shadow: 0 1px 4px #ddd; }
+.font-popbody{font-size: temSize(20);color: #666;}
+.font-body2{font-size: temSize(20); color: #333;}
+
+/*1px边 在安卓下可能有问题*/
+.border-b-1,.border-r-1,.border-t-1,.border-l-1{position: relative;}
+.border-b-1::after { width: 500%; content: ""; position: absolute; bottom: 0; height: 1px; background: #ddd; left: 0;z-index: 0; -webkit-transform: scale(0.5); -webkit-transform-origin: 0 bottom; transform: scale(0.5); transform-origin: 0 bottom;}
+.border-r-1::after { width: 1px; content: ""; position: absolute; right: 0; height: 500%; background: #ddd; top: 0;z-index: 0; -webkit-transform: scale(0.5); -webkit-transform-origin: 0 top; transform: scale(0.5); transform-origin: 0 top;}
+.border-t-1::before { width: 500%; content: ""; position: absolute; left: 0; height: 1px; background: #ddd; top: 0;z-index: 0; -webkit-transform: scale(0.5); -webkit-transform-origin: 0 top; transform: scale(0.5); transform-origin: 0 top;}
+.border-l-1::before { width: 1px; content: ""; position: absolute; left: 0; height: 500%; background: #ddd; top: 0;z-index: 0; -webkit-transform: scale(0.5); -webkit-transform-origin: 0 top; transform: scale(0.5); transform-origin: 0 top;}
+
+/* 按钮 */
+.btn{ text-align: center; border: none; display: inline-block;outline: none;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+//尺寸
+.btn-size-120{font-size: temSize(20);height: temSize(60);line-height: temSize(60); width: temSize(120); border-radius: temSize(60); }
+.btn-size-130{font-size: temSize(20);height: temSize(60);line-height: temSize(60); width: temSize(130); border-radius: temSize(60); }
+.btn-size-140{font-size: temSize(20);height: temSize(60);line-height: temSize(60); width: temSize(140); border-radius: temSize(60); }
+.btn-size-160{font-size: temSize(24);height: temSize(60);line-height: temSize(60); width: temSize(160); border-radius: temSize(60); }
+.btn-size-180{font-size: temSize(24);height: temSize(60);line-height: temSize(60); width: temSize(180); border-radius: temSize(60); }
+.btn-size-200{font-size: temSize(24);height: temSize(60);line-height: temSize(60); width: temSize(200); border-radius: temSize(60); }
+.btn-size-300{font-size: temSize(24);height: temSize(60);line-height: temSize(60); width: temSize(300); border-radius: temSize(60); }
+.btn-size-420{font-size: temSize(24);height: temSize(60);line-height: temSize(60); width: temSize(420); border-radius: temSize(60); }
+.btn-size-480{padding: 0 ;font-size: temSize(28);height: temSize(90);line-height: temSize(90); width: temSize(480); border-radius: temSize(90); }
+//颜色
+.btn-orange{background: #ff6622 ; color: #fff;}
+.btn-lightgray{background-color: #ebeef2;color: #000;}
+.btn-darkgray{background-color: #aeb0b3;color: #fff;}
+.btn-blue{background-color:#439bff;color:#fff;}
+.btn-yellow{background-color:#ffca27;color:#fff;}
+.btn-red{background-color:#fd4552;color:#fff;}
+.btn-green{background-color:#4bc65d;color:#fff;}
+
+//文字居中
+.text-center{text-align:center;}
+//直角全宽按钮
+.btn-full{border-radius: 0; width: 100%;font-size: temSize(28);height: temSize(100); line-height: temSize(100);}
+//线框按钮
+.btn-orange-outline{  border:1px solid #ff6622 ; background: transparent; color: #ff6622 ;}
+.btn-gray-outline{border:1px solid #ddd;background: transparent;color: #ddd;}
+.btn-blue-outline{border:1px solid #439bff;background: transparent;color: #439bff;}
+//纯文字按钮
+.btn-blue-clear{background:transparent;border:none;color:#439bff;}
+/*Cards卡片*/
+.cards{
+  background-color: #fff; position: relative;
+  .cards-header{min-height: temSize(80);}
+  .cards-footer{min-height: temSize(80);}
+  .cards-body{min-height: temSize(160);}
+  &:before{box-shadow: 0 0 temSize(40) rgba(29, 63, 140, 0.7);content: "";width: calc(100% - 1rem);height: temSize(50);border-radius:temSize(25);position: absolute;bottom:0;left:0.5rem;z-index: -1;}
+}
+.border-radius-20{border-radius: temSize(20);}
+
+
+/*导航条*/
+.nav-top-tabs{ height: temSize(80);text-align: center;background-color: #fff;border-bottom: 1px solid #ccc;
+  .nav-tab{line-height: temSize(80);width: temSize(100); text-align: center; font-size: temSize(24);color: #333; display: inline-block;position: relative;}
+  //选中的下划线
+  .active-orange:before{border: 2px solid #ff6622;content: '';position: absolute;bottom:0;left:0;width: temSize(100); }
+  .active-blue:before{border-bottom:3px solid #439bff;content: '';position: absolute;bottom:0;left:0;width: temSize(100); }
+}
+
+/*时间选择控件*/
+.datetime-select{
+    height:100%;
+  .dwcc{border-bottom: 1px solid #ddd;border-top: 1px solid #ddd; padding: temSize(20) 0;}
+  .mbsc-material .dwwr{background: #fff;}
+  .mbsc-material .dwv{color: #333; font-weight: normal;}
+  .mbsc-material .dwwb{background-color: #fff;color: #333;}
+  .mbsc-material .dwwb:before{color: #bbb;}
+  .mbsc-material .dwpm .dwwol{display: none}//数值中间一横
+  .dwwl.dwwl1:after{content: '/';position: absolute; top: 50%; right: 0;margin-top: temSize(-16);margin-right: temSize(-7);font-size: temSize(28);color: #333;}
+  .dwwl.dwwl1:before{content: '/';position: absolute; top: 50%; left: 0;margin-top: temSize(-16);margin-left: temSize(-7);font-size: temSize(28);color: #333;}
+  .dwwl.dwwl4:before{content: ':';position: absolute; top: 50%; left: 0;margin-top: temSize(-16);margin-left: temSize(-7);font-size: temSize(28);color: #333;}
+  .mbsc-material .dw-li{color: #bbb;font-size: temSize(24)}
+  .dw-li.dw-v.dw-sel{font-size: temSize(28);color: #333;}
+  .mbsc-material .dwb{color: #333; font-size: temSize(20);font-weight: normal;text-align: center; height: temSize(100);line-height: temSize(100)}
+  .dwbw .dwb{color:#f7424f;}
+  .dwb-s .dwb{color:#439bff;}
+  .dwb-c .dwb{color:#333;}
+  .mbsc-material .dwbw{float: none; border-bottom: 1px solid #ddd;}
+  .mbsc-material .dwbc{padding: 0;}
+  .dwbw.dwb-c{border-top:temSize(20) solid #dfe3ed;}
+}
+
+/*多选按钮*/
+
+
+
+
+

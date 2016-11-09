@@ -1,0 +1,117 @@
+﻿@charset "utf-8";
+//created in 2015/9/14
+//author：wenjun.wang
+
+//前台活动页面样式{
+/* style _page1 css {*/
+.body-bg-s1{background:url("../img/page_bg1_1.5x.jpg") $img-pozC;@include background-size-cover;}/* 大背景平铺 */
+.btnGroup1{position: absolute; top:.8rem; right:.8rem;}
+.btn-chooseType,.btn-changeFace{ width:3.4rem; height:4.5rem; display: block; margin-bottom:.625rem;}
+.btn-chooseType{background: url("../img/btnbg1.png") $img-poz;@include background-size100;}
+.btn-changeFace{background: url("../img/btnbg2.png") $img-poz;@include background-size100;}
+
+.btnGroup2{position: absolute; left:.938rem; right:.938rem; bottom:.438rem;
+  button:last-child{margin-top:.438rem;}
+}
+.btn_style1,.btn_style2{height:2.6rem; font-size:1rem; font-weight: 100; color: #fff; display: block; width:100%;@include border-radius-base; }
+.btn_style1{border:#317fbf 1px solid;@include background-linear(#55affc,#53a9f1);-webkit-box-shadow:0 0 2px #a0d2ff inset,0 1px 0 rgba(3,0,0,.15);box-shadow:0 0 2px #a0d2ff inset,0 1px 0 rgba(3,0,0,.15);}
+.btn_style2{border:#e3ac17 1px solid;@include background-linear(#fdbd13,#f9b604);-webkit-box-shadow:0 0 2px #ffd565 inset,0 1px 0 rgba(3,0,0,.15);box-shadow:0 0 2px #ffd565 inset,0 1px 0 rgba(3,0,0,.15);}
+
+.person_box{position: absolute; bottom:3.5rem; left:50%; width:7.5rem; height:4.8125rem; margin-left: -3.75rem; background: url("../img/person_body.gif") $img-pozT,url("../img/person_shadow.png") $img-pozB;@include background-size-s2;}
+.person_head{position: absolute; top:-4.375rem; left:50%; width:6.35rem; height:6.35rem; margin-left:-3.175rem; @include face-radius; border:#1f1d1c 2px solid;}
+.person_head.unhappy{background: #fff url("../img/person_head_unhappy.png") $img-poz;@include background-size100;}
+.person_head.happy{background: #fff url("../img/person_head_happy.png") $img-poz;@include background-size100;}
+.person_head-face{width:100%;@include face-radius;}
+.person_head_grass{position: absolute; left:50%; height: 4.375rem; top:-7.42rem; z-index:2;
+  &.one{width: 4.375rem;margin-left: -2.1875rem;}
+  &.two{width: 4.375rem;margin-left: -1.8875rem;}
+  &.three{width: 5.625rem;margin-left: -2.4125rem;}
+  &.four{width: 6.875rem;margin-left: -3.4375rem;}
+  &.five{width: 8.125rem;margin-left: -4.0625rem; top:-7rem;}
+  &.flowerpot{width:7.29rem; height:4.69rem;margin-left:-3.645rem; top: -7rem;}
+}
+
+.person_dialogBox_big,.person_dialogBox_small{position: absolute; background:url("../img/person_dialogbg.png") $img-poz;@include background-size100; color: #333; text-align: center; font-weight: bold;}
+.person_dialogBox_big{width:10.21rem; height:6.28rem; top:-10.2rem; left:-3.125rem; padding-top: 1.47rem;}
+.person_dialogBox_small{width:8.97rem; height:4.84rem;  top:-9.5rem; left:-3rem; padding-top: 1.4rem;}
+.person_dialogText{@include transform-rotate(-4deg);font-size: 1.05rem;}
+/*} style _page1 css */
+
+/* style _page2 css {*/
+.btn_round_close{position: absolute; top:.175rem; right:.175rem; width:2.1rem; height:2.1rem;display: block;background: url("../img/btnbg3.png") $img-poz;@include background-size100;}
+
+.page_box1_wrap{position: absolute; top:.3rem; right:.15rem; bottom:.3rem; left:.3rem; background:url("../img/pagebg1_low.png") $img-poz;@include background-size100; z-index: 112; text-align: center;}
+.page_box1_head{height:1.875rem; width:8.8rem; padding-left: .8rem; font-size: 1rem; color: #feffff; line-height: 1.95rem;@include text-shadow-s1(#002969);}
+.page_box1{width:14.375rem;margin-left:.45rem; padding-bottom:.5rem;background: #fccc4b; border:#977519 2px solid;@include border-radius-large;}
+.page_box1_item{float:left; margin:.5rem 0 0 .47rem; width:4.125rem; height:5.91rem; border:#977519 4px solid; @include border-radius-base; position: relative;}
+.item1{background:#f2dca2 url("../img/pagebg2_1_1.5x.png") $img-pozC;@include background-size-s1;}
+.item2{background:#f2dca2 url("../img/pagebg2_2_1.5x.png") $img-pozC;@include background-size-s1;}
+.item3{background:#f2dca2 url("../img/pagebg2_3_1.5x.png") $img-pozC;@include background-size-s1;}
+.item4{background:#f2dca2 url("../img/pagebg2_4_1.5x.png") $img-pozC;@include background-size-s1;}
+.item5{background:#f2dca2 url("../img/pagebg2_5_1.5x.png") $img-pozC;@include background-size-s1;}
+.item6{background:#f2dca2 url("../img/pagebg2_6_1.5x.png") $img-pozC;@include background-size-s1;}
+.item7{background:#f2dca2 url("../img/pagebg2_7_1.5x.png") $img-pozC;@include background-size-s1;}
+.item8{background:#f2dca2 url("../img/pagebg2_8_1.5x.png") $img-pozC;@include background-size-s1;}
+.item9{background:#f2dca2 url("../img/pagebg2_9_1.5x.png") $img-pozC;@include background-size-s1;}
+.page_box1_text{display: block; position: absolute; bottom:.3rem; left:50%; width:3.14rem; margin-left:-1.57rem;@include border-radius-Xlarge; background: #deae2c; height:1rem; line-height: 1rem; color: #fff; font-size: .75rem; }
+/*} style _page2 css */
+
+.content_bg_s2{background:#fafafa;}
+.consult_title{width:12.37rem; height:2.68rem; margin:2.89rem auto 1.38rem;background:url("../img/consult-title.png") $img-poz;@include background-size100;}
+.consult_text{border-right: 1px #ccc solid;padding: 2px 0 2px 0;margin-right: 9px; display:inline-block; width:42px;}
+.vatar-tips{width:8.44rem; height:1.2rem; position:absolute; top:6.1rem; left:50%; margin-left:-5.5rem;background:url("../img/vatar-tips.png") $img-poz;@include background-size100;}
+
+//}前台活动页面样式
+
+//后台{
+.paneabird {background: url("../img/page_bg1_1.5x.jpg") $img-pozC;@include background-size-cover;}
+.paneabird1 {background: url("../img/grass-site-bg.png") $img-pozC;@include background-size-cover;}
+.textTitle {background: url("../img/title-bg.png")  $img-pozC;@include background-size-cover;}
+// 头部文本编辑
+.grass_head_bg{height: 7.3rem; width: 13.46rem; position:absolute;top:-5px;left:50%; margin-left:-6.73rem; background: url("../img/title-bg.png") $img-pozC;@include background-size100;}
+.grass_title1{width: 11.4rem; height: 1.77rem; margin: .96rem auto 0; background: url("../img/grass-title_bg1.png") $img-pozC;@include background-size100;}
+.textarea_style1,.textarealbl{text-align:center;margin: .3rem auto 0; height: 3.6rem; width: 10.78rem;  padding:2px 5px; background:none; color:#fff;font-size:.75rem; line-height: 150%;overflow-y:hidden;}
+.textarea_style1{border: #53a9f1 1px dashed;}
+.textarea_style1.notedit{overflow:hidden;}
+.textarealbl{overflow:hidden; border:1px dashed #9d7456;}
+.textarealbl1{margin: 1rem 0 0 -5%; height: 3.2rem; width: 110%; text-align:center; font-size: .75rem;}
+
+.icon_music{width:1rem; height:1rem; position: absolute; right:.875rem; top: 50%; margin-top:-.5em;}
+a.item-selected .padding-left{color:#24a8fc;}
+
+//}后台
+
+// 提示{
+.tips_error_wrap{
+  height: auto; background: rgba(248,26,11,.65); color:#fff; border-bottom: none;
+  h6{font-size: .65rem; margin: 5px 0;}
+}
+.tips_success_wrap{
+  height: auto; background: rgba(0,0,0,.65); color:#fff;border-bottom: none;
+  h6{font-size: .65rem; margin: 5px 0;}
+}
+
+//}提示
+
+
+/* 2x picture use */
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio:2){
+  .body-bg-s1{background:url("../img/page_bg1_2x.jpg") $img-pozC; @include background-size-cover;}
+  .item1{background:#f2dca2 url("../img/pagebg2_1_2x.png") $img-pozC;@include background-size-s1;}
+  .item2{background:#f2dca2 url("../img/pagebg2_2_2x.png") $img-pozC;@include background-size-s1;}
+  .item3{background:#f2dca2 url("../img/pagebg2_3_2x.png") $img-pozC;@include background-size-s1;}
+  .item4{background:#f2dca2 url("../img/pagebg2_4_2x.png") $img-pozC;@include background-size-s1;}
+  .item5{background:#f2dca2 url("../img/pagebg2_5_2x.png") $img-pozC;@include background-size-s1;}
+  .item6{background:#f2dca2 url("../img/pagebg2_6_2x.png") $img-pozC;@include background-size-s1;}
+  .item7{background:#f2dca2 url("../img/pagebg2_7_2x.png") $img-pozC;@include background-size-s1;}
+  .item8{background:#f2dca2 url("../img/pagebg2_8_2x.png") $img-pozC;@include background-size-s1;}
+  .item9{background:#f2dca2 url("../img/pagebg2_9_2x.png") $img-pozC;@include background-size-s1;}
+
+}
+
+//种草编辑样式
+.editor-box-wrap{
+    .grass_head_bg{height: 7.3rem* $tem-edit-num; width: 13.46rem* $tem-edit-num; margin-left:-6.73rem* $tem-edit-num;}
+    .grass_title1{width: 11.4rem* $tem-edit-num; height: 1.77rem* $tem-edit-num; margin: .96rem* $tem-edit-num auto 0;}
+    .textarea_style1{ margin: .3rem* $tem-edit-num auto 0; height: 3.6rem* $tem-edit-num; width: 10.78rem* $tem-edit-num; font-size:.75rem* $tem-edit-num;}
+}

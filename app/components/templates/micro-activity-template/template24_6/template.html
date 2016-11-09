@@ -1,0 +1,48 @@
+<!--No.9模板页 {-->
+<div class="microactivity-vegetables bgPan assistant">
+    <div ng-show="isEdit" ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+        <div class="vegetables_bg section5" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')'}">
+            <div class="vegetables_boxOuter contact" ng-style="{'background':templateModel.bgColor,'border-radius':templateModel.radius/40 +'rem'}">
+                <div class="vegetables_box_1">
+                    <div class="vegetables_title1 titl" ng-style="{'color':templateModel.titleColor}" ng-disabled="true" ng-trim="false" readonly="readonly" maxlength="8">联系电话</div>
+                </div>
+                <div class="vegetables_box_2 phone" ng-style="{'color':templateModel.descriptionColor}">
+                    <div ng-show="isEdit" class="vegetables_text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.phone" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="13" ng-bind-html="templateModel.phone"></div>
+                </div>
+            </div>
+
+            <div class="vegetables_boxOuter contact contact2" ng-style="{'background':templateModel.bgColor,'border-radius':templateModel.radius/40 +'rem'}">
+                <div class="vegetables_box_1">
+                    <div class="vegetables_title1 titl" ng-style="{'color':templateModel.titleColor}" ng-disabled="true" ng-trim="false" readonly="readonly" maxlength="8">联系地址</div>
+                </div>
+                <div class="vegetables_box_2" ng-style="{'color':templateModel.descriptionColor}">
+                    <div class="vegetables_text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.address" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="72" ng-bind-html="templateModel.address"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <div ng-show="!isEdit" ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+        <div class="vegetables_bg section5" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')'}">
+            <div class="vegetables_boxOuter" ng-style="{'background': templateModel.bgColor,'border-radius':templateModel.radius/40 +'rem' }">
+                <div class="vegetables_box_1">
+                    <div class="vegetables_title1" ng-style="{'color':templateModel.titleColor}" ng-disabled="true" ng-trim="false" readonly="readonly" maxlength="8">联系方式</div>
+                </div>
+                <div class="vegetables_box_2">
+                    <div class="vegetables_text1" ng-style="{'color':templateModel.descriptionColor}" ng-disabled="true" readonly="readonly" maxlength="400">
+                        <div>
+                            <div class="contacting">联系电话：</div>
+                            <div class="contacting"><a href="tel:{{templateModel.phone}}" ng-bind-html="templateModel.phone"></a></div>
+                        </div>
+                        <div class="addresscontact">
+                            <div class="contacting addre">联系地址：</div>
+                            <div class="contacting addre addre2" ng-bind-html="templateModel.address"></div>
+                            <div></div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} No.9模板页-->

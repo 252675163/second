@@ -1,0 +1,20 @@
+﻿
+<div class="paneabird1" ng-class="{'maxbox':!isEdit}">
+    
+    <div class="box-content1">
+        <div class="content_title1">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.title" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.title" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+        <div class="content_title2">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.content" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.content" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+    </div>
+
+    <div class="box-content2">
+        <textarea ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.content2"></textarea>
+        <textarea ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.content2" ng-trim="false" custom-input readonly="readonly"></textarea>
+    </div>
+
+</div>

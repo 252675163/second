@@ -1,0 +1,49 @@
+﻿<ion-view class="micro-shop-management micro-shop-common1-borderTop">
+    <ion-content has-bouncing="false" class="manger-view-bottom micro-shop-common1-borderTop">
+        <div class="micro-shop-common1-nosth ng-hide" ng-show="shownothing">
+            <div class="background-img background-img-product"></div>
+            <div class="text1">您的微店还没有商品哦！</div>
+        </div>
+        <ion-list class="ng-hide" ng-show="!shownothing">
+            <ion-item class="micro-shop-common1 micro-shop-management-product" collection-repeat="product in productList">
+                <div class="micro-shop-common1-top micro-shop-management-product-top" ng-click="toProductDetail(product)">
+                    <div class="img">
+                        <img ng-src={{product.imgUrl}}>
+                    </div>
+                    <div class="micro-shop-common1-text micro-shop-management-product-text">
+                        <div class="title">
+                            <h3 ng-bind="product.name"></h3>
+                            <h6 class="product-status {{product.productStateModel.className}}" ng-bind="product.productStateModel.name"></h6>
+                            <div class="discount-activity {{product.activityTypeModel.className}}" ng-bind="product.activityTypeName"></div>
+                        </div>
+                        <div class="price price1">
+                            <span class="present-price">￥<span ng-bind="product.discount"></span></span>
+                            <span class="original-price">价格<i>￥<i ng-bind="product.price"></i></i></span>
+                        </div>
+                        <div class="details">
+                            <span class="stock">库存：<i ng-bind="product.stock"></i></span>
+                            <span class="sales-volume">销量：<i ng-bind="product.saleNum"></i></span>
+                            <span class="act-Type">浏览量：<i ng-bind="product.pageViews"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom" ng-style="{'margin-top':$index==(productList.length-1)?'1px':0}">
+                    <div class="micro-shop-btn" ng-show="product.productState==1" ng-click="offShelf(product)">下架</div>
+                    <div class="micro-shop-btn" ng-show="product.productState==0" ng-click="onShelf(product)">上架</div>
+                    <!-- 出售中显示 -->
+                    <div class="micro-shop-btn" ng-show="product.productStateModel.code==1" ng-click="share(product)">分享</div>
+                    <div class="micro-shop-btn" ng-show="product.productStateModel.code==1" ng-click="showQrCode(product)">二维码</div>
+                    <!-- 仓库中显示 -->
+                    <div class="micro-shop-btn" ng-show="product.productStateModel.code==0" ng-click="delete(product,$index)">删除</div>
+                    <!-- -->
+                    <div class="micro-shop-btn micro-shop-btn-first" ng-click="editProduct(product.id)">编辑</div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex < page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+    <div class="position-fixed-btn add-product-btn" ng-click="addProduct()">
+        <span class="position-fixed-icon"></span>
+    </div>
+</ion-view>

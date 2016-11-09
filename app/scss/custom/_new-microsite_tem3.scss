@@ -1,0 +1,183 @@
+﻿@charset "utf-8";
+//新微官网模板 中小学教育 by zhuyingjie 20151209{
+
+.newSite_tem3{
+  &.newSite_Outer{background:#fff;}//定义背景色
+
+//定义标题、按钮、icon基础样式 {
+  .newSite_title_box{width:100%;height:temSize(164);line-height:temSize(164);text-align:center;
+        span{color: #fffcb2;font-size: temSize(48);}
+  }
+  .newSite_btn_normol{background:#ffb607;@include border-radius-basic(15px); text-align:center; border:none; color:#fff;}
+  .newSite_item-button-right,.newSite_course_listItem .item-button-right,.newSite_aboutUs_listItem .item-divider{padding-right:temSize(240);
+     .newSite_btn_normol{width:temSize(200);height:temSize(60);font-size:temSize(24); position:absolute; right:temSize(40); top:50%; margin-top:temSize(-30);}
+  }
+  .item{padding-left:temSize(40);}
+  .icon_local:before,.icon_phone:before{content:"";width:temSize(28);height:temSize(34); display:block;}
+  .icon_local:before{background:url("../img/newSite_tem1_icon2.png") $img-pozC;@include background-size100; }
+  .icon_phone:before{background:url("../img/newSite_tem1_icon3.png") $img-pozC;@include background-size100; }
+  
+//} 定义标题、按钮、icon基础样式 
+
+//定义封面样式 {
+  .newSite_cover_Outer{width:100%;min-height:temSize(500);padding:temSize(90) temSize(96) temSize(20);text-align:center; line-height:1.5; color:#333;
+     .newSite_Org_logo{height:temSize(202);
+        img{width:temSize(182);height:temSize(182); @include face-radius;}
+     }
+     .newSite_Org_name{font-size:temSize(40);font-weight: bold;}
+     .newSite_Org_slogan{font-size:temSize(28);}
+  }
+//} 定义封面样式
+
+//定义动态样式 {
+  .newSite_news_list{width:100%;min-height:temSize(150);padding:0 temSize(40) temSize(80) temSize(40); position:relative;
+    .newSite_news_listItem{@include item_patch1;@include item_patch2;padding-top:temSize(40);
+        .newSite_news_listIcon{width:temSize(32);height:temSize(32);background:url("../img/newSite_tem3_icon1.png") $img-pozC;@include background-size100;margin: 0 auto;}
+        p{font-size:temSize(24); color:#aaa;text-align: center;margin: temSize(5) 0;}
+        h2{@include item_patch1;font-size:temSize(28); color:#444;line-height: 1.5;}
+        .newSite_news_list_pic{margin-top: temSize(35);
+            li{margin:temSize(15);width:temSize(156);height:temSize(156);float:left;overflow:hidden;}
+            li:only-child {width:temSize(560);height:temSize(420);overflow:hidden;}
+        }
+    }
+  }
+//}定义动态样式
+
+//定义学校介绍样式 {
+  .newSite_orgInfo_Outer{
+    .newSite_title_box{background:url("../img/newSite_tem3_bg2.png") $img-pozC;@include background-size100;}
+    .newSite_orgInfo_content{padding-bottom:temSize(90); width:temSize(560); margin:0 auto;
+        .newSite_orgInfo_text_box{padding-top:temSize(30);font-size:temSize(28); line-height:1.5;}
+        .newSite_orgInfo_pic_box{padding-top:temSize(50);
+            li{width:temSize(560);height:temSize(420);overflow:hidden; margin-top:temSize(40);}
+        }
+    }
+  }
+//} 定义学校介绍样式 
+
+//定义精品课程样式 {
+  .newSite_course_Outer{
+    .newSite_title_box{background:url("../img/newSite_tem3_bg3.png") $img-pozC;@include background-size100;}
+    .newSite_course_list{margin-top: temSize(10);margin-bottom: temSize(22);
+        .newSite_course_listItem{
+            .item{@include item_patch1;background:#f6f6f6;font-size:temSize(24);@include opacity-base($opacity:100); @include transition-s1;
+                p{@include item_patch1;color:#888; min-height:temSize(60);}
+            }
+            .item-divider{background:#fff;font-size:temSize(28); padding-top:temSize(20);padding-bottom:temSize(20);
+                .ion-ios-arrow-down,.ion-ios-arrow-up{font-size:temSize(40);}
+                .ion-ios-arrow-down:before,.ion-ios-arrow-up:before{color:#aaa;}
+            }
+            .ng-hide{
+                .item{@include opacity-base($opacity:0);}
+            }
+        }
+    }
+  }
+//} 定义精品课程样式 
+
+//定义教师介绍样式 {
+  .newSite_teacher_Outer{
+    .newSite_title_box{background:url("../img/newSite_tem3_bg4.png") $img-pozC;@include background-size100;}
+    .newSite_teacher_list{padding-top:temSize(7);padding-bottom:temSize(100); width:temSize(554); margin:0 auto;
+        .newSite_teacher_listItem{@include item_patch1;@include item_patch2;margin-top: temSize(37);padding:0 0 0 temSize(256); min-height:temSize(260);position: relative;
+            &> img:first-child{max-width:temSize(224); max-height:temSize(224);width:temSize(224); height:temSize(224); top:0; left:0;@include face-radius;padding: temSize(12);border: 1px solid #ffc807;}
+            h2{height: temSize(67);width: temSize(197);line-height: temSize(67);font-size:temSize(32);color:#fff;background: url("../img/newSite_tem3_bg6.png") $img-pozC;@include background-size100;position: absolute;left: temSize(18);top: temSize(180);text-align: center;}
+            p{@include item_patch1;font-size:temSize(24); color:#444; line-height:1.3;}
+        }
+    }
+  }
+//} 定义教师介绍样式
+
+//定义联系我们样式 {
+  .newSite_aboutUs_Outer{
+    .newSite_title_box{background:url("../img/newSite_tem3_bg5.png") $img-pozC;@include background-size100;}
+    .newSite_aboutUs_list{margin-top: temSize(10);
+        .newSite_aboutUs_listItem{
+            .item{@include item_patch1;font-size:temSize(24); color:#888;}
+            .item-divider{background:#f6f6f6;padding-top:temSize(20);padding-bottom:temSize(20); color:#333;}
+            .item-icon-right{                 
+                 .ion-ios-arrow-right:before{color:#ccc;font-size:temSize(40);}
+            }
+            .item-icon-left{padding-left:temSize(88);
+                .icon_local,.icon_phone{left:temSize(40);}
+            } 
+            .item-icon-right{padding-right:temSize(140);}
+            .newSite_item-note{font-size:temSize(20); color:#ccc; position:absolute; right:temSize(80);height:temSize(24); line-height:temSize(24); top:50%; margin-top:temSize(-12);}
+        }
+    }
+  }
+//} 定义联系我们样式 
+
+//定义二维码样式 {
+  .newSite_qrCode_Outer{padding:temSize(92) 0 0; background:#f5ce33;
+    .newSite_qrCode{width:temSize(512);height: temSize(818);margin:0 auto;text-align:center;background: url("../img/newSite_tem3_bg7.png") $img-pozC;@include background-size100;padding: temSize(135) temSize(26) 0 temSize(32);
+        .newSite_Org_name{font-size:temSize(40);margin-top:temSize(54);color: #fff;}
+        .newSite_Org_tel{font-size:temSize(32); margin-top:temSize(20);margin-bottom: temSize(30);
+            .icon_phone{display: none;}
+            a{color:#fff;}
+        }
+        .newSite_qrCode_box{width:temSize(354); height:temSize(354); margin:0 auto; position:relative;
+            .qrcode_logo{position:absolute; top:50%; left:50%;width:temSize(100); height:temSize(100); margin:temSize(-50) 0 0 temSize(-50);
+                img{width:temSize(100); height:temSize(100); @include face-radius;}
+            }
+            .qrcode{width:temSize(354); height:temSize(354);
+                img{width:100%; height:100%;}
+            }                
+        }
+        .newSite_qrCode_text{font-size:temSize(22);color:#fff;margin-top: temSize(22);
+            &:before{content: "";display: block;width: temSize(144);height: temSize(47);background: url("../img/newSite_tem3_bg8.png") $img-pozC;@include background-size100;margin: 0 auto temSize(15);}
+        }        
+    }
+  }
+//} 定义二维码样式 
+
+//锚点菜单 {
+  .newSite_menuOuter{
+      .newSite_menu_btn{width:temSize(80); height:temSize(80);background:rgba(0,0,0,.2) url("../img/newSite_tem1_icon4.png") $img-pozC;@include background-size100; position:absolute; bottom:temSize(40); right:temSize(10); z-index:5;@include border-radius-basic(10px);}
+      .newSite_menu_box{width:temSize(168); background:rgba(92,92,92,.8);position:absolute; bottom:temSize(125); right:temSize(10); z-index:4;padding: 0 temSize(10); @include  transition-base(all .5s ease-in-out); @include opacity-base($opacity:100);
+          span{display:block; height: temSize(80); line-height: temSize(80);font-size:temSize(24);color:#fff; text-align:center; border-top:rgba(255,255,255,.4) 1px solid;@include  transition-base(all .5s ease-in-out);
+              &:first-child{border-top:none;}
+          }
+      }
+  }
+  .newSite_menuClosed{
+      .newSite_menu_box{@include opacity-base($opacity:0);
+        span{height:0;}
+      }
+  }
+//} 锚点菜单 
+
+//遮罩-预约报名 {
+  .newSite_PopupForm{position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 5;background: #fff;padding: 0 temSize(40);
+    .newSite_PopupOuter{position: relative;
+      .newSite_Popup_closed{width:temSize(116); height:temSize(116);background:url("../img/icon4.png") no-repeat temSize(40) center;@include background-size(temSize(36),temSize(36)); position: absolute;top:temSize(40);right: 0;}
+    }
+    .newSite_Popup_content{padding:temSize(116) 0 0;
+      .newSite_Popup_title{margin:0 auto temSize(90); font-size: temSize(60);color: #ffb400;text-align: center;}
+      .newSite_Popup_text,.newSite_Popup_select{width:100%;height:temSize(80);@include border-radius-basic(5px); border:#ccc 1px solid;@extend .transparencyTextBox;font-size:temSize(28);}
+      .newSite_Popup_text{margin-bottom:temSize(40); text-align:left; padding:0 temSize(20) 0 temSize(102);}
+      .newSite_Popup_select{-webkit-appearance:none;margin-bottom:temSize(55); padding:0 temSize(60) 0 temSize(102); background:url("../img/newSite_tem3_icon2.png") no-repeat temSize(506) center;@include background-size(temSize(30),temSize(18));}
+      .newSite_Popup_submit{width:100%;height:temSize(100);@include border-radius-basic(5px); background:#ffb400; color:#fff; line-height:temSize(100); text-align:center; font-size:temSize(36);}
+      dd{position: relative;}
+      dd:before{content: "";display: block;width: temSize(82);height: temSize(50);position: absolute;top: temSize(15);left: 0;border-right: 1px solid #cfcfcf;}
+      dd:nth-child(2):before{background: url("../img/newSite_tem3_icon3.png") $img-pozC;@include background-size(temSize(38),temSize(49));}
+      dd:nth-child(3):before{background: url("../img/newSite_tem3_icon4.png") $img-pozC;@include background-size(temSize(38),temSize(49));}
+      dd:nth-child(4):before{background: url("../img/newSite_tem3_icon5.png") $img-pozC;@include background-size(temSize(38),temSize(49));}
+      dd:last-child:before{display: none;}
+    }
+  }
+//} 遮罩-预约报名 
+
+//媒体查询写在这使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603    
+ }
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+        .newSite_PopupForm .newSite_Popup_content .newSite_Popup_select{background-position:temSize(562) center;}
+ }
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+     .newSite_PopupForm .newSite_Popup_content .newSite_Popup_select{background-position:temSize(648) center;}
+     .newSite_news_list .newSite_news_listItem .newSite_news_list_pic{width: 14.5rem;}
+ }
+}

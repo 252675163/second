@@ -1,0 +1,18 @@
+<div class="card siteEdit_edit_content siteEdit_card_style">
+    <div class="siteEdit_edit_content_top">
+        <div class="siteEdit_card_box3">
+            <div class="card_inner_text" ng-click = "updateImg()" ng-class="{'card_inner_text_dis':teacherInfoModel.imageUrl}">
+                <span ng-show ="!teacherInfoModel.imageUrl" class="card_icon">+</span>
+                <img ng-show ="teacherInfoModel.imageUrl" ng-src = "{{teacherInfoModel.imageUrl}}">
+
+            </div>
+        </div>
+        <div class="siteEdit_card_right">
+            <div class="Edit_delect_icon" ng-click="removeTeacherInfo({index:$index})">删除</div>
+            <input   placeholder="请输入教师姓名" maxlength="10" my-max-length class="siteEdit_textarea_style"  ng-model="teacherInfoModel.name" ng-trim="false" change-placeholder-by-focus />
+        </div>
+    </div>
+    <div class="siteEdit_edit_content_bottom">
+        <textarea  rows="3" placeholder="请输入教师简介" maxlength="160" my-max-length class="siteEdit_textarea_style"  ng-model="teacherInfoModel.description"  ng-trim="false" change-placeholder-by-focus ></textarea>
+    </div>
+</div>

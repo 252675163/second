@@ -1,0 +1,31 @@
+<!--模板5 名师风采-->
+<!--编辑-->
+<div ng-show = "isEdit">
+    <ion-content has-bouncing="false">
+        <site-teacher-info-edit ng-repeat="teacherInfo in templateModel.teacherInfoList" teacher-info-model = "teacherInfo"  remove-teacher-info="removeTeacherInfo($index)" ></site-teacher-info-edit>
+    </ion-content >
+    <ion-footer-bar align-title="center" class=" siteEdit_button_box " ng-click="addTeacherInfo()"  class = "hide-on-keyboard-open">
+        <button class=" card button_inner_text siteEdit_card_style">
+            <span class="card_icon">+</span>
+        </button>
+    </ion-footer-bar>
+</div>
+<!--preview或view-->
+<div ng-show = "!isEdit">
+    <div class="newSite_teacher_Outer">
+        <div class="newSite_title_box"><!-- 此背景图不可以替换！ -->
+            <span>名师风采</span>
+        </div>
+        <div class="list newSite_teacher_list">
+            <!-- 一个循环结构 { -->
+            <div class="item item-thumbnail-left newSite_teacher_listItem" ng-class = "{'notDefault':isUseNotDefaultClass[$index]}" ng-click = "resetCurrentTeacherInfo($index)"  ng-repeat="teacherInfo in templateModel.teacherInfoList">
+                <img ng-src="{{teacherInfo.imageUrl}}">
+                <h2 class="newSite_teacher_name" ng-bind-html="teacherInfo.name|newlines"></h2>
+                <p class="newSite_teacher_info" ng-bind-html="teacherInfo.description|newlines"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

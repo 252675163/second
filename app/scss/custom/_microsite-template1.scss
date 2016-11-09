@@ -1,0 +1,176 @@
+.pan {
+  z-index: 10000
+}
+
+//微官网模板1 样式
+
+$edit-size-rate: .85;
+/* px to rem by edit*/
+@function getRemSizeByEdit($n) {
+  @return ceil($n /38.4  * $edit-size-rate*100)/100*1rem;
+}
+/* px to rem */
+@function getRemSize($n) {
+  @return ceil($n /38.4 *100)/100*1rem;
+}
+$smallFontSize:.75rem;
+$bigFontSize:.9rem;
+/*标题*/
+.temp1BigFont{
+  //font-family:"STHupo",$font-family-base;
+  font-size:$bigFontSize;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #060606;
+
+}
+/*正文*/
+.temp1SmallFont
+{
+  //font-family:"STHupo",$font-family-base;
+  font-size:$smallFontSize;
+  color: #ffffff;
+  text-shadow: 0 1px 1px #060606;
+}
+
+
+.siteTemp1 {
+
+  .temp5_bg_Img {
+    width: getRemSize(618);
+    height: getRemSize(689);
+//    @extend .temp1BigFont;
+//    @include text-shadow-s2(#266364);color:#fff;
+    background: url("../img/temp1_bg3.png") no-repeat center 0.1rem;
+    background-size: 94% 96%;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 2rem;
+
+    .temp5_theme input{
+      height: 1.8rem;
+//      font-family:"STHupo",$font-family-base;
+      font-size:$bigFontSize;
+//      @include text-shadow-s2_3(#266364);
+//      color:#fff;
+      opacity: 1;
+    }
+
+  }
+
+  .box1 {
+
+    input:first-of-type {
+      margin-top: getRemSize(70);
+    }
+
+    &>input{
+      width: getRemSize(484);
+      height: getRemSize(84);
+      display: inline-block;
+      @extend .temp1SmallFont;
+      @include text-shadow-s2_1(#333);color:#fff;
+      opacity: 1;
+
+      &::-webkit-input-placeholder{
+        @extend .temp1SmallFont;
+        @include text-shadow-s2_1(#333);color:#fff;
+
+
+      }
+     // margin-top: getRemSize(20);
+     // margin-top: getRemSize(20);
+      margin-top:0.8rem;
+      background: url("../img/temp1_bg1.png") repeat-x center center;
+      -webkit-background-origin: border-box;
+      background-origin: border-box;
+      text-align: center;
+
+      @include border-radius-large;
+    }
+    button,.temp1_button {
+
+      width: getRemSize(483);
+      height: getRemSize(128);
+//      @extend .temp1BigFont;
+//      @include text-shadow-s2(#1c6b65);color:#fff;
+      background: url("../img/temp1_bg2.png") no-repeat center top;
+      background-size: 99% ;
+      margin: 0 auto;
+      margin-top: getRemSize(-70);
+
+
+      input{
+        display: block;
+        background: none;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        @extend .temp1BigFont;
+        @include text-shadow-s2(#1c6b65);color:#fff;
+
+      }
+
+    }
+    .temp1_button{margin-top: getRemSize(-40);}
+  }
+}
+
+.siteTemp1.edit ,.has-footer_cover .siteTemp1{
+  .temp5_bg_Img {
+    width: getRemSizeByEdit(610);
+    height: getRemSizeByEdit(689);
+    margin-top: 2rem;
+  }
+
+  .box1 {
+    input:first-of-type {
+      margin-top: getRemSizeByEdit(70);
+    }
+    &>input{
+      width: 10.5rem;
+      height:1.8rem;
+      margin-top: 0.6rem;
+      font-size: .6rem;
+      line-height: 1.2rem;
+      &::-webkit-input-placeholder{
+        @extend .temp1SmallFont;
+        @include text-shadow-s2_1(#333);color:#fff;
+        font-size: .6rem;
+        line-height: 1.2rem;
+      }
+    }
+    button ,.temp1_button{
+      width: getRemSizeByEdit(483);
+      height: getRemSizeByEdit(128);
+      margin-top: getRemSizeByEdit(-70);
+    }
+    .temp1_button{margin-top: getRemSizeByEdit(-40);}
+
+  }
+
+}
+
+
+
+@media screen and (max-height: 481px) {
+//编辑
+  .siteTemp1.edit ,.has-footer_cover .siteTemp1{
+    .temp5_bg_Img {
+      margin-top: 0rem;
+    }
+  }
+//费编辑
+  .siteTemp1{
+    .temp5_bg_Img {
+      .temp5_theme input{
+//        height: 1.8rem;
+//        font-family:"STHupo",$font-family-base;
+//        font-size:$bigFontSize;
+//        @include text-shadow-s2_3(#266364);
+//        color:#fff;
+      }
+      margin-top: 0rem;
+    }
+  }
+}

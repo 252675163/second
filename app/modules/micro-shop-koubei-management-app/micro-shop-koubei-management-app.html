@@ -1,0 +1,71 @@
+<ion-view>
+    <ion-view class="micro-shop-management">
+        <!--<div class="manage-tabs" ng-show="data.isShowTabs">-->
+        <div class="manage-tabs">
+            <div class="manage-tab" ng-click="changeTab(1)">
+                <span ng-class="{'active':data.tabIndex==1}">商品管理</span>
+            </div>
+            <div class="manage-tab" ng-click="changeTab(2)">
+                <span ng-class="{'active':data.tabIndex==2}">订单管理</span>
+            </div>
+
+        </div>
+        <div class="kbmana_order_quest kbmana_order_questArrow ng-hide" ng-show="data.tabIndex==2" ng-click="showUserNotice()">
+            有问题，点这里
+        </div>
+        <!--<div class="kbmana_order_quest ng-hide" ng-show="data.tabIndex==1">
+            <span>同步校宝微店 <span class="zhushi">(将您在校宝微店中的商品同步至口碑中)</span> </span>
+            <em class="sync" ng-click="sync()">同步</em>
+        </div>-->
+        <ion-nav-view class="micro-shop-nav-view">
+
+        </ion-nav-view>
+
+    </ion-view>
+    <div class="lockMask ng-hide" ng-show="userNoticeShow||syncPop.locaMaskShow">
+    </div>
+    <div class="user_terms_popup" ng-show="userNoticeShow">
+        <div class="terms_text">
+            <div class="terms_title">用户须知</div>
+            <ion-content class="terms_content" has-bouncing="false">
+                <div>
+                    <p class="question">Q：用户已经付款了，为何我的口碑钱包里面没有钱？</p>
+                    <p class="answer">A：用户付款之后，他的资金会先到口碑的账户，需要用户去您的门店核销之后，才会把资金打入您的口碑账户；</p>
+
+                    <p class="question">Q：用户如何进行核销？</p>
+                    <p class="answer">A：用户来到您的门店之后，通过支付宝扫描您门店的二维码，点击购买的商品进行确认核销的操作；</p>
+
+                    <p class="question">Q：能否主动联系用户来门店进行核销？</p>
+                    <p class="answer">A：不行，口碑不提供用户的信息，只能等用户自己上门来核销；</p>
+
+                    <p class="question">Q：同步的微店同步错了，或者想重新同步别的校宝微店，该如何操作；</p>
+                    <p class="answer">A：首先用您的签约账号登录https://openauth.alipay.com/auth/tokenManage.htm，选择【校宝口碑通】点击取消授权，然后重新进入订购页面，进行订购重新同步微店信息；</p>
+                    <div class="xb-qrbox">
+                        <span class="xb-qrcode"></span>
+                    </div>
+                    <div class="qrcode-tips">微信扫一扫关注校宝秀</div>
+                    <br />
+                </div>
+            </ion-content>
+        </div>
+        <div class="terms_close" ng-click="hideUserNotice()"></div>
+    </div>
+
+    <div class="syncShow ng-hide" ng-show="syncPop.syncLoad||syncPop.syncSucce">
+        <div class="migration_box ng-show" ng-show="syncPop.syncLoad">
+            <div class="short_loading"></div>
+        </div>
+        <div class="migration_box ng-hide" ng-show="syncPop.syncSucce">
+            <div class="migration_success"></div>
+            <div class="load_reminds2">迁移成功</div>
+        </div>
+    </div>
+    <div class="popup-container popup-showing cssClass ng-hide" style="z-index:130" ng-show="syncPop.syncAlert">
+        <div class="popup">
+            <div class="popup-head">
+            </div>
+            <div class="popup-body"><span ng-bind="syncPop.text"></span></div>
+            <div class="popup-buttons"><button class="button button-default  button-positive" ng-click="closeSyncPop()">确认</button></div>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,54 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<!--邀请有礼起始页-->
+<div class="Polite_invitation" ng-show="fisrt_step">
+    <div class="qrcode_card">
+        <div class="qrcode_card_bg">
+            <h1>邀请有礼</h1>
+            <p>
+                成功邀请好友关注校宝秀并绑定手机号<br />
+                即送30天VIP资格
+            </p>
+        </div>
+        <div class="qrcode_box" data-tap-disabled="{{isWebChatQrcode}}">
+            <img ng-src="{{UserInfo.QrCode}}" isstopmove="false" />
+        </div>
+        <a ng-href="{{showLink}}">戳这里查看邀请有礼细则 ></a>
+    </div>
+    <button class="card_share" ng-click="goSecond_step()">分享我的邀请码</button>
+    <button class="Vip_list" ng-click="goOrderList()">
+        我的邀请记录
+    </button>
+</div>
+<!--邀请有礼接受页-->
+<div class="Polite_invitation_receive" ng-show="!first_step">
+    <div class="qrcode_card">
+        <div class="qrcode_card_bg">
+            <div class="card_head">
+                <img ng-src="{{UserInfo.HeadImgUrl}}" alt="" />
+            </div>
+            <h1>{{UserInfo.NickName||UserInfo.Phone}}</h1>
+            <p ng-if="isCutPage" style="font-weight: 600">
+                邀请您一起关注校宝秀<br />
+                注册即送30天VIP资格
+            </p>
+            <p ng-if="!isCutPage">
+                我用校宝秀招生，效果很棒！<br />
+                推荐你也来用哦！
+            </p>
+        </div>
+        <div class="qrcode_box" data-tap-disabled="{{isWebChatQrcode}}">
+            <img ng-src="{{UserInfo.QrCode}}" isstopmove="false" />
+        </div>
+    </div>
+    <div ng-if="isCutPage" class="message" style="font-weight: 600">
+        长按识别二维码
+    </div>
+    <div ng-if="!isCutPage" class="message">
+        长按扫码关注校宝秀<br />
+        免费领取30天VIP
+    </div>
+</div>
+
+
+

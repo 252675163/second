@@ -1,0 +1,34 @@
+<!-- page 4 种草记录 {-->
+<!--活动介绍-->
+<div class="micro_bargain">
+    <div ng-class="{true: 'isEdit', false: 'preview'}[isEdit]" ng-if="true">
+        <div class="introduce padding_bottom30 introduce_isEdit2">
+            <div class="form form2">
+                <div class="title"><span>机构介绍</span></div>
+                <div class="body margin_bottom40">
+                    <div class="edit_text1 text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-hide="isEdit"
+                         ng-trim="false" custom-input readonly="readonly" maxlength="236" isdiff="true" ng-bind-html="templateModel.description[0]|newlines|recogUrl:isView|recogTel"></div>
+
+                    <textarea class="edit_text1 text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" maxlength="236"
+                        isdiff="true" ng-hide="!isEdit" my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                </div>
+
+                <div class="title"><span>联系方式</span></div>
+                <div class="body">
+                    <p class="phone">
+                        <a class="text2" ng-hide="isEdit" href="tel:{{templateModel.description[1]}}" ng-bind-html="templateModel.description[1]"></a>
+                        <input ng-show="isEdit" class="edit_text2 text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]"
+                            ng-trim="false" custom-input readonly="readonly" maxlength="13" isdiff="true" my-max-length />
+                    </p>
+                    <p class="address"><textarea class="edit_text3 text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[2]"
+                            maxlength="80" isdiff="true" my-max-length ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea></p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!--}page 4-->

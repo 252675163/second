@@ -1,0 +1,16 @@
+<div class="microposter3 bgPan">
+    <!--第一步：首页-->
+    <div ng-if="step==1" ng-class="{'preview':!isEdit}">
+        <microposter3by1-step1></microposter3by1-step1>
+    </div>
+    <!--第二步：查看祝福页-->
+    <div ng-if="step==2" ng-class="{'preview':!isEdit}">
+        <microposter3by1-step2></microposter3by1-step2>
+    </div>
+
+    <!--第三步：填写表单页-->
+    <div ng-if="step==3">
+        <microposter3by1-step3></microposter3by1-step3>
+    </div>
+</div>
+<my-footer  ng-style="{'display':step==3?'block':'none'}" class="poster3-footer"></my-footer>

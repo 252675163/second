@@ -1,0 +1,21 @@
+<!---qrCode模板-->
+<div ng-show="!isEdit" class="">
+    <div class="newSite_qrCode_Outer">
+        <!--含整版块的区域背景 背景图可换 -->
+        <div class="newSite_qrCode">
+
+            <div class="newSite_Org_name">{{templateModel.description[0]}}</div>
+            <div class="newSite_Org_tel" ><i class="icon_phone"></i><a  ng-href="{{status=='view'?'tel:'+templateModel.description[1]:'javascript:void(0)'}}" >{{templateModel.description[1]}}</a></div>
+            <div class="newSite_qrCode_box"  >
+               <div class = "qrcode"  on-hold="hideNav()" data-tap-disabled="{{isWebChatQrcode}}">
+                   <div  class = "qrcode_logo">
+                        <img ng-src="{{templateModel.imageUrl[0]}}"  >
+                   </div >
+                   <div id="qrCodeBox" class = "qrcode"></div>
+                   <img ng-src="{{qrcodeImageUrl}}" style = "height:100%;width:100%;  position: absolute;  left: 0;  top: 0;"/>
+                </div>
+            </div>
+            <div class="newSite_qrCode_text">长按识别/手机扫描二维码，查看专属微官网</div>
+        </div>
+    </div>
+</div>

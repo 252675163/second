@@ -1,0 +1,98 @@
+﻿.microactivity-template6{
+    .acty6_title1, .acty6_title2, .acty6_box {
+      text-align: center;
+    }
+
+    .acty6_box {
+      width: 12.8rem;
+      height: 11.3rem;
+      margin: 0.5rem auto 0;
+      padding-top: 0.25rem;
+      background: url("../img/acty6_content_bg.png") no-repeat center center;
+      background-size: 95%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .TitleImg {
+      height: 5.8rem;
+      margin: 0.3rem auto;
+      padding-top: 0.25rem;
+      background: url("../img/acty2_title-bg.png") no-repeat center center;
+      background-size: 96%;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .acty6_title1 input.canEdit, .acty6_title1 input.canShow {
+      height: 1.8rem;
+      width: 11.5rem;
+      line-height: 1rem;
+      margin-top: 1.95rem;
+      display: inline-block;
+      font-size: .9rem;
+      text-align: center;
+      background: none;
+      color: #fff;
+    }
+
+    .acty6_title2 input.canEdit, .acty6_title2 input.canShow {
+      height: 1.2rem;
+      width: 7rem;
+      line-height: 1rem;
+      margin-top: 0.2rem;
+      display: inline-block;
+      font-size: .7rem;
+      text-align: center;
+      background: none;
+      color: #FF0000;
+    }
+
+    .acty6_box textarea.acty6Text, .acty6_box textarea.acty6TextEdit {
+      overflow-y: hidden;
+      display: inline-block;
+      width: 80%;
+      border-radius: 3px;
+      height: 3.2rem;
+      background: none;
+      font-size: 0.8rem;
+      line-height: 1rem;
+      margin-top: 6.5rem;
+      padding: 0.2rem;
+      text-align: center;
+      color: #333;
+      opacity: 1;
+    }
+
+    .acty6_title1 input.canEdit, .acty6_title2 input.canEdit, .acty6_box textarea.acty6TextEdit {
+      border: #ccc 1px dashed;
+    }
+
+    .maxbox .TitleImg {
+      height: 6.8rem;
+    }
+
+    .maxbox .acty6_title1 input.canShow {
+      height: 2.2rem;
+      font-size: 1.05rem;
+      width: 13rem;
+      margin-top: 2.2rem;
+    }
+
+    .maxbox .acty6_title2 input.canShow {
+      height: 1.5rem;
+      width: 7.2rem;
+      margin-top: 0;
+      font-size: .9rem;
+    }
+
+    .maxbox .acty6_box {
+      width: 14.8rem;
+      height: 13.3rem;
+      margin: 1.6rem auto;
+    }
+
+    .maxbox .acty6_box textarea.acty6Text {
+      margin-top: 7.8rem;
+    }
+}

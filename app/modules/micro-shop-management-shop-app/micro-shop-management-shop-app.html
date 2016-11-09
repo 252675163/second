@@ -1,0 +1,56 @@
+﻿<ion-view class="micro-shop-management">
+    <ion-content has-bouncing="false" class="s_bottom">
+        <div class="myshop">
+            <div class="org-contact">
+                <div class="org-name">
+                    <div class="title">店铺名称</div>
+                    <div class="value new-value" ng-click="showText('name')" ng-bind="shop.name" maxlength="18"></div>
+                    <div class="icon"></div>
+                </div>
+                <div class="org-address">
+                    <div class="title">详细地址</div>
+                    <div class="value new-value" ng-click="showText('address')" ng-bind="shop.address" maxlength="40"></div>
+                    <div class="icon"></div>
+                </div>
+                <div class="org-phone">
+                    <div class="title">联系电话</div>
+                    <div class="value new-value" ng-click="showText('contact')" ng-bind="shop.contact" maxlength="20"></div>
+                    <div class="icon"></div>
+                </div>
+                <div class="org-phone">
+                    <div class="title">店铺二维码</div>
+                    <div class="value new-value" ng-click="showQrCode()">
+                        <img class="qrcode" ng-src="{{shop.qrCodeUrl}}" />
+                    </div>
+                    <div class="icon"></div>
+                </div>
+                <div class="shop-introduction">
+                    <div class="title">机构介绍</div>
+                    <div class="value new-value" ng-click="showText('introduce')" ng-bind="shop.introduce" maxlength="500"></div>
+                    <div class="icon"></div>
+                </div>
+                <div class="upload-image">
+                    <multi-image-upload upload-config="uploadConfig"></multi-image-upload>
+                </div>
+                <div class="license-desc">
+                    营业执照：
+                </div>
+                <div class="upload-image license-image">
+                    <multi-image-upload upload-config="licenseUploadConfig"></multi-image-upload>
+                    <span class="desc">如没有营业执照，请上传身份证正反面，我们会进行审核。</span>
+                </div>
+
+                <div class="syn-btns text-center">
+                    <div class="micro-shop-btn mar-t-14" ng-click="previewShop()">预览店铺</div>
+                </div>
+
+            </div>
+            <div class="syn-btns pad-tb-20 syn-tabs">
+                <span class="syn-btn text-center border-r-1" ng-click="syn(1)">同步微信公众号<i class="icon"></i></span>
+                <span class="syn-btn text-center" ng-click="syn(2)">同步口碑开店<i class="icon"></i></span>
+            </div>
+
+        </div>
+    </ion-content>
+    
+</ion-view>

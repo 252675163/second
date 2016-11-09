@@ -1,0 +1,161 @@
+﻿@charset "utf-8";
+//光荣榜 模板样式 by wenjun 20151028{
+
+.microactivity-template11{height: 100%; position:relative; padding-top:0;
+  textarea.canEdit,input.canEdit,.editBorder {border:#ccc 1px dashed;}//本活动文本框编辑框样式
+  textarea{overflow-y: hidden;}//本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+@mixin base($rate:1) {
+  //样式：
+  .acty11_box1Outer{padding:temSize(165,$rate) 0 0 0;
+     .acty11_box1{width:temSize(418,$rate);height:temSize(518,$rate); padding:temSize(50,$rate) 0 0 temSize(32,$rate);margin:0 auto;
+        .acty11_textBox1{width:temSize(340,$rate);font-size:temSize(96,$rate);}
+     }
+  }
+  .acty11_box2{height:temSize(279,$rate); padding:temSize(150,$rate) temSize(56,$rate) 0 temSize(40,$rate);
+      .acty11_title1{font-size:temSize(54,$rate);}
+  }
+  .acty11_textBox2{font-size:temSize(48,$rate);width:temSize(515,$rate);margin:temSize(90,$rate) auto 0;}
+  .acty11_box3Outer{padding-top:temSize(25,$rate);
+      .acty11_box3{height:temSize(949,$rate); padding:temSize(30,$rate) temSize(70,$rate) 0;
+          .acty11_title2{font-size:temSize(60,$rate); margin-bottom:temSize(45,$rate);}
+          .acty11_textBox3{font-size:temSize(30,$rate);}
+      }
+  }
+  .acty11_box4Outer{padding-top:temSize(218,$rate);
+      .acty11_box4{width:temSize(500,$rate);height:temSize(650,$rate); padding:temSize(75,$rate) temSize(60,$rate) 0 temSize(40,$rate); 
+          .acty11_textBox4{margin-bottom:temSize(24,$rate);font-size:temSize(34,$rate);}
+          .acty11_textBox5{font-size:temSize(28,$rate);}
+      }
+  }
+  .acty11_box5{height:temSize(452,$rate); padding: temSize(20,$rate) temSize(60,$rate) 0;
+    .acty11_title3{font-size:temSize(34,$rate);}
+  }
+  .acty11_box6Outer{padding-top:temSize(30,$rate);
+      .acty11_box6{height:temSize(780,$rate); padding:temSize(40,$rate) temSize(75,$rate) 0;
+          .acty11_title4{font-size:temSize(34,$rate); margin-bottom:temSize(25,$rate);}
+          .acty11_textBox6{font-size:temSize(28,$rate);}
+      }
+  }
+  .acty11_box7{height:temSize(918,$rate); padding:temSize(108,$rate) temSize(108,$rate) 0;
+      .acty11_title5{font-size:temSize(36,$rate); margin-bottom:temSize(40,$rate);}
+      .acty11_textBox7{font-size:temSize(28,$rate);}
+  }
+  .acty11_box8{height:temSize(894,$rate);padding:temSize(170,$rate) temSize(80,$rate) 0;
+      .acty11_title6{font-size:temSize(76,$rate);margin-bottom:temSize(28,$rate);}
+      .acty11_form_text{font-size:temSize(30,$rate);height:temSize(80,$rate);margin-bottom:temSize(28,$rate);}
+        .acty11_form_btn{height:temSize(100,$rate);padding:temSize(15,$rate) temSize(30,$rate) 0;
+          input{font-size:temSize(30,$rate);}
+     }
+  }
+
+  .acty11_pic_box1{width:temSize(221,$rate);height:temSize(272,$rate); padding:temSize(8,$rate) 0 0 temSize(8,$rate); left:temSize(45,$rate); top:temSize(50,$rate);
+    img{width:temSize(187,$rate);height:temSize(238,$rate);}
+  }
+  .acty11_pic_box2,.acty11_pic_box3{width:temSize(290,$rate); height:temSize(580,$rate);top:temSize(20,$rate);}
+  .acty11_pic_box2{left:temSize(20,$rate);}
+  .acty11_pic_box3{right:temSize(20,$rate);}
+  .acty11_pic_box4{left:temSize(20,$rate);right:temSize(20,$rate);bottom:temSize(20,$rate); top:temSize(620,$rate);}
+
+
+
+
+
+
+   @content;
+  //媒体查询写在这使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603
+    
+ } 
+   
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567
+    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+ }
+
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+    .acty11_pic_box2,.acty11_pic_box3{width:6.8rem;}
+ }
+
+
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-template11{
+ @include base($editrate){
+    //commonclass
+
+  .acty11_box1Outer{
+     .acty11_box1{background:url("../img/acty11_box-bg1.png") $img-pozC;@include background-size100;
+        .acty11_textBox1{text-align:center; font-weight:bold; color:#fff;line-height: 1.2;}
+     }
+  }
+  .acty11_box2{width:100%; background:url("../img/acty11_box-bg2.png") $img-pozC;@include background-size100;
+      .acty11_title1{width:100%; text-align:center; color:#fff;line-height:1.5;}
+  }
+  .acty11_textBox2{color:#333; font-weight:bold; line-height:1.5;}
+  .acty11_box3{ width:100%; background:url("../img/acty11_box-bg3.png") $img-pozC;@include background-size100;
+      .acty11_title2{width:100%; color:#f04242; font-weight:bold; line-height:1.2;}
+      .acty11_textBox3{width:100%; color:#333; font-weight:bold;line-height:2;}
+  }
+  .acty11_box4Outer{text-align:center; position:relative;
+      .acty11_box4{margin:0 auto; background:url("../img/acty11_box-bg5.png") $img-pozC;@include background-size100;
+          .acty11_textBox4,.acty11_textBox5{font-weight:bold; color:#333;width:100%;line-height:1.5;}
+          .acty11_textBox4{text-align:center;}
+      }
+  }
+  .acty11_box5{position:absolute;bottom:0;left:0; width:100%; background:url("../img/acty11_box-bg6.png") $img-pozC;@include background-size100;z-index:12;
+    .acty11_title3{width:100%; color:#333; font-weight:bold;line-height:1.5; text-align:center;}
+  }
+  .acty11_box6{ width:100%; background:url("../img/acty11_box-bg7.png") $img-pozC;@include background-size100;
+      .acty11_title4{width:100%; color:#2eb39b; font-weight:bold; line-height:1.5; text-align:center;}
+      .acty11_textBox6{width:100%; color:#333; font-weight:bold;line-height:1.5;}
+  }
+  .acty11_box7{ width:100%; background:url("../img/acty11_box-bg8.png") $img-pozC;@include background-size100; position:absolute; bottom:0; left:0;
+      .acty11_title5{width:100%; color:#fff; font-weight:bold; line-height:1.3; text-align:center;}
+      .acty11_textBox7{width:100%; color:#333; font-weight:bold;line-height:1.3;}
+  }
+  .acty11_box8{ width:100%; background:url("../img/acty11_box-bg9.png") $img-pozC;@include background-size100;
+      .acty11_title6{width:100%; color:#777; font-weight:bold; line-height:1.2; text-align:center;}
+      .acty11_form{
+          .acty11_form_text{width:100%;font-weight:bold; border:#666 2px solid;text-align:center;@include border-radius-basic(0);}
+          .acty11_form_btn{width:100%; color:#fff; background:url("../img/acty11_box-bg10.gif") repeat-x;@include background-size-s3; text-align:center;
+            input{text-align:center; color:#fff; font-weight:bold;}
+          }
+      }
+  }
+
+
+  .acty11_pic_box1{text-align:left; position:absolute;@include transform-rotate(-15deg); background:url("../img/acty11_box-bg4.png") $img-pozC;@include background-size100;
+  }
+  .acty11_pic_box2,.acty11_pic_box3,.acty11_pic_box4{position:absolute;
+    img{width:100%; height:100%;}
+  }
+  .picboxClick{position: absolute; height: 7rem; width: 100%;bottom: 0;z-index: 13;}
+
+  }
+}
+.microactivity-template11 .maxbox{
+  @include base($viewrate);
+  .acty11_textBox1,.acty11_textBox2,.acty11_textBox3,.acty11_textBox4,.acty11_textBox5,.acty11_textBox6,.acty11_textBox7{padding-left:4px;}
+  .acty11_textBox2,.acty11_textBox3,.acty11_textBox4,.acty11_textBox5,.acty11_title3,.acty11_textBox6,.acty11_textBox7{color:#000!important;}
+  .acty11_title6{color:#333!important;}
+      
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+    .acty11_pic_box2,.acty11_pic_box3{width:8.7rem;}
+
+ }
+      @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+    .acty11_pic_box2,.acty11_pic_box3{width:7.7rem;}
+ }
+}
+
+
+
+
+
+

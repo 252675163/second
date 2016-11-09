@@ -1,0 +1,29 @@
+
+
+<div class="grow_vegetables_tree_box enrolling" ng-style="{'background-image': ''}">
+    <div class="header_box_big" ng-click="updateHeadImg()">
+        <div class="notice" ng-style="{'background-image': 'url(' + getImageDoMain('/avatar_notice.png')+ ')'}"></div>
+        <img ng-src="{{userInfo.headImg|transformWeixinHeadImg:132}}" class="person_head-face" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/big_avatar_black.png')+ ')','-webkit-mask-size':'cover'}">
+        <div class="header_border_big" ng-style="{'background-image': 'url(' + getImageDoMain('/big_avatar.png')+ ')'}"></div>
+    </div> 
+    <div class="form_info_box">
+        <div class="form_info_1 name" ng-style="{'background-image':'url(' + getImageDoMain('/input_box1.png')+ ')'}">
+            <input placeholder="请输入姓名" class="form_info_1_text" ng-model="userInfo.name" type="text" maxlength="15" change-placeholder-by-focus my-max-length />
+        </div>
+        <div class="form_info_2 phone">
+            <input placeholder="请输入手机号" class="form_info_2_text" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15" change-placeholder-by-focus my-max-length ng-style="{'background-image':'url(' + getImageDoMain('/input_box2.png')+ ')'}" />
+        </div>
+        <!--用户条款-->
+        <div class="form_info_usertems2_new" ng-style="{'background-image':'url(' + getImageDoMain('/user_terms.png')+ ')'}">
+            <span ng-click="checkUserTerms()" class="user_terms_checkbox" ng-style="{'background-image':isCheckUserTerms?'url(' + getImageDoMain('/checkbox_1.png')+ ')':'url(' + getImageDoMain('/checkbox_0.png')+ ')'}"></span><span class="form_info_usertems21"ng-style="{'color':templateModel.userTermsTextColor1}">同意</span><span class="form_info_usertems21 span2" ng-click="showUserTerms()" ng-style="{'color':templateModel.userTermsTextColor2}">用户条款</span>
+           
+        </div>
+        <div class="grow_vegetables_btn_group1 assistant_register"><button type="button" class="form_btn_1" ng-click="submitInfo()" ng-style="{'background-image': 'url(' + getImageDoMain('/button_4.png')+ ')'}"></button>           
+        </div>
+        <!-- 下拉引导 -->
+        <!--<div class="slidedown" ng-style="{'background-image':'url(' + getImageDoMain('/slidedown.png')+ ')'}"></div>-->
+    </div>
+
+</div> 
+
+

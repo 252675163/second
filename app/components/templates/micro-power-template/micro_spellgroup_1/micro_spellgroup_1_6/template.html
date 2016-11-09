@@ -1,0 +1,25 @@
+<!--火热拼团中(已成团)-->
+<div class="spellgroup_screen6">
+    <div class="spellgroup_groupList" ng-show="spellGroupList.length">
+        <h2 class="sp_grouped_title"></h2>
+        <div class="sp_grouped_content">
+            <ul class="sp_grouped_ajaxBox">
+                <li ng-repeat="spellGroup in spellGroupList">
+                    <div class="sp_grouped_avatorWrap">
+                        <i class="sp_grouped_avator_crown"></i>
+                        <div class="sp_grouped_avator"><img class="cty-wh-100" ng-src="{{(spellGroup.Config|parseHeaderImgByConfig)||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}"></div>
+                    </div>
+                    <p class="sp_grouped_description">{{spellGroup.Name}}<br />{{spellGroup.FinishAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</p>
+                    <button class="sp_grouped_button" ng-click="goDetail(spellGroup)">查看详情</button>
+                </li>
+
+            </ul>
+            <p class="sp_grouped_loadmore" ng-show="page.currentIndex<page.totalCount" ng-click="loadMore()"><span>显示更多</span></p>
+            <p class="sp_grouped_loadmore nomore" ng-show="page.currentIndex>=page.totalCount&&page.currentIndex>1" ng-click="loadMore()"><span>没有更多了</span></p>
+
+        </div>
+    </div>
+	<my-footer></my-footer>
+</div>
+
+

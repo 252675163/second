@@ -1,0 +1,112 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<user-terms></user-terms>
+<div  upload-img class="feedback-upload"></div>
+<feedback-form ng-if="ifShowFeedback" tmpobj="feedbackData" class="feed-underbar"></feedback-form>
+<div class="page">
+    <div class="user_center">
+        <ion-content has-bouncing="false" class="user_center_scroll">
+            <div class="header_left">
+                <a ng-href="{{showLink}}">了解校宝秀VIP ></a>
+            </div>
+            <div class="header" ng-class="{'header_vip':userInfo.Rest>0}">
+                <div class="face"><img ng-src="{{userInfo.HeadImgUrl}}" /></div>
+                <div class="header_name">{{userInfo.Nickname||userInfo.Phone}}</div>
+                <div class="header_phone" ng-show="userInfo.Nickname">({{userInfo.Phone}})</div>
+            </div>
+            <div class="user_center_list">
+                <div class="user_center_item">
+                    <div class="Personal_introduction">
+                        <!--//userInfo: Phone、Rest(vip剩余天数，<0为非vip)、CouponInfo（!=0，为未领取红包）、Ename(机构名)、SchoolPalName（校宝用户名）-->
+                        <div class="vip1" ng-show="userInfo.VipStatus==1"><div><span class="img_box"></span>您还不是VIP哦</div></div>
+                        <div class="vip1" ng-show="userInfo.VipStatus==2" ng-click="goOrderList()"><div><span class="img_box"></span>您的VIP已过期</div></div>
+                        <div class="vip2" ng-show="userInfo.VipStatus==3" ng-click="goOrderList()"><div><span class="img_box"></span>您的VIP剩余<em>{{userInfo.Rest}}</em>天</div></div>
+                    </div>
+                    <i class="arrow-right"></i>
+                </div>
+                <div ng-show="!isSchoolpalUser" class="user_center_item" ng-click="goOldInviteNew()">
+                    <span class="uc_icon1"></span>
+                    邀请有礼
+                    <i class="arrow-right"></i>
+                </div>
+                <div class="user_center_item" ng-click="goVIPCode()">
+                    <span class="uc_icon2"></span>
+                    VIP码兑换
+                   
+                    <i class="arrow-right"></i>
+                </div>
+                <div class="user_center_item ng-hide" ng-click="goWallet()" ng-show="walletAmount.show">
+                    <span class="uc_icon15"></span>
+                    校宝钱包<span class="uc_icon15_b">(机构收支看这里)</span>
+                    <i class="walletNumber" ng-bind="'￥'+(walletAmount.money | twoDecimal)"></i>
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class="user_center_list" ng-show="!isSchoolpalUser">
+                <div class="user_center_item" ng-click="goUserLocation()">
+                    <span class="uc_icon5"></span>
+                    机构所在地 {{DistrictName}}
+                    <i class="arrow-right"></i>
+                </div>
+                <div class="user_center_item" ng-click="goUserAccount()">
+                    <span class="uc_icon6"></span>
+                    校宝ERP机构账号设置
+                    <i class="arrow-right"></i>
+                </div>
+                <!--<div class="bottom_box1" ng-show="userInfo.SchoolPalName">
+            <span class="uc_icon7"></span>
+            <div class="bind_message_2">
+                <div class="bind_message_2_left_1"><span class="bind_message_2_1">机构后缀</span><span class="bind_message_2_2">schoolpal.cn/{{userInfo.Ename}}</span></div>
+                <div class="bind_message_2_left_2"><span class="bind_message_2_1">用户名</span><span class="bind_message_2_2">{{userInfo.SchoolPalName}}</span></div>
+            </div>
+        </div>-->
+            </div>
+            <div class="user_center_list">
+                <div class="user_center_item" ng-click="goSignupRemind()" ng-show="!isSchoolpalUser">
+                    <span class="uc_icon3"></span>
+                    消息提醒设置
+                    <i class="arrow-right"></i>
+                </div>
+                <div class="user_center_item">
+                    <span class="uc_icon4"></span>
+                    帮助中心
+                    <i class="arrow-right"></i>
+                    <a class="helpCenter" ng-href="{{helpCenter}}" ng-click="goHelpCenter()"></a>
+                </div>
+                <div class="user_center_item" ng-click="goSuggest()">
+                    <span class="uc_icon14"></span>
+                    反馈建议
+                    <i class="arrow-right"></i>
+                </div>
+                <div class="user_center_item" ng-click="showUserTerms()">
+                    <span class="uc_icon13"></span>
+                    用户条款
+                    <i class="arrow-right"></i>
+                </div>
+            </div>
+            <div class="loginout-Box">
+                <button class="user_loginout" ng-click="signOut()" ng-show="!isSchoolpalUser">注销</button>
+                </div>
+        </ion-content>
+    </div>
+
+    <div ng-show="bindScoolPalBox">
+        <div class="mask"></div>
+        <div class="bindBox">
+            <button ng-click="closeBindScoolPalBox()" class="bindBoxClose"></button>
+            <div class="bindheader">校宝ERP机构账号绑定</div>
+            <div class="bind_inputBox"><span class="uc_icon8"></span><input type="text" class="bindBox_text" placeholder="机构后缀" ng-model="schoolPalInfo.web" change-placeholder-by-focus /></div>
+            <div class="bind_inputBox"><span class="uc_icon9"></span><input type="text" class="bindBox_text" placeholder="用户名" ng-model="schoolPalInfo.account" change-placeholder-by-focus /></div>
+            <div class="bind_inputBox"><span class="uc_icon10"></span><input type="password" class="bindBox_text" placeholder="密码" ng-model="schoolPalInfo.password" change-placeholder-by-focus /></div>
+            <button class="bindBox_button" ng-click="bindSchoolPal()">一键绑定</button>
+        </div>
+    </div>
+</div>
+<ion-footer-bar class="bar bar-footer footer_book new_tabs">
+    <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+    
+    <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+    <a class="new_tab_item" ng-click="goRegistrationBook()"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+    <a class="new_tab_item active" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+</ion-footer-bar>
+

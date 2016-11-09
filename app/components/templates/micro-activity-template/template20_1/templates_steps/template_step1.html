@@ -1,0 +1,146 @@
+<!--预览 查看-->
+<div ng-if="!isEdit && case!=4" ng-show="false" ng-class="{'animation':isAnimation}">
+    <div class="xmas_box1">
+        <div class="voucher_coin1"></div><!--上层金币-->
+        <div class="voucher_box1">
+            <div class="voucher_box1_1"></div>
+            <div class="voucher_box1_2"> </div>
+        </div>
+        <div class="xmas_title1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="30" ng-bind-html="templateModel.title|newlines"></div>
+        <div class="voucher_coin2"></div><!--底层金币-->
+    </div>
+
+    <div class="help_voucher_box2Outer">
+        <!--刮奖页面的背景框-->
+        <div class="voucher_back_Box">
+            <div class="voucher_back_box1"></div><!--紫色横条-->
+            <div class="voucher_back_box2">
+                <div class="voucher_view_box1">
+                    <!--头像和昵称-->
+                    <div class="voucher_head">
+                        <img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]||defaultHeadImg}}">
+                    </div>
+                    <div class="voucher_text_box">
+                        <span>{{userInfo1.name||templateModel.name}}</span>的代金券
+                    </div>
+                </div>
+                <!--刮刮卡-->
+                <div class="voucher_scrachCard" ng-class="{'voucher_scrachcard_bg':case==3}">
+                    <div ng-if="case==1||case ==2">
+                        <!--显示100元-->
+                        <span class="voucher_message_1">{{templateModel.couponsAmount}}<em>元</em></span>
+                        <span class="voucher_message_2" ng-bind-html="usageInfo.description"></span>
+                    </div>
+
+                    <div ng-if="case==3">
+                        <!--刮奖区-->
+                        <scratch-card scratch-config-obj="scratchCardInfo"></scratch-card>
+                    </div>
+                </div>
+                <!--查看页面的情况-->
+                <div ng-if="isView" class="preview_message_tips">
+                    <span ng-show="userInfo1.helperNum >= 0 && userInfo1.helperNum <= templateModel.helperCount-1">
+                        还差<span>{{templateModel.helperCount-userInfo1.helperNum}}</span>位朋友，即可激活TA的代金券！
+                    </span>
+                    <span ng-show="userInfo1.helperNum == templateModel.helperCount && !userInfo2.isHelper">猴赛雷，人脉广大的你，已激活了代金券！</span>
+                    <span ng-show="userInfo1.helperNum == templateModel.helperCount && userInfo2.isHelper && userInfo2.isHaveGrow">大功告成，你帮TA激活了<span>{{userInfo2.helperAmount}}</span>元！</span>
+                    <span ng-show="userInfo1.helperNum == templateModel.helperCount && userInfo2.isHelper && !userInfo2.isHaveGrow">来晚了一步，代金券已激活！</span>
+                </div>
+                <!--预览页面的情况-->
+                <div ng-if="!isView" class="preview_message_tips">
+                    <span>
+                        还差<span>{{leftHelper}}</span>位朋友，即可激活TA的代金券！
+                    </span>
+                </div>
+                <!--预览进度条-->
+                <div class="voucher_bar_box" ng-if="!isView">
+                    <!--预览开始时没有进度条-->
+                    <!--<div class="voucher_bar" ng-style="{width:'0%'}"></div>-->
+                    <div class="voucher_bar_numer">0/{{templateModel.helperCount}}</div><!--进度条的数字-->
+                </div>
+
+                <!--查看进度条-->
+                <div class="voucher_bar_box" ng-if="isView">
+                    <div ng-if="percentageView > 0" class="voucher_bar" ng-style="{width:percentageView+'%'}"></div>
+                    <div class="voucher_bar_numer">{{userInfo1.helperNum}}/{{templateModel.helperCount}}</div><!--进度条的数字-->
+                </div>
+            </div><!--蓝色大框-->
+        </div>
+
+        <!--按钮组-->
+        <button ng-if="isView && case!=1 && !userInfo2.isHelper" class="voucher_btn1_3" type="button" ng-click="sayForHelp()"></button><!--喊人激活代金券-->
+
+        <button ng-if="(!isView)||userInfo2.isHelper" class="voucher_btn1_5" type="button" ng-click="goForm()"></button><!--我也要领取代金券-->
+        <!--代金券激活后发起人看到-->
+        <button ng-if="isView && case==1 && !userInfo2.isHelper" class="voucher_btn1_1" type="button" ng-click="goSaveImg()"></button><!--立即保存代金券-->
+    </div>
+</div>
+
+<!--已助力人打开助力中的页面-->
+<div class="voucher_helped_view" ng-class="{true: 'animation2'}[finishScratch]" ng-if="case==4">
+    <div class="voucher_scrachCard">
+        <div>
+            <!--显示刮完面额-->
+            <div class="finish_Amount">{{randomView||userInfo2.helperAmount||randomPreview}}<em>元</em></div>
+        </div>
+    </div>
+
+    <!--进度条预览页面-->
+    <div class="voucher_bar_box" ng-if="!isView">
+        <div ng-if="percentagePreview > 0" class="voucher_bar" ng-style="{width:percentagePreview+'%'}"></div>
+        <div ng-if="!isView" class="voucher_bar_numer">1/{{templateModel.helperCount}}</div><!--进度条的数字-->
+    </div>
+
+    <!--进度条查看页面-->
+    <div class="voucher_bar_box" ng-if="isView">
+        <div ng-if="percentageView > 0" class="voucher_bar" ng-style="{width:percentageView+'%'}"></div>
+        <div ng-if="isView" class="voucher_bar_numer">{{userInfo1.helperNum}}/{{templateModel.helperCount}}</div><!--进度条的数字-->
+    </div>
+
+    <div ng-if="!isView" class="preview_message_tips2">
+        还差<span>{{leftHelper}}</span>位朋友，即可激活TA的代金券！
+    </div>
+
+    <div ng-if="isView && !activated " class="preview_message_tips2">
+        还差<span>{{templateModel.helperCount-userInfo1.helperNum}}</span>位朋友，即可激活TA的代金券！
+    </div>
+
+    <!--激活代金券后文案-->
+    <div ng-if="isView && activated" class="preview_message_tips2">
+        大功告成，你帮TA激活了<span>{{randomView}}</span>元！
+    </div>
+
+    <button class="voucher_btn1_5" type="button" ng-click="goForm()"></button><!--我也要领取代金券-->
+</div>
+
+<!--编辑-->
+<div ng-if="isEdit">
+    <div class="xmas_box1">
+        <div class="voucher_coin1"></div><!--上层金币-->
+        <div class="voucher_box1">
+            <div class="voucher_box1_1"></div>
+            <div class="voucher_box1_2"> </div>
+        </div>
+        <div class="xmas_title1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" isdiff="true" custom-input readonly="readonly" maxlength="30" ng-bind-html="templateModel.title|newlines"></div>
+        <div class="voucher_coin2"></div><!--底层金币-->
+    </div>
+
+    <div class="help_voucher_edit_box">
+        <div class="header_box_big" ng-click="updateImg(0)">
+            <img ng-src="{{templateModel.imageUrl[0]||defaultHeadImg}}" class="person_head-face" err-src="{{ scope.defaultHeadImg}}">
+        </div>
+        <div class="form_info_box">
+            <div class="form_info_1">
+                <input placeholder="姓名" class="form_info_1_text" ng-model="templateModel.name" ng-disabled="!isEdit" ng-trim="false" isdiff="true" type="text" custom-input readonly="readonly" maxlength="12" my-max-length change-placeholder-by-focus />
+            </div>
+        </div>
+        <div class="voucher_input_Amount">
+            <div class="Amount_message">代金券面额</div>
+            <div class="Amount_input_box" ng-class="{'editBorder':isEdit}" ng-bind="templateModel.couponsAmount" ng-click="showList('Amount')"></div>
+        </div>
+        <div class="voucher_input_Count">
+            <div class="Amount_message">助力人数</div>
+            <div class="Amount_input_box" ng-class="{'editBorder':isEdit}" ng-bind="templateModel.helperCount" ng-click="showList('Count')"></div>
+        </div>
+    </div>
+</div>

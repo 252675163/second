@@ -1,0 +1,14 @@
+<ion-view cache-view="false" class = "newSite_Outer" ng-class = "templateStyleClass">
+        <show-image-big></show-image-big>
+        <ion-content class="ion-content_patch" has-bouncing="false" scrollbar-y ="false"  on-scroll = "hideNav()">
+            <div id="newMicroSiteContainer">
+                <new-micro-site-view-view site-model="siteModel"></new-micro-site-view-view>
+                <my-footer></my-footer>
+            </div>
+        </ion-content>
+        <feedback-form ng-if="ifShowFeedback" tmpobj="feedbackData"></feedback-form>
+        <new-site-nav mode-id="siteModel.plan"></new-site-nav>
+        <site-praise praise-count = "praiseCount" is-praise="isPraise"></site-praise>
+        <!--微官网表单弹窗-->
+        <site-form></site-form>
+</ion-view>

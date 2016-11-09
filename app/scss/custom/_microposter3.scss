@@ -1,0 +1,82 @@
+﻿@charset "utf-8";
+//砍价模板
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+
+@mixin form-base($rate:1){
+  .poster3-step1{
+    .title{width: temSize(606,$rate);height: temSize(344,$rate); margin: 0 auto;top: temSize(86,$rate);
+      .poster3-title{font-size: temSize(28,$rate);width: temSize(250,$rate); margin-top: temSize(290,$rate);margin-left: temSize(100,$rate);line-height: 1.4;}
+    }
+    .view-btnbox{bottom: temSize(90,$rate);width: 100%;height: temSize(112,$rate);;
+      .view-btn{width: temSize(274,$rate);height: 100%;margin: 0 auto;}
+      }
+  }
+
+  .poster3-step2{
+    .description{width: temSize(546,$rate);height: temSize(511,$rate);margin: 0 auto;top: temSize(40,$rate);font-size: temSize(28,$rate);padding: temSize(36,$rate) temSize(28,$rate);
+    .poster3-title{width: temSize(500,$rate);height: temSize(439,$rate);font-size: 100%;}}
+    .table{width: temSize(305,$rate);height: temSize(255,$rate);margin: 0 auto;margin-top: temSize(48,$rate);}
+    .btn-box{padding: 0 temSize(50,$rate);
+        .bright-btn,.send-btn{width: temSize(244,$rate);height: temSize(108,$rate);margin: 0 auto;margin-top: temSize(40,$rate);}
+    }
+  }
+
+}
+
+ //与数值无关的样式全部写这里：
+.microposter3{width: 100%;height: 100%;background:url("../img/poster3-bg.jpg") $img-pozC;@include background-size100;
+    .poster3-step1{
+      .title{background:url("../img/poster3-title-bg.png") $img-pozC;@include background-size100;position: relative;
+        .poster3-title{color: #333333;position: absolute;text-align: center;}
+      }
+    .view-btnbox{position: absolute;
+      .view-btn{background:url("../img/poster3-view-btn.png") $img-pozC;@include background-size100;}
+      }
+    }
+
+    .poster3-step2{
+      .description{background:url("../img/poster3-textbox-bg.png") $img-pozC;@include background-size100;color: #ffffff;line-height: 1.5;position: relative;
+        .poster3-title{color: #ffffff;position: absolute;line-height: 1.8;}
+      }
+      .table{background:url("../img/poster3-table.png") $img-pozC;@include background-size100;}
+      .btn-box{display: flex;justify-content: space-between;align-items: center;
+        .bright-btn{background:url("../img/poster3-bright-btn.png") $img-pozC;@include background-size100;}
+        .send-btn{background:url("../img/poster3-sendmine-btn.png") $img-pozC;@include background-size100;}
+        .bright-btn,.send-btn{    display: inline-block;}
+      }
+    }
+
+    .poster3-step3{
+      div{margin: 0 auto;}
+      .topbg{background:url("../img/poster3-subtitle-bg.png") $img-pozC;@include background-size100;width:temSize(564,$rate);height: temSize(181,$rate);top: temSize(47,$rate);position: relative; }
+      .namebox{background:url("../img/poster3-name-box.png") $img-pozC;@include background-size100;width:temSize(534,$rate);height: temSize(91,$rate);margin-top: temSize(100,$rate);}
+      .phonebox{background:url("../img/poster3-name-box.png") $img-pozC;@include background-size100;width:temSize(534,$rate);height: temSize(91,$rate);margin-top: temSize(20,$rate);}
+      .contentbox{display: flex;align-items: center;padding: temSize(40,$rate);;background:url("../img/poster3-info-box.png") $img-pozC;@include background-size100;width:temSize(543,$rate);height: temSize(304,$rate);margin-top: temSize(18,$rate);}
+      .btn-box{
+        .send-btn{background:url("../img/poster3-send-btn.png") $img-pozC;@include background-size100;width:temSize(273,$rate);height: temSize(108,$rate);margin-top: temSize(44,$rate);}
+      }
+      .inputtext{width: 100%;height: 100%;font-size: temSize(28,$rate);color: #fff;margin: 0 auto;line-height: temSize(91,$rate);text-align: center;
+      &::-webkit-input-placeholder {color: #efefef;text-decoration: underline; }
+      }
+      .inputarea{line-height: 1.5;height: auto;max-height: temSize(260,$rate);overflow-y: scroll;overflow-x: hidden;}
+    }
+    
+}
+
+
+
+$editrate:0.8;
+$viewrate:1;
+//编辑页面
+.microposter3{
+ @include form-base(0.8);
+}
+
+.microposter3+.poster3-footer{position: absolute;width: 100%;}
+ //仅预览页面样式写这里
+.microposter3 .preview{
+  @include form-base(1);
+   .poster3-step1 .title .poster3-title{margin-top: temSize(295,$rate);}
+}

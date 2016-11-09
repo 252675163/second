@@ -1,0 +1,28 @@
+<!--No.6模板页 -->
+<div class="paneabird1 microactivity-template18 bgPan" >
+    <div ng-class="{'maxbox':!isEdit}" style="">
+        <div class="acty18_box6">
+            <div class="acty18_gray_box_bg"></div>
+            <div class="acty18_form">
+                <textarea rows="1" class="acty18_textBox6_1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                <div class="acty18_line2"></div>
+                <textarea rows="1" class="acty18_textBox6_2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                <textarea rows="2" class="acty18_textBox6_3" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[2]" ng-disabled="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+
+                <input placeholder="您的姓名" class="acty18_form_text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length ng-trim="false" />
+                <input placeholder="您的手机号" class="acty18_form_text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length ng-trim="false" />
+                <!--添加第三个可编辑字段{{templateModel.formOtherInfo||'孩子年级'}}兼容老数据-->
+                <input ng-if = "!isEdit"  my-place-hold="{{templateModel.formOtherInfo||'孩子年级'}}" class="acty18_form_text" ng-model="userInfo.content" type="text" maxlength="15" ng-disabled="isEdit"  my-max-length ng-trim="false" />
+                <input ng-if = "isEdit"  my-place-hold="{{templateModel.formOtherInfo||'孩子年级'}}" class="acty18_form_text" ng-class="{'editBorder':isEdit}" ng-model="templateModel.formOtherInfo" type="text" maxlength="15" ng-trim="false" custom-input readonly="readonly"  my-max-length  />
+
+                <div class="acty18_form_btn"  ng-click="submitInfo()">
+                    <input ng-if ="!isEdit"  class="acty18_form_btninput" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" ng-readonly="!isEdit" maxlength="200" my-max-length ng-trim="false" />
+                    <input ng-if ="isEdit" class="acty18_form_btninput" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" maxlength="200" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />
+                </div>
+                <!-- @下面这行样式todo -->
+                <textarea ng-if="isEdit" rows="4" class="acty18_textBox6_4" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[3]" maxlength="200" scroll-top-by-blur my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+                <div ng-if="!isEdit" class="acty18_textBox6_4 addheight" ng-bind-html="templateModel.description[3] |newlines|recogTel:false "></div>            </div>
+        </div>
+    </div>
+</div>
+<!--No.6模板页 -->

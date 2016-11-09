@@ -1,0 +1,30 @@
+//解冻指引
+.refreze-guide{ padding: 20px 15px 15px;
+    .guide-header{
+        .title{font-size: 24px;border-bottom: 1px solid #e7e7eb;margin-bottom: 10px;line-height: 1.4;}
+        .time{color: #8c8c8c;margin-bottom: 18px;font-size: 18px;}
+    }
+    .frezereason{
+        p{font-size: 16px;}
+        .frezeimg{margin-bottom: 20px;
+            img{@include background-size100;width: 100%;}
+        }
+    }
+    .guidecontain{margin-top: 25px;
+        .title{font-size: 18px;margin: 20px auto;line-height: 1.5;}
+        .guide-step{
+            .title{font-size: 16px;}
+            div{ margin: 0 auto;}
+            .guide-step1-img{background: url("../img/guide-step1.jpg") no-repeat 0 center;@include background-size100;width: 290px;height:510px;}
+            .guide-step2-img{background: url("../img/guide-step2.jpg") no-repeat 0 center;@include background-size100;width: 290px;height:510px;}
+            .guide-step3-img{background: url("../img/guide-step3.png") no-repeat 0 center;@include background-size100;width: 290px;height:250px;}
+            .guide-dot-img{background: url("../img/guide-dot.jpg") no-repeat 0 center;@include background-size100;width: 86px;height:54px;}
+            }
+    }
+    .guide-footer{
+            margin-bottom: 80px;
+            p{font-size: 20px; text-align: center;
+            a{color: rgb(51, 102, 255); text-decoration: underline; font-weight: bold;}
+            }
+    }
+}

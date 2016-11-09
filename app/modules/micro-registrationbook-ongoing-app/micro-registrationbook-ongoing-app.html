@@ -1,0 +1,84 @@
+<ion-view class=" consultbookbg background_gray">
+    <div style="position: absolute;width: 100%;">
+        <div class="mybanner consultbookbanner" ng-hide="showBannerNone">
+            <div>
+                <span class="item-tabs current">咨询跟进</span>
+            </div>
+            <div>
+                <span class="item-tabs" ng-click="goAllList()">全部咨询</span>
+                <em class="item-tabs-icon ng-hide" ng-show="newUserNum>0" ng-bind="newUserNum>999?'999+':newUserNum"></em>
+                <em ng-click="showSearch()" class="regbook_search_btn"></em>
+            </div>
+        </div>
+        <div ng-if="onGoingListEmpty&&!showAllList">
+            <img ng-src="{{baseImgUrl+'consultbook_bg1.png'}}" class="consultNone" />
+            <div class="consultNoneText_book">您还没有跟进中的人哦~<br />将想要跟进的人标记为<span class="consultNone_icon">跟进中</span>就能在这里查看啦！</div>
+        </div>
+    </div>
+
+    <ion-scroll class="list-scroll">
+        <ion-content delegate-handle="onGoing" class="consultlist consultlist_book registrationlist mt_20" has-bouncing="false">
+            <!--跟进中列表-->
+            <ion-list>
+                <ion-item ng-show="!onGoingListEmpty" class="background_shadow item-avatar dateItem  dateItem_after ng-hide margin_lrBoth20" ng-repeat="regUser in onGoingListData" type="item-text-wrap">
+                    <ion-item class="item-avatar  consultItem_book consultItem_book_radius" type="item-text-wrap">
+                        <div class="myrow_book2 myrow_book_after clearfix border-bottom-1" ng-click="toDetailPage(regUser.Id,0)">
+                            <div class="consultbook_name">
+                                <img ng-if="regUser.HeadImgUrl" ng-src="{{regUser.HeadImgUrl}}" class="consult_user_head3" />
+                                <div ng-if="!regUser.HeadImgUrl" class="consult_user_head3 consult_user_head_none" ng-style="{'background':getHeadImageBg(regUser.Name)}" ng-bind="regUser.Name[0].toUpperCase()"></div>
+                                <div class="consult_userInformation">
+                                    <div class="consult_username2">
+                                    {{regUser.Name | Maxlength:7}}
+                                        <!--<span ng-show="currentUserLocation.Id >0 && currentUserLocation.Id == regUser.DistrictId" class="consult_username_adder ng-hide">本地</span>-->
+                                </div>
+                                    <div class="consult_userType">
+                                        <span ng-show="currentUserLocation.Id >0 && currentUserLocation.Id == regUser.DistrictId" class="consult_username_adder consult_username_color1 ng-hide">本地</span>
+                                        <!--<span ng-show="true" class="consult_username_adder consult_username_color2 ng-hide">老学员</span>-->
+                                    </div>
+                                </div>
+                                <!--<div class="consult_usertime">
+                                    <span>最后修改日期：</span>
+                                    <span class="time_span" ng-bind="regUser.RecentContactAt"></span>
+            </div>-->
+                                </div>
+                            <!--<div class="consultbook_star clearfix" ng-class="regUser.IsTop==true?'current':''" ng-click="markTop(regUser)"></div>-->
+                            <div class="consultbook_next clearfix"></div>
+                            </div>
+                        <div class="consult_content  border-bottom-1" ng-class="regUser.isCommuShow?'':'default_content'" ng-click="toDetailPage(regUser.Id,2)">
+                            <div class="consult_content_time text1" ng-if="regUser.isCommuShow">最新沟通记录<span ng-bind-html="regUser.CommuTime"></span></div>
+                            <div class="consult_content_text text2">
+                                <span ng-bind-html="defaultContent" ng-hide="regUser.isCommuShow"></span>
+                                {{regUser.CommuContent}}<br ng-show="regUser.CommuContent" />
+                                {{regUser.CommuResult}}
+                            </div>
+                        </div>
+                        <div class="consultbook_bottom">
+                            <div ng-click="addCommunication(regUser)" class="consultbook_bottom_con consultbook_bottom_left text2 border-right-1">
+                                添加沟通记录
+                        </div>
+                            <!--<div ng-click="showVisitDateTime(regUser)" class="consultbookconsultItem_book_bottom_left" ng-style="{'background-image':(regUser.RecentVisitAt==null?'url('+baseImgUrl+'book_icon2.png)':'url('+baseImgUrl+'book_icon3.png)')}">
+                                <span ng-hide="regUser.RecentVisitAt">设置回访提醒</span>
+                                <span ng-show="regUser.RecentVisitAt">下次回访提醒：</span>
+                                <span ng-bind-html="regUser.RecentVisitAt"></span>
+                                <input type="text" ng-show="false" ng-model="regUser.copyRecentVisitAt" mobiscroll-datetime="setVisitDateTime" mobiscroll-instance="myInstance" />
+                                </div>-->
+                            <div class="consultbook_bottom_con consultbook_bottom_right ">
+                                <a href="tel:{{regUser.Phone}}" ng-click="callTel()" class="text2">{{regUser.Phone}}</a>
+                            </div>
+                            </div>
+                    </ion-item>
+                </ion-item>
+            </ion-list>
+            <ion-infinite-scroll on-infinite="loadOnGoingList()" ng-if="onGoingListPage.currentIndex < onGoingListPage.totalCount" distance="1%" class="LoadStyle" immediate-check="false">
+            </ion-infinite-scroll>
+        </ion-content>
+    </ion-scroll>
+
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs">
+        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+        
+        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+    </ion-footer-bar>
+</ion-view>

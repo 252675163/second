@@ -1,0 +1,25 @@
+<ion-view class="micro-shop-management micro-shop-syn">
+    
+        <div class="syn-warp" ng-if="type==1">
+            <p class="text">
+                微信公众号授权，<br />使用公众号绑定的个人微信号扫描
+            </p>
+            <div class="img-warp">
+                <img class="qc" ng-src="{{qrCode}}" isstopmove="false" />
+            </div>
+            <p class="text2">长按二维码识别</p>
+            <p class="text3">校宝微店</p>
+        </div>
+
+        <div class="syn-warp" ng-if="type==2">
+            <p class="text">
+                请长按二维码保存图片，<br />并在支付宝app中打开
+            </p>
+            <div class="img-warp">
+                <img class="qc" ng-src="{{qrCode}}" isstopmove="false" />
+            </div>
+            <p class="text2">如有疑问请返回查看教程</p>
+            <p class="text3">校宝微店</p>
+        </div>
+
+</ion-view>

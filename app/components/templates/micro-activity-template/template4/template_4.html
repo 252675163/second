@@ -1,0 +1,34 @@
+<div class="oldNew_tempale4 section" ng-class="{'edit':isEdit, 'show': !isEdit}">
+    <div class="">
+        <div class="box1">
+            <div>
+                <input ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" maxlength="6" my-max-length ng-trim="false" custom-input readonly="readonly" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-center">
+        <div class="box2">
+            <!--<textarea ng-class="{'editBorder':isEdit}" rows="3" ng-model="templateModel.description" maxlength="200" ng-disabled="!isEdit" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>-->
+            <!--手机号 todo-->
+            <!--<div class="oldNew_tempale4_phone_box">-->
+                <!--<textarea rows="1" class="oldNew_tempale4_textBox1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-readonly="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>-->
+                <!--<textarea rows="1" class="oldNew_tempale4_textBox2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit" ng-readonly="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>-->
+            <!--</div>-->
+            <div class="infoInputBox">
+                <input placeholder="姓名" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+                <input placeholder="联系电话" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+
+                <!--<input ng-if = "!isEdit" my-place-hold="{{templateModel.formOtherInfo||'孩子年龄'}}" class="acty16_form_text" ng-model="userInfo.content" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length ng-trim="false" />
+                <input ng-if = "isEdit"  my-place-hold="{{templateModel.formOtherInfo||'孩子年龄'}}"  class="acty16_form_text" ng-model="templateModel.formOtherInfo"   ng-class = "{'editBorder':isEdit}"  type="text" maxlength="15"  ng-disabled="!isEdit" change-placeholder-by-focus my-max-length ng-trim="false" custom-input readonly="readonly" style="position: relative;z-index: 1;" />-->
+
+                <!--<button ng-click="submitInfo()" ng-show="userType=='new'">我要报名</button>-->
+                <div class="buttonDiv"  ng-click="submitInfo()">
+                    <input ng-if="isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" maxlength="12" my-max-length ng-trim="false" custom-input readonly="readonly" />
+                    <input ng-if="!isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" ng-readonly="!isEdit" maxlength="12" my-max-length ng-trim="false" />
+                </div>
+                <!--<button ng-click="submitInfo()" ng-show="userType=='old'">我要成为介绍人</button>-->
+            </div>
+        </div>
+    </div>
+</div>

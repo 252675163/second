@@ -1,0 +1,28 @@
+﻿<div class="page_box">
+    <div class="page_box_content">
+        <p class="page_note_title">消息提醒设置</p>
+        <div class="page_content_tab  clearfix">
+            <span class="uc_icon11"></span>
+            <span class="page_note_left">学员咨询提醒</span>
+            <label class="toggle page_note_right">
+                <input type="checkbox" ng-model="isShowRemind" ng-click="changeShowRemid()" ng-true-value="false" ng-false-value="true">
+                <div class="track">
+                    <div class="handle">
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="page_content_tab  clearfix">
+            <span class="uc_icon12"></span>
+            <span class="page_note_left">软件更新提醒</span>
+            <label class="toggle page_note_right">
+                <input type="checkbox" ng-model="isNotInstructionsMsg" ng-click="changeNotInstructionsMsg()" ng-true-value="false" ng-false-value="true">
+                <div class="track">
+                    <div class="handle">
+                    </div>
+                </div>
+            </label>
+        </div>
+        <!--<button class="page_box_btn" type="button" ng-click="finish()">完成</button>-->
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿<!--投票模板 编辑第二页 {-->
+<div class="microactivity-vote vote_edit_bg bgPan" ng-style="{'display':isEdit?'block':'none'}">
+    <div ng-class="{'preview':!isEdit,'vote_edit':isEdit}">
+        <div class="vote_bg">
+            <div class="vote_edit_box1">
+                <!-- 标题-->
+                <div class="title1"></div>
+                <div class="vote_input_detail">
+                    <!-- 时间的格式 与分的显示 dwc 样式的隐藏-->
+                    <div class="inline_input">
+                        <span class="title">截止时间 :</span>
+                        <div ng-click="demo.show()" class="description" ng-class="{'editBorder':isEdit}"
+                            ng-model="mydatetime" readonly="readonly" ng-bind-html="mydatetime| date:'yyyy年MM月dd日HH点整'"></div>
+                        <div ng-repeat="d in tempnum"  ng-style="{'display':false?'block':'none'}">
+                            <input ng-model="$parent.mydatetime" mobiscroll-datetime="settings" mobiscroll-instance="$parent.demo" />
+                        </div>
+                    </div>
+                </div>
+                <div class="vote_input_detail">
+                    <span class="title">活动规则 :</span>
+                    <div class="description rule" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-disabled="!isEdit"
+                        ng-trim="false" custom-input isdiff="true" readonly="readonly" maxlength="210" ng-bind-html="templateModel.description[0]|newlines"></div>
+                </div>
+                <div class="vote_input_detail">
+                    <span class="title">活动奖励 :</span>
+                    <div class="description" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false"
+                        custom-input isdiff="true" readonly="readonly" maxlength="120" ng-bind-html="templateModel.description[1]|newlines"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} 投票模板 首页-->

@@ -1,0 +1,124 @@
+<!--预览 查看-->
+<div class="preview" ng-if="!isEdit">
+    <!--标题背景，编辑和预览-->
+    <div class="bargin_title_box">
+        <div class="bargin_title" ng-bind-html="templateModel.title|newlines"></div>
+    </div>
+    <!--预览和查看页面-->
+    <div class="bargin_boxOuter1">
+        <div class="bargin_timeBox">
+            <div class="timeBox">{{time|TimeChange}}</div>
+        </div>
+        <div class="headBox">
+            <!--头像和昵称-->
+            <div class="bargin_head">
+                <img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]||defaultHeadImg}}">
+            </div>
+            <div class="head_text_box">
+                <span>{{userInfo1.name||templateModel.name}}</span>
+            </div>
+        </div>
+
+        <div class="bargin_ware">
+            <div class="bargin_ware_box1" ng-bind-html="templateModel.bargainProduct|newlines"></div>
+            <div class="bargin_ware_box2" ng-bind-html="templateModel.description|newlines"></div>
+        </div>
+        <!--进度条-->
+        <div class="bargin_bar_box">
+            <div class="bargin_bar_body">
+                <div class="bargin_bar" ng-style="{width:percentageGoing+'%'}"><span class="bargin_money">￥{{(bargainInfo.InitialPrice-powerInfo.PowerTotalAmount)|MoneyLeft}}</span></div>
+                <div class="bargin_gold1 gold_shining"></div>
+                <div class="bargin_gold2" ng-class="powerInfo.PowerTotalAmount >= (bargainInfo.InitialPrice-bargainInfo.PreferentialPrice)?'gold_shining':''"></div>
+                <div class="bargin_gold3" ng-class="powerInfo.PowerTotalAmount >= (bargainInfo.InitialPrice-bargainInfo.SpecialPrice)?'gold_shining':''"></div>
+            </div>
+            <div class="bargin_current1">￥{{bargainInfo.InitialPrice}}</div>
+            <div class="bargin_current2">￥{{bargainInfo.PreferentialPrice}}<span class="current_text">(库存<em>{{(powerInfo.SurplusPreferentialPriceStock||powerInfo.SurplusPreferentialPriceStock===0)?powerInfo.SurplusPreferentialPriceStock:bargainInfo.PreferentialPriceStock}}</em>)</span></div>
+            <div class="bargin_current3">￥{{bargainInfo.SpecialPrice}}<span class="current_text">(库存<em>{{(powerInfo.SurplusSpecialPriceStock||powerInfo.SurplusSpecialPriceStock===0)?powerInfo.SurplusSpecialPriceStock:bargainInfo.SpecialPriceStock}}</em>)</span></div>
+
+            <!--按钮-->
+            <div class="bargin_btnGroup" ng-if="isView && powerInfo.IsSelf">
+                <button ng-click="getBenefits(0)" class="bargin_button1" ng-class="btn[0]==0?'':'btn_disabled'" ng-if="btn[0]!=5">{{btn[0]|ButtonInfo}}</button>
+                <button ng-click="getBenefits(1)" class="bargin_button2" ng-class="btn[1]==0?'':'btn_disabled'" ng-if="btn[1]!=5">{{btn[1]|ButtonInfo}}</button>
+                <button ng-click="getBenefits(2)" class="bargin_button3" ng-class="btn[2]==0?'':'btn_disabled'" ng-if="btn[2]!=5">{{btn[2]|ButtonInfo}}</button>
+            </div>
+        </div>
+
+        <div class="bargin_btnGroup2" ng-if="isView">
+            <button class="bargin_button2_1" ng-if="!powerInfo.IsPower && !activityIsEnd" ng-click="helpBargain()">帮TA砍价</button>
+            <button class="bargin_button2_1 btn_disabled" ng-if="activityIsEnd && !powerInfo.IsPower">帮TA砍价</button>
+            <button class="bargin_button2_1 btn_disabled" ng-if="powerInfo.IsPower">已帮TA砍价</button>
+            <button class="bargin_button2_2" ng-if="(!activityIsEnd || (powerInfo.ReceiveStockType != -1)) && !powerInfo.IsSelf" ng-click="goForm()">我也要参加</button>
+            <button class="bargin_button2_2 btn_disabled" ng-if="(activityIsEnd &&(powerInfo.ReceiveStockType == -1)) || powerInfo.IsSelf">我也要参加</button>
+        </div>
+
+        <!--预览页面-->
+        <div class="bargin_btnGroup2" ng-if="!isView">
+            <button class="bargin_button2_1" ng-if="!powerInfo.IsPower" ng-click="helpBargain()">帮TA砍价</button>
+            <button class="bargin_button2_1 btn_disabled" ng-if="powerInfo.IsPower">已帮TA砍价</button>
+            <button class="bargin_button2_2" ng-click="goForm()">我也要参加</button>
+        </div>
+
+    </div>
+
+    <!--砍价-->
+    <div ng-show="showBargainResult" class="ng-hide">
+        <div class="lockMask"></div><!--遮罩 -->
+        <div class="bargain_bgfloor">
+            <div class="bargain_bg"></div>
+            <div class="bargain_btn" ng-click="closeBargainShowBox()"></div>
+            <div class="bargain_inner">砍了<span>{{bargainPrice}}</span>元！</div>
+            <div class="bargain_bg_footer"></div>
+        </div> 
+    </div>
+
+    <div ng-show="showBargainSuccess" class="ng-hide">
+        <div class="lockMask"></div><!--遮罩 -->
+        <div class="bargain_bg2">
+            <div class="bargain_success_box">
+                <p class="success_inner1">
+                    目前可用优惠价:
+                    <span class="success_price">{{benefitsPrice}}</span>
+                    元！
+                </p>
+                <p class="success_inner2">
+                    <!--确认领取后活动结束，<span class="success_warn">不能继续</span>砍价哦
+                    在机构报名时，凭借您的手机和姓名就可享受优惠~-->
+                    本次报名<span class="success_warn">只能领取一种优惠</span>，确认领取后活动结束，<span class="success_warn">不能继续砍价</span>哦。在机构报名时，
+                    凭借您的手机和姓名就可享受相应优惠~
+                </p>
+            </div>
+            <div class="bargain_btn_box">
+                <button type="button" class="btn_cancel" ng-click="cancelBargainBox()">取消</button>
+                <button type="button" class="btn_confirm" ng-click="sureBargainBox()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--编辑-->
+<div class="isEdit" ng-if="isEdit">
+    <!--标题背景，编辑和预览-->
+    <div class="bargin_title_box">
+        <div class="bargin_title" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false"
+                custom-input readonly="readonly" maxlength="22" isdiff="true" ng-bind-html="templateModel.title|newlines"></div>
+    </div>
+    <div class="bargin_boxOuter1_2">
+        <div class="edit_head_box" ng-click="updateImg(0)">
+            <!-- 提醒换头像 -->
+            <div class="noticechange"></div>
+            <!-- 头像 -->
+            <img class="persion_headimg" ng-src="{{templateModel.imageUrl[0]||defaultHeadImg}}">
+            <!-- 头像背景 -->
+            <div class="head_box_border"></div>
+        </div>
+        <div class="edit_input">
+            <div class="entry_name">
+                <span>我是</span><input class="entry_name_info" placeholder="肖秀秀" ng-model="templateModel.name" type="text" maxlength="16" isdiff="true" change-placeholder-by-focus my-max-length custom-input readonly="readonly" />
+            </div>
+        </div>
+        <div class="bargin_ware">
+            <div class="bargin_ware_box1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.bargainProduct" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="20" isdiff="true" ng-bind-html="templateModel.bargainProduct|newlines"></div>
+            <div class="bargin_ware_box2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit"
+                    ng-trim="false" custom-input readonly="readonly" maxlength="56" isdiff="true" ng-bind-html="templateModel.description|newlines"></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="step2">
+    <div class="mask2"></div>
+    <div class="detail_box">
+        <!-- 标题-->
+        <div class="title"></div>
+        <ion-scroll has-bouncing="false" scrollbar-y="true" class="detail_scroll">
+            <div class="activeinfo">
+                <!--截止时间-->
+
+                <div class="description">截止时间：{{info.description[2]| date:'yyyy年MM月dd日HH点整'}}</div>
+                <!--活动规则-->
+                <div class="rule" ng-if="info.description[0].length!=0">活动规则：</div>
+                <div class="description" ng-model="info.description[0]" ng-trim="false" ng-bind-html="info.description[0]|newlines" ng-if="info.description[0].length!=0"></div>
+                <!--活动奖励-->
+                <div class="rule" ng-if="info.description[1].length!=0">活动奖励：</div>
+                <div class="description" ng-model="info.description[1]" ng-trim="false" ng-bind-html="info.description[1]|newlines" ng-if="info.description[1].length!=0"></div>
+            </div>
+            <div class="departinfo">
+                <!--机构介绍-->
+                <div class="rule" ng-if="info1.description[0].length!=0">机构介绍：</div>
+                <div class="description" ng-model="info1.description[0]" ng-trim="false" ng-bind-html="info1.description[0]|newlines|recogUrl" ng-if="info1.description[0].length!=0"></div>
+                <!--机构电话-->
+                <div class="description rule" ng-if="info1.description[1].length!=0">机构电话：</div>
+                <a ng-hide="isShowPhone" href="tel:{{info1.description[1]}}">
+                    <div class="description" ng-model="info1.description[2]" ng-trim="false" ng-bind-html="info1.description[1]|newlines" ng-if="info1.description[1].length!=0"></div>
+                </a>
+                <!--机构地址-->
+                <div class="rule" ng-if="info1.description[2].length!=0">机构地址：</div>
+                <div class="description" ng-model="info1.description[2]" ng-trim="false" ng-bind-html="info1.description[2]|newlines" ng-if="info1.description[2].length!=0"></div>
+                <!--二维码-->
+                <div class="detail_qrcode_box" ng-if="info1.description[3].length!=0" data-tap-disabled="{{isWebChatQrcode}}">
+                    <img ng-src="{{info1.description[3]}}" class="qrcode" isstopmove="false">
+                </div>
+            </div>
+        </ion-scroll>
+        <div ng-click="close()" class="vote_detail_close">
+            <div ng-click="close()" class="vote_detail_close_new"></div>
+        </div>
+
+    </div>
+</div>

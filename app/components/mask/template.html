@@ -1,0 +1,153 @@
+<!--普通遮罩+loading效果（可选）-->
+<div ng-style="{'display':(mask.isShow&&mask.type==1)?'block':'none'}">
+    <div class="lockMask lcstyle"></div>
+    <div class="lockMask_index popup-tips">
+        <div ng-bind-html="mask.info"></div>
+    </div>
+    <div class="lockMask_loading_normol" ng-show="mask.isShowLoading">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!--loading效果  -->
+</div>
+
+<!--表单也提交成功，分享遮罩--新版遮罩，文案提示（图片上），无loading效果 {-->
+<div ng-style="{'display':(mask.isShow&&mask.type==2)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share2"></div>-->
+    <div class="lockMask_activity_share4"></div>
+</div>
+<!--} 分享遮罩-->
+<!--后台分享遮罩：首页、预览分享遮罩--新版遮罩，文案提示（图片上）无报名成功文案，无loading效果 {-->
+<div ng-style="{'display':(mask.isShow&&mask.type==4)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share2"></div>-->
+    <div class="lockMask_activity_share4"></div>
+</div>
+<!--} 分享遮罩-->
+
+
+<!--用户中心跳转提示遮罩 {-->
+<div ng-style="{'display':(mask.isShow&&mask.type==3)?'block':'none'}">
+    <div class="backdrop visible active"></div>
+    <div class="popup-container popup-showing active" ng-class="cssClass">
+        <div class="popup">
+            <div class="popup-body2">
+                <span ng-bind-html="mask.info"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} 分享遮罩-->
+
+<!-- 带钩的成功遮罩提示框-->
+<div ng-style="{'display':(mask.isShow&&mask.type==5)?'block':'none'}">
+    <div class="maskBox">
+        <div class="mask"></div>
+        <div class="bind_success_box">
+            <div class="tick"></div>
+            <div class="bind_success_text" ng-bind-html="mask.info[0]"></div>
+            <div class="bind_turning" ng-bind-html="mask.info[1]"></div>
+        </div>
+    </div>
+</div>
+
+<!-- 种草前台分享遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==6)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share3"></div>-->
+    <div class="lockMask_activity_share4"></div>
+</div>
+
+<!-- 春节活动前台分享遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==7)?'block':'none'}">
+    <div class="lockMask_acty24"></div>
+    <div class="acty24_share"></div>
+</div>
+
+<!-- 种菜前台分享遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==8)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share3"></div>-->
+    <div class="lockMask_activity_share5"></div>
+</div>
+
+<!-- 代金券前台分享遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==9)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share3"></div>-->
+    <div class="lockMask_activity_share6"></div>
+</div>
+
+
+<!--确定取弹提交框-->
+<div ng-style="{'display':(mask.isShow&&mask.type==21)?'block':'none'}">
+
+</div>
+
+
+<!-- 通用助力类型前台分享遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==41)?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share3"></div>-->
+    <div class="lockMask_activity_share6" ng-style="{'background-image': 'url(' + mask.info+ ')'}"></div>
+</div>
+
+
+
+<!--有点击 第一次引导--->
+<!-- 用户第一次进入编辑页面出现背景可更换的引导遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==31)?'block':'none'}">
+    <div class="lockMask"></div>
+    <div class="bgChangeGuide">
+        <div class="list active_tabs_new2"><a class="item item-icon-left"><i class="icon sireeditbg"></i>背景</a></div>
+    </div>
+    <button type="button" class="lockMask_btn1" ng-click="hideMask()"></button>
+</div>
+
+<!--点击触发回调函数
+用户第一次查看报名本出现提示遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==32)?'block':'none'}">
+    <div class="lockMask"></div>
+    <div class="lockMask_registrationbook_remind"></div>
+    <button type="button" class="lockMask_btn2" ng-click="hideMaskWithCallback()"></button>
+</div>
+
+<!--点击触发回调函数
+用户第一次查看报名本详情页出现提示遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==33)?'block':'none'}">
+    <div class="lockMask_registrationbook_detail_big"></div>
+    <div class="lockMask_registrationbook_detail_remind"></div>
+    <button type="button" class="lockMask_btn2 btn-position" ng-click="hideMaskWithCallback()"></button>
+</div>
+
+<!--点击触发回调函数
+更新系统后用户第一次用户中心出现提示遮罩-->
+<div ng-style="{'display':(mask.isShow&&mask.type==34)?'block':'none'}">
+    <div class="lockMask_registrationbook_detail_big usercenter_mask"></div>
+    <div class="lockMask_usercenter_remind"></div>
+    <button type="button" class="lockMask_btn2 btn-position2" ng-click="hideMaskWithCallback()"></button>
+</div>
+<!--点击触发回调函数
+用户创建微店进入预览页面弹出-->
+<div ng-style="{'display':(mask.isShow&&mask.type==35)?'block':'none'}">
+    <div class="lockMask"></div>
+    <div class="lockMask-microshop-remind create-remind"></div>
+    <button type="button" class="lockMask_btn2" ng-click="hideMask()"></button>
+</div>
+<!--点击触发回调函数
+微店用户营业执照信息不完整，进入微店管理页面弹出-->
+<div ng-style="{'display':(mask.isShow&&mask.type==36)?'block':'none'}">
+    <div class="lockMask"></div>
+    <div class="lockMask-microshop-remind license-remind"></div>
+    <button type="button" class="lockMask_btn2" ng-click="hideMask()"></button>
+</div>
+
+
+<!--微拼团成团成功后的提升遮罩  空节点--> 
+<div ng-style="{'display':(mask.isShow&&mask.type==51)?'block':'none'}" class="element_js"></div>
+
+<div style="display:none;">清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存清缓存</div>

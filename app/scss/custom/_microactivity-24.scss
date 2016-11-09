@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+//新年活动页和前台转发页面 模板样式 by weijun 20150120{
+
+.microactivity-template24{height: 100%; position:relative; padding-top:0;
+  textarea.canEdit,input.canEdit,.editBorder {border:#ccc 1px dashed;}//本活动文本框编辑框样式
+  textarea{overflow-y: hidden;}//本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+@mixin base($rate:1) {
+//与数值相关的样式写这里：
+   .acty24_box1Outer{ padding:temSize(20,$rate) 0 0 0; color:#fff;
+         .acty24_box1{width:temSize(600,$rate);height:temSize(124,$rate); margin:0 auto;}
+		 .acty24_box2{width:temSize(581,$rate);height:temSize(272,$rate); margin:temSize(20,$rate) auto 0 auto; padding:temSize(15,$rate) temSize(20,$rate) 0 temSize(20,$rate);}
+		 .acty24_box2_text{width:temSize(581,$rate);height:temSize(80,$rate); font-size:temSize(28,$rate);}
+		 .acty24_user_name{min-width:temSize(50,$rate); min-height:temSize(35,$rate);}
+		 .acty24_user_name_addstyle {width:temSize(200,$rate); margin-right:temSize(12,$rate);}
+		 .acty24_user_wishes{width:temSize(320,$rate); min-height:temSize(35,$rate);}
+		 .acty24_box3{ width:temSize(555,$rate); margin:temSize(-144,$rate) auto 0;min-height:temSize(480,$rate);}
+		 .acty24_box3_monkey{ top:temSize(116,$rate); left:temSize(120,$rate); width:temSize(316,$rate); height:temSize(369,$rate);}
+         .acty24_box3_monkeyface_box{margin-left: temSize(34,$rate); margin-top: temSize(49,$rate);}
+		 .acty24_box3_monkey_face{ width:temSize(232,$rate);height:temSize(232,$rate); }
+		 .acty24_box3_monkey_prompt{ top:temSize(20,$rate); left:temSize(180,$rate); width:temSize(233,$rate); height:temSize(130,$rate);padding:temSize(8,$rate) 0 0 temSize(8,$rate);}
+		 .acty24_box3_couplets{ width:temSize(147,$rate); }
+		 .couplets_top,.couplets_bottom{width:temSize(145,$rate);height:temSize(31,$rate);}
+		 .couplets_content{ width:temSize(120,$rate);}
+		 .couplets_top_text{ width:temSize(120,$rate); height:temSize(420,$rate); padding:0 temSize(36,$rate); font-size:temSize(46,$rate);
+		        em{ min-width: temSize(52,$rate); min-height:temSize(200,$rate);}
+		 }
+		 .acty24_box3_couplets2{width:temSize(147,$rate); margin-left:temSize(240,$rate);}
+		 .acty24_box4{margin-top:temSize(40,$rate);}
+		 .acty24_box4_style2{margin-top:temSize(4,$rate);}
+		 .acty24_box4_btn{width:temSize(432,$rate);height:temSize(109,$rate);padding-top:temSize(16,$rate);}
+		 .acty24_box4_userhead_btn,.acty24_box4_couplets_btn{width:temSize(258,$rate);height:temSize(86,$rate);padding-top:temSize(16,$rate);}
+		 .acty24_box4_year_btn{width:temSize(480,$rate);height:temSize(86,$rate);padding-top:temSize(16,$rate);}		
+		 .acty24_box4_logo{ width:temSize(90,$rate); height:temSize(90,$rate);top: temSize(48,$rate); right: temSize(32,$rate);
+		       img{width:temSize(90,$rate); height:temSize(90,$rate);}
+		 }
+   }
+   .acty24_box1Outer{
+	   .couplets_content_animation{height:temSize(420,$rate); overflow:hidden; animation:myfirst 5s;-webkit-animation:myfirst 5s;animation-iteration-count:1;-webkit-animation-iteration-count:1;}
+	}
+
+    @keyframes myfirst	{0%{  height:10px;} 30%{  height:temSize(420,$rate);}}
+    @-webkit-keyframes myfirst	{0%{  height:10px;} 30%{  height:temSize(420,$rate);}	}
+   @content;
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-template24{
+ @include base($editrate){
+//commonclass  与数值无关的样式写这里
+	//以下是新年活动页-模板的scss   
+	    .acty24_box1Outer{
+         .acty24_box1{background:url("../img/acty24_pic_2_5.jpg") $img-pozC;@include background-size100;}
+		 .acty24_box2{background:url("../img/acty24_pic_2_1.png") $img-pozC;@include background-size100;position:relative; z-index:3;}
+		 .acty24_box2_text{ display: table-cell; vertical-align: middle;color:#000; text-align:center; line-height:1.4; }
+		 .acty24_user_name{display:inline-block; line-height:1.4; vertical-align: baseline; border-radius:0; text-align:center;}
+		 .acty24_user_name_underline{border-bottom:1px #4b3834 solid;}
+		 .acty24_user_wishes{border-bottom: 1px #4b3834 solid; text-align:left;border-radius:0;}
+		 .acty24_box3{ position:relative;}
+		 .acty24_box3_monkey{position:absolute; z-index:3; background:url("../img/acty24_pic_2_3.png") $img-pozC;@include background-size100;}
+         .acty24_box3_monkeyface_box{display:inline-block;}
+		 .acty24_box3_monkey_face{ -webkit-mask: url(../img/acty24_pic_2_6.png); -webkit-mask-size: auto 100%;}
+	     .acty24_box3_monkey_prompt{  position:absolute; z-index:3; background:url("../img/acty24_pic_2_10.png") $img-pozC;@include background-size100;}
+		 .acty24_box3_couplets{ display:inline-block; }
+		 .couplets_top,.couplets_bottom{ vertical-align: middle; margin:0 auto;background:url("../img/acty24_pic_2_7.png") $img-pozC;@include background-size100; position:relative; z-index:2;}		
+		 .couplets_top_text{ display: table-cell; vertical-align: middle;
+		                  em{display:inline-block; height:auto; line-height:1.1;color:#000;word-break: break-all;}
+		 }	  
+    	 .couplets_content{margin:-2px auto 0; background:url("../img/acty24_pic_2_8.png") $img-pozC;@include background-size100;position:relative; z-index:1;}
+		 .acty24_box3_couplets2{ display:inline-block;}
+		 .acty24_box4,.acty24_box4_style2{ text-align:center;}
+		 .acty24_box4_btn{ background:url("../img/acty24_pic_2_9.png") $img-pozC;@include background-size100; }
+		 .acty24_box4_userhead_btn{background:url("../img/acty24_pic_2_9_1.png") $img-pozC;@include background-size100; }
+		 .acty24_box4_couplets_btn{background:url("../img/acty24_pic_2_9_2.png") $img-pozC;@include background-size100; }
+		 .acty24_box4_year_btn{background:url("../img/acty24_pic_2_9_3.png") $img-pozC;@include background-size100; }
+		 .acty24_box4{ position:relative;}
+		 .acty24_box4_logo{ position: absolute;overflow:hidden; @include face-radius; border:temSize(3) rgba(0,0,0,0.3) solid;
+		       &:before{ @include face-radius; background: rgba(255, 255, 255, 0.8) url("../img/acty24_pic_2_11.png") $img-pozC; background-size:temSize(52);}
+		       img{  max-width: 100%; max-height: 100%;overflow:hidden; overflow-x:hidden; overflow-y:hidden; border:none; @include face-radius;}
+		 }
+       }
+
+  }
+}
+.microactivity-template24 .maxbox{
+  @include base($viewrate);  
+  //仅预览页面使用样式写这里
+  
+  
+}
+
+//以下样式 by huijuan 20150120
+
+//春节对联首页
+.microactivity-template24{
+   .acty24_outer{width:100%;height:100%;position:relative;}
+   .acty24_box1_1{width:temSize(277);height:temSize(462);background:url("../img/acty24_box1_1.png") $img-pozC;@include background-size100;position:absolute;top:temSize(-128);left:temSize(-165);opacity:0;}
+   .acty24_Box1{width:100%;height:temSize(220);position:relative;padding-top:temSize(25);
+          .acty_24_title1_1{width:temSize(322);height:temSize(156);background:url("../img/acty_24_title1_1.png") $img-pozC;margin:0 auto;@include background-size100;opacity:0;}
+          .acty24_logo{width:temSize(100);height:temSize(100);opacity:0;@include face-radius;border:3px solid #796b5b;position:absolute;top:temSize(88);right:temSize(32);
+              img{width:100%;height:100%;@include face-radius;}
+                }
+   }
+   .acty24_box1_2{width:temSize(468);height:temSize(476);background:url("../img/acty24_box1_2.png") $img-pozC;@include background-size100;margin:0 auto;opacity:0;}
+   .acty24_Box2{width:temSize(420);margin:temSize(25) auto 0 auto;font-size:temSize(28);line-height:1.5;color:#432e2b;text-align:center;opacity:0;
+      //span{margin-right:temSize(16);}
+   }
+   .acty24_button1_1{width:temSize(427);height:temSize(113);background:url("../img/acty24_button1_1.png") $img-pozC;@include background-size100;position:absolute;bottom:temSize(80);left:50%;margin-left:temSize(-213);opacity:0;}
+   .acty24_box1_3{width:temSize(193);height:temSize(200);opacity:0;background:url("../img/acty24_box1_3.png") $img-pozT;@include background-size-s1;position:absolute;bottom:0;left:0;}
+   .acty24_box1_4{width:temSize(372);height:temSize(371);opacity:0;background:url("../img/acty24_box1_4.png") $img-pozC;@include background-size100;position:absolute;bottom:temSize(50);right:temSize(-235);}
+
+   //对联编辑页-样式
+   .acty24_box4_1{width:100%;height:temSize(370);padding-top:temSize(120);
+        .acty24_input4_1,.acty24_input4_2{width:temSize(530);margin:0 auto temSize(20) auto;height:temSize(85);position:relative;padding-left:temSize(102);}
+        .acty24_title4_1,.acty24_title4_2{width:temSize(90);height:temSize(39);position:absolute;top:50%;margin-top:temSize(-20);left:0;}
+            .acty24_title4_1{background:url("../img/acty_24_title4_1.png") $img-pozC;@include background-size100;}
+            .acty24_title4_2{background:url("../img/acty_24_title4_2.png") $img-pozC;@include background-size100;}
+       .acty24_input4_1 input,.acty24_input4_2 input{width:temSize(425);height:100%;line-height:temSize(39);border:1px solid #513c3c;text-align:center;color:#312a2a;font-size:temSize(32);background:url("../img/acty24_input_bg4.jpg") $img-pozC;@include background-size100;}
+   }
+   .acty24_btnGroup1{width:temSize(550);margin:0 auto;overflow:hidden;
+       .acty24_button4_1,.acty24_button4_2{width:temSize(258);height:temSize(86);}
+       .acty24_button4_1{background:url("../img/acty24_button4_1.png") $img-pozC;@include background-size100;float:left;}
+       .acty24_button4_2{background:url("../img/acty24_button4_2.png") $img-pozC;@include background-size100;float:right;}
+   }
+   .acty24_box4_2{width:temSize(277);height:temSize(462);background:url("../img/acty24_box1_1.png") $img-pozC;@include background-size100;position:absolute;top:temSize(475);right:temSize(-50);}
+   .acty24_box4_3{width:temSize(193);height:temSize(314);background:url("../img/acty24_box1_3.png") $img-pozC;@include background-size100;position:absolute;top:temSize(523);left:temSize(60);}
+
+   
+    //旋转动画
+   @keyframes rotate {0%{transform: rotate(0);}100%{transform: rotate(-360deg);}}
+   @-webkit-keyframes rotate{0%{-webkit-transform: rotate(0);}100%{-webkit-transform: rotate(-360deg);}}
+  
+   //鞭炮动画
+    @keyframes action1 {0%{opacity:0;transform: rotateZ(25deg);}1%{opacity:1;}35%{opacity:1;transform: rotateZ(-23deg);}60%{opacity:1;transform: rotateZ(10deg);}80%{opacity:1;transform: rotateZ(-15deg);}90%{opacity:1;transform: rotateZ(-5deg);}100%{opacity:1;transform: rotateZ(-7deg);}}
+    @-webkit-keyframes action1{0%{opacity:0;-webkit-transform: rotateZ(25deg);}1%{opacity:1;}35%{opacity:1;-webkit-transform: rotateZ(-23deg);}60%{opacity:1;-webkit-transform: rotateZ(10deg);}80%{opacity:1;-webkit-transform: rotateZ(-15deg);}90%{opacity:1;-webkit-transform: rotateZ(-5deg);}100%{opacity:1;-webkit-transform: rotateZ(-7deg);}}
+
+   //title动画
+    @keyframes opacity {0%{opacity: 0;}100%{opacity: 1;}}
+    @-webkit-keyframes opacity {0%{opacity: 0;}100%{opacity: 1;}}
+   
+   //按钮动画
+    @keyframes action4 {0%{transform: scale(1);}50%{transform:scale(0.9);}100%{transform: scale(1);}}
+    @-webkit-keyframes action4 {0%{-webkit-transform: scale(1);}50%{-webkit-transform:scale(0.9);}100%{-webkit-transform: scale(1);}}
+
+   //灯笼动画
+    @keyframes action5 {0%{opacity:0;transform: translate3d(50%,50%,0)}1%{opacity:1;}30%{opacity:1;transform: translate3d(30%,30%,0) rotate(0deg);}50%{opacity:1;transform: translate3d(0,0,0)}80%{opacity:1;transform: translate3d(0,0,0) rotate(10deg);}100%{opacity:1;transform: translate3d(0,0,0) rotate(0deg);}}
+    @-webkit-keyframes action5 {0%{opacity:0;-webkit-transform: translate3d(50%,50%,0)}1%{opacity:1;}30%{opacity:1;-webkit-transform:translate3d(30%,30%,0) rotate(0deg);}50%{opacity:1;-webkit-transform: translate3d(0,0,0)}80%{opacity:1;-webkit-transform: translate3d(0,0,0) rotate(10deg);}100%{opacity:1;-webkit-transform: translate3d(0,0,0) rotate(0deg);}}
+
+  //画笔动画
+    @keyframes action6 {0%{opacity:0;transform: translate3d(-100%,100%,0) rotate(-25deg);}1%{opacity:1;}100%{opacity:1;transform: translate3d(0,0,0) rotate(0deg);}}
+    @-webkit-keyframes action6 {0%{opacity:0;-webkit-transform:translate3d(-100%,100%,0) rotate(-25deg);}1%{opacity:1;}100%{opacity:1;-webkit-transform:translate3d(0,0,0) rotate(0deg);}}
+   
+
+   .animation{
+       .acty24_box1_2{
+            animation:opacity 0.6s linear 0.2s forwards,rotate 1s ease-out 0s forwards;-webkit-animation:opacity 0.6s linear 0.2s forwards,rotate 1s ease-out 0s forwards;
+       }
+       .acty24_box1_1{
+           -webkit-transform-origin: 80% 20%;transform-origin: 80% 20%;animation:action1 1360ms ease-in-out 0.9s forwards;-webkit-animation:action1 1360ms ease-in-out 0.9s forwards;
+       }
+       .acty24_box1_3{
+           animation:action6 0.5s ease-in-out 1.4s forwards;-webkit-animation:action6 0.5s ease-in-out 1.4s forwards;
+       }
+       .acty24_box1_4{
+           animation:action5 900ms linear 1.1s forwards;-webkit-animation:action5 900ms linear 1.1s forwards;
+       }
+       .acty24_logo{
+           animation:opacity 0.5s linear 1.1s forwards;-webkit-animation:opacity 0.5s linear 1.1s forwards;
+       }
+       .acty_24_title1_1{
+           animation:opacity 0.5s linear 1.8s forwards;-webkit-animation:opacity 0.5s linear 1.8s forwards;
+       }
+       .acty24_Box2{
+           animation:opacity 0.5s linear 2.2s forwards;-webkit-animation:opacity 0.5s linear 2.2s forwards;
+       }
+       .acty24_button1_1{
+           animation:opacity 0.5s linear 2.6s forwards,action4 2s infinite 2.6s forwards;-webkit-animation:opacity 0.5s linear 2.6s forwards,action4 2s infinite 2.6s forwards;
+       }
+   }
+}
+
+//系统提供对联字体定义（严格按照对联文本用字生成字体文件） by wenjun 20160122 {
+@font-face{font-family:"myfont1";src:url('../fonts/xingkai.woff') format('woff');}
+.stylized-font{font-family:"myfont1",$font-family-base;}
+//}系统提供对联字体定义
+//转发遮罩
+.lockMask_acty24{position:absolute; z-index:110; @include mask-base;opacity:0.85;-webkit-opacity:0.85;}
+   .acty24_share{height:temSize(327);width:temSize(332);background:url("../img/acty24_mask_bg.png") $img-pozC;@include background-size100;position:absolute;top:50%;left:50%;margin-left:temSize(-166);margin-top:temSize(-163);z-index:120;}
+

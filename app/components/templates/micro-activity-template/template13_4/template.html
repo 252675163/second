@@ -1,0 +1,24 @@
+<!-- page 4 种草记录 {-->
+<div class = "microactivity-grass bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-show = "isView && grassRecordList.length">
+        <div class="grass2_box3Outer">
+            <div class="grass2_box3_1">
+                <div class="grass2_title2" ng-class="{'editBorder':isEdit}">看看谁种了草</div>
+            </div>
+            <div class="grass2_box3_2 list">
+
+                <div class="item" ng-repeat="item in grassRecordList">
+                    <span class="item-pic"><img ng-src="{{item.HeadImgUrl||defaultHeadImg}}"></span>
+                    <h2>{{item.Nickname||defaultName}}</h2>
+                    <p>帮你种了一棵草</p>
+                    <span class="item-note">{{item.CreatedAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</span>
+                </div>
+                <ion-infinite-scroll on-infinite="loadMore()" ng-if="renderListData.length == 10" distance="1%" immediate-check="false">
+                </ion-infinite-scroll>
+            </div>
+        </div>
+    </div>
+</div>
+<my-footer></my-footer>
+
+<!--} page 4-->

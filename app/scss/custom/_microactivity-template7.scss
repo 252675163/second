@@ -1,0 +1,27 @@
+﻿@charset "utf-8";
+
+//$tem-edit-num:.75;  已经在 _microactivity-2_1.scss 中定义
+/* px to rem by edit*/
+@function temSize_edit($num) {
+  @return ceil($num /40  * $tem-edit-num*100)/100*1rem;
+}
+/* px to rem */
+@function temSize($num) {
+  @return ceil($num /40*100)/100*1rem;
+}
+
+.oldNew_tempale7{  
+    .acty3_box {width: 12.8rem;height: 18.3rem;margin: auto;background: url("../img/acty_temp7_bg2.png") no-repeat center 0.5rem;background-size: 94% 96%;text-align: center;overflow: hidden;}
+
+    .acty3_box input.canEdit, .acty3_box input.canShow {height: 2.1rem;width: 7rem;line-height: 1rem;margin-top: 0.8rem;display: inline-block;font-size: 1.2rem;text-align: center;background: none;color: #fff;}
+
+    .acty3_box textarea.canEdit, .acty3_box textarea.canShow {overflow-y: hidden;display: inline-block;width: 70%;height: auto;background: none;font-size: 0.65rem;line-height: 0.7rem;margin-top: 3rem;padding: 0.2rem;color: #333;opacity: 1;}
+
+    .acty3_box textarea.canEdit, .acty3_box input.canEdit { border: #ccc 1px dashed;}
+
+	.maxbox .acty3_box{width: 15.4rem;height: 24.3rem;background-size: 94% 96%;}
+
+	.maxbox .acty3_box input.canShow{margin-top: 1.2rem;font-size: 1.5rem;}
+
+	.maxbox .acty3_box textarea.canShow{height: auto;margin-top: 4rem;font-size: 0.7rem;width: 12rem;line-height:1.4;}
+} 

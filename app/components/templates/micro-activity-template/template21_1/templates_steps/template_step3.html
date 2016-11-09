@@ -1,0 +1,36 @@
+<div>
+    <form class="form" role="form" id="basic_form" name="basic_form" novalidate="">
+        <div class="vote_input_box">
+            <!--头像-->
+            <div class="header_box_big" ng-click="updateHeadImg()">
+                <img ng-src="{{userInfo.headImg||placeholderheadimg}}" class="person_head-face" err-src="{{placeholderheadimg}}">
+                <input type="text" required="" ng-model="userInfo.headImg"  ng-style="{'display':false?'block':'none'}" >
+                <div class="header_border_big"></div>
+            </div>
+            <div class="input_box">
+                <div class="vote_name_input_box ">姓名
+                    <input class="vote_name_input step3_input" placeholder="您的姓名" required="" ng-model="userInfo.name" maxlength="6" change-placeholder-by-focus custom-input isdiff="true" ng-bind-html="userInfo.name"/>
+                </div>
+                <div class="vote_phone_input_box ">手机
+                    <input class="vote_phone_input step3_input" placeholder="您的电话" required="" ng-model="userInfo.phone" type="tel" maxlength="11" change-placeholder-by-focus
+                    />
+                </div>
+                
+                
+               <!--用户条款-->
+                <div class="vote_useritems2">
+                    <div class="user_terms_checkdiv" ng-click="checkUserTerms()"><span class="user_terms_checkbox" ng-class="{'user_terms_checkbox_select':isCheckUserTerms}"></span></div>
+                    <span class="vote_useritems2_text">同意</span><span class="vote_useritems2_text span2" ng-click="showUserTerms()">用户条款</span>
+                </div>
+                <!-- <div class="vote_ensure_message">&nbsp</div> -->
+                <h1>参赛宣言</h1>
+                <textarea class="vote_slogn_input step3_input" required="" placeholder="快点留下你的个性宣言吧!" custom-input ng-model="userInfo.slogn"
+                    maxlength="50" change-placeholder-by-focus cols="30" rows="10"></textarea>
+                <div class="vote_slogn_counts">{{userInfo.slogn.length||0}}/50</div>
+            </div>
+
+        </div>
+        <button ng-click="publish()" class="vote-btn-full" ng-class="{'btn-disabled':basic_form.$invalid||!isCheckUserTerms||ifSignin}" ng-disabled="basic_form.$invalid||!isCheckUserTerms||ifSignin"></button>
+    </form>
+    <input type="button" id="btn" style="width:0;height:0;">
+</div>

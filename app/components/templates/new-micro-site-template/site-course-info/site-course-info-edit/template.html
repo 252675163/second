@@ -1,0 +1,19 @@
+<!--<div>-->
+    <!--<span>课程小类名称</span>-->
+    <!--<input ng-model ="courseModel.name"/>-->
+    <!--<span>课程介绍</span>-->
+    <!--<input ng-model ="courseModel.description"/>-->
+
+<!--</div>-->
+<div class="list_item_style2_padding">
+    <div class="list_item_style2">
+        <input  maxlength="16" my-max-length class="card_input_style canShow" type="text" ng-model ="courseModel.name"   ng-trim="false"  placeholder="请输入具体课程名"  change-placeholder-by-focus/>
+                                        <span class="siteEdit_item_note" ng-click="removeCourse({courseType:courseType,index:$index})">
+                                            删除
+                                        </span>
+    </div>
+    <div class="list_item_style2">
+        <textarea  placeholder="请输入具体课程介绍" rows="3" maxlength="180" my-max-length class="siteEdit_textarea_style"  ng-model ="courseModel.description"  ng-trim="false" change-placeholder-by-focus ></textarea>
+    </div>
+
+</div>

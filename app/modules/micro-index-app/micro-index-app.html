@@ -1,0 +1,279 @@
+﻿<ion-view cache-view="false">
+    <ion-pane>
+        <feedback-form ng-if="ifShowFeedback" tmpobj="feedbackData"></feedback-form>
+        <div style="min-height: {{winHeight}}px; background: #dee4ed;">
+            <div class="active_index_header">
+                <div class="swiper-container" id="homecontainer">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide swiper_menu">微官网</div>
+                        <div class="swiper-slide swiper_menu">微活动</div>
+                        <div class="swiper-slide swiper_menu">全部</div>
+                        <div class="swiper-slide swiper_menu">微助力</div>
+                        <div class="swiper-slide swiper_menu">微投票</div>
+                        <div class="swiper-slide swiper_menu">微传单</div>
+                    </div>
+                    <!--<div class="swiper_active"></div>-->
+                </div>
+                
+            </div>
+            <ion-content has-bouncing="false" class="book_content" style="top: 2.0rem;">
+                <!-- 顶部通告条没有的时候，此处top值修改为   top: 2.0rem; -->
+                <notification></notification>
+                <div class="active_add_item" ng-repeat="activityModel in data" ng-init="currentModel={}">
+                    <div class="active_info_box">
+                        <div class="clearfix" ng-click="goPreview(activityModel.Id,activityModel.TemplateId,activityModel.Type)">
+                            <div class="active_pic_box">
+                                <img ng-src="{{activityModel.configPreviewImg||activityModel.PreviewImg}}" /><!-- 图为正方形 -->
+                                <span class="active_tag2" ng-show="(activityModel.TemplateId==2|| activityModel.TemplateId==13 || activityModel.TemplateId==14 || activityModel.TemplateId==18|| activityModel.TemplateId==19||activityModel.templateExtConfig.isOpenDeadingFunction) && (activityModel.EndDate!='/Date(253402185600000+0800)/') && ((activityModel.EndDate|diffTime) != 'end') "><span>{{activityModel.EndDate|diffTime}}</span>后截止</span>
+                                <div class="active_Masktag2" ng-show="(activityModel.TemplateId==2|| activityModel.TemplateId==13 || activityModel.TemplateId==14 || activityModel.TemplateId==18|| activityModel.TemplateId==19||activityModel.templateExtConfig.isOpenDeadingFunction) && (activityModel.EndDate!='/Date(253402185600000+0800)/') && ((activityModel.EndDate|diffTime)== 'end')"><span>已截止</span></div>
+                            </div>
+
+                            <!--<span class="active_tag tag_red" ng-show="{{activityModel.Type}}==0">微官网</span>
+                            <span class="active_tag tag_blue" ng-show="{{activityModel.Type}}==1">微活动</span>-->
+                            <div class="active_text_box">
+                                <span class="active_text1">{{activityModel.Title|Maxlength:24}}</span>
+                                <span class="active_text2">{{activityModel.desc|Maxlength:28}}</span>
+                            </div>
+                            <span class="active_foot_text">最后修改时间：{{formatDateByStatistics(activityModel.CreatedAt)| date:'yyyy-MM-dd HH:mm'}}</span>
+
+                        </div>
+                        <div class="new_sence_lock" ng-show="activityModel.IsFreeze">
+                            <div class="active_refreze_btn" ng-click="refreze(activityModel.Id,activityModel.TemplateType)"></div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="active_btn_box">
+                        <button type="button" class="active_btn" ng-click="goStatistic(activityModel.Id,activityModel.Type,activityModel.TemplateType)">
+                            <em class="a_icon_read"></em><span>{{activityModel.Pv | NumberMAx}}</span>
+                        </button>
+                        <button type="button" class="active_btn" ng-click="goConsult(activityModel.Id,activityModel.Type,activityModel.TemplateCode,activityModel.TemplateType)">
+                            <em class="a_icon_consults"></em><span>{{activityModel.Consults | NumberMAx}}</span>
+                        </button>
+                        <button type="button" class="active_btn" ng-click="share(activityModel.Id,activityModel.TemplateId,activityModel.Type,activityModel.ShareConfig,activityModel.CreatedAt,activityModel.Style,activityModel.ActivityType,activityModel.TemplateCode)">
+                            <em class="a_icon_share"></em><span>分享</span>
+                        </button>
+                        <button type="button" class="active_btn" ng-init="isShowMoreButton=false" ng-click="showMore(activityModel)">
+                            <em class="a_icon_more"></em>
+                        </button>
+                        <!--<button type="button" class="active_btn" ng-click="statistics(activityModel.Id,activityModel.TemplateId)">
+                            <em class="a_icon_statistics"></em><span>数据统计</span>
+                        </button><button type="button" class="active_btn disabled" style="display: none;">-->
+                        <!--<em class="a_icon_forbidden"></em><span>禁用</span>-->
+                        <!--</button>-->
+                    </div>
+
+                </div>
+
+                <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+                </ion-infinite-scroll>
+            </ion-content>
+            <div class="position-fixed-btn" ng-click="goNew()">
+                <span class="position-fixed-icon"></span>
+            </div>
+            <ion-footer-bar class="bar bar-footer footer_book new_tabs">
+                <a class="new_tab_item active" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+                
+                <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+                <a class="new_tab_item" ng-click="goRegistrationBook()"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+                <a class="new_tab_item" ng-click="goUserCenter(UserInfo.Phone)"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+            </ion-footer-bar>
+
+
+        </div>
+
+        <div class="active_add_empty" style="display: none"></div>
+    </ion-pane>
+    <!--不能受到ion-footer-bar与ion-header-bar影响的需放到ion-pane外面（比如有遮罩的dom）-->
+    <prompt-bar></prompt-bar>
+    <div upload-img></div>
+    <!--主页>更多菜单弹框 {-->
+    <div ng-style="{'display':isShowMoreButton?'block':'none'}">
+        <div class="lockMask"></div>
+        <div class="bar bar-footer popup_foot_bar">
+            <div class="popup_foot_bar_tabs">
+                <ion-scroll direction="x" scrollbar-x="false" has-bouncing="false">
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="goEdit()">
+                        <span>编辑</span>
+                    </a>
+                    <button class="foot_bar_item" href="javascript:void(0);" ng-click="goCopy()" ng-disabled="currentModel.IsFreeze">
+                        <span class="line-wrap" ng-class="currentModel.IsFreeze?'disabledtext':''" >复制场景</span>
+                    </button>
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="goQrCode()">
+                        <span>二维码</span>
+                    </a>
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="goCopyLink()">
+                        <span class="line-wrap">复制链接</span>
+                    </a>
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="setDeadLine()" id="deadLineItem" ng-show="currentModel && (currentModel.TemplateId==13 || currentModel.TemplateId==14 || currentModel.TemplateId==18|| currentModel.TemplateId==19||currentModel.templateExtConfig.isOpenDeadingFunction)">
+                        <span class="line-wrap">截止时间</span>
+                    </a>
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="goPublish()" ng-show="currentModel && currentModel.Type== 0 && currentModel.TemplateId==10 ">
+                        <span>同步</span>
+                    </a>
+                    <a class="foot_bar_item" href="javascript:void(0);" ng-click="goDel()">
+                        <span>删除</span>
+                    </a>
+                </ion-scroll>
+            </div>
+            <button type="button" class="popup_foot_btn" ng-click="isShowMoreButton=false">取消</button>
+        </div>
+    </div>
+    <!--} 主页>更多菜单弹框-->
+    <!--分享的mask-->
+    <div style="display: none">
+        <div class="lockMask lcstyle"></div>
+        <div class="lockMask_index popup-tips">
+            即将为您跳转到分享页面
+            <br />
+            记得点击下一页右上角分享哦~
+        </div>
+        <div class="lockMask_loading_normol">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+        <!--loading效果 -->
+    </div>
+
+
+    <!--分享的弹窗-->
+    <div ng-style="{'display':isShowShareTitlePop?'block':'none'}">
+        <button type="button" class="btn-closed" style="z-index: 8;" ng-click="colseShareTitlePop()"></button>
+        <div class="lockMask" style="z-index: 7;"></div>
+        <div class="popup-tips-s1" style="z-index: 7;"></div>
+        <div class="popup-wrap-s1" style="z-index: 7;">
+            <div class="popup-share-head">
+                <div class="popup-text-span">标题：</div>
+                <input ng-model="showShareTitlePopModel.shareTitle" />
+            </div>
+            <div class="popup-content">
+                <div class="popup-box clearfix">
+                    <div class="popup-boxL" ng-click="changeShareImage(0)">
+                        <img ng-src="{{showShareTitlePopModel.imageUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button>
+                    </div>
+                    <!--<span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>-->
+                    <div class="popup-boxR">
+                        <textarea placeholder="分享内容：" class="popup_textbox" maxlength="100" ng-model="showShareTitlePopModel.desc"></textarea>
+                        <span class="popup-box_total"><span>{{showShareTitlePopModel.desc.length||0}}</span> / 100</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <div class="button-share-sigle" ng-click="showShareTitlePopModel.saveShareTitleFunction()">立刻分享</div>
+            </div>
+        </div>
+    </div>
+
+    <!--复制的弹窗-->
+    <div ng-style="{'display':isCopy?'block':'none'}">
+        <button type="button" class="btn-closed" style="z-index: 8;" ng-click="colseCopyPop()"></button>
+        <div class="lockMask" style="z-index: 7;"></div>
+        <div class="popup-tips-s3" style="z-index: 7"></div>
+        <div class="popup-wrap-s1" style="z-index: 7">
+            <div class="popup-share-head">
+                <div class="popup-text-span">标题：</div>
+                <input ng-model="copyModelShareConfig.title" />
+            </div>
+            <div class="popup-content">
+                <div class="popup-box clearfix">
+                    <div class="popup-boxL" ng-click="changeShareImage(1)">
+                        <img ng-src="{{copyModelShareConfig.imgUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button>
+                    </div>
+                    <!--<span class="popup-box-text">{{copyModelShareConfig.desc}}</span>-->
+                    <div class=" popup-boxR">
+                        <textarea placeholder="分享内容：" class="popup_textbox" maxlength="100" ng-model="copyModelShareConfig.desc"></textarea>
+                        <span class="popup-box_total"><span>{{copyModelShareConfig.desc.length||0}}</span> / 100</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <div class="button-share-sigle" ng-click="goSaveCopy()">复制</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--复制成功后的过渡弹窗-->
+    <div class="maskBox" ng-style="{'display':isCopySuccess?'block':'none'}">
+        <div class="mask"></div>
+        <div class="bind_success_box">
+            <div class="tick"></div>
+            <div class="bind_success_text">复制成功！</div>
+        </div>
+    </div>
+
+    <!--二维码的弹窗-->
+    <div ng-style="{'display':isQrCode?'block':'none'}">
+        <button type="button" class="btn-closed2" ng-click="closeQrCode()"></button>
+        <div class="lockMask"></div>
+        <div class="popup-tips-s2"></div>
+        <div class="popup-wrap-s1 code_height">
+            <div id="qrcode"><img ng-src="{{qrCodeImageUrl}}" style="height:100%;width:100%;position: absolute;left: 0;top: 0;" /></div>
+        </div>
+    </div>
+
+
+    <!--分享遮罩 {-->
+    <div ng-style="{'display':isShare?'block':'none'}">
+        <div class="lockMask"></div>
+        <!--    <div class="lockMask_activity_share"></div>-->
+        <div class="lockMask_activity_share4"></div>
+    </div>
+
+
+
+    <!--设置截止时间 {-->
+    <div  ng-style="{'display':isDeadLine?'block':'none'}">
+        <div class="lockMask"></div>
+        <input type="hidden" ng-model="currentModel.EndDate" mobiscroll-datetime="dateSetting" mobiscroll-instance="dateTimeObj" />
+        <input type="hidden" ng-model="currentModel.EndDate" mobiscroll-datetime="dateSetting2" mobiscroll-instance="dateTimeObj2" />
+    </div>
+
+    <!--创建新场景的遮罩-->
+    <div class="modal_box" ng-style="{'display':isShowNew?'block':'none'}">
+        <div class="modal_content">
+            <div class="modal_item_box bgcolor1">
+                <div class="modal_item_text" ng-click="goWebsiteNew()">微官网</div>
+            </div>
+            <div class="modal_item_box bgcolor2">
+                <div class="modal_item_text" ng-click="goActivityNew(2)">微活动</div>
+            </div>
+            <div class="modal_item_box bgcolor3">
+                <div class="modal_item_text" ng-click="goActivityNew(3)">微助力</div>
+            </div>
+            <div class="modal_item_box bgcolor4">
+                <div class="modal_item_text" ng-click="goActivityNew(4)">微投票</div>
+            </div>
+            <div class="modal_item_box bgcolor5">
+                <div class="modal_item_text" ng-click="goActivityNew(5)">微传单</div>
+            </div>
+            <div class="modal_item_box comesoon">
+                <div class="modal_item_text">COMING<br />SOON</div>
+            </div>
+        </div>
+        <div class="modal_bottom_position" ng-click="closeNew()">
+            <div class="modal_bottom_icon_box"><span class="modal_bottom_icon"></span></div>
+        </div>
+    </div>
+
+
+    <!--&lt;!&ndash;复制链接的弹窗&ndash;&gt;-->
+    <div ng-style="{'display':isCopyLink?'block':'none'}">
+        <button type="button" class="btn-closed3" style="z-index: 8;" ng-click="closeCopy()"></button>
+        <div class="lockMask" style="z-index: 7; "></div>
+        <div class="popup-tips-s4" style="z-index: 7; "></div>
+        <div class="popup-wrap-s2" style="z-index: 7; ">
+            <div class="popup_link_box" style="position: relative;">
+                <div class="popup_link_style" data-tap-disabled="{{isCopyLink}}" isstopmove="false" id="copyBox">
+                    {{copyLink}}
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</ion-view>
+<!--注意：ion-view外层不能添加代码 by yinglechao-->

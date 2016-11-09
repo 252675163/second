@@ -1,0 +1,45 @@
+<!--预览-->
+<div class="grow_vegetables_tree_box editing">
+    <!--编辑-->
+    <div ng-style="{'display':isEdit?'block':'none'}">
+        <div class="header_box_big" ng-click="updateImg(0)">
+            <img ng-src="{{templateModel.imageUrl[0]||getImageDoMain('/default_avatar.png')|transformWeixinHeadImg:96}}" class="person_head-face" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/big_avatar_black.png')+ ')','-webkit-mask-size':'cover'}">
+            <div class="header_border_big" ng-style="{'background-image': 'url(' + getImageDoMain('/big_avatar.png')+ ')'}"></div>
+        </div>
+        <div class="form_info_box">
+            <div class="form_info_1" ng-style="{'background-image':'url(' + getImageDoMain('/input_box1.png')+ ')'}">
+                <input placeholder="请输入姓名" class="form_info_1_text" ng-model="templateModel.name" ng-disabled="!isEdit" ng-trim="false" type="text" custom-input readonly="readonly" maxlength="6" my-max-length />
+            </div>
+        </div>
+    </div>
+
+    <div ng-style="{'display':isEdit?'none':'block'}">
+        <!--种完菜的gif-->
+        <div class="grow_vegetables_singular" ng-style="{'display':isDance&&!isGrow?'':'none'}"><!--注：显示使用默认，不使用block-->
+            <div class="grow_vegetables_pic " ng-style="{'background-image':'url(' + getImageDoMain('/active_gif.gif')+ ')'}"></div>
+        </div>
+        <!--几棵菜展示-->
+        <div class="grow_vegetables_plural"  ng-style="{'display':!(isGrow||isDance||userInfo1.grassCount===0)?'block':'none'}">
+            <div class="grow_vegetables_gif " ng-style="{'background-image':!groupGifUrl?'':'url(' + getImageDoMain(groupGifUrl)+ ')'}"></div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="xmas_head"><img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}"/></div>&lt;!&ndash; 显示头像 &ndash;&gt;-->
+
+<div class="grow_vegetables_btn_group1 catchFish_btn_group " ng-class="{'grow_vegetables_btn_group2':(isEnd || isHideDddGrassButton||isHaveGrow)}" ng-style="{'display':isEdit?'none':'block'}">
+    <!--帮他捕鱼 双按钮-->
+    <button ng-if="(!visitorInfo.isSelfShare || !isView) &&!isHaveAddGrass" type="button" class="catchFish_btn1_1" ng-click="chooseGrassAction()" ng-disabled="isEnd || isHideDddGrassButton" ng-style="{'background-image': 'url(' + getImageDoMain('/button_1.png')+ ')'}"></button>
+    <!--我也要养鱼 双按钮-->
+    <button ng-if="(!visitorInfo.isSelfShare || !isView) &&!isHaveAddGrass" type="button" class="catchFish_btn1_2" ng-click="goForm()" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/button_2.png')+ ')'}"></button>
+    <!--帮我捕鱼 单按钮-->
+    <button ng-if="visitorInfo.isSelfShare && !isHaveAddGrass" type="button" class="catchFish_btn1_3" ng-click="chooseGrassAction()" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/button_6.png')+ ')'}"></button>
+    <!--已捕鱼 单按钮-->
+    <button ng-if="visitorInfo.isSelfShare && isHaveAddGrass" type="button" class="catchFish_btn1_3" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/button_5_finish.png')+ ')'}"></button>
+    <!--我也要养鱼 单按钮-->
+    <button ng-if="(!visitorInfo.isSelfShare || !isView) && isHaveAddGrass" type="button" class="catchFish_btn1_3" ng-click="goForm()" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/button_3.png')+ ')'}"></button>
+</div>
+
+
+

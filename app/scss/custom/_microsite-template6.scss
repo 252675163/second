@@ -1,0 +1,242 @@
+
+
+#editdiv{
+  .template6.section6
+  {
+    .temp6ContentBox {
+      width: 12.5rem;
+      height:91%;
+    }
+   }
+}
+
+.section6
+{
+  height:100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-origin: border-box;
+  background-origin: border-box;
+  .temp6ContentBox{
+    width: 14.735rem;
+    height: 90%;
+    background: url("../img/temp6_bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 98%;
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+    margin: 0 auto;
+    padding-top: 2.2rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+  }
+  input{
+    text-align: center;
+    background:none !important;
+    @extend .temp1BigFont;
+    opacity: 1;
+  }
+  textarea{
+    background:none !important;
+    @extend .temp1SmallFont;
+    @include text-shadow-s2_1(#444);color:#fff;
+    font-family:$font-family-base;
+    font-weight: bold;
+    overflow:hidden;
+    line-height: .85rem;
+    font-size: .67rem;
+    padding: 0 1.2rem;
+    opacity: 1;
+
+  }
+
+}
+
+.content_item{
+  padding-top: 1.0rem;
+  text-align: center;
+  margin: 0 auto;
+  input{
+    display: inline-block;
+
+  }
+
+}
+
+.temp6Title{
+  width: 15.88rem;
+  height: 2.99rem;
+  background: url("../img/temp6_title_bg_03.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-origin: border-box;
+  background-origin: border-box;
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  margin-left: -49%;
+  z-index: 2;
+  text-align: center;
+  input{
+    display: inline-block;
+    height: 1.8rem;
+    @extend .temp1BigFont;
+    @include text-shadow-s2(#266364);color:#fff;
+  }
+}
+.temp6ImgBox1{
+  z-index:3;
+  background-color: #fff6d8;
+  @include transform-rotate(20deg);
+  -webkit-transform-origin: 100% 100%;
+  float:left;
+  border-radius: 0.15rem;
+  img{
+    width:12.395rem;
+    height:6.276rem;
+
+    margin:0;
+    border-radius: 0.15rem;
+    box-shadow: rgba(0,0,0,.15) 0 1px 1px;
+  }
+}
+
+
+.temp6ImgBox2{
+  z-index: 2;
+  @include transform-rotate(3deg);
+  -webkit-transform-origin: 0% 0%; /* Safari and Chrome */
+  border-radius: 0.15rem;
+  img {
+    margin:0;
+//    width:12.395rem;
+//    height:6.276rem;
+    width: getRemSize(481);
+    height: getRemSize(313);
+    border: 3px solid #fff6d8;
+    border-radius: 0.15rem;
+    box-shadow: rgba(0,0,0,.15) 0 1px 1px;
+
+  }
+}
+/*图钉*/
+.imgBox{
+  position: relative;
+  .temp6Round1{
+    width:1.04rem;
+    height:1.04rem;
+    background: url("../img/temp6_round.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-origin: border-box;
+    background-origin: border-box;
+    z-index: 6;
+    left: 50%;
+    margin-top: 1rem;
+    margin-left:-1.3rem;
+    position: absolute;
+  }
+  .temp6Round2{
+    width:1.04rem;
+    height:1.04rem;
+    background: url("../img/temp6_round.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-origin: border-box;
+    background-origin: border-box;
+    z-index: 6;
+    left: 50%;
+    margin-top: .4rem;
+    margin-left: .45rem;
+    position: absolute;
+  }
+
+}
+
+.edit.template6,.has-footer_cover .template6{
+  .temp6Title{
+    width: 13.5rem;
+    height: 2.545rem;
+  }
+}
+
+#editdiv{
+  .template6{
+  textarea{
+    padding: 0 0.6rem;
+  }
+
+}
+}
+#editdiv,.has-footer_cover {
+  .section6 {
+    .temp6ImgBox1 {
+      img{
+        width: 10.53rem;
+        height: 5.3346rem;
+      }
+    }
+    .temp6ImgBox2 {
+      img{
+//        width: 10.53rem;
+//        height: 5.3346rem;
+        width: getRemSizeByEdit(480);
+        height: getRemSizeByEdit(313);
+      }
+    }
+  }
+}
+
+#editdiv,.has-footer_cover {
+  .imgBox {
+    position: relative;
+    .temp6Round1 {
+      width: 0.89rem;
+      height: 0.89rem;
+    }
+    .temp6Round2 {
+      width: 0.89rem;
+      height: 0.89rem;
+    }
+  }
+}
+
+.temp6ActiveText{
+  width: 12.5rem;
+  height: 6.041rem;
+}
+
+#editdiv,.has-footer_cover {
+  .section6 {
+    .temp6ActiveText{
+      width: 10.625rem;
+      height: 5.135rem;
+    }
+  }
+}
+
+@media screen and (max-height: 481px) {
+  //编辑
+  #editdiv .template6.section6 {
+    .temp6ContentBox {
+      height: 100%;
+      background-size: 100% 89%;
+      padding-top:2rem;
+      .temp6ImgBox2 {
+        img {
+          margin: 0;
+          width: 9.5rem;
+          height: 5.6rem;
+        }
+      }
+    }
+    .temp6Title{
+    }
+  }
+  //非编辑
+  .siteTemp1{
+    margin-top: 2rem;
+
+  }
+}

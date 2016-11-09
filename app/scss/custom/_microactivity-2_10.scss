@@ -1,0 +1,106 @@
+﻿@charset "utf-8";
+//元旦活动模板 模板样式 by weijun 20151119{
+
+.microactivity-template20{height: 100%; position:relative; padding-top:0;
+  textarea.canEdit,input.canEdit,.editBorder {border:#ccc 1px dashed;}//本活动文本框编辑框样式
+  textarea{overflow-y: hidden;}//本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+
+@mixin base($rate:1) {
+  //与数值相关的样式写这里：
+  .acty20_box1Outer{padding-top:temSize(88,$rate);
+     .acty20_box1{ width:temSize(562,$rate); height:temSize(62,$rate); margin: 0 auto;
+        .acty20_box1_text{width:100%; font-size:temSize(60,$rate); padding:0 temSize(34,$rate); color:#fff;}	
+     }
+	 .acty20_box2{ width:temSize(562,$rate); margin: temSize(40,$rate) auto 0;
+	   .acty20_box2_text{ width:100%; font-size:temSize(48,$rate);}
+	 }
+	  .acty20_box2_2{ width:temSize(562,$rate); margin: temSize(40,$rate) auto 0;
+	   .acty20_box2_2_text{ width:100%; font-size:temSize(24,$rate);}
+	 }
+     .acty20_box3{width:temSize(260,$rate); height:temSize(320,$rate); margin: temSize(140,$rate) auto temSize(140,$rate);}
+	 .acty20_box3_2{width:temSize(535,$rate); height:temSize(600,$rate); margin:temSize(50,$rate) auto temSize(30,$rate);padding:temSize(20,$rate) temSize(30,$rate);
+	        .acty20_box3_text{width:100%; font-size:temSize(32,$rate);}
+			.acty20_box3_gif{ width:temSize(150,$rate); height:temSize(144,$rate); bottom:temSize(-30,$rate); right:temSize(-30,$rate);}			
+			
+	 }
+	 .acty20_box3_3{ width:temSize(535,$rate); height:temSize(600,$rate); margin:temSize(50,$rate) auto temSize(30,$rate);padding:temSize(40,$rate) temSize(40,$rate) 0;
+	     .acty20_box3_3_input{width:100%; height:temSize(68,$rate);margin-bottom:temSize(30,$rate); font-size:temSize(28,$rate);}
+		 .acty20_box3_3_text{ width:100%; font-size:temSize(28,$rate);}
+		 .acty20_form_btn{margin-top:temSize(30,$rate);
+               input{height:temSize(90,$rate); font-size:temSize(36,$rate); padding:temSize(24,$rate);  width:100%;}
+         }
+	 }
+	 .acty20_box4{
+	   textarea{font-size:temSize(30,$rate);width:temSize(160,$rate);}
+       .acty20_box4_text1{text-align:right;}
+       .acty20_box4_text2{text-align:center;}
+	 }
+  } 
+
+
+
+   @content;
+  //媒体查询写在这里  使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603
+    
+ } 
+   
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567
+    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+ }
+
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+ }
+
+
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-template20{
+ @include base($editrate){
+    //commonclass  与数值无关的样式写这里
+
+   .acty20_box1Outer{
+     .acty20_box1{
+          background:url("../img/acty20_title_bg.png") $img-pozC;@include background-size100;
+		 .acty20_box1_text{color:#fff; line-height:1; text-align:center;}	
+		}     
+	 .acty20_box2{
+	     .acty20_box2_text{line-height: 1.2; text-align:center; color: #fff; text-align:center; }
+	 }
+	  .acty20_box2_2{
+	     .acty20_box2_2_text{line-height: 1.4; text-align:center; color: #fff; text-align:left; }
+	 }
+	 .acty20_box3{ background:url("../img/acty20_box_content.gif") $img-pozC;@include background-size100;}
+	 .acty20_box3_2{ position:relative; background:rgba(255,255,255,.1); border:4px rgba(0,0,0,.1) solid; border-radius:8px;
+	     .acty20_box3_text{color:#fff; line-height: 1.6;}
+		 .acty20_box3_gif{position: absolute; z-index:2; background:url("../img/acty20_box3_2.gif") $img-pozC;@include background-size100;}
+	 }
+	  .acty20_box3_3{ background:rgba(255,255,255,.1); border:4px rgba(0,0,0,.1) solid; border-radius:8px;
+	      .acty20_box3_3_input, .acty20_box3_3_text{text-align:center; @include border-radius-basic(5px);line-height:1;background:#fff; color:#aaa;}
+		  .acty20_box3_3_text{line-height:1.5;}
+		  .acty20_form_btn{background:#613939;@include border-radius-basic(5px);
+               input{ color:#fff;text-align: center;@include border-radius-basic(5px);}
+          }
+	 }
+	 .acty20_box4{text-align:center;
+	    textarea{display:inline-block;color:#fff;line-height:1.5;}
+	 }
+  } 
+
+
+  }
+}
+.microactivity-template20 .maxbox{
+  @include base($viewrate);  
+  //仅预览页面使用样式写这里
+  .acty20_box1_text,.acty20_box1_text,.acty20_form_btn input{color:#fff!important;}
+  
+}
+

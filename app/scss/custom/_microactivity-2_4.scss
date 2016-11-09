@@ -1,0 +1,111 @@
+﻿@charset "utf-8";
+//感恩节模板样式 by wenjun 20151026{
+
+.microactivity-template10{height: 100%; position:relative;
+  textarea.canEdit,input.canEdit,.editBorder {border:#ccc 1px dashed;}//本活动文本框编辑框样式
+  .acty10_textBox1,.acty10_textBox2,.acty10_textBox3,.acty10_textBox4,.acty10_textBox5,.acty10_textBox6{overflow-y: hidden;line-height: normal;}//本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+  .acty10_box1{padding:temSize_edit(540) 1rem 0; text-align:center;
+    .acty10_title1,.acty10_textBox1{background: none;}
+    .acty10_title1{width:100%;height:temSize_edit(138); margin:0 auto temSize_edit(54); font-size:temSize_edit(113);text-align:center; font-weight:bold; color:#333;}
+    .acty10_textBox1{height:temSize_edit(192); font-size:temSize_edit(40);width:100%;text-align:center; color:#fff;}
+  }
+  
+  .acty10_box2{padding:0 temSize_edit(25);
+      .acty10_textBox2{height:temSize_edit(589);font-size:temSize_edit(30); width:100%; color:#fff;background: none;text-align: left;}
+  }
+
+  .acty10_box3{height:temSize_edit(130); top:40%; padding:temSize_edit(30) temSize_edit(140) 0; width:100%; background:url("../img/acty10_title-bg1.png") $img-pozC;@include background-size100;position:absolute; left:0; z-index:2;
+      .acty10_title2{height:temSize_edit(72);font-size:temSize_edit(52);width:100%;text-align:center; color:#fff; font-weight:bold;}
+  }
+
+  .acty10_boxOuter1{padding:temSize_edit(30) temSize_edit(40) 0;}
+  .acty10_box4{height:temSize_edit(630);background:rgba(0,0,0,.5);width:100%; padding:temSize_edit(50) temSize_edit(40) 0;
+    .acty10_title3,.acty10_title4,.acty10_textBox3{width:100%; color:#fff;background: none;}
+    .acty10_title3{height:temSize_edit(88);font-size:temSize_edit(66); margin-bottom:temSize_edit(28);font-weight:bold; text-align:center;}
+    .acty10_title4Outer{margin-bottom:temSize_edit(30);border:#fff 2px solid;
+        .acty10_title4{height:temSize_edit(68); font-size:temSize_edit(44);text-align:center;}
+    }
+    .acty10_textBox3{height:temSize_edit(248); font-size:temSize_edit(28); line-height:temSize_edit(40);text-align: left;}
+
+  }
+  .acty10_box5{height:temSize_edit(240); top:38%; padding:temSize_edit(26) temSize_edit(30) 0; width:100%; background:rgba(242,242,242,.8);position:absolute; left:0; z-index:2;
+    .acty10_title5,.acty10_textBox4{width:100%; background: none; font-weight:bold;text-align:center;}
+    .acty10_title5{height:temSize_edit(74);margin-bottom:temSize_edit(20);font-size:temSize_edit(45);color:#d90a0a;}
+    .acty10_textBox4{height:temSize_edit(101);font-size:temSize_edit(24); color:#000; line-height:150%; text-align:left;}
+  }
+
+  .acty10_box6{padding:temSize_edit(118) temSize_edit(120) 0;
+    .acty10_title6,.acty10_textBox5{width:100%; background: none; text-align:center; color:#333; }
+    .acty10_title6{height:temSize_edit(68);margin-bottom:temSize_edit(40);font-size:temSize_edit(51);font-weight:bold;}
+    .acty10_textBox5{height:auto;font-size:temSize_edit(28); line-height:150%; color:#000000;}
+  }
+  .acty10_box7{padding:temSize_edit(92) temSize_edit(80) 0;
+    .acty10_title7,.acty10_textBox6{width:100%; background: none; text-align:center; color:#000; }
+    .acty10_title7{height:temSize_edit(88);margin-bottom:temSize_edit(34);font-size:temSize_edit(68);font-weight:bold;}
+    .acty10_textBox6{height:temSize_edit(96);font-size:temSize_edit(28); line-height:150%;}
+    .acty10_form{width:100%; padding-top:temSize_edit(82);
+    .acty10_form_text,.acty10_form_btn{width:100%;@include border-radius-basic(5px);}
+    .acty10_form_text{height:temSize_edit(80); margin-bottom:temSize_edit(40); color:#333;font-size:temSize_edit(28);border:#ccc 1.5px solid;text-align: center; line-height: normal;}
+    .acty10_form_btn{background:#1eae80;  margin-top:temSize_edit(55);
+        input{height:temSize_edit(120); font-size:temSize_edit(42); padding:temSize_edit(24); line-height: normal; width:100%; color:#fff;text-align: center;}
+       }
+    }
+  }
+
+  .acty10_pic_box1{width:100%; height:temSize_edit(378); margin-bottom:temSize_edit(20);
+    img{width:100%; height:100%;}
+  }
+  .acty10_pic_box2,.acty10_pic_box3,.acty10_pic_box4,.acty10_pic_box5,.acty10_pic_box6{position:absolute;
+      img{width:100%; height:100%;}
+  }
+  .acty10_pic_box2{top:0; left:0; right:0; height:50%;}
+  .acty10_pic_box3{left:0; right:0; bottom:0; height:53%;}
+  .acty10_pic_box4{top:0; left:0; right:0; height:54%;}
+  .acty10_pic_box5{left:0; right:50%; bottom:0; height:46%;}
+  .acty10_pic_box6{left:50%; right:0; bottom:0; height:46%;}
+
+  .maxbox {
+    .acty10_box1{padding:temSize(560) temSize(50) 0;
+        .acty10_title1{height:temSize(128); margin-bottom:temSize(54); font-size:temSize(100);}
+        .acty10_textBox1{height:temSize(168); font-size:temSize(40);}
+    }
+    .acty10_box2{padding:0 temSize(25);
+      .acty10_textBox2{height:temSize(634);font-size:.65rem;/*font-size:temSize(32);*/}
+
+    }
+
+    .acty10_box3{height:temSize(130); top:temSize(412); padding:temSize(30) temSize(140) 0;
+        .acty10_title2{height:temSize(72);font-size:temSize(52);}
+    }
+
+    .acty10_boxOuter1{padding:temSize(30) temSize(40) 0;}
+    .acty10_box4{height:temSize(630);padding:temSize(50) temSize(40) 0;
+        .acty10_title3{height:temSize(88);font-size:temSize(66); margin-bottom:temSize(28);}
+        .acty10_title4Outer{margin-bottom:temSize(30);
+            .acty10_title4{height:temSize(68); font-size:temSize(44);}
+        }
+        .acty10_textBox3{height:temSize(240);font-size:temSize(28); line-height:temSize(40);}
+    }
+    .acty10_box5{height:temSize(240); padding:temSize(30) temSize(30) 0;
+        .acty10_title5{height:temSize(64);margin-bottom:temSize(20);font-size:temSize(45);}
+        .acty10_textBox4{height:temSize(88);font-size:.65rem;/*font-size:temSize(28);*/}
+    }
+    .acty10_box6{padding:temSize(118) temSize(120) 0;
+        .acty10_title6{height:temSize(68);margin-bottom:temSize(40);font-size:temSize(49);}
+        .acty10_textBox5{font-size:temSize(28);}
+    }
+    .acty10_box7{padding:temSize(92) temSize(80) 0;
+        .acty10_title7{height:temSize(88);margin-bottom:temSize(34);font-size:temSize(59);}
+        .acty10_textBox6{height:temSize(88);font-size:temSize(28);}
+        .acty10_form{padding-top:temSize(82);
+        .acty10_form_text{height:temSize(80); margin-bottom:temSize(40); font-size:temSize(28);}
+        .acty10_form_btn{ margin-top:temSize(55);
+            input{height:temSize(120); font-size:temSize(36); padding:temSize(24);}
+           }
+        }
+    }
+    .acty10_pic_box1{height:temSize(378); margin-bottom:temSize(20);}
+  }
+}
+.acty10_tem2{padding-top:0;}
+//}推荐模板样式

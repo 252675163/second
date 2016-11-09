@@ -1,0 +1,599 @@
+﻿@charset "utf-8";
+//微店-口碑
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+
+.micro-shop-koubei {
+    ion-footer-bar {
+        padding: 0;
+    }
+
+    .mar-t-15 {
+        margin-top: temSize(15);
+    }
+
+    .mar-t-20 {
+        margin-top: temSize(20);
+    }
+
+    .gray-bg {
+        background: #dfe3ed;
+    }
+
+    .box {
+        height: temSize(80);
+        width: 100%;
+        font-size: temSize(24);
+        color: #333;
+        padding-left: temSize(40);
+        padding-right: temSize(48);
+        line-height: temSize(80);
+        overflow: hidden;
+        background: #fff;
+        border-bottom: 1px solid #cbced7;
+        position: relative;
+    }
+
+    .box-left {
+        height: temSize(80);
+        float: left;
+        font-size: temSize(24);
+    }
+
+    .box-c {
+        width: 100%;
+    }
+
+    .box-right {
+        width: temSize(330);
+        height: temSize(80);
+        padding-top: 0;
+        float: right;
+        text-align: right;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: temSize(24);
+    }
+
+    .icon-right {
+        height: temSize(20);
+        width: temSize(11);
+        background: url("../img/micro-ico-back.png") no-repeat 100%;
+        position: absolute;
+        top: temSize(30);
+        right: temSize(20);
+    }
+    //地址选择
+    .swiper {
+        // display: flex;
+        font-size: 0;
+        position: absolute;
+        bottom: 0;
+        height: temSize(490);
+        width: 100%;
+        z-index: 110;
+        background-color: #fff;
+    }
+
+    .swiper-container {
+        display: inline-block;
+        width: 33.3%;
+        height: temSize(490);
+        overflow: hidden;
+        position: relative;
+        bottom: 0;
+        color: #666;
+    }
+
+    .swiper-slide-active {
+        color: #333;
+    }
+
+    .swiper-wrapper {
+        font-size: temSize(28);
+        line-height: temSize(70);
+        text-align: center;
+    }
+
+    .swiper-container:after {
+        content: "";
+        border-bottom: 1px #ddd solid;
+    }
+
+    .swiper:after {
+        content: "";
+        border-bottom: 1px #ddd solid;
+        background-color: #efefef;
+        border-top: 1px #ddd solid;
+        width: 200%;
+        height: temSize(70);
+        position: absolute;
+        top: 50%;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        margin-top: temSize(-35);
+    }
+
+    .btn {
+        text-align: center;
+        border: none;
+        display: inline-block;
+        outline: none;
+    }
+
+    .btn-size-160 {
+        font-size: temSize(24);
+        height: temSize(60);
+        line-height: temSize(60);
+        width: temSize(160);
+        border-radius: temSize(60);
+    }
+
+    .btn-orange-outline {
+        border: 1px solid #ff6622;
+        background: transparent;
+        color: #ff6622;
+    }
+    //下拉选择样式覆盖
+    .Select_list {
+        padding: 0;
+        background-color: #dfe3ed;
+
+        span {
+            height: temSize(100);
+            line-height: temSize(100);
+            border-bottom: 1px solid #cbced7;
+        }
+
+        span:last-child {
+            border-top: 1px solid #cbced7;
+            margin-top: temSize(20);
+        }
+    }
+}
+
+//口碑创建店铺页面
+.micro-koubei-create-shop {
+    .first-box {
+        margin-top: temSize(16);
+    }
+
+    .upload-image {
+        background-color: #fff;
+        padding-left: 0.75rem;
+    }
+
+    .icon-right {
+        height: temSize(20);
+        width: temSize(11);
+        background: url("../img/micro-ico-back.png") no-repeat 100%;
+        position: absolute;
+        top: temSize(30);
+        right: temSize(20);
+    }
+
+    .agree-items {
+        font-size: temSize(24);
+        color: #666;
+        padding: 0 temSize(40);
+        margin-top: temSize(32);
+    }
+
+    .agree-item {
+        color: #5396d2;
+    }
+
+    .check {
+        display: inline-block;
+        height: temSize(25);
+        width: temSize(25);
+        vertical-align: text-top;
+        margin-right: temSize(10);
+    }
+
+    .check-box {
+        border: 1px solid #666;
+        @include border-radius-basic(temSize(2));
+    }
+
+    .icon-checked {
+        background: url("../img/micro_shop_check.png") center center no-repeat;
+        @include background-size100;
+        border: none;
+        display: inline-block;
+    }
+
+    .guide-words1 {
+        color: #ff6622;
+    }
+
+    .guide-words2 {
+        color: #ff6622;
+        font-size: temSize(22);
+        padding: 0 temSize(40);
+        margin-top: temSize(10);
+    }
+
+    .submit {
+        height: temSize(90);
+        width: temSize(480);
+        line-height: temSize(90);
+        font-size: temSize(28);
+        color: #fff;
+        background-color: #ff6622;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: temSize(50);
+        @include border-radius-basic(temSize(45));
+    }
+
+    .icon-success {
+        width: temSize(140);
+        height: temSize(140);
+        background: url("../img/microshop_withdraw_success.png") $img-pozC;
+        background-size: 100% 100%;
+        margin: 0 auto;
+        display: block;
+        margin-top: temSize(100);
+        margin-bottom: temSize(30);
+    }
+
+    .icon-wait {
+        width: temSize(140);
+        height: temSize(140);
+        background: url("../img/microshop_withdraw_wait.png") $img-pozC;
+        background-size: 100% 100%;
+        margin: 0 auto;
+        display: block;
+        margin-top: temSize(100);
+        margin-bottom: temSize(30);
+    }
+
+    .apply-result {
+        font-size: temSize(26);
+        color: #333;
+        margin-bottom: temSize(18);
+    }
+
+    .apply-tip {
+        font-size: temSize(26);
+        color: #8e8e8e;
+    }
+
+    .fail-tip {
+        margin-top: temSize(100);
+        margin-bottom: temSize(60);
+        font-size: temSize(28);
+        color: #333;
+    }
+
+    .koubei-qrcode-box {
+        width: temSize(168);
+        height: temSize(168);
+        background-color: #eceef4;
+        @include border-radius-basic(5px);
+        padding: temSize(10);
+        margin: 0 auto;
+    }
+
+    .koubei-qrcode {
+        width: temSize(148);
+        height: temSize(148);
+        background: url("../img/koubei-qrcode.png") $img-pozC;
+        background-size: 100% 100%;
+        display: inline-block;
+    }
+
+    .code-tip {
+        font-size: temSize(20);
+        color: #666;
+        margin-top: temSize(20);
+    }
+}
+
+//口碑定位页面
+.koubei-locate {
+    background-color: #dfe3ed;
+
+    .introduction {
+        padding: temSize(20) temSize(40);
+        padding-right: 0;
+    }
+
+    .title {
+        font-size: temSize(24);
+        color: #f62;
+        margin-bottom: temSize(20);
+    }
+
+    .tip {
+        font-size: temSize(20);
+        color: #666;
+        margin-bottom: temSize(16);
+    }
+
+    .locate-container {
+        padding-right: temSize(20);
+    }
+
+    .locate-title {
+        color: #666;
+    }
+
+    .locate-btn {
+        width: temSize(71);
+        height: temSize(40);
+        font-size: temSize(20);
+        color: #ccc;
+        background-color: #efefef;
+        margin-top: temSize(20);
+        line-height: temSize(40);
+        text-align: center;
+    }
+
+    .enable {
+        background-color: #f62;
+    }
+
+    #map {
+        height: temSize(504);
+    }
+
+    .address-btn {
+        position: absolute;
+        bottom: temSize(490);
+        background: #fff;
+        z-index: 110;
+        height: temSize(88);
+        // display: flex;
+        width: 100%;
+        line-height: temSize(88);
+        border-bottom: 1px solid#ccc;
+        color: #333;
+        font-size: 0;
+
+        .btn {
+            font-size: temSize(28);
+            display: inline-block;
+            width: 49%;
+        }
+
+        .btn-cancel {
+            text-align: left;
+            padding-left: temSize(80);
+        }
+
+        .btn-save {
+            color: #f62;
+            text-align: right;
+            padding-right: temSize(80);
+        }
+    }
+
+    .amap-copyright {
+        display: none !important;
+    }
+
+    .save {
+        width: 100%;
+        text-align: center;
+        height: temSize(90);
+        line-height: temSize(90);
+        font-size: temSize(28);
+        background-color: #f62;
+        color: #fff;
+    }
+}
+
+
+
+//商品管理页
+.kbmana_order_quest {
+    font-size: .56rem;
+    color: #666;
+    height: temSize(80);
+    margin-top: temSize(16);
+    border-bottom: 1px solid #cbced7;
+    line-height: temSize(80);
+    padding-left: temSize(20);
+    background-color: #fff;
+    position: relative;
+
+    .zhushi {
+        font-size: 0.4rem;
+    }
+
+    .sync {
+        height: temSize(60);
+        width: temSize(160);
+        line-height: temSize(60);
+        font-size: temSize(22);
+        color: #ff6622;
+        text-align: center;
+        position: absolute;
+        right: temSize(20);
+        top: temSize(10);
+        border: 1px #f62 solid;
+        border-radius: temSize(30);
+    }
+}
+
+.kbmana_order_questArrow:after {
+    content: "";
+    display: block;
+    width: temSize(20);
+    position: absolute;
+    height: temSize(20);
+    border-right: 1px #cccccc solid;
+    border-top: 1px #cccccc solid;
+    transform: rotate(45deg);
+    -ms-transform: rotate(7deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    top: .75rem;
+    right: 0.4rem;
+}
+
+.micro-shop-koubei .discount-activity {
+    position: absolute;
+    height: 0.75rem;
+    width: 2.21rem;
+    background-color: #2ca0f5;
+    -webkit-border-radius: 0.38rem;
+    border-radius: 0.38rem;
+    font-size: 0.45rem;
+    line-height: 0.75rem;
+    top: 1.05rem;
+    left: 0.75rem;
+    text-align: center;
+    color: #fff;
+    vertical-align: middle;
+}
+
+.syncShow {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 130;
+
+    .migration_box {
+        width: 8rem;
+        height: 6rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        top: 50%;
+        position: relative;
+        margin: 0 auto;
+        margin-top: -3rem;
+    }
+
+    .migration_success {
+        position: relative;
+        top: 1.65rem;
+        margin: 0 auto;
+        width: 1.8rem;
+        height: 1.3rem;
+        background: url(../img/migration_success.png) no-repeat center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+
+    .load_reminds2 {
+        font-size: 0.6rem;
+        text-align: center;
+        position: relative;
+        top: 2.3rem;
+        color: #333333;
+    }
+
+    .short_loading {
+        position: relative;
+        top: 1.65rem;
+        margin: 0 auto;
+        width: 3rem;
+        height: 3rem;
+        background: url(../img/shortLoading-icon.png) no-repeat center center;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        -webkit-animation: circle 1s infinite linear;
+        -moz-animation: circle 1s infinite linear;
+        animation: circle 1s infinite linear;
+    }
+}
+
+// 商品订单页
+.micro-shop-koubei .background-img-order {
+    background: url(../img/micro-shop-koubei-order-noeffect.png) no-repeat center center;
+    background-size: 100% 100%;
+    top: 1.6rem;
+}
+
+.micro-shop-koubei .micro-shop-common1-nosth .text2 {
+    top: 7.33rem;
+}
+
+//用户条款
+.koubei-terms {
+    .terms_content {
+        top: 0;
+    }
+
+    .terms_title {
+        line-height: temSize(60);
+        font-size: temSize(28);
+    }
+}
+//用户须知
+.user_terms_popup {
+    .question:first-child {
+        margin-top: 0;
+    }
+
+    .question {
+        font-size: temSize(22);
+        color: #ff6622;
+        margin-top: temSize(50);
+    }
+
+    .answer {
+        font-size: temSize(22);
+        color: #333;
+    }
+
+    .xb-qrbox {
+        width: temSize(182);
+        height: temSize(182);
+        background-color: #fff;
+        padding: temSize(20);
+        margin: 0 auto;
+        margin-top: temSize(34);
+        @include border-radius-basic(temSize(10));
+    }
+
+    .xb-qrcode {
+        display: block;
+        width: temSize(142);
+        height: temSize(142);
+        background: url("../img/default_qrcode.jpg") $img-pozC;
+        @include background-size100;
+    }
+
+    .qrcode-tips {
+        margin-top: temSize(10);
+        font-size: temSize(20);
+        text-align: center;
+        color: #666;
+    }
+}
+//登陆注册
+.koubei-login {
+    .reg {
+        text-align: right;
+        color: #fff;
+        font-size: temSize(24);
+        padding-right: temSize(20);
+        margin-top: temSize(20);
+    }
+}
+
+.micro-koubei-syn {
+    .box {
+        height: temSize(100);
+        line-height: temSize(100);
+        font-size: temSize(28);
+        padding-right: temSize(20);
+    }
+
+    .noShopTip {
+        font-size: temSize(24);
+        color: #333;
+        text-align: center;
+        padding: temSize(40);
+    }
+}

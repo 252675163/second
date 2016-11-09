@@ -1,0 +1,42 @@
+<div class="microposter2 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter2-by8">
+            <div class="poster2_8bg"></div>
+            <div class="poster2_mask"></div>
+            <div class="form-box">
+                <textarea ng-if="!isEdit"  class="poster2-title canShow" rows="1" type="text"
+                    ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster2-title canEdit editBorder" rows="1" type="text"
+                    ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <div ng-if="!isEdit" class="poster2-subtitle canShow" ng-bind-html="templateModel.subtitle|newlines|recogUrl"></div>
+                <!--<textarea ng-if="!isEdit"  class="poster2-subtitle canShow" rows="3" type="text"
+                    ng-model="templateModel.subtitle" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>-->
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[1]}}" new-custom-input class="poster2-subtitle canEdit editBorder" rows="2" type="text"
+                    ng-model="templateModel.subtitle" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <div class="poster2-qrcode" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                    <img ng-src="{{templateModel.imageUrl}}" alt="二维码" />
+                </div>
+                <div ng-if="!isEdit" class="poster2_8info">
+                    <div class="poster2-address">联系电话：<span ng-bind-html="templateModel.phone|recogTel:false"></span></div>
+                    <div class="poster2-phone">地址：{{templateModel.address}}</div>
+                </div>
+                <div ng-if="isEdit" class="poster2-phonebox">
+                    <span>联系电话：</span><textarea  inputconfig="{{inputconfig[2]}}" new-custom-input class="poster2-address canEdit editBorder" rows="1" type="text"
+                    ng-model="templateModel.phone" ng-disabled="!isEdit" ng-trim="false" readonly="readonly" placeholder="请输入联系电话"></textarea>
+                    <span>地址：</span><textarea  inputconfig="{{inputconfig[3]}}" new-custom-input class="poster2-phone canEdit editBorder" rows="1" type="text" 
+                    ng-model="templateModel.address" ng-disabled="!isEdit" ng-trim="false" readonly="readonly" placeholder="请输入地址"></textarea>
+                </div>
+                <div class="acty12_form">
+                    <input placeholder="您的姓名" class="poster2-text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit"
+                        change-placeholder-by-focus />
+                    <input placeholder="您的手机号" class="poster2-text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit"
+                        ng-disabled="isEdit" change-placeholder-by-focus />
+
+                    <div class="poster2_form_btn" ng-click="submitInfo()">
+                        马上报名
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

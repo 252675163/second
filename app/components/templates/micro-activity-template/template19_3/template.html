@@ -1,0 +1,16 @@
+<!--No.9模板页 {-->
+<div class = "microactivity-vegetables bgPan" >
+    <div ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+        <div class="vegetables_bg">
+            <div class="vegetables_boxOuter">
+                <div class="vegetables_box_1">
+                    <div class="vegetables_title1" ng-class="{'editBorder':isEdit}"  ng-model = "templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "8"   ng-bind-html="templateModel.title|newlines" ></div>
+                </div>
+                <div class="vegetables_box_2">
+                    <div class="vegetables_text1" ng-class="{'editBorder':isEdit}"  ng-model = "templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "400"   ng-bind-html="templateModel.description|newlines" ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} No.9模板页-->

@@ -1,0 +1,17 @@
+<!--冬令营活动-->
+<!--No.1模板页 {-->
+<div class="paneabird1 microactivity-template8 acty8_bg1">
+    
+    <div class="acty8_box6" ng-class="{'maxbox':!isEdit}">
+        <div class="acty8_box6_1">
+            <input ng-if="!isEdit" class="acty8_textBox6_1 canShow" type="text"  ng-model="templateModel.title1" ng-disabled ="!isEdit" ng-trim="false" readonly="readonly"  />
+            <input ng-if="isEdit" class="acty8_textBox6_1 canEdit" type="text" ng-model="templateModel.title1" ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[0]}}" new-custom-input readonly="readonly" />
+            <textarea ng-if="!isEdit" class="acty8_textBox6_2 canShow" rows="4" ng-model="templateModel.description"   scroll-top-by-blur ng-disabled ="!isEdit" ng-trim="false" readonly="readonly" ></textarea>
+            <textarea ng-if="isEdit" class="acty8_textBox6_2 canEdit" rows="4" ng-model="templateModel.description" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[1]}}" new-custom-input readonly="readonly"></textarea>
+            <textarea ng-if="!isEdit" class="acty8_textBox6_3 canShow" rows="2" ng-model="templateModel.title2"  scroll-top-by-blur ng-disabled ="!isEdit" ng-trim="false" readonly="readonly" ></textarea>
+            <textarea ng-if="isEdit" class="acty8_textBox6_3 canEdit" rows="2" ng-model="templateModel.title2" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[2]}}" new-custom-input readonly="readonly"></textarea>
+        </div>
+
+    </div>
+</div>
+<!--} No.1模板页-->

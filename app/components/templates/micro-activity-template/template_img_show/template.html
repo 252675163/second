@@ -1,0 +1,33 @@
+<!--No.9模板页 添加图片页 {-->
+<div class="microactivity-vegetables bgPan ng-hide" ng-show="isEdit">
+	<div ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+
+		<!--外边框图片背景层-->
+		<div class="vegetables_bg" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')','background-color':templateModel.bigBgColor}">
+			<!--内边框背景层-->
+			<div class="vegetables_box6Outer vegetables_adjust" ng-style="{'background':templateModel.bgColor,'border-top-left-radius': 0, 'border-top-right-radius':0,'border-bottom-right-radius':templateModel.radius/40 +'rem','border-bottom-left-radius':templateModel.radius/40 +'rem'}">
+                <!--滚动区域-->
+                <ion-scroll class="vegetables_box_4 vegetables_contentWrap scroll_js" has-bouncing="false" delegate-handle="scrollBottom">
+                    <!--标题-->
+                    <h2 class="vegetables_box_3">
+                        <div class="vegetables_title1" style="text-align:center;" ng-style="{'color':templateModel.titleColor}">*图片选传，展示在上一页文字下方</div>
+                    </h2>
+                    <!--图片-->
+                    <div class="vegetables_contentWrap_imgWrap" ng-repeat="img in templateModel.imgs track by $index ">
+                        <div class="vegetables_imgContent" ng-hide="!img">
+                            <i class="imgDel" ng-click="delete_img($index)"></i>
+                            <img ng-click="alternate_img($index)" ng-src="{{img}}" alt="">
+                        </div>
+                    </div>
+                </ion-scroll>
+                <!--图片上传按钮-->
+				<div class="vegetables_uploadImg" ng-click="addimg()">
+					上传图片
+				</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+	<!--} No.9模板页-->

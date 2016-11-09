@@ -1,0 +1,39 @@
+﻿<ion-view>
+    <div class=" bar bar-header bar-light" style=" height: 1.75rem;">
+        <div class="tabs active_index_Hbox2">
+            <a class="tab-item active" ng-class="{'active':audioTag==1 }" ng-click="changeAudioTag(1)" >抒情</a>
+            <a class="tab-item"  ng-class="{'active':audioTag==2}" ng-click="changeAudioTag(2)">安静</a>
+            <a class="tab-item"  ng-class="{'active':audioTag==3}" ng-click="changeAudioTag(3)">欢快</a>
+            <a class="tab-item"  ng-class="{'active':audioTag==4 }" ng-click="changeAudioTag(4)">动感</a>
+        </div>
+    </div>
+
+    <ion-content style="background-color:#e7e7e9; overflow-y: auto; overflow-x: hidden;height:100%;-webkit-overflow-scrolling: touch;   padding-top: 1.75rem;" has-bouncing="false">
+        <div class="list" style="padding-bottom:91px;overflow: auto;-webkit-overflow-scrolling: touch; height:100%">
+            <a class="item  text-center" ng-click="changeIndex('')" ng-class="{'item-selected':musicUrl==''}">
+                <!--<img class="icon_music" src="http://cdn.schoolpal.cn/shiningstar/app/img/nomusic.png" ng-show="index==-1">}"> 无音乐时不显示图片-->
+                <span class="padding-left">
+                    无音乐
+                </span>
+            </a>
+            <a class="item  text-center" ng-click="changeIndex(music.Url)" ng-class="{'item-selected':music.Url==musicUrl}" ng-repeat="music in musics">
+                <!--已选中或者点击后增加此样式 item-selected ，代码：<a class="item  text-center item-selected"  -->
+                <img class="icon_music" src="http://cdn.schoolpal.cn/shiningstar/app/img/music-playing.gif" ng-show="music.Url==musicUrl">
+                <span class="padding-left">
+                    {{music.Name}}
+                </span>
+            </a>
+        </div>
+        <audio id="myaudio" >
+            <source ng-src="{{musicUrl}}" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+    </ion-content>
+    <div class="list" style="bottom: 0; position: absolute; width: 100%;">
+        <div class="item text-center ">
+            <button class="btn_active_add" ng-click="goGrass()">
+                确认更改
+            </button>
+        </div>
+    </div>
+</ion-view>

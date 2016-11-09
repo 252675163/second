@@ -1,0 +1,170 @@
+﻿@charset "utf-8";
+//砍价模板
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+
+.microposter1{
+	height: 100%;position: absolute;width: 100%;
+	textarea{width: 100%;color:#000000;line-height: 100%;
+		}
+}
+
+//活动规则，机构介绍,首页title样式，预览和编辑共用一套，只是尺寸传值不一样。
+@mixin form-base($rate:1){
+  //与数值相关的样式写这里：
+  //第一页 
+  	.microposter1-by1{
+		.poster1-logo{width: temSize(220,$rate);height: temSize(220,$rate);border: temSize(8,$rate) solid #fff;margin-top: temSize(225,$rate);}
+		.poster1-title-box{margin-top: temSize(40,$rate);}
+		.poster1-title{border-bottom: temSize(4,$rate) solid #fff;;padding: 0 0 temSize(20,$rate) 0;font-size:temSize(56,$rate);}
+		.editpad{margin: 0 auto;height: temSize(75,$rate);line-height: temSize(75,$rate);}
+		.poster1-subtitle{margin: 0 auto;font-size:temSize(36,$rate);margin-top: temSize(80,$rate);height: temSize(48,$rate);width: temSize(440,$rate);}
+	}
+	//第二页 
+	.microposter1-by2{
+		.poster2-title-box{margin-top: temSize(20,$rate);padding-top: temSize(30,$rate);width: temSize(546,$rate);height: temSize(120,$rate);
+			.poster1-title{font-size:temSize(40,$rate);width: temSize(520,$rate);}
+		}
+		.poster2-subtitle{font-size:temSize(24,$rate);margin-top: temSize(30,$rate);height: temSize(230,$rate);padding: 0 temSize(44,$rate);}
+		.poster2-img{height: temSize(478,$rate);width:temSize(640,$rate);
+			.img1{width: temSize(263,$rate);height: temSize(263,$rate);margin-top: temSize(145,$rate);margin-bottom: temSize(70,$rate);margin-left: temSize(37,$rate);
+                  img{width:100%;height:100%;}
+			}
+			.img2{width: temSize(298,$rate);height: temSize(298,$rate);margin-bottom: temSize(110,$rate);top: temSize(70,$rate);;position: absolute;
+                  img{width:100%;height:100%;}
+			}
+		}
+	}
+	//第三页
+	.microposter1-by3{
+		.subjtitle{width: temSize(330,$rate);height: temSize(72,$rate);padding-left: temSize(20,$rate);padding-top: temSize(16,$rate);
+		.poster1-subtitle{width: 130%;}
+		}
+		.subjdesc{margin-top: temSize(20,$rate);width: temSize(562,$rate);height: temSize(132,$rate);padding-left: temSize(24,$rate);padding-top: temSize(26,$rate);
+			.poster1-subtitle{font-size: temSize(30,$rate);}
+		}
+		.poster1-title{margin: 0 auto;width: temSize(300,$rate);margin-top: temSize(40,$rate);font-size: temSize(40,$rate);
+		}
+		.subjectbox{margin-top: temSize(54,$rate);width:temSize(560,$rate);
+		}
+	}
+	//第四页
+	.microposter1-by4{
+		.poster1-title{margin: 0 auto;width: temSize(300,$rate);font-size: temSize(40,$rate);margin-top: temSize(38,$rate);}
+		.poster1-img{width: temSize(540,$rate);height: temSize(820,$rate);margin-top: temSize(30,$rate);border-radius: temSize(15,$rate) temSize(15,$rate) 0 0;
+		}
+	}
+	//第五页
+	.microposter1-by5{
+		.poster1-title{margin: 0 auto;width: temSize(300,$rate);font-size: temSize(40,$rate);margin-top: temSize(38,$rate);
+		}
+		.poster1-desc{width: temSize(500,$rate);margin-top: temSize(30,$rate);height: temSize(760,$rate);border: temSize(6,$rate) dashed #fff;border-radius: temSize(14,$rate);
+		.poster1-subtitle{text-indent: 2em;padding: temSize(20,$rate) temSize(16,$rate) temSize(20,$rate) temSize(24,$rate);height: 100%;line-height: 1.5;font-size: temSize(30,$rate);}
+		}
+	}
+	//第六页
+	.microposter1-by6{
+		.poster1-title{font-size: temSize(36,$rate);
+		width: temSize(560,$rate);margin-top: temSize(20,$rate);height: temSize(150,$rate);line-height: temSize(180,$rate);
+
+		}
+		.poster1_form_btn{
+			width: temSize(460,$rate);
+			height: temSize(80,$rate);
+			line-height: temSize(80,$rate);
+			background: #f78f13;
+			color: #fff;
+			margin-top: temSize(38,$rate);
+			font-size: temSize(36,$rate);
+			border-radius: temSize(14,$rate);
+		}
+		.poster-qrcode-info{width: temSize(460,$rate); margin: 0 auto;font-size: temSize(24,$rate);
+		}
+		.poster1-qrcode{width: temSize(200,$rate);margin: temSize(43,$rate) auto temSize(39,$rate) auto;height: temSize(200,$rate);
+			img{width: 100%;height: 100%;line-height: temSize(200,$rate);text-align: center;font-size: temSize(24,$rate);}
+		}
+		.poster1-text{margin-top: temSize(38,$rate);
+			width: temSize(460,$rate);height: temSize(72,$rate);border-radius: temSize(14,$rate);
+		}
+	}
+
+}
+
+ //与数值无关的样式全部写这里：
+.microposter1{
+	//数值无关
+//第一页 
+	.microposter1-by1{
+		textarea{text-align: center;}
+		div{margin:0 auto;}
+		.poster1-logo{overflow: hidden;border-radius: 100%;
+			img{width: 100%;height: 100%;}
+		}
+		.poster1-title-box{text-align: center;}
+		.editpad{width: auto;margin: 0 auto;overflow: hidden;}
+	}
+	//第二页 
+	.microposter1-by2{
+		textarea{text-align: center;}
+		.poster1-title{margin: 0 auto;}
+		.poster2-title-box{margin: 0 auto;
+			background:url("../img/poster1_2_titlebg.png") $img-pozC;@include background-size100;}
+		.poster2-subtitle{line-height: 1.5;text-align: left;}
+		.poster2-img{position: relative;
+			background:url("../img/poster1_2_imgbg.png") $img-pozC;-webkit-background-size: 100% auto;
+			background-size: 100% auto;margin:0 auto;
+			div{overflow: hidden;border-radius: 100%;display: inline-block;}
+		}
+	}
+	//第三页
+	.microposter1-by3{
+		textarea{text-align: left;height: 100%;}
+		.subjtitle{background:url("../img/poster_subj_title.png") $img-pozC;@include background-size100;}
+		.subjdesc{margin: 0 auto;background:url("../img/poster_subj_desc.png") $img-pozC;@include background-size100;
+			.poster1-subtitle{line-height: 1.5;}    
+		}
+		.poster1-title{text-align: center;color: #000;}
+        .subjectbox{margin:0 auto;}
+	}
+	.microposter1-by4{
+		.poster1-title{text-align: center;}
+		.poster1-img{ overflow: hidden;margin: 0 auto;
+			img{
+				-webkit-mask-image:url("../img/poster1_4_mask.png");-webkit-mask-size: 100% 100%;    height: 100%;
+			}
+		}
+	}
+	//第五页
+	.microposter1-by5{
+		.poster1-title{text-align: center;}
+		.poster1-desc{background: rgba(189, 233, 255, 0.51);margin: 0 auto;
+		}
+	}
+	.microposter1-by6{
+		.poster1-title{    overflow: hidden;text-align: center;margin: 0 auto;background:url("../img/poster1_6_titlebg.png") $img-pozC;@include background-size100;}
+		.poster1_form_btn{
+			background: #f78f13;
+			color: #fff;
+			margin: 0 auto;
+			table-layout: center;
+			text-align: center;
+		}
+		.poster1-qrcode{background: #fff;}
+		.poster1-text{text-align: center;background: #fff;margin: 0 auto;}
+
+	}
+}
+  
+$editrate:0.8;
+$viewrate:1;
+//编辑页面
+.microposter1{
+
+ @include form-base(0.8);
+}
+ //仅预览页面样式写这里
+.microposter1 .preview{
+
+  @include form-base(1);
+}

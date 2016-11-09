@@ -1,0 +1,411 @@
+﻿@charset "utf-8";
+//砍价模板
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+.micro_bargain{height: 100%;padding-top:0;position:relative;overflow:hidden;}
+.micro_bargain.xmas_bg{background: url("../img/bargain_bg1.jpg") $img-pozC;@include background-size-cover;}
+
+//前台预览页样式
+@mixin view-base($rate:1) {
+  //与数值相关的样式写这里：
+  //第一屏首页by慧娟
+.bargin_boxOuter1{
+.bargin_timeBox{width: temSize(352,$rate);height: temSize(92,$rate);top: temSize(230,$rate);margin-left: temSize(-178,$rate);padding: temSize(50,$rate) 0 0 temSize(65,$rate);
+.timeBox{font-size: temSize(24,$rate);height: temSize(40,$rate);line-height: temSize(40,$rate);}
+}
+.headBox{width: temSize(360,$rate);height: temSize(120,$rate);padding-top: temSize(30,$rate);margin: temSize(36,$rate) auto 0 auto;}
+.bargin_head{width: temSize(120,$rate);height: temSize(120,$rate);
+&:before{content:"";width: temSize(68,$rate);height: temSize(61,$rate);left: temSize(-35,$rate);top: temSize(-10,$rate);}}
+.head_text_box{width: temSize(360,$rate);height: temSize(60,$rate);line-height: temSize(60,$rate);padding-left:temSize(130);border-radius: temSize(30,$rate);font-size: temSize(26,$rate);}
+.bargin_bar_box{width: temSize(640,$rate);margin: temSize(35,$rate) auto 0 auto;height: temSize(135,$rate);}
+.bargin_bar_body{width: temSize(490,$rate);height: temSize(20,$rate);border-radius: temSize(10,$rate);}
+.bargin_gold1,.bargin_gold2,.bargin_gold3{width: temSize(56,$rate);height: temSize(39,$rate);}
+.bargin_gold1{left: temSize(-30,$rate);top: temSize(-15,$rate);}
+.bargin_gold2{left: temSize(215,$rate);top: temSize(-15,$rate);}
+.bargin_gold3{right: temSize(-30,$rate);top: temSize(-15,$rate);}
+.bargin_bar{border-radius: temSize(8,$rate);
+.bargin_money{font-size: temSize(22,$rate);top: temSize(-44,$rate);right: temSize(-40,$rate);}
+}
+.bargin_current1,.bargin_current2,.bargin_current3{font-size: temSize(28,$rate);top: temSize(30,$rate);}
+.bargin_current2,.bargin_current3{width:temSize(250,$rate);text-align:right;}
+.bargin_current1{left: temSize(25,$rate);}
+.bargin_current2{left: temSize(135,$rate);}
+.bargin_current3{left: temSize(385,$rate);}
+.current_text{font-size: temSize(22,$rate);margin-left: temSize(10,$rate);}
+.bargin_btnGroup{width:temSize(600,$rate);height:temSize(60,$rate);margin-left:temSize(-300,$rate);
+             .bargin_button2{margin-left:temSize(-75,$rate);}
+}
+.bargin_btnGroup button{width: temSize(150,$rate);height: temSize(60,$rate);border-radius: temSize(60,$rate);font-size: temSize(24,$rate);}
+.bargin_btnGroup2{padding:0 temSize(40,$rate);width: temSize(640,$rate);bottom:temSize(20,$rate);margin-left:temSize(-320,$rate);
+     &:before{content:"";width:temSize(30);height: temSize(20,$rate);top:temSize(75,$rate);left:temSize(303,$rate);}
+      .bargin_button2_1,.bargin_button2_2{width: temSize(237,$rate);height: temSize(88,$rate);line-height: temSize(80,$rate);font-size: temSize(28,$rate);}
+      .bargin_button2_1{margin-right: temSize(70,$rate);}
+    }
+}
+
+
+  //领取优惠遮罩by卢浩
+  .bargain_bg2{width: temSize(480,$rate);height: temSize(585,$rate);margin:temSize(-800,$rate) auto auto;padding:temSize(152,$rate) temSize(28,$rate) temSize(50,$rate) temSize(28,$rate);
+    .bargain_success_box{
+     .success_inner1{margin-bottom:temSize(60,$rate);font-size:temSize(30,$rate);
+     }
+     .success_price{font-size:temSize(36,$rate);}
+     .success_inner2{margin:0 auto;font-size:temSize(24,$rate);
+     }
+    }
+    .bargain_btn_box{margin-top:temSize(60,$rate);
+     .btn_cancel,.btn_confirm{width:temSize(170,$rate); height:temSize(75,$rate); font-size:temSize(28,$rate);}
+     .btn_cancel{margin-left:temSize(12,$rate);}
+     .btn_confirm{margin-right:temSize(12,$rate);}
+    }
+}
+
+
+  //砍价成功遮罩by卢浩
+  .bargain_bgfloor{height:100%;width:100%;}
+  .bargain_bg{height:temSize(524,$rate);width:temSize(491,$rate);}
+  .bargain_btn{height:temSize(78,$rate);width:temSize(76,$rate);}
+  .bargain_inner{ height:temSize(60,$rate);width:100%;font-size:temSize(48,$rate);
+    span{font-size:temSize(66,$rate);}
+  }
+  .bargain_bg_footer{height:temSize(114,$rate);width:temSize(491,$rate);}
+
+
+  //报名页by卢浩
+  .user_enroll_box{
+    .time_box_bg{width: temSize(348,$rate);height: temSize(85,$rate);margin: 0 auto temSize(30,$rate) auto;
+     .time_box_show{width: temSize(348,$rate);height: temSize(36,$rate);font-size:temSize(22,$rate);}
+    }
+    .title_box_bg{width: temSize(415,$rate);height: temSize(238,$rate);padding:temSize(40,$rate) temSize(78,$rate);
+    .title_box_inner{width: temSize(268,$rate);height: temSize(160,$rate);margin:0 auto;font-size:temSize(32,$rate);}
+    }
+    .form_info_box{margin-top:temSize(82,$rate);  margin-bottom:temSize(35,$rate);
+    .form_info_1{width:temSize(410,$rate);height:temSize(82,$rate);font-size: temSize(24,$rate); padding:temSize(16,$rate) 0 0 temSize(20,$rate); }
+    .form_info_1_text{width: temSize(300,$rate);height:temSize(53,$rate);padding:0 temSize(8,$rate);margin-left:temSize(36,$rate);font-size: temSize(24,$rate);}
+    .form_info_2{width:temSize(410,$rate);height:temSize(82,$rate);font-size: temSize(24,$rate); margin: temSize(26,$rate) auto temSize(26,$rate) auto;}
+    .form_info_2_text{width:temSize(410,$rate);height:temSize(82,$rate);margin: temSize(20,$rate) auto 0;padding: 0 temSize(20,$rate);font-size: temSize(24,$rate);}
+    .form_btn_1{width:temSize(270,$rate);height:temSize(90,$rate);font-size: temSize(28,$rate);}
+
+    // 用户同意条款
+    .form_info_userterms{width:temSize(422,$rate);font-weight:bold;margin:0 auto temSize(26,$rate);font-size:0;
+       text-align:right;}
+    .form_info_userterms_text{font-size:temSize(24,$rate);color:#333333;vertical-align: middle;}
+    .form_info_userterms_text.span2{font-weight:bold;color:#678be3;}
+    .bargain_terms_checkbox{width:temSize(36);height:temSize(36);background:url(../img/bargain_terms_unchecked.png) $img-pozC;background-size:100% 100%;display:inline-block;vertical-align: middle;margin-right:temSize(10);}
+    .bargain_terms_checkbox_select{background-image:url(../img/bargain_terms_checked.png);}
+
+  }
+    .header_box_big{height:temSize(175,$rate);width:temSize(175,$rate);
+     img , .header_border_big{margin-top: temSize(65,$rate);}
+     &:before{margin: temSize(37,$rate) temSize(-161,$rate);width:temSize(184,$rate); height:temSize(124,$rate);}
+   }
+   .grow_vegetables_btn_group1{bottom:temSize(20,$rate);}
+}
+
+
+  //第三屏风云榜by双双
+  // 放在下面，有数值和无数值写在一起了
+    //活动规则，机构介绍by嘉文
+  .padding_top25{padding-top:temSize(25,$rate);}
+  .padding_bottom30{padding-bottom:temSize(30,$rate);}
+  .introduce{
+    .form1{height:temSize(440,$rate);width:temSize(585,$rate);padding-top:temSize(122,$rate);}
+    .form2{height:temSize(623,$rate);width:temSize(585,$rate); }
+  }
+}
+
+//编辑样式，按设计稿尺寸来写，后面调用会乘0.8
+@mixin edit-base($rate:1) {
+  //与数值相关的样式写这里：
+
+  //编辑首页by双双
+.bargin_boxOuter1_2{
+  .edit_head_box{width: temSize(170,$rate);border:2px solid #540f0a;}
+  .noticechange{width:temSize(185,$rate);height:temSize(126,$rate);left: temSize(-185,$rate);}
+  .persion_headimg{width:temSize(160,$rate);height:temSize(160,$rate);}
+  .head_box_border{width:temSize(160,$rate);height:temSize(160,$rate);}
+  .edit_input{height: temSize(83,$rate);line-height: temSize(83,$rate);margin-top:temSize(24,$rate);}
+  .entry_name{width: temSize(406,$rate);font-size: temSize(24,$rate);
+      span{margin-left:temSize(19.5,$rate);}
+  }
+  .entry_name_info{width: temSize(302,$rate);height: temSize(50,$rate);left: temSize(87.5,$rate);margin-top: temSize(-70,$rate);border-radius: temSize(8,$rate);font-size: temSize(24,$rate);}
+  .bargin_ware{margin-top:temSize(24,$rate);padding-top:temSize(50,$rate);
+    .bargin_ware_box1{width:temSize(318,$rate);height:temSize(52,$rate);border:2px dashed white;}
+    .bargin_ware_box2{width:temSize(346,$rate);height:temSize(75,$rate);line-height:temSize(30,$rate);margin-left:temSize(70,$rate); margin-top:temSize(10,$rate);border:2px dashed white;}
+
+  }
+}
+
+  //编辑第二页砍价策略及弹窗by慧娟
+  .bargin_edit_bg1{height:temSize(1000,$rate);padding-top: temSize(45,$rate);}
+  .tactics_Box{width: temSize(585,$rate);height: temSize(881,$rate);padding-top: temSize(15,$rate);
+   .tactics_title{font-size: temSize(34,$rate);width: temSize(215,$rate);height: temSize(75,$rate);line-height: temSize(75,$rate);}
+   .tatics_msg{font-size: temSize(24,$rate);margin:temSize(10,$rate) 0 temSize(10,$rate) temSize(60,$rate);}
+   .gold_Box{width: temSize(56,$rate);height: temSize(489,$rate);left: temSize(60,$rate);bottom: temSize(60,$rate);}
+   .tatics_Outer{width: temSize(367,$rate);font-size: temSize(24,$rate);margin-left: temSize(148,$rate);}
+  }
+   .tatics_btn1{width: temSize(237,$rate);height: temSize(88,$rate);line-height: temSize(80,$rate);font-size: temSize(28,$rate);}
+   .tatics_item{margin-bottom: temSize(35,$rate);}
+   .tatics_item_name{width: temSize(162,$rate);height: temSize(75,$rate);line-height: temSize(37,$rate);}
+   .tatic_input{width: temSize(130,$rate);height: temSize(72,$rate);line-height: temSize(75,$rate);right: temSize(45,$rate);padding-right: temSize(15,$rate);}
+   .tatics_item_piece{height: temSize(75,$rate);line-height: temSize(37,$rate);}
+   .tatic_textBox1,.tatic_textBox2{height: temSize(36,$rate);line-height: temSize(36,$rate);right: temSize(15,$rate);;}
+   .lineH{line-height: temSize(75,$rate);}
+   
+   .tatics_popBox{width: temSize(567,$rate);height: temSize(711,$rate);font-size: temSize(24,$rate);top: temSize(65,$rate);margin-left: temSize(-283,$rate);padding-top: temSize(120,$rate);
+   .tatics_item_name{width: temSize(180,$rate);line-height: temSize(75,$rate);}
+   .tatics_item{width: temSize(460,$rate);margin:0 auto temSize(15,$rate) auto;}
+   .tatic_input{width: temSize(205,$rate);font-size: temSize(26,$rate);}
+   .tatics_item_piece{line-height: temSize(75,$rate);}
+   .lineH2{line-height: temSize(37,$rate);}
+   .tatics_btn1{margin-top: temSize(60,$rate);}
+   .clase_pop{height: temSize(78,$rate);width: temSize(72,$rate);margin-left: temSize(-36,$rate);bottom: temSize(-135,$rate);}
+   }
+   .bar_mesg{font-size:temSize(22,$rate);color:#fff;text-align:center;margin-top:temSize(10);}
+   .bargin_edit_bg2{width:100%;height:temSize(12,$rate);background:url("../img/bargin_bg2_repeat.png") repeat-x;background-size:temSize(42,$rate) temSize(12,$rate);position:absolute;bottom:0;}
+
+         //活动规则，机构介绍by嘉文
+    .introduce{height:temSize(1000,$rate);padding-top:temSize(68,$rate);
+    .margin_bottom68{margin-bottom:temSize(68,$rate)}
+    .margin_bottom40{margin-bottom:temSize(40,$rate)}
+    .edit_text1{padding:temSize(30,$rate) temSize(5,$rate);}
+    .edit_text2{padding:0 temSize(30,$rate);}
+    .edit_text3{padding:temSize(20,$rate) temSize(30,$rate);}
+    .edit_text4{height:temSize(60,$rate);line-height:temSize(60,$rate);text-align:center;}
+    .form1{height:temSize(880,$rate);width:temSize(586,$rate);padding-top:temSize(122,$rate);}
+    .form2{height:temSize(880,$rate);width:temSize(586,$rate);padding-top:temSize(122,$rate);
+    .phone{margin-top:temSize(60,$rate);}
+    .address{background-position-y:temSize(20,$rate)}
+    }
+  }
+
+}
+
+//活动规则，机构介绍,首页title样式，预览和编辑共用一套，只是尺寸传值不一样。
+@mixin form-base($rate:1){
+  //与数值相关的样式写这里：
+  //
+.bargin_title_box{width: temSize(594,$rate); height: temSize(320,$rate);
+   .bargin_title{width: temSize(350,$rate);height: temSize(40,$rate);line-height: temSize(36,$rate);border-radius: temSize(18,$rate);font-size: temSize(28,$rate);border: temSize(3,$rate) solid #540f0a;margin: temSize(185,$rate) auto 0 auto;}
+}
+.bargin_ware{width: temSize(497,$rate);height: temSize(242,$rate);margin: temSize(-15,$rate) auto 0 auto;padding-top: temSize(60,$rate);}
+.bargin_ware_box1{width: temSize(340,$rate);font-size: temSize(30,$rate);height: temSize(45,$rate);line-height: temSize(45,$rate);}
+.bargin_ware_box2{width: temSize(350,$rate);font-size: temSize(22,$rate);height:temSize(76,$rate);line-height:temSize(35,$rate);padding:temSize(10,$rate);overflow:hidden;}
+
+  //活动规则，机构介绍by嘉文
+    .introduce{.form{padding-left:temSize(28,$rate);padding-right:temSize(28,$rate);
+      .title{
+          margin-bottom:temSize(26,$rate);
+          span{font-size:temSize(34,$rate);
+          &:before{border-top:temSize(10,$rate) solid #ffd503;top:temSize(14,$rate);border-radius:temSize(10,$rate);}
+        }
+      }
+      .body{
+        p{padding-left:temSize(52,$rate);}
+        .phone{background-size:auto temSize(30,$rate);margin-bottom:temSize(20,$rate);height:temSize(62,$rate);line-height:temSize(62,$rate)}
+        .address{background-size:auto temSize(32,$rate);}
+        .text1{font-size:temSize(24,$rate);line-height:1.2;color:#666;}
+        .text2{font-size:temSize(24,$rate);display:block;}
+        .edit_text1{height:temSize(24*1.2*8,$rate);width:temSize(524,$rate);}
+        .edit_text2{height:temSize(62,$rate);width:temSize(360,$rate);}
+        .edit_text3{height:temSize(110,$rate);width:temSize(436,$rate);}
+      }
+    }
+  }
+}
+
+ //与数值无关的样式全部写这里：
+.micro_bargain{
+  //第一屏首页by慧娟
+   .bargin_title_box{margin:0 auto;background:url("../img/bargain_title1_bg.png") $img-pozC;@include background-size100;overflow:hidden;position:relative;z-index:10;
+      .bargin_title{color:#540f0a;text-align: center;background:#dddfee;}
+   }
+   .bargin_boxOuter1{color:#540f0a;
+    .bargin_timeBox{margin:0 auto;background:url("../img/bargain_bg55.png") $img-pozC;@include background-size100;position:absolute;z-index:5;left:50%;}
+    .headBox{position:relative;}
+    .bargin_head{border-radius: 50%;border:2px solid #540f0a;position:absolute;left:0;top:0;background:#fff;
+    img{width:100%;height:100%;border-radius:50%;}
+    &:before{content:"";position:absolute;background:url("../img/bargin_head_bg.png") $img-pozC;@include background-size100;}}
+    .head_text_box{border:2px solid #540f0a;text-align:left;background:#fcc103;}
+    .bargin_bar_box{position:relative;}
+    .bargin_bar_body{border:2px solid #540f0a;background: -webkit-linear-gradient(top, #fff 0%, #fff 80%,#dedede 81%);
+        background: linear-gradient(to bottom, #fff 0%, #fff 80%,#dedede 81%);position:relative;margin:0 auto;}
+    .bargin_gold1,.bargin_gold2,.bargin_gold3{background:url("../img/bargain_money2.png") $img-pozC;@include background-size100;position:absolute;}
+    .gold_shining{background:url("../img/bargain_money1.png") $img-pozC;@include background-size100;}
+    .bargin_bar{background:#e82a2c;height:100%;position:relative;
+    .bargin_money{color:#e82a2c;position:absolute;}}
+    .bargin_current1,.bargin_current2,.bargin_current3{position:absolute;}
+    .bargin_btnGroup{position:absolute;bottom:0;left:50%;
+    .bargin_button1,.bargin_button2,.bargin_button3{background: #ffe401;text-align:center;color:#540f0a;position:absolute;}
+    .bargin_button1{left:0;}
+    .bargin_button2{left:50%;}
+    .bargin_button3{right:0;}
+    .btn_disabled{background:#dedede;color:#646464;}}
+    .bargin_btnGroup2{position:absolute;left:50%;
+    &:before{content:"";background:url("../img/icon16.png") $img-pozC;@include background-size100;position:absolute;}
+      button{text-align:center;}
+      .bargin_button2_1{background:url("../img/bargain_btn_bg1.png") $img-pozC;@include background-size100;color:#fff;}
+      .bargin_button2_2{background:url("../img/bargain_btn_bg2.png") $img-pozC;@include background-size100;color:#540f0a;}
+      .btn_disabled{background:url("../img/bargain_btn_bg3.png") $img-pozC;@include background-size100;color:#666;}
+    }
+   }
+    .bargin_ware{background:url("../img/bargain_bg4.png") $img-pozC;@include background-size100;color:#540f0a;}
+    .bargin_ware_box1,.bargin_ware_box2{margin:0 auto;text-align:center;}
+
+  //领取优惠遮罩by卢浩
+  .bargain_bg2{background:url("../img/bargain_bg2.png") $img-pozC;@include background-size100;position:relative;z-index:120;
+    .bargain_success_box{
+     .success_inner1{color:#333;}
+     .success_inner2{color:#666;}
+     .success_price,.success_warn{color:#e82a2c;}
+    }
+    .bargain_btn_box{
+     .btn_cancel,.btn_confirm{background:url("../img/bargain_btn_bg6.png") $img-pozC;@include background-size100; text-align:center;color:white;}
+     .btn_cancel{float:left;}
+     .btn_confirm{float:right;}
+    }
+}
+
+
+  //砍价成功遮罩by卢浩
+  .bargain_bgfloor{position:absolute;top:0;left:0;z-index:130;}
+  .bargain_bg{background:url("../img/bargain_sucess_bg2.png") $img-pozC;@include background-size100;margin:auto;}
+  .bargain_btn{background:url("../img/bargin_close_btn.png") $img-pozC;@include background-size100;position:absolute;right:temSize(80,$rate);top:temSize(116,$rate);}
+  .bargain_inner{ text-align:center;color:white;margin:temSize(32,$rate) auto;
+    span{color:#f85c07;}
+  }
+  .bargain_bg_footer{background:url("../img/bargain_sucess_bg1.png") $img-pozC;@include background-size100;margin:auto;}
+  .lockMask{opacity:0.8;}
+
+
+  //报名页by卢浩
+  .user_enroll_box{
+    .time_box_bg{background:url("../img/bargain_bg55.png") $img-pozC;@include background-size100;position:relative;
+     .time_box_show{color:#540f0a;position:absolute;top:temSize(45,$rate);left:temSize(65,$rate);line-height:temSize(36,$rate);}
+    }
+    .title_box_bg{margin:0 auto;background:url("../img/bargain_title_bg1.png") $img-pozC;@include background-size100;
+     .title_box_inner{color: #540f0a;text-align:center;display: table-cell;vertical-align:middle;font-weight:bold;}
+    }
+    .form_info_box{
+     .form_info_1,.form_info_2{background:url("../img/bargain_title_bg2.png") $img-pozC;@include background-size100; ;line-height: 200%; margin:0 auto;}
+     .form_info_1_text{  display: inline-block; text-align:center; color:#540f0a;font-weight:bold;}
+     .form_info_2_text{text-align:center; color:#540f0a;font-weight:bold;}
+	 .form_info_2_text::-webkit-input-placeholder,.form_info_1_text::-webkit-input-placeholder{ color:#540f0a; }
+     .form_btn_1{ background:url("../img/bargain_btn_bg1.png") $img-pozC;@include background-size100;  margin: auto; display: block;color:#fff;}
+   }
+    .header_box_big{margin:0 auto;position: relative;
+     img{width:100%;height:100%; -webkit-mask: url("../img/grow_vegetables_1_header_mask_2.png");-webkit-mask-size: cover;}
+     .header_border_big{position:absolute;width:84%;height:84%;top:temSize(12,$rate);left:temSize(12.8,$rate);border:3px solid #540f0a;border-radius:50%}
+     &:before{content:"";position: absolute;background:url("../img/grow_vegetables_1_bg_5.png") $img-pozC;@include background-size100; }
+   }
+     .grow_vegetables_btn_group1{position:absolute;width:100%;text-align:center;}
+}
+
+
+  //第三屏风云榜by双双
+  .ranking_box_2{width:temSize(568,$rate);margin:0 auto;padding-top:temSize(4,$rate);border-radius:temSize(3,$rate) temSize(5,$rate) temSize(0,$rate) temSize(0,$rate);
+    left:temSize(-0.6,$rate);position: relative;padding-bottom: temSize(8,$rate);top:temSize(-6,$rate);
+    .lists{width: 100%;min-height: temSize(114,$rate);background-color:#b8221e;padding: temSize(16,$rate) temSize(30,$rate);line-height: temSize(114,$rate);border-bottom: 1px solid #540f0a;}
+    .list_content{display: inline-block;font-size:temSize(24,$rate);line-height:temSize(32,$rate); float: left; margin-top: temSize(10,$rate);margin-left: temSize(24,$rate);color:#ffffff;
+      span{max-width: temSize(228,$rate);display: inline-block;line-height: 1.1;}
+      em{color:#ffffff;filter:alpha(opacity=50);-moz-opacity:0.5; opacity:0.5;}
+    }
+    .list_pic,.list_content,.list_text{ display:inline-block; vertical-align: middle;}
+    .list_pic{display: inline-block; width:temSize(90,$rate);height:temSize(87,$rate);background:url("../img/rankImg2.png") $img-pozC;@include background-size100;float: left;text-align:center;
+               img{width:temSize(76,$rate);height:temSize(76,$rate);margin-top:temSize(-34,$rate);background:url("../img/rankImg1.png") $img-pozC;@include background-size100;border-radius: 50%;border:none;}
+         }
+    .list_text{font-size:temSize(24,$rate);color:#ffc300;height:temSize(64,$rate);line-height: temSize(64,$rate);float: right;margin-top: temSize(10,$rate);}
+  }
+  .ranking_box_bottom{width:temSize(570,$rate);height:temSize(80,$rate); background:url("../img/microbargin_bottom.png") $img-pozC;@include background-size100;
+margin-left:temSize(2,$rate);text-align:center;margin:0 auto;top:temSize(-16,$rate);
+button{font-size:temSize(26,$rate);color: #c98e94;padding:temSize(12,$rate);width:90%;}
+}
+.ranking_list{padding:temSize(1,$rate);background: #2c3242 url("../img/bargin_bg_rank.jpg") no-repeat top center;background-size:100% auto;width:100%;height:100%;padding-bottom:temSize(20,$rate);zoom: 1;margin: 0 auto;}
+.ranking_box{}
+.ranking_box_1{background: url("../img/microbargin_rankinglist.png") $img-pozC;@include background-size100;margin:temSize(56,$rate) auto 0;width:temSize(580,$rate);height:temSize(95,$rate);
+  span{font-size: temSize(34,$rate);width:temSize(209,$rate);text-align:center;margin: 0 auto;display: block;color: white;top:temSize(24,$rate);position: relative;
+  }
+}
+.ranking_box_11{width:temSize(214,$rate);height:temSize(10,$rate);border-radius:temSize(8,$rate);border: 1px solid #ffd704;background-color: #ffd704;margin: 0 auto; position: relative;top:temSize(80,$rate);
+}  
+  //编辑首页by双双
+  .bargin_boxOuter1_2 .edit_head_box{margin: 0 auto;border-radius: 50%;position:relative;
+    .noticechange{background:url("../img/edit_notice.png") $img-pozC;@include background-size100;position: absolute;}
+    .persion_headimg{background:url("../img/bargain_header_bg1.png") $img-pozC; @include background-size100;border-radius:50%;position: absolute;margin: 0 auto;}
+    .head_box_border{background:url("../img/headImg_circle.png") $img-pozC;@include background-size100;}
+  }
+  .bargin_boxOuter1_2 .edit_input{position: relative;
+    .entry_name{height: 100%;margin: 0 auto;color: #540f0a;position: relative; background:url("../img/entry_name.png") $img-pozC;@include background-size100;
+      .entry_name_info{position: absolute;text-align: center;color: #540f0a;}
+    }
+  }
+  .isEdit .bargin_boxOuter1_2 .bargin_ware{
+    .bargin_ware_box2{text-align:center;line-height: 100%;}
+  }
+
+
+  //编辑第二页砍价策略及弹窗by慧娟
+   .bargin_edit_bg1{background:url("../img/bargin_bg1_repeat.jpg") repeat;@include background-size(temSize(40,$rate), temSize(40,$rate));position:relative;}
+   .tactics_Box{background:url("../img/bargain_bg2.png") $img-pozC;@include background-size100;margin:0 auto;color:#333;position:relative;
+     .tactics_title{margin:0 auto;background:url("../img/bargin_title_bg.png") $img-pozC;background-size:100% auto;}
+     .gold_Box{background:url("../img/bargin_gold_box.png") $img-pozC;@include background-size100;position:absolute;}
+   }
+    .tatics_btn1{background:url("../img/bargain_btn_bg2.png") $img-pozC;@include background-size100;color:#540f0a;margin:0 auto;display:block;}
+     .tatics_item{position:relative;width:100%;color:#666;}
+     .tatics_item_name{display:block;}
+     .tatic_input{position:absolute;top:0;border: 1px solid #ddd;border-radius: 3px;text-align:right;color:#333;}
+     .input_disabled .tatic_input{color:#ccc;}
+     .tatics_item_piece{position:absolute;right:0;top:0;}
+     .tatic_textBox1,.tatic_textBox2{display:block;position:absolute;}
+     .tatic_textBox1{top:0;}
+     .tatic_textBox2{bottom:0;}
+     .tatics_pop{z-index:100;}
+    .tatics_pop .lockMask{opacity:0.8;}
+    .tatics_popBox{background:url("../img/bargain_bg3.png") $img-pozC;@include background-size100;left:50%;position:absolute;z-index:120;
+    .clase_pop{background:url("../img/bargin_close_btn.png") $img-pozC;@include background-size100;position:absolute;left:50%;}
+    }
+
+  //活动规则，机构介绍by嘉文
+      .introduce{
+    .form{.title{text-align:center;
+        span{color:#333333;position:relative;z-index:1;
+          &:before{width:100%;content:"";position:absolute;z-index:-1;}
+        }
+      }
+    }
+    .form2{
+        .body{
+        .phone{background-image:url("../img/bargain_phone.png");background-repeat:no-repeat;background-position-y:center; }
+        .address{background-image:url("../img/bargain_address.png");background-repeat:no-repeat;}
+      }
+    }
+
+  }
+}
+  
+$editrate:0.8;
+$viewrate:1;
+
+//编辑页面
+.micro_bargain .isEdit{
+      //活动规则，机构介绍by嘉文
+  .introduce_isEdit1{background:url("../img/bargin_bg1_repeat.jpg") repeat;}
+  .introduce_isEdit2{background:url("../img/bargain_bg3_repeat.png") repeat;}
+  .introduce{.form1{background:url("../img/bargain_bg3.png") $img-pozC;@include background-size100;margin:0 auto;}
+    .form2{background:url("../img/bargain_bg3.png") $img-pozC;@include background-size100;margin:0 auto;}
+  }
+ @include edit-base($editrate);
+
+ @include form-base($editrate);
+}
+ //仅预览页面样式写这里
+.micro_bargain .preview{
+         //活动规则，机构介绍by嘉文
+   .introduce{background:url("../img/bargain_bg3_repeat.png") repeat;
+    .form1{background:url("../img/bargain_bg2_1.png") $img-pozC;@include background-size100;margin:0 auto;}
+    .form2{background:url("../img/bargain_bg2_2.png") $img-pozC;@include background-size100;margin:0 auto;}
+  }
+  @include view-base($viewrate);  
+  @include form-base($viewrate);
+}

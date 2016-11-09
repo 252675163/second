@@ -1,0 +1,74 @@
+<ion-view class="content-bg consultbook">
+
+    <div style="position: absolute;width: 100%;">
+        <div class="mybanner"  ng-hide="showBannerNone">
+            {{Title | Maxlength:9}}
+            <div ng-click="goconsultbooklist()" ng-show="showlists" class="bg1">
+                <div class="bg"></div>
+            </div>
+        </div>
+        <div class="mybanner" ng-show="showBannerNone">
+            <img ng-src="{{baseImgUrl+'consultbook_bg3.png'}}" class="bannerNone" /> 您尚未创建场景
+        </div>
+
+
+        <div ng-style="{'display':data==''||showBannerNone?'block':'none'}">
+            <img ng-src="{{baseImgUrl+'consultbook_bg1.png'}}" class="consultNone" />
+            <div class="consultNoneText">您的咨询本还没有数据哦~</div>
+        </div>
+    </div>
+
+
+    <div ng-show="showConsultsBookList" class="consultbooklistMask"></div>
+
+    <ion-scroll class="consultbooklist" has-bouncing="false" ng-show="showConsultsBookList">
+        <ion-content class="consultbooklist" has-bouncing="false">
+
+            <div class="consultlist_item" ng-repeat="activityModel in Listdata">
+                <div class="consultlist_info_box">
+                    <div class="clearfix" ng-click="consults(activityModel.Id,activityModel.Type)">
+                        <span class="active_text1">{{activityModel.Title}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <ion-infinite-scroll on-infinite="ListloadMore()" ng-if="Listpage.currentIndex < Listpage.totalCount" distance="1%" class="LoadStyle">
+            </ion-infinite-scroll>
+        </ion-content>
+    </ion-scroll>
+
+    <ion-content class="consultlist" has-bouncing="false">
+        <ion-list>
+            <ion-item class="item-avatar dateItem" ng-repeat="date in consultdate track by $index" type="item-text-wrap">
+                <div class="date">{{date}}</div>
+
+                <ion-item class="item-avatar consultItem" ng-repeat="consult in data | filter:{CreatedAt:date}" type="item-text-wrap">
+                    <div class="myrow clearfix">
+                        <div class="consult_name ">{{consult.Name | Maxlength:7}}</div>
+                        <div class="consult_phone ">
+                            <a href="tel:{{consult.Phone}}">{{consult.Phone}}</a>
+                        </div>
+                    </div>
+                    <div class="consult_content" ng-show="consult.Content">
+                        <div ng-if="!consult.IsJson">
+                            备注
+                            <pre class="consult_content1">{{consult.Content}}</pre>
+                        </div>
+
+                        <div ng-repeat="remark in consult.ReMark" ng-if="consult.IsJson">
+                            {{remark.name}}
+                            <pre class="consult_content1">{{remark.value}}</pre>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex < page.totalCount" distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+
+    <div ng-click="closeConsuleList()" ng-show="showConsultsBookList" class="bg2">
+        <div class="consultlist_close"></div>
+   </div>
+</ion-view>

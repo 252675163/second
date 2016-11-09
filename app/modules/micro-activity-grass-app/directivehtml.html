@@ -1,0 +1,89 @@
+﻿<div class="lockMask_box" ng-style="{'display':isShowShare}">
+    <div class="lockMask"></div>
+    <div class="lockMask_content">
+        <div class="lock_title" ng-class="{'lock_fail_title': !isPublishFail}"></div>
+        <div class="lock_text" ng-class="{'lock_fail_text': !isPublishFail}">
+            <div class="ps_success">{{!isPublishFail?"保存失败！":"保存成功！"}}</div>
+            <div class="ps_text">
+                {{calMessage}}正在为您跳转{{!isPublishFail?"回编辑页面":"到我的场景"}}...
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btnGroup4" style="z-index:6;">
+    <button type="button" class="btnG4_edit" ng-click="goToEdit()" >
+        <span>编辑</span>
+    </button>
+    <button type="button" class="btnG4_share" ng-click="changeShareTitle()()">
+        <span>分享</span>
+    </button>
+    <!--<div style="position: absolute; right: 1.3rem; top: .49rem">-->
+        <!--<button type="button" ng-class="!isOpen?'btnG3_music':'btnG3_musicon'" ng-click="closeAndOpenMusic()"></button>-->
+    <!--</div>-->
+</div>
+
+
+<!--<audio id="myaudio" autoplay="autoplay" loop="loop">-->
+    <!--<source ng-src="{{musicUrl}}" type="audio/mpeg"/>-->
+<!--</audio>-->
+
+
+<!--自定义分享链接-->
+<div ng-style="{'display':isShowShareTitlePop?'block':'none'}">
+    <button type="button" class="btn-closed" style="z-index:8;" ng-click="colseShareTitlePop()"></button>
+    <div class="lockMask" style="z-index:7;"></div>
+    <div class="popup-tips-s1" style="z-index:7;"></div>
+    <div class="popup-wrap-s1" style="z-index:7;">
+        <div class="popup-content">
+            <input type="text" class="popup-text-box" ng-model="showShareTitlePopModel.shareTitle" />
+
+            <div class="popup-box clearfix">
+                <div class="popup-boxL" ng-click="changeShareImage()"><img ng-src="{{showShareTitlePopModel.imageUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button></div>
+                <!--<span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>-->
+                <div class="popup-boxR">
+                    <textarea class="popup_textbox" maxlength="100" ng-model="showShareTitlePopModel.desc"></textarea>
+                    <span class="popup-box_text">最后修改时间：{{showShareTitlePopModel.createdAt| formatJsonDate:'yyyy-MM-dd HH:mm'}}</span>
+                    <span class="popup-box_total"><span>{{showShareTitlePopModel.desc.length||0}}</span> / 100</span>
+                </div>
+            </div>
+        </div>
+        <div class="popup-buttons">
+            <button type="button" class="button-save" ng-click="showShareTitlePopModel.saveShareTitleFunction('goIndex')">
+                仅保存
+            </button>
+            <button type="button" class="button-share" ng-click="showShareTitlePopModel.saveShareTitleFunction('goShare')">
+                立刻分享
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div  style="display:none" >
+    <div class="lockMask lcstyle"></div>
+    <div class="lockMask_index popup-tips">
+        即将为您跳转到分享页面
+        <br/>
+        记得点击下一页右上角分享哦~
+    </div>
+    <div class="lockMask_loading_normol">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!--loading效果 -->
+</div>
+
+<!--分享遮罩 {-->
+<div ng-style="{'display':isShare?'block':'none'}">
+    <div class="lockMask"></div>
+<!--    <div class="lockMask_activity_share"></div>-->
+    <div class="lockMask_activity_share4"></div>
+</div>
+<!--} 分享遮罩-->

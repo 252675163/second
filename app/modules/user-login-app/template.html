@@ -1,0 +1,56 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<user-terms></user-terms>
+<!--用户注册登录流程-->
+
+<!--密码登录-->
+<div class="user-login1 ng-hide" ng-show="step==3">
+    <div class="logo-box"></div>
+    <div class="input-bg">
+        <div class="input-icon icon-lock"></div>
+        <input class="input-ctrl" type="password" placeholder="请输入你的密码" change-placeholder-by-focus ng-model="password" />
+    </div>
+    <div class="btn-submit" ng-click="getStartStep2()">开启我的校宝秀</div>
+    <div class="warn-info-repwd"><span class="info1">忘记登录密码了？&nbsp;&nbsp;</span><em ng-click="forgetPassword()">重置密码</em></div>
+</div>
+<!--老用户补密码-->
+<div class="user-login1 ng-hide" ng-show="step==2">
+    <div class="logo-box"></div>
+    <div class="warn-info" ng-show="type==2">验证码已发送，请输入验证码并设置密码</div>
+    <div class="warn-info" ng-show="type==1">为了你的账号安全，请设置登录密码</div>
+    <div class="warn-info" ng-show="type==3">请验证手机号，并重置密码</div>
+    <div class="input-bg">
+        <div class="input-icon icon-phone"></div>
+        <input class="input-ctrl" ng-model="phone" readonly="readonly" />
+        <div class="send-box" ng-click="sendVerificationCode()" ng-show="firstSend==1">发送验证码</div>
+        <div class="send-box2" ng-show="countdown>0 && firstSend==0">已发送({{countdown}})</div>
+        <div class="send-box" ng-click="sendVerificationCode()" ng-show="countdown==0 &&firstSend==0">重新发送</div>
+    </div>
+    <div class="input-bg input-line">
+        <div class="input-icon icon-shield"></div>
+        <input class="input-ctrl" ng-model="code" type="tel" placeholder="请输入验证码" change-placeholder-by-focus />
+    </div>
+    <div class="input-bg">
+        <div class="input-icon icon-lock"></div>
+        <input class="input-ctrl" ng-model="password" type="password" placeholder="请设置你的密码" change-placeholder-by-focus />
+    </div>
+    <div class="btn-submit" ng-click="getStartStep2()">开启我的校宝秀</div>
+    <div class="warn-info-tel ng-hide" ng-show="type==1||type==3">客服电话&nbsp;&nbsp;&nbsp;<a href="tel:400-6999-707">400-6999-707</a></div>
+    <div class="terms ng-hide" ng-show="type==2">点击『开启我的校宝秀』即为同意<span ng-click="showUserTerms()">用户条款</span></div>
+</div>
+<!--注册-->
+<div class="user-login1 ng-hide" ng-show="step==1">
+    <div class="logo-box"></div>
+    <div class="input-bg">
+        <div class="input-icon icon-phone"></div>
+        <input ng-model="phone" type="tel" class="input-ctrl" placeholder="请输入你的手机号" change-placeholder-by-focus />
+    </div>
+    <div class="btn-submit" ng-click="getStartStep1()">开启我的校宝秀</div>
+</div>
+
+
+
+
+
+
+

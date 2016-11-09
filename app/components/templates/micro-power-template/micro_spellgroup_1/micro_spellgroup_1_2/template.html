@@ -1,0 +1,24 @@
+    <!--第二屏-->
+<div class="spellgroup_screen2" ng-if="templateData.spellGroupList.length&&isView" id="spellgroup_1_2">
+    <!--火热拼团中(未成团)-->
+    <div class="spellgroup_groupList">
+        <h2 class="sp_grouping_title"></h2>
+        <div class="sp_grouping_content">
+            <ul class="sp_grouping_ajaxBox" ng-repeat="spellGroup in templateData.spellGroupList">
+                <li>
+                    <div class="sp_grouping_avator"><img class="cty-wh-100" ng-src="{{(spellGroup.Config|parseHeaderImgByConfig)||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}"></div>
+                    <p class="sp_grouping_description">该团已有<span>{{spellGroup.HelpCount}}</span>人参加<br />还差<span>{{activityExtConfig.NeedHelpCount-spellGroup.HelpCount}}</span>人成团</p>
+                    <button class="sp_grouping_button" ng-click="goDetail(spellGroup)">我要参加</button>
+                </li>
+                <!--<li>
+            <div class="sp_grouping_avator"><img class="cty-wh-100" src="" alt=""></div>
+            <p class="sp_grouping_description">该团已有<span>2</span>人参加<br />还差<span>1</span>人成团</p>
+            <button class="sp_grouping_button">我要参加</button>
+        </li>-->
+            </ul>
+            <!--没有更多了添加样式 .nomore-->
+            <p class="sp_grouping_loadmore" ng-show="page.currentIndex<page.totalCount" ng-click="loadMore()"><span>显示更多</span></p>
+            <p class="sp_grouped_loadmore nomore" ng-show="page.currentIndex>=page.totalCount&&page.currentIndex>1" ng-click="loadMore()"><span>没有更多了</span></p>
+        </div>
+    </div>
+</div>

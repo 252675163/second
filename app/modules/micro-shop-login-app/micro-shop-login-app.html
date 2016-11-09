@@ -1,0 +1,24 @@
+<ion-view class="shop-login-bg">
+    <div class="shop-login-content">
+        <div class="shop-login-phone">
+            <div class="shop-login-text">手机号</div>
+            <input class="shop-login-input1" type="number" ng-model="phone" />
+        </div>
+        <div class="shop-login-code">
+            <span class="shop-login-text">验证码</span>
+            <input class="shop-login-input2" ng-model="code" />
+            <div ng-click="sendVerifyCode()" ng-show="firstSend==1" class="shop-login-sendbtn">获取验证码</div>
+            <div ng-show="countdown>0 && firstSend==0" class="shop-login-sendbtn">已发送({{countdown}})</div>
+            <div ng-click="sendVerifyCode()" ng-show="countdown==0 &&firstSend==0" class="shop-login-sendbtn">重新发送</div>
+        </div>
+
+        <div class="shop-login-loginbtn" ng-click="login()">登录</div>
+    </div>
+    <div class="shop-login-right">
+        <p>点击“登录”按钮，即表示您已阅读并同意</p>
+        <div class="login-license">
+            <span ng-click="showUserTerms()">《用户服务协议》</span>
+            <span ng-click="showMicroshopUserTerms()">《校宝微店用户条款》</span>
+        </div>
+    </div>
+</ion-view>

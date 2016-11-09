@@ -1,0 +1,53 @@
+<!-- 微传单反面  -->
+<div class="microleaflet5 leafletbg2 bgPan">
+    <!--预览-->
+    <div class="preview" ng-if="!isEdit">
+        <div class="leaflet5-back">
+            <div class="leafletbg5_title" ng-bind-html="templateModel.title|newlines"></div>
+                <div class="content1_box">
+                    <h1 class="content_title1">机构介绍</h1>
+                    <div class="content1">
+                        <div class="content_text1" ng-bind-html="templateModel.description[0]|newlines|recogUrl" ></div>
+                    </div>
+                </div>
+                <div class="content_box2">
+                    <h1 class="content_title2">教学内容</h1>
+                    <div class="content2">
+                        <div class="content_text2" ng-bind-html="templateModel.description[3]|newlines|recogUrl"></div>
+                    </div>
+                </div>
+                <div class="content_box3">
+                    <h1 class="content_title2">班型</h1>
+                    <div class="content2">
+                        <div class="content_text2" ng-bind-html="templateModel.description[1]|newlines|recogUrl"></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+    <!--编辑-->
+    <div class="isEdit" ng-if="isEdit">
+        <div class="front_editOuter front_editOuter5">
+            <div class="front_edit_title2 ">传单反面</div>
+            <div class="front_edit_box1">
+                机构名称:
+                <textarea class="front_edit_text1" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" 
+                     ng-disabled="!isEdit" ng-trim="false"  isdiff="true" readonly="readonly" inputconfig="{{inputconfig[0]}}" new-custom-input></textarea>
+            </div>
+            <div class="front_edit2_box2">
+                机构介绍:
+                <textarea class="front_edit2_text2" rows="5" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false"  isdiff="true" readonly="readonly" inputconfig="{{inputconfig[1]}}" new-custom-input></textarea>
+            </div>
+            <div class="front_edit2_box3">
+                班型:
+                <textarea class="front_edit2_text3" rows="6" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" 
+                     ng-disabled="!isEdit" ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[2]}}" new-custom-input></textarea>
+            </div>
+            <div class="front_edit2_box4">
+                教学内容:
+                <textarea class="front_edit2_text3" rows="6" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[3]" 
+                     ng-disabled="!isEdit" ng-trim="false"  isdiff="true" readonly="readonly" inputconfig="{{inputconfig[2]}}" new-custom-input></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<!--微传单反面-->

@@ -1,0 +1,43 @@
+<!--No.9模板页 {-->
+<div class="paneabird microactivity-grass bgPan">
+    <!-- page 1 {-->
+    <div ng-class="{'preview':!isEdit}" style="">
+        <div class="grass2_box1">
+            <div class="grass2_title1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="200" ng-bind-html="templateModel.title|newlines"></div>
+            <div class="grass2_text1" ng-class="{'editBorder':isEdit}" ><span ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="200" ng-bind-html="templateModel.description|newlines"></span></div>
+
+        </div>
+<!---->
+        <!--第一步：种草展示（首页）-->
+        <div ng-if = "step==1">
+            <template13by1-step1></template13by1-step1>
+        </div>
+        <!--第二步：填写表单页-->
+        <div ng-if = "step==2">
+            <template13by1-step2 status = 'status'></template13by1-step2>
+        </div>
+        <!--选择草-->
+        <div ng-style="{'display':isShowGrassList?'block':'none'}" >
+                <div class="lockMask"></div><!--遮罩 -->
+                <div class="grass2_box6Outer">
+                    <div class="grass2_box6Head"></div>
+                    <!--<button type="button" class="btn_round_close" ng-click="closeGrass()"></button>-->
+                    <div class="grass2_box6 clearfix">
+                        <!--todo-->
+                        <button type="button" class="grass2_box6_item item1" ng-click="chooseGrassAction(1)"><span class="page_box1_text">小豆芽</span></button>
+                        <button type="button" class="grass2_box6_item item2" ng-click="chooseGrassAction(2)"><span class="page_box1_text">蕨菜</span></button>
+                        <button type="button" class="grass2_box6_item item3" ng-click="chooseGrassAction(3)"><span class="page_box1_text">小树苗</span></button>
+                        <button type="button" class="grass2_box6_item item4" ng-click="chooseGrassAction(4)"><span class="page_box1_text">幸运草</span></button>
+                        <button type="button" class="grass2_box6_item item5" ng-click="chooseGrassAction(5)"><span class="page_box1_text">小花花</span></button>
+                        <button type="button" class="grass2_box6_item item6" ng-click="chooseGrassAction(6)"><span class="page_box1_text">蒲公英</span></button>
+                        <button type="button" class="grass2_box6_item item7" ng-click="chooseGrassAction(7)"><span class="page_box1_text">向日葵</span></button>
+                        <button type="button" class="grass2_box6_item item8" ng-click="chooseGrassAction(8)"><span class="page_box1_text">小雏菊</span></button>
+                        <button type="button" class="grass2_box6_item item9" ng-click="chooseGrassAction(9)"><span class="page_box1_text">小蘑菇</span></button>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+
+</div>
+<div class="grass2_box5" ng-show = "!isEdit"></div>

@@ -1,0 +1,119 @@
+<ion-view cache-view="false">
+    <ion-content  has-bouncing="false" class ="ion_content_bg3" ng-show = "step==1">
+        <!--6-1-选择同步方式-->
+        <div class="choice_syn_box "  >
+            <div class="choice_syn_top">
+                <div class="choice_syn_top_title">同步微官网</div>
+                <div class="choice_syn_top_text">把您制作好的微官网放进微信公众号的菜单里</div>
+            </div>
+            <div class="choice_syn_content">
+                <div class="syn_left_box" ng-click = "goStep('notVip_1')">
+                    <div class="syn_left_top">
+                        <div class="syn_left_top_content">
+                            <div class="syn_top_text">普通服务</div>
+                        </div>
+                    </div>
+                    <p class="syn_left_text">
+                        <span class="syn_left_text_title">NOTICE</span>
+                        您需要手动查找并填写微信公众号应用ID和密钥。
+                    </p>
+                    <div class="syn_btn_box">
+                        <button class="syn_btn_style"  >点击同步</button>
+                    </div>
+                </div>
+                <div class="syn_right_box"  ng-click = "goStep('vip_1')" >
+                    <div class="syn_right_top">
+                        <div class="syn_right_top_content">
+                            <div class="syn_top_text">专享服务</div>
+                        </div>
+                    </div>
+                    <p class="syn_left_text">
+                        <span class="syn_left_text_title">NOTICE</span>
+                        校宝秀专业指导师将向您提供一对一专享服务。
+                    </p>
+                    <div class="syn_btn_box">
+                        <button class="syn_btn_style">点击同步</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+        <!--6-1-选择同步方式-->
+
+        <!--vip手机注册页-->
+        <ion-content has-bouncing="false" class = "ion_content_bg2"  ng-show = "step=='vip_1'">
+            <div class="vip_service_content " >
+                <div class=" vip_service_title">
+                    <span class="vip_service_title_text">专享服务</span>
+                </div>
+                <div class=" vip_service_top">请留下您的联系方式，校宝秀专业指导师将全程协助您完成微官网同步。</div>
+                <div class=" vip_service_list">
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">姓名</span><input  maxlength="200" my-max-length class="modal_input_style canShow" type="text" ng-model="userInfo.name"   placeholder="请输入您的姓名" change-placeholder-by-focus />
+                    </div>
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">手机号</span><input maxlength="15" my-max-length class="modal_input_style canShow" type="tel" ng-model="userInfo.phone"  placeholder="请输入您的手机号码" change-placeholder-by-focus />
+                    </div>
+                    <div class="modal_btn_box1"><button class="button-block modal_btn_style" ng-click = "submitUserInfo('vip')" >提交信息</button></div>
+                </div>
+            </div>
+        </ion-content>
+        <!--手机注册页-->
+
+
+
+        <!--6-2-1-手动设置填写应用Id和秘钥-->
+        <ion-content has-bouncing="false"  class ="ion_content_bg4"   ng-show = "step=='notVip_1'">
+            <div class="manual_content_box ">
+                <div class=" manual_content_top">请按照下述指南查找并填写您的<br />微信公众号应用ID和应用密钥</div>
+                <div class=" manual_content_list">
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">AppID</span><input  maxlength="200" my-max-length class="modal_input_style canShow" type="text" ng-model="appInfo.id"  placeholder="请填写您的应用ID" change-placeholder-by-focus />
+                    </div>
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">AppSecret</span><input maxlength="200" my-max-length class="modal_input_style canShow" type="password" ng-model="appInfo.secret"  placeholder="请填写您的应用密钥" change-placeholder-by-focus />
+                    </div>
+                    <div class="modal_btn_box1"><button class="button-block modal_btn_style" ng-click = "submitAppInfo()">同步</button></div>
+                </div>
+                <div class="manual_content_foot">
+                    <h3 class="manual_content_h3">如何查找应用ID和密钥</h3>
+                    <div class="manual_content_footItem">
+                        <p class="manual_content_footItem_text">1、请登录微信公众平台，点击底部“开发者中心</p>
+                        <div class="manual_content_footItem_bgpic"></div>
+                    </div>
+                    <div class="manual_content_footItem">
+                        <p class="manual_content_footItem_text">2、查看配置项中的AppID（应用ID）和AppSecret（应用密钥）。</p>
+                        <div class="manual_content_footItem_bgpic2"></div>
+                    </div>
+                </div>
+            </div>
+         </ion-content>
+        <!--6-2-1-手动设置-->
+
+        <!--手动第二步设置手机信息弹窗遮罩开始-->
+        <ion-content has-bouncing="false"  class = " ion_content_bg5"  ng-show = "step=='notVip_2'">
+        <div class="modal_style " >
+            <div class="modal_content_box">
+                <div class="modal_content_top">
+                    <p class="modal_content_top_title">微信公众号信息提交成功！</p>
+                    <div class="modal_content_top_text">请留下您的联系方式，校宝秀专业指导师会审核信息，并协助您完成微官网同步。感谢您的支持！</div>
+                </div>
+                <div class="modal_content_list">
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">姓名</span><input maxlength="200" my-max-length class="modal_input_style canShow" type="text" ng-model="userInfo.name"  placeholder="请输入您的姓名" change-placeholder-by-focus />
+
+                    </div>
+                    <div class="card siteEdit_card_style modal_input_box">
+                        <span class="modal_span_style">手机号</span><input  maxlength="15" my-max-length class="modal_input_style canShow" type="tel" ng-model="userInfo.phone"  placeholder="请输入您的手机号码" change-placeholder-by-focus/>
+                    </div>
+                    <div class="modal_btn_box1"><button class="button-block modal_btn_style" ng-click="submitUserInfo('notVip')">提交信息</button></div>
+                </div>
+                <div class="modal_content_delete" ng-click = "goStep('notVip_1')"></div>
+            </div>
+        </div>
+        </ion-content>
+        <!--手动设置遮罩结束-->
+
+
+
+</ion-view>

@@ -1,0 +1,259 @@
+﻿<ion-view class="consultbook bg-color-gray  consultbook_detail newStyleComboboxMask ">
+    <!--无数据时样式-->
+    <div class="consultbook_detail_load" ng-class="{ 'consultbook_detail_load_fin':hasMsgDone} ">
+        <div class="consultbook_detail_head">
+            <div class="top">
+                <div class="headimg">
+                    <span class="user_head_img user_head_img_g"></span>
+                </div>
+                <div class="name_and_tags ">
+                    <div class="name ">
+                        <div class="name_text name_text_g header_sborder"></div>
+                        <span class="star star_g header_sborder"></span>
+                    </div>
+                    <ul class="tags_warp ">
+                        <li class="tag "></li>
+                        <li class="tag "></li>
+                    </ul>
+                </div>
+                <div class="consultbook_detail_head_right ">
+                    <span class="text text_g header_sborder"></span>
+                    <div class="consult_user_head1_g consult_detail_head1 ">
+                    </div>
+
+                </div>
+            </div>
+            <div class="btn_box ">
+                <div class="btn1 " style="border-color:#ddd ">
+                </div>
+                <a class="btn btn-size-200 btn-blue-outline " ng-click="callPhone()" href="tel:{{userInfo.Phone}}" style="border-color:#ddd "></a>
+            </div>
+        </div>
+        <div class="consultbook_tab_box border-t-1 " ng-hide="hasMsgDone ">
+            <span class="tab "><i class="tabI">咨询跟进</i></span>
+            <span class="tab "><i class="tabI">互动记录</i></span>
+            <span class="tab"><i class="tabI">基本信息</i></span>
+        </div>
+        <div class="load_animation">
+
+        </div>
+    </div>
+    <!--顶部个人信息-->
+    <div class="consultbook_detail_head ng-hide " ng-show="hasMsgDone ">
+        <div class="top ">
+            <div class="headimg ">
+                <img ng-if="userInfo.HeadImgUrl " ng-src="{{userInfo.HeadImgUrl}} ">
+                <span ng-if="!userInfo.HeadImgUrl " class="user_head_img " style="background:#{{color}};margin-top:0 " ng-bind="userInfo.Name[0].toUpperCase() "></span>
+            </div>
+            <div class="name_and_tags ">
+                <div class="name ">
+                    <span class="name_text " ng-bind="userInfo.Name "></span>
+                    <span class="star " ng-class="{ 'isTop':userInfo.IsTop} " ng-click="toggleStar() "></span>
+                </div>
+                <ul class="tags_warp ng-hide " ng-show="isTagMsgShow ">
+                    <li class="tag ng-hide " ng-show="currentUserLocation.Id==userInfo.DistrictId &&userInfo.DistrictId>0">本地</li>
+                    <li class="tag ng-hide" ng-show="!userInfo.Enrolled&&userInfo.Id">未报名</li>
+                </ul>
+            </div>
+            <div class="consultbook_detail_head_right">
+                <span class="text">意向度</span>
+                <div class="consult_user_head1 consult_detail_head1 {{'consult_user_head1_icon'+userInfo.Interest}}" ng-click="toggleIntentionList()">
+                </div>
+
+            </div>
+        </div>
+        <div class="btn_box">
+            <div class="btn1 {{'btn1_'+userInfo.FollowUpStatus}}" ng-click="showList(0)" ng-bind="userInfo.FollowUpStatus |stateType">
+            </div>
+            <a class="btn btn-size-200 btn-blue-outline">拨号</a>
+        </div>
+
+    </div>
+    <div class="consultbook_tab_box border-t-1 ng-hide" ng-show="hasMsgDone">
+        <span class="tab" ng-click="showTabPage(0)" ng-class="{'myActive':showPage==0}">咨询跟进</span>
+        <span class="tab" ng-click="showTabPage(2)" ng-class="{'myActive':showPage==2}">互动记录</span>
+        <span class="tab " ng-click="showTabPage(1)" ng-class="{'myActive':showPage==1}">基本信息</span>
+    </div>
+    <ion-content class="consultbook_detail_bottom" has-bouncing="true">
+        <!--咨询跟进-->
+        <ion-list class="ng-hide" ng-show="showPage==0&&hasMsgDone">
+            <div style="font-size: 0.6rem;text-align: center;width:100%;margin-top:7.5rem" class="ng-hide" ng-show="hasCommuLoad&&commuList.length==0"> 没有咨询跟进内容<br />请点击底部按钮添加沟通记录和回访提醒</div>
+            <ion-item class="consultbook_detail_list" ng-repeat="item in commuList" ng-if="item.time" ng-show="hasCommuLoad&&commuList.length>0">
+                <div class="consultbook_detail_time" ng-bind="item.time |formatJsonDate:'yyyy-MM-dd'"></div>
+                <ion-item class="consultbook_detail_record_list" ng-repeat="sItem in item.data">
+                    <div class="cards margin-lr-20 border-radius-20 consultbook_detail_cards">
+                        <div class="cards-header border-b-1 pad-lr-20 ng-hide " ng-show="sItem.DataType==1 ">沟通记录<span class="header_right " ng-bind="sItem.CreatedTime |formatJsonDate: 'HH:mm' "></span></div>
+                        <div class="cards-header border-b-1 pad-lr-20 ng-hide " ng-show="sItem.DataType==2 ">操作日志<span class="header_right " ng-bind="sItem.CreatedTime |formatJsonDate: 'HH:mm' "></span></div>
+                        <div class="cards-body border-b-1 " ng-if="sItem.RemindDate!='/Date(-62135596800000)/' &&sItem.RemindDate &&sItem.Content.length>0&&sItem.IsRemind">
+                            <p ng-bind="sItem.Content "></p>
+                        </div>
+                        <div class="cards-footer " ng-class="{ 'cards-footer2':sItem.RemindDate=='/Date(-62135596800000)/'|| !sItem.RemindDate|| !sItem.IsRemind} ">
+                            <div ng-if="sItem.RemindDate!='/Date(-62135596800000)/'&&sItem.RemindDate &&sItem.IsRemind" class="check consult_select " ng-class="{ 'consult_selected1':sItem.IsDone} " ng-click="toggleCheck(this) "></div>
+                            <span class="cards-footer-sp" ng-if="sItem.RemindDate!='/Date(-62135596800000)/'&&sItem.RemindDate &&sItem.IsRemind">回访提醒：<i ng-bind="sItem.RemindDate | formatJsonDate: 'yyyy-MM-dd HH:mm' "></i></span>
+                            <p ng-if="sItem.RemindDate=='/Date(-62135596800000)/'|| !sItem.RemindDate || !sItem.IsRemind" ng-bind-html="sItem.Content | newlines"></p>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-item>
+            <div style="height:3rem;width:100% "></div>
+        </ion-list>
+        <!--互动记录-->
+        <ion-list class="ng-hide" ng-show="showPage==2&&hasMsgDone">
+            <div style="font-size: 0.6rem;text-align: center;width:100%;margin-top:7.5rem" class="ng-hide" ng-show="regbookUserRecord.length==0"> 没有互动记录</div>
+            <ion-item class="consultbook_detail_list" ng-repeat="item in regbookUserRecord" ng-if="item.time" ng-show="regbookUserRecord.length>0">
+                <div class="consultbook_detail_time" ng-bind="item.time |formatJsonDate:'yyyy-MM-dd'"></div>
+                <ion-item class="consultbook_detail_record_list" ng-repeat="sItem in item.data">
+                    <div class="cards margin-lr-20 border-radius-20 consultbook_detail_cards">
+                        <div class="cards-header border-b-1 pad-lr-20 ">互动记录<span class="header_right " ng-bind="sItem.CreatedAt |formatJsonDate: 'HH:mm' "></span></div>
+                        <div class="cards-footer cards-footer2">
+                            <consult-item consult-data="sItem.uiModel" consult-template="sItem.ConsultTemplate"></consult-item>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-item>
+        </ion-list>
+
+        <!--个人信息   -->
+        <div class="ng-hide " ng-show="showPage==1&&hasMsgDone ">
+            <div class="basic_msg_box_warp border-t-1 ">
+                <div class="line1 border-b-1 " ng-click="showText( 'Name') ">
+                    <span class="line_left ">姓名</span>
+                    <span class="line_right " ng-bind="userInfo.Name "></span>
+                </div>
+
+                <div class="line1 border-b-1 " ng-click="showText( 'Phone') ">
+                    <span class="line_left ">手机号</span>
+                    <div class="line_right " ng-bind="userInfo.Phone |phoneNumPart "></div>
+                </div>
+                <div class="line1 border-b-1 " ng-click="showText( 'WeChatNumber') ">
+                    <span class="line_left ">微信号</span>
+                    <div class="line_right " ng-bind="userInfo.WeChatNumber ">sadsa</div>
+                </div>
+                <div class="line1 border-b-1 " ng-click="showList(1) ">
+                    <span class="line_left ">性别</span>
+                    <span class="line_right " ng-bind="userInfo.Sex |sexType "></span>
+                </div>
+            </div>
+
+            <div class="basic_msg_box_warp border-t-1 ">
+
+                <div class="line1 border-b-1 " ng-click="selectCourseShow(1,userInfo.SecondLessonClassId,userInfo.ThirdLessonClassId) ">
+                    <span class="line_left ">意向课程1</span>
+                    <span class="line_right " ng-bind="userInfo.LessonClassName "></span>
+                </div>
+                <div class="line1 border-b-1 " ng-click="selectCourseShow(2,userInfo.LessonClassId,userInfo.ThirdLessonClassId) ">
+                    <span class="line_left ">意向课程2</span>
+                    <span class="line_right " ng-bind="userInfo.SecondLessonClassName "></span>
+                </div>
+                <div class="line1 border-b-1 " ng-click="selectCourseShow(3,userInfo.LessonClassId,userInfo.SecondLessonClassId) ">
+                    <span class="line_left ">意向课程3</span>
+                    <span class="line_right " ng-bind="userInfo.ThirdLessonClassName "></span>
+                </div>
+            </div>
+
+            <div class="basic_msg_box_warp border-t-1 ">
+
+                <div class="line1 " ng-click="showSalesman() ">
+                    <span class="line_left ">销售员</span>
+                    <span class="line_right dis_click" ng-class="{'line_right2':erpUserInfo.Level == 0 || erpUserInfo.Level == 1 || erpUserInfo.Level == 4 || erpUserInfo.Level == 6 }" ng-bind="userInfo.SalesMan"></span>
+                </div>
+            </div>
+            <div class="basic_msg_box_warp border-t-1 ">
+                <div class="line3 clearfix " ng-click="showText('Content')">
+                    <div class="line3_left ">其他信息</div>
+                    <div class=" line3_right " ng-bind="userInfo.Content "></div>
+                </div>
+            </div>
+        </div>
+
+        <ion-infinite-scroll on-infinite="loadCommuList()" ng-if="commuPage.currentIndex < commuPage.totalCount && showPage=='0'" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+        <ion-infinite-scroll on-infinite="loadRegbookUserRecord()" ng-if="page.currentIndex < page.totalCount && showPage=='2'" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+    <div class="add_account ng-hide " ng-show="showPage==0&&hasMsgDone" ng-click="showCommunication() ">
+        添加沟通记录
+        <span class="btn_shadow "></span>
+    </div>
+    <!--意向选择列表-->
+    <div class="intention_list ng-hide " ng-show="isIntentionListShow ">
+        <div class="lockMask intention_list_mask " ng-click="toggleIntentionList() "></div>
+        <div class="select_bg select "></div>
+        <div class="select ">
+            <div class="consultbook_detail_head_right mT ">
+                <span class="text ">意向度</span>
+                <div class="consult_user_head1 consult_detail_head1 consult_user_head1_icon1 " ng-click="selectIntentionList(1) ">
+                </div>
+            </div>
+            <div class="consult_user_head1 consult_user_head1_icon2 " ng-click="selectIntentionList(2) "></div>
+            <div class="consult_user_head1 consult_user_head1_icon3 " ng-click="selectIntentionList(3) "></div>
+            <div class="consult_user_head1 consult_user_head1_icon4 " ng-click="selectIntentionList(4) "></div>
+        </div>
+    </div>
+    <!--选择销售员-->
+    <div ng-show="isSalesmanShow" class="salesmanList ng-hide">
+        <div class="mask"></div>
+        <div class="listBox">
+            <div class="listHeader border-b-1"><i></i>请选择销售</div>
+            <div class="reg-prompt-info  list-info ng-hide" style="z-index:110 " ng-show="salesmanListData.length<1">
+                没有销售员<br />请前往PC端添加销售员
+            </div>
+            <ion-content class="listContent listContent1" style="z-index:110" has-bouncing="true">
+                <div ng-repeat="item in salesmanListData track by $index " ng-show="salesmanListData.length>0" class="selectItem border-b-1 ng-hide" ng-click="chooseSalesman(item)">
+                    <div class="img" ng-style="{'background':getHeadImageBg(item)}" ng-bind="item[0].toUpperCase()"></div>
+                    <div class="name">{{item}}</div>
+                </div>
+            </ion-content>
+            <div class="bottom1 border-t-1" ng-click="closeSalesman()">关闭</div>
+        </div>
+    </div>
+    <!--选择课程-->
+    <div ng-show="isCourseShow" class="salesmanList ng-hide">
+        <div class="mask"></div>
+        <div class="listBox">
+            <div class="listHeader border-b-1"><i></i>请选择意向课程</div>
+            <div class="reg-prompt-info  list-info ng-hide" style="z-index:110 " ng-show="courseListDataAfterFilter.length<1">
+                没有意向课程<br />请前往PC端添加课程
+            </div>
+            <ion-content class="listContent listContent1" style="z-index:110" has-bouncing="true">
+                <div ng-repeat="item in courseListDataAfterFilter" class="selectItem selectItem2 border-b-1 ng-hide" ng-show="courseListDataAfterFilter.length>0" ng-click="chooseCourse(item)" ng-bind="item.LessonClassName">
+                </div>
+            </ion-content>
+            <div class="bottom1 border-t-1" ng-click="closeSalesman()">关闭</div>
+        </div>
+    </div>
+    <!--添加沟通记录-->
+    <div class=" ng-hide" ng-show="isRecordShow">
+        <div class="lockMask intention_list_mask"></div>
+        <ion-content class="consultbook_detail_communication_warp">
+            <div class="communication">
+                <textarea ng-model="communication.text" ng-trim="false" maxlength="100"></textarea>
+                <div class="select">
+                    <span class="residueNum">还可输入<i>{{100-communication.textNum}}</i>字</span>
+                    <div class="time_warp btn-size-300 ng-hide" ng-click="showDateTime()" ng-show="marketTime==null">
+                        <div>设置回访提醒</div>
+                    </div>
+                    <div class="time_warp btn-size-300 bgChange ng-hide" ng-click="showDateTime()" ng-show="marketTime!=null">
+                        <div class="clockBox">
+                            <div class="clock"></div>
+                            <div ng-bind='marketTime | date:"yyyy-MM-dd HH:mm"' class="timeText"></div>
+                        </div>
+                    </div>
+                    <div style="display:none">
+                        <input ng-model="$parent.marketTime" mobiscroll-datetime="settings" mobiscroll-instance="$parent.myInstance" />
+                    </div>
+                    <div style="display:none">
+                        <input ng-model="$parent.marketTime" mobiscroll-datetime="settings2" mobiscroll-instance="$parent.myInstance2" />
+                    </div>
+                </div>
+                <div class="buttonGroup">
+                    <button class="cencel border-t-1 " ng-click="communicationRecordCencel()">取消</button>
+                    <button ng-click="communicationRecordConfirm()" class="confirm border-t-1">确认</button>
+                </div>
+
+            </div>
+        </ion-content>
+    </div>
+    <combobox></combobox>
+    <selectlist></selectlist>
+</ion-view>

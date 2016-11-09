@@ -1,0 +1,26 @@
+<ion-view cache-view="false" style="background:#eee;">
+    <!---->
+    <div class="vip_header_tab">
+        <a class="vip_tab_item" ng-click="switchType(1)" ng-class="{'active':type == 1}">全部</a><!--active选中当前状态-->
+        <a class="vip_tab_item" ng-click="switchType(2)" ng-class="{'active':type == 2}">邀请用户</a>
+        <a class="vip_tab_item" ng-click="switchType(3)" ng-class="{'active':type == 3}">VIP码</a>
+    </div>
+    <ion-content style="position:absolute;top:1.98rem" has-bouncing="false" scrollbar-y="false">       
+        <div class="VIP_order_center">
+            <div class="list">
+                <div class="item vip_item_list" ng-repeat="data in list">
+                    <span class="vip_type">{{getVipTagName(data.TagName)}}</span>
+                    <em class="vip_list_date">{{formatDateByStatistics(data.CreatedAt)| date:'yyyy-MM-dd HH:mm'}}</em>
+                    <span class="vip_username">{{data.NickName}}</span>
+                    <span class="vip_time"><em>+ {{data.VipDays}}</em>天</span>
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex < page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+    <div class="vip_order_empty ng-hide" ng-show="list.length==0"></div>
+</ion-view>
+
+
+

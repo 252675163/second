@@ -1,0 +1,19 @@
+<ion-view cache-view="false">
+    <my-audio ng-if="templateExtConfig.isHaveBackgroundMusic" audio-src="musicUrl " audio-handle="audioHandle"></my-audio>
+    <div id="container" class="scroll-content">
+        <div  id="iSlider-wrapper"></div>
+        <ion-content has-bouncing="false"  scrollbar-y = "false">
+            <micro-activity-old-and-new-view-view site-model="siteModel" template-ext-config="templateExtConfig" activity-template-id="templateId" template-code="templateCode" is-end="isEnd" is-use-weinxin-share="isUseWeinxinShare" default-current-index="defaultCurrentIndex" activity-other-config="activityOtherConfig"></micro-activity-old-and-new-view-view>
+        </ion-content>
+        <feedback-form ng-if="ifShowFeedback" tmpobj="feedbackData"></feedback-form>
+        <my-footer style="display:{{isBottom&&templateExtConfig.isUseFooter ?'block':'none'}}" class="footer-copyright hide-on-keyboard-open"></my-footer>
+    </div>
+    <!--<audio id="myaudio" >-->
+        <!--<source ng-src="{{musicUrl}}" type="audio/mpeg" />-->
+    <!--</audio>-->
+    <div ng-class="audioPosClass" class="audio_pos">
+        <button ng-if="templateExtConfig.isHaveBackgroundMusic" type="button" ng-class="!isOpen?'btnG3_music':'btnG3_musicon'" ng-click="closeAndOpenMusic()"></button>
+    </div>
+<!--    <div class="nextButton mantra" ng-hide="isBottom" ng-click="sectionJump($event)"></div>-->
+    <div ng-hide="isBottom"><next-button activity-template-id = "templateId" next-button-type="templateExtConfig.nextButtonType"></next-button></div>
+</ion-view>

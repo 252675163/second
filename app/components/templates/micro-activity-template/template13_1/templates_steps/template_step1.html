@@ -1,0 +1,37 @@
+<!---->
+<div class = "grass2_box2Outer">
+    <div class="grass2_box2" >
+        <div class="grass2_box2_inner">
+            <div class="grass2_text2">我是<span class="grass2_text2_text" ng-class="{'editBorder':isEdit}" ng-model = "templateModel.name" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "200"  ng-bind-html="userInfo1.name||templateModel.name|newlines"></span>
+                           <span ng-if = "isEdit||userInfo1.grassCount">
+                               ，头顶{{userInfo1.grassCount||"XXX"}}棵草<br>
+                           </span>
+                <span ng-if = "!(isEdit||userInfo1.grassCount)">
+                                ，我的头上还没有草<br>
+                            </span>
+                <span ng-if="isView && userType=='new'">现居种草排行榜第{{userInfo1.rank}}，快来帮我种草吧!</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--种草动画-->
+<img  ng-src="{{grassGrowUrl}}" class="person_head_grass  one" id="grass" ng-show="isGrow" />
+<img  ng-src="{{grassDanceUrl}}" class="person_head_grass  one" id="grassDance" ng-show="isDance" />
+<!--草帽-->
+<img  ng-src="{{grassUrl}}"   class="person_head_grass {{grassClass}}" ng-show="!(isGrow||isDance||userInfo1.grassCount===0) " />
+<div class="person_box grass2_person" id="animateContainer">
+    <!--换头像-->
+    <div class="person_head happy" ng-class="{'editBorder':isEdit,'happy':!(userInfo1.grassCount===0),'unhappy':userInfo1.grassCount===0}" ng-click="updateImg(0)">
+        <!-- 开心的表情样式 把 unhappy 换成 happy -->
+        <img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}" class="person_head-face">
+        <!--<img ng-if="isView" ng-src="{{userInfo1.headImg}}" class="person_head-face">-->
+
+        <!--<img ng-if="!isView" ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}" class="person_head-face">-->
+    </div>
+</div>
+
+
+<div class="grass2_btn_group">
+    <button type="button" class="grass2_btn1_1" ng-click="showGrassList()" ng-style="{'visibility': isHideDddGrassButton?'hidden':'visible'}" ng-disabled="isEnd">帮TA种草</button>
+    <button type="button" class="grass2_btn1_2" ng-click="goForm()" ng-disabled="isEnd">我也要喊人种草</button>
+</div>

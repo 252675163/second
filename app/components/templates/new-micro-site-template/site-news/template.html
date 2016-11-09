@@ -1,0 +1,71 @@
+<!--家长开放日-->
+<!--No.1模板页 -->
+<!--<div class="paneabird1 microactivity-template18 bgPan" style="background:url('/app/img/body_bg_18_1.jpg') no-repeat center center;background-size:100% 100%;">-->
+<div ng-if="isEdit">
+    <ion-content has-bouncing="false">
+            <ion-item class="card siteEdit_card_box5 siteEdit_card_style" ng-repeat="data in templateModel.News | orderBy:'date':true " type="item-text-wrap">
+                <!--<div ng-bind="newsIndex=$index" style="display:none"></div>-->
+
+                <div class="siteEdit_dynamic_box">
+                    <textarea placeholder="请输入机构动态" rows="6" class="siteEdit_textarea_style" ng-model="data.content" maxlength="160" scroll-top-by-blur my-max-length ng-trim="false" change-placeholder-by-focus ></textarea>
+
+                    <div class="siteEdit_addimg_box">
+
+                        <ion-item ng-repeat="image in data.imageUrl track by $index" class="card_inner_box item_card_inner_box" style="padding:0;">
+                            <img ng-src="{{image}}-s" class="canEdit" ng-click="ShowImageBig(data,$index)" style="width:100%;height:100%" />
+                        </ion-item>
+
+                        <div class="card_inner_box" ng-click="addNewImage(data)" ng-show="data.imageUrl.length<6">
+                            <div class="card_inner_text">
+                                <span class="card_icon">+</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="siteEdit_time_box">
+                    <div class="siteEdit_time_item" ng-click='demo.show()'>
+                        <div>{{data.date| date:"yyyy/MM/dd"}}</div>
+                        <input style="display:none" ng-model="data.date" mobiscroll-date="settings" mobiscroll-instance="demo" readonly="readonly" />
+                    </div>
+                    <button ng-click="deleteNews(data)" class="siteEdit_time_delete">删除</button>
+                </div>
+            </ion-item>
+    </ion-content>
+    <ion-footer-bar align-title="center" class="siteEdit_button_box hide-on-keyboard-open" ng-click="addNewNews()">
+        <button class=" card button_inner_text siteEdit_card_style">
+            <span class="card_icon">+</span>
+        </button>
+    </ion-footer-bar>
+</div>
+
+
+
+<div ng-if="!isEdit" class="">
+    <div class="newSite_news_Outer">
+        <!--含整版块的区域背景 -->
+        <div class="list newSite_news_list">
+            <!-- 一个循环结构 { -->
+            <!--2015.12.17 添加 newSite_news_only和newSite_news_2to3（第七套style需要）-->
+            <div class="item newSite_news_listItem" ng-repeat="data in News =( templateModel.News| orderBy:'date':true | Length:6 )" ng-class="{'newSite_news_only':data.imageUrl.length==0,'newSite_news_2to3':(data.imageUrl.length>=2&&data.imageUrl.length<=3)}">
+                <!--<div ng-bind="newsIndex=$index" style="display:none"></div>-->
+
+                <div class="newSite_news_listIcon"></div>
+                <p>{{data.date | date:"MM/dd/yyyy"}}</p>
+                <h2 ng-bind-html="data.content|newlines"></h2>
+
+                <ul class="newSite_news_list_pic clearfix" ng-show="data.imageUrl.length>0">
+                    <li ng-repeat="image in data.imageUrl track by $index" ng-if="data.imageUrl.length>1">
+                        <img ng-src="{{image}}-s" ng-click="ShowImageBig(data,$index)" style="width:100%;height:100%" />
+                    </li>
+                    <li ng-repeat="image in data.imageUrl track by $index" ng-if="data.imageUrl.length==1">
+                        <img ng-src="{{image}}-m" ng-click="ShowImageBig(data,$index)" style="width:100%;height:100%" />
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>

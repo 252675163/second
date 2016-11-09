@@ -1,0 +1,26 @@
+<!--No.9模板页 {-->
+<div class="microactivity-vote vote_bg bgPan vote_home">
+    <!-- page 1 {-->
+    <div ng-class="{'preview':!isEdit,'fullheight':isEdit}" style="">
+        <!--动画层-->
+            <!--第二步：活动须知-->
+            <div  class="max_index" ng-style="{'display':ifshowInfo?'block':'none'}" >
+                <template21by1-step2></template21by1-step2>
+            </div>
+            
+            <!--第一步：投票活动（首页）-->
+            <div ng-if="step==1">
+                <template21by1-step1></template21by1-step1>
+            </div>
+
+            <!--第三步：填写表报名信息-->
+            <div ng-if="step==3">
+                <template21by1-step3></template21by1-step3>
+            </div>
+
+            <!--第四步：查看个人信息-->
+            <div ng-if="step==4">
+                <template21by1-step4></template21by1-step4>
+            </div>
+    </div>
+</div>

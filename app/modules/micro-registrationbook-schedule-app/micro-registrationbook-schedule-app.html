@@ -1,0 +1,72 @@
+<ion-view class="consultbookbg background_gray">
+    <div class="regis-tab" style="position: absolute;width: 100%;">
+        <div class="nav-top-tabs" ng-hide="showBannerNone">
+            <div class="nav-tab mar-lr-80" ng-click="goAllList()">咨询</div>
+            <div class="nav-tab mar-lr-80 active-blue" ng-click="">任务</div>
+        </div>
+    </div>
+    <!--没有咨询-->
+    <div class="reg-prompt-info" ng-style="{'display':(showNoData)?'block':'none'}">
+        没有任务<br />
+        请前往咨询详情添加沟通记录和回访提醒
+    </div>
+    <!--未知重新加载-->
+    <div class="reg-unknow ng-hide" ng-show="showReload">
+        <div class="unknow-bg"></div>
+        <div class="unknow-info">您的网络不太顺畅</div>
+        <div class="btn-size-180 btn-blue unknow-btn" ng-click="getSchedule()">重新加载</div>
+    </div>
+
+    <div class="schedule-calendar border-b-1">
+        <div class="today">{{selectDay | date : 'yyyy年MM月dd日'}}<span class="back-today ng-hide" ng-show="today.toLocaleDateString()!=selectDay.toLocaleDateString()" ng-click="goToday()">回到今天</span></div>
+        <div class="swiper-container" id="swpercalendar">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide calendar-date">
+                    <div class="date-item" ng-repeat="date in calendarPrev">
+                        <p class="weekday">{{weekday[date.getDay()]}}</p>
+                        <span class="date" ng-class="{'select':(date.getTime()===selectDay.getTime())}" ng-click="chooseDay(date)">
+                            {{date.getDate()}}
+                        </span>
+                    </div>
+                </div>
+                <div class="swiper-slide calendar-date">
+                    <div class="date-item" ng-repeat="data in calendarData">
+                        <p class="weekday">{{weekday[data.date.getDay()]}}</p>
+                        <span class="date" ng-class="{'select':(data.date.getTime()===selectDay.getTime())}" ng-click="chooseDay(data)">
+                            {{data.date.getDate()}}
+                            <span class="date-circle" ng-show="data.hasRemind"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="swiper-slide calendar-date">
+                    <div class="date-item" ng-repeat="date in calendarNext">
+                        <p class="weekday">{{weekday[date.getDay()]}}</p>
+                        <span class="date" ng-class="{'select':(date.getTime()===selectDay.getTime())}" ng-click="chooseDay(date)">
+                            {{date.getDate()}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-content has-bouncing="false" class="schedule-scroll" ng-style="{'display':(!showNoData)?'block':'none'}">
+        <div class="schedule-item" ng-repeat="item in scheduleList" ng-click="toDetailPage(item.Id,0)">
+            <p class="commu-time">{{formatDateByStatistics(item.RemindDate) | date : 'HH:mm'}}</p>
+            <div class="schedule-con">
+                <div class="schedule-con-top"><span class="schedule-name">{{item.StuName}}</span><span class="tag" ng-repeat="data in item.LessonClassModel">{{data}}</span></div>
+                <div class="commu-content">{{item.CommuContent}}</div>
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadMoreSchedule()" ng-if="page.currentIndex < page.totalCount" distance="1%" class="LoadStyle" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs" ng-show="showFooterTab">
+        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+
+        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+    </ion-footer-bar>
+</ion-view>

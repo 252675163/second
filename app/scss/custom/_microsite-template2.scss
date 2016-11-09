@@ -1,0 +1,272 @@
+/*第二层背景样式*/
+     .temp2_bg_Img {
+        height: 18.5rem;
+		margin: auto;
+		background: url("../img/temp2_img.png") no-repeat center 0.1rem;
+		background-size: 85% 87%;
+		text-align: center;
+		overflow: hidden;
+    }
+
+    .temp2_theme{
+        /*主题，内容样式 居中*/
+        text-align: center;
+    }
+
+    .temp2_box1 {
+        margin-top:1.7rem;
+    }
+
+    .temp2_box2 {
+        margin-top: 1rem;
+    }
+
+        .temp2_theme input.canShow, .temp2_theme input.canEdit {
+        /*主题样式*/
+        height: 1.2rem;
+        width: 8rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        font-size: 0.7rem;
+        text-align: center;
+        background: none;
+		//font-family:"STHupo",$font-family-base;
+		@include text-shadow-s2(#266364);color:#fff;
+    }
+
+    .temp2_box1 input.canShow, .temp2_box1 input.canEdit, .temp2_box2 input.canShow, .temp2_box2 input.canEdit {
+        /*//板1,2标题样式;*/
+        margin-left: 4rem;
+        background: none;
+        height: 1.1rem;
+		line-height: 1.1rem;
+        width: 6.5rem;
+		//font-family:"STHupo",$font-family-base;
+		padding-left: 0.5rem;
+		@include text-shadow-s2_1(#333);color:#fff;
+    }
+
+    .temp2_theme input.canEdit, .temp2_box1 input.canEdit, .temp2_box2 input.canEdit, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2TextEdit {
+        border: #ccc 1px dashed;
+    }
+
+    .temp2_box1 textarea.temp2Text, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2Text, .temp2_box2 textarea.temp2TextEdit {
+        /*//板1,2文本样式;*/
+		overflow-y: hidden;
+        background: none;
+		margin: auto;
+		width: 60%;
+		margin-top: 0.2rem;
+		padding-left: 0.3rem;
+		height: 4.3rem;
+		font-size: 0.5rem;
+		font-family:$font-family-base;
+		@include text-shadow-s2_1(#444);color:#fff;
+		font-weight: bold;
+		opacity: 1;
+    }
+
+
+	//首页样式
+	.has-footer_cover .maxbox{
+		
+		 .temp2_bg_Img {
+        height: 18.5rem;
+		margin: auto;
+		background: url("../img/temp2_img.png") no-repeat center 0.1rem;
+		background-size: 85% 87%;
+		text-align: center;
+		overflow: hidden;
+    }
+
+    .temp2_theme{
+        /*���⣬������ʽ ����*/
+        text-align: center;
+    }
+
+    .temp2_box1 {
+        margin-top:1.7rem;
+    }
+
+    .temp2_box2 {
+        margin-top: 1rem;
+    }
+
+        .temp2_theme input.canShow, .temp2_theme input.canEdit {
+        /*主题样式*/
+        height: 1.2rem;
+        width: 8rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        font-size: 0.7rem;
+        text-align: center;
+        background: none;
+		//font-family:"STHupo",$font-family-base;
+		@include text-shadow-s2_1(#266364);color:#fff;
+    }
+
+    .temp2_box1 input.canShow, .temp2_box1 input.canEdit, .temp2_box2 input.canShow, .temp2_box2 input.canEdit {
+        /*//��1,2������ʽ;*/
+        margin-left: 4rem;
+        background: none;
+        height: 1.1rem;
+		line-height: 1.1rem;
+        width: 6.5rem;
+		//font-family:"STHupo",$font-family-base;
+		padding-left: 0.5rem;
+		@include text-shadow-s2_1(#333);color:#fff;
+    }
+
+    .temp2_theme input.canEdit, .temp2_box1 input.canEdit, .temp2_box2 input.canEdit, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2TextEdit {
+        border: #ccc 1px dashed;
+    }
+
+    .temp2_box1 textarea.temp2Text, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2Text, .temp2_box2 textarea.temp2TextEdit {
+        /*//板1,2文本样式;*/
+        background: none;
+		margin: auto;
+		width: 60%;
+		margin-top: 0.2rem;
+		padding-left: 0.3rem;
+		height: 4.3rem;
+		line-height: 0.8rem;
+		font-size: 0.5rem;
+		font-family:$font-family-base;
+		@include text-shadow-s2_1(#444);color:#fff;
+		font-weight: bold;
+		opacity: 1;
+    }
+
+	}
+
+
+    .maxbox .temp2_bg_Img {
+        height: 22rem;
+		margin-top: 1rem;
+    }
+
+    .maxbox .temp2_theme input.canShow {
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .maxbox .temp2_box1 {
+        margin-top: 1.75rem;
+    }
+
+    .maxbox .temp2_box2 {
+        margin-top: 1.1rem;
+    }
+
+    .maxbox .temp2_box1 input.canShow, .maxbox .temp2_box1 input.canEdit, .maxbox .temp2_box2 input.canShow, .maxbox .temp2_box2 input.canEdit {
+        /*//板1,2标题样式;*/
+        margin-left: 5.0rem;
+        height: 1.6rem;
+        width: 8rem;
+        font-size: 0.8rem;
+    }
+
+        .maxbox .temp2_box1 textarea.temp2Text, .maxbox .temp2_box1 textarea.temp2TextEdit, .maxbox .temp2_box2 textarea.temp2Text, .maxbox .temp2_box2 textarea.temp2TextEdit {
+            /*//板1,2文本样式;*/
+            height: 5.0rem;
+            font-size: 0.6rem;
+			line-height: 1.2rem;
+        }
+
+    @media screen and (min-height: 500px) {
+        .temp2_bg_Img {
+            background-size: 95%;
+			margin-top: 0;
+        }
+        .temp2_theme input.canShow, .temp2_theme input.canEdit {
+            height: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .temp2_box1 {
+            margin-top: 1.75rem;
+        }
+        .temp2_box2 {
+            margin-top: 1.3rem;
+        }
+        .temp2_box1 input.canShow, .temp2_box1 input.canEdit, .temp2_box2 input.canShow, .temp2_box2 input.canEdit {
+            height: 1.3rem;
+			margin-left: 3.7rem;
+			width: 7.3rem;
+			font-size: 0.8rem;
+        }
+
+        .temp2_box1 textarea.temp2Text, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2Text, .temp2_box2 textarea.temp2TextEdit {
+            height: 4.8rem;
+			padding-left: 0.25rem;
+			width: 68%;
+            line-height: 0.65rem;
+            font-size: 0.5rem;
+
+        }
+
+		//首页样式
+		.has-footer_cover .maxbox{
+			.temp2_bg_Img {
+            background-size: 95%;
+			margin-top: 0;
+        }
+        .temp2_theme input.canShow, .temp2_theme input.canEdit {
+            height: 1.5rem;
+            font-size: 0.8rem;
+        }
+        .temp2_box1 {
+            margin-top: 1.75rem;
+        }
+        .temp2_box2 {
+            margin-top: 1.3rem;
+        }
+        .temp2_box1 input.canShow, .temp2_box1 input.canEdit, .temp2_box2 input.canShow, .temp2_box2 input.canEdit {
+            height: 1.3rem;
+			margin-left: 3.7rem;
+			width: 7.3rem;
+			font-size: 0.8rem;
+        }
+
+        .temp2_box1 textarea.temp2Text, .temp2_box1 textarea.temp2TextEdit, .temp2_box2 textarea.temp2Text, .temp2_box2 textarea.temp2TextEdit {
+            height: 4.8rem;
+			padding-left: 0.25rem;
+			width: 68%;
+			line-height: 0.8rem;
+        }
+
+		}
+
+
+        .maxbox .temp2_bg_Img {
+            height: 23.4rem;
+			margin-top: 0;
+        }
+
+        .maxbox .temp2_theme input.canShow {
+            height: 1.8rem;
+			font-size: 1rem;
+        }
+
+        .maxbox .temp2_box1 {
+            margin-top: 2.1rem;
+        }
+
+        .maxbox .temp2_box2 {
+            margin-top: 1.6rem;
+        }
+
+        .maxbox .temp2_box1 input.canShow, .maxbox .temp2_box1 input.canEdit, .maxbox .temp2_box2 input.canShow, .maxbox .temp2_box2 input.canEdit {
+            /*//板1,2标题样式;*/
+            margin-left: 4.8rem;
+			font-size: 0.9rem;
+        }
+
+        .maxbox .temp2_box1 textarea.temp2Text, .maxbox .temp2_box1 textarea.temp2TextEdit, .maxbox .temp2_box2 textarea.temp2Text, .maxbox .temp2_box2 textarea.temp2TextEdit {
+            /*//板1,2文本样式;*/
+            height: 5.6rem;
+			padding-left: 0.6rem;
+			font-size: 0.55rem;
+			line-height: 0.9rem;
+        }
+
+    }

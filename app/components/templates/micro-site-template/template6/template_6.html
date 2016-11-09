@@ -1,0 +1,42 @@
+<!--<div style="" class="" upload-img finish-function="upLoadFinish" config="config" is-update-img="isUpdateImg" image-type="0"> </div>-->
+
+<div class="template6 section6 " ng-class="{'edit':isEdit, 'show': !isEdit}">
+    <!--大标题-->
+    <div class=" ">
+        <div class="temp6Title">
+            <input ng-model="templateModel.title" ng-readonly="!isEdit" maxlength="200" ng-class="{'editBorder':isEdit}" my-max-length ng-trim="false" custom-input readonly="readonly"/>
+        </div>
+    </div>
+
+    <div class=" temp6ContentBox">
+        <!--小标题-->
+        <div class="row">
+            <div class="col90 content_item">
+                <input placeholder="" ng-model="templateModel.actionName" ng-disabled="!isEdit" maxlength="200" ng-class="{'editBorder':isEdit}" my-max-length ng-trim="false" custom-input readonly="readonly"/>
+            </div>
+        </div>
+        <!--描述-->
+        <div class="row">
+            <div ></div>
+            <textarea class="col  canEdit temp6ActiveText" ng-model="templateModel.description" maxlength="200" ng-class="{'editBorder':isEdit}" ng-disabled="!isEdit" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+            <div></div>
+            <div></div>
+        </div>
+        <!--图片区-->
+        <div class="row responsive-sm imgBox">
+            <!--<span class = "temp6Round1"></span>-->
+            <!--<div class="col">-->
+            <!--<div class="temp6ImgBox1 ">-->
+            <!--<img class="canEdit" ng-src="{{templateModel.imageUrl[0]}}" ng-click="updateImg(0)"/>-->
+            <!--</div>-->
+            <!--</div >-->
+            <span class = "temp6Round2"></span>
+            <div class="col">
+<!--                修复bug：微官网图片编辑框少了一个 by xp 2015年10月26日 15:43:26-->
+                <div class="temp6ImgBox2" ng-class="{'editBorder':isEdit}">
+                    <img ng-src="{{templateModel.imageUrl[0]}}" ng-click="updateImg(0)"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

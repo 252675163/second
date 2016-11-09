@@ -1,0 +1,203 @@
+
+
+$edit-size-rate: .85;
+/* px to rem by edit*/
+@function getRemSizeByEdit($n) {
+  @return ceil($n /38.4 *0.85 * $edit-size-rate*100)/100*1rem;
+}
+
+/* px to rem */
+@function getRemSize($n) {
+  @return ceil($n /38.4*0.85 *100)/100*1rem;
+}
+@function getRemSizebyTrue($n) {
+  @return ceil($n /38.4*0.85 *100)/100*1rem;
+}
+
+$oldnew_bigFontSize: 1.5rem;
+$oldnew_smallFontSize: .75rem;
+
+/*标题*/
+.oldnew_bigFont {
+  font-size: $oldnew_bigFontSize;
+  color: #ffffff;
+}
+
+/*正文*/
+.oldnew_smallFont {
+  font-size: $oldnew_smallFontSize;
+  color: #ffffff;
+}
+
+.section {
+  width: 100%;
+  height: 100%;
+}
+
+.oldNew_tempale4 {
+  
+  .box1 {
+    position: relative;
+    text-align: center;
+    padding-top: getRemSize(23);
+    div{
+      margin: auto;
+      text-align: center;
+      margin-top: 0px;
+      width: getRemSize(487);
+      height: getRemSize(240);
+      background: url("../img/oldnew_temp4_bg1.png")no-repeat;
+      background-size: 98% 98%;
+      -webkit-background-origin: border-box;
+      background-origin: border-box;
+      input,input::-webkit-input-placeholder{
+        display: inline-block;
+        @extend .oldnew_bigFont;
+        color: #ffffff;
+        background: none;
+        opacity:1;
+        text-align: center;
+        width: 90%;
+        height: 70%;
+      }
+    }
+    z-index: 2;
+
+  }
+
+  .box2{
+    width: getRemSize(682) ;
+    height:getRemSize(947);
+    background: url("../img/oldnew_temp4_bg2.png") no-repeat center top;
+    background-size: 98% ;
+    -webkit-background-origin: border-box;
+    background-origin: border-box;
+    margin: getRemSize(-55) auto 0 auto;
+    position: relative;
+    text-align: center;
+    textarea{
+      @extend .oldnew_smallFont;
+      //width: getRemSize(529);
+      width:95%;
+      color: #000000;
+      text-align: center;
+      background: none;
+      opacity:1;
+      display: inline-block;
+      margin-top: getRemSize(90);
+      min-height: 83px;
+      border-radius: 5px;
+      overflow:hidden;
+      line-height: 1.3;
+    }
+    .infoInputBox{
+       padding-top: getRemSize(106);
+    }
+    .infoInputBox>input{
+      margin-top: getRemSize(35);
+      border: #b2c4e3 solid 2px;
+      border-radius: 5px;
+
+      display: inline-block;
+      &,&::-webkit-input-placeholder{
+        @extend .oldnew_smallFont;
+        color: #7fa1d2;
+        opacity:1;
+        padding: getRemSize(5);
+        text-align: center;
+      }
+      width:.85*getRemSize(485);
+      height:.85*getRemSize(82)
+
+
+    }
+    button,.buttonDiv{
+      @extend .oldnew_smallFont;
+      width: .85*getRemSize(473) ;
+      height:.85*getRemSize(124);
+      background: url("../img/oldnew_temp4_bg3.png") no-repeat;
+      background-size: 100% 100%;
+      color: #ffffff;
+      margin: auto;
+      margin-top:getRemSize(75);
+      input{
+        @extend .oldnew_smallFont;
+        color: #ffffff;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        background: none;
+        margin-top: -3px;
+
+      }
+    }
+  }
+}
+
+
+.oldNew_tempale4.edit ,.has-footer_cover .oldNew_tempale4 {
+  padding: .1rem;
+  .box1 {
+    padding-top: getRemSizeByEdit(11);
+    div{
+      width: getRemSizeByEdit(487);
+      height: getRemSizeByEdit(240);
+    }
+  }
+
+  .box2{
+    width: getRemSizeByEdit(682) ;
+    height:getRemSizeByEdit(947);
+    background-size: 98% 88%;
+    textarea{
+      width:96%;
+      margin-top: getRemSizeByEdit(90);
+      overflow:hidden;
+    }
+    .infoInputBox{position:relative; margin-top: getRemSizeByEdit(106);}
+    .infoInputBox>input{
+      width:getRemSizeByEdit(485);
+      margin-top:1rem;
+    }
+    button,.buttonDiv{
+      width: getRemSizeByEdit(473) ;
+      height:getRemSizeByEdit(124);
+      margin-top:getRemSizeByEdit(75);
+    }
+    .addBorder{position: absolute; height: 1.5rem; width: 8.4rem; margin: .3rem 0 0 1.8rem; border: #ccc 1px dashed;}
+  }
+
+}
+
+.editBorder {
+  border: #ccc 1px dashed;
+}
+
+.lcstyle{@include opacity-base(75);}
+.share{
+  width: getRemSize(460);
+  -webkit-background-origin: border-box;
+  background-origin: border-box;
+  opacity: 1;
+  left:50%;
+  margin-left:getRemSize(-460/2);
+}
+.share{height:getRemSize(306) ;background: url("../img/share.png") no-repeat; background-size: 100% 100%;}
+.popup-tips{
+  padding-top:4rem;
+  line-height: 2rem;
+  color:#fff;
+  text-align: center;
+  font-size: .85rem;  background: none;
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+

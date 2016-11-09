@@ -1,0 +1,70 @@
+
+    <div class="microactivity-template24 myViewBox1" ng-show="!isShowCoupletBox">
+        <div ng-class="{'maxbox':!isEdit}">
+            <div class="acty24_box1Outer">
+                <div class="acty24_box1">
+                </div>
+                <div class="acty24_box2">
+                    <div class="acty24_box2_text">
+                        <input class="acty24_user_name acty24_user_name_underline acty24_user_name_addstyle" maxlength="16" ng-model="userInfo.name" /><input class="acty24_user_wishes" maxlength="18" ng-model="userInfo.otherInfo" />
+                    </div>
+                </div>
+                <div class="acty24_box3">
+                    <div class="acty24_box3_couplets">
+                        <div class="couplets_top"></div>
+                        <div class="couplets_content">
+                            <span class="couplets_top_text" ng-class="{'stylized-font':isUseStylizedFont}"><em>{{userInfo.couplet[0]}}</em></span>
+                        </div>
+                        <div class="couplets_bottom"></div>
+                    </div>
+                    <div class="acty24_box3_monkey">
+                        <div class="acty24_box3_monkeyface_box">
+                            <img class="acty24_box3_monkey_face" ng-src="{{userInfo.headImg}}" />
+                        </div>
+                    </div>
+                    <div class="acty24_box3_monkey_prompt"></div>
+                    <div class="acty24_box3_couplets2">
+                        <div class="couplets_top"></div>
+                        <div class="couplets_content">
+                            <span class="couplets_top_text" ng-class="{'stylized-font':isUseStylizedFont}"><em>{{userInfo.couplet[1]}}</em></span>
+                        </div>
+                        <div class="couplets_bottom"></div>
+                    </div>
+
+                </div>
+                <div class="acty24_box4_style2">
+                    <button class="acty24_box4_userhead_btn" ng-click="updateHeadImg()"></button>
+                    <button class="acty24_box4_couplets_btn" ng-click="showCoupletBox()"></button>
+                    <button class="acty24_box4_year_btn" ng-click="submitInfo()"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="paneabird1 microactivity-template24 myViewBox2" ng-show="isShowCoupletBox">
+        <div class="acty24_box4_1">
+            <div class="acty24_input4_1">
+                <div class="acty24_title4_1"></div>
+                <input ng-model="tempCouplet[0]" type="text" maxlength="8" change-placeholder-by-focus  />
+            </div>
+            <div class="acty24_input4_2">
+                <div class="acty24_title4_2"></div>
+                <input ng-model="tempCouplet[1]" type="text" maxlength="8" change-placeholder-by-focus />
+            </div>
+        </div>
+        <div class="acty24_btnGroup1">
+            <button ng-click="clickChangeCouplet()" class="acty24_button4_1" ng-disabled="isEnd"></button>
+            <button ng-click="saveCouplet()" class="acty24_button4_2" ng-disabled="isEnd"></button>
+        </div>
+        <div class="acty24_box4_2"></div>
+        <div class="acty24_box4_3"></div>
+
+        <!--转发遮罩-->
+        <div style="display:none">
+            <div class="lockMask"></div>
+            <div class="acty24_share"></div>
+        </div>
+    </div>
+    <is-shaked  callback="shakedChangeCouplet()" is-watch="isWatch"></is-shaked>
+

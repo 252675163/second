@@ -1,0 +1,386 @@
+﻿@charset "utf-8";
+//校宝钱包
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+
+// 提现begin
+.schoolpal-wallet-withdrawals {
+    background-color: #dfe3ed;
+    .remainder {
+        margin-top: temSize(16, $rate);
+        background-color: #fff;
+        padding-left: temSize(40, $rate);
+        padding-right: temSize(20, $rate);
+        -webkit-flex-flow: row;
+        flex-flow: row;
+    }
+    .remainder,
+    .payments-item,
+    .payments-detail,
+    .content-phone {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .pay,
+    .remainder{
+        display:block;
+        font-size:0;
+    }
+    .left {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+        text-align: left;
+        padding-bottom: temSize(24, $rate);
+        .left-p1 {
+            font-size: temSize(24, $rate);
+            color: #666;
+            margin-top: temSize(20, $rate);
+        }
+        .left-p2 {
+            margin-top: temSize(20, $rate);
+            font-size: temSize(46, $rate);
+            color: #ff6622;
+        }
+    }
+    .right{
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+        text-align: right;
+    }
+    .micro-shop-btn.withdraw-btn {
+        width: temSize(160, $rate);
+        height: temSize(60, $rate);
+        line-height: temSize(60, $rate);
+    }
+    .payments {
+        font-size: temSize(20, $rate);
+        padding: temSize(30, $rate) 0 temSize(24, $rate) temSize(40, $rate);
+        color: #8e8e8e;
+    }
+    .payments-box {
+        margin-top: temSize(244, $rate);
+    }
+    .noRecords {
+        text-align: center;
+        font-size: 0.6rem;
+        color: #8e8e8e;
+    }
+    .inline-item{
+        display:inline-block;
+        vertical-align:middle;
+    }
+    .payments-item {
+        display:block;
+        font-size:0;
+        background-color: #fff;
+        /*height: temSize(110, $rate);*/
+        padding-left: temSize(40, $rate);
+        padding: 0 temSize(20, $rate) 0 temSize(40, $rate);
+        /*-webkit-flex-flow: row;
+        flex-flow: row;*/
+    }
+    .payments-item:first-child {
+        border-top: none;
+    }
+    .payments-detail {
+        width:50%;
+        padding:temSize(20, $rate) 0;
+        .detail-icon1 {
+            width: temSize(32, $rate);
+            height: temSize(26, $rate);
+            background: url("../img/microShop_payfor.png") $img-pozC;
+            @include background-size100;
+        }
+        .detail-icon2 {
+            width: temSize(32, $rate);
+            height: temSize(32, $rate);
+            background: url("../img/microShop_withdraw.png") $img-pozC;
+            @include background-size100;
+        }
+        .detail-type {
+            margin-left: temSize(30, $rate);
+            margin-top: temSize(11, $rate);
+            div:first-child {
+                font-size: temSize(24, $rate);
+                color: #666;
+            }
+            div:last-child {
+                font-size: temSize(20, $rate);
+                color: #aaa;
+            }
+        }
+    }
+    .payments-status {
+        width:50%;
+        text-align: right;
+        margin-top: temSize(5.5, $rate);
+        div:first-child {
+            font-size: temSize(28, $rate);
+            color: #333;
+        }
+        .state1 {
+            font-size: temSize(20, $rate);
+            color: #aaa;
+        }
+    }
+}
+
+// 提现end
+// 确认提现begin
+.schoolpal-wallet-withdrawals-confirm {
+    background-color: #dfe3ed;
+    .withdrawals-confirm {
+        margin-top: temSize(16, $rate);
+        background-color: #fff;
+        padding: temSize(24, $rate) 0 temSize(24, $rate) temSize(40, $rate);
+        font-size: temSize(24, $rate);
+        color: #666;
+        border-bottom: 1px solid #dddddd;
+        div:first-child {
+            font-size: temSize(46, $rate);
+            color: #333;
+            margin-top: temSize(16, $rate);
+        }
+    }
+    .inputNum {
+        font-size: 1.15rem;
+        width: 80%;
+        display: inline-block;
+        vertical-align: baseline;
+    }
+    .money-surplus {
+        height: temSize(64, $rate);
+        line-height: temSize(64, $rate);
+        padding-left: temSize(40, $rate);
+        font-size: temSize(20, $rate);
+        color: #aaa;
+        background-color: #fff;
+    }
+    .withdrawals-instruction {
+        padding: temSize(24, $rate) 0 temSize(48, $rate) temSize(40, $rate);
+        font-size: temSize(20, $rate);
+        color: #aaa;
+    }
+    pre {
+        line-height: temSize(46, $rate);
+        font-size: temSize(20, $rate);
+        color: #aaa;
+        margin-top: temSize(6, $rate);
+    }
+    .confirm-btn {
+        width: temSize(480, $rate);
+        margin: 0 auto;
+        height: temSize(90, $rate);
+        line-height: temSize(90, $rate);
+        text-align: center;
+        color: #fff;
+        font-size: temSize(28, $rate);
+        background-color: #cccccc;
+        @include border-radius-basic(45px);
+    }
+    .withdraw-success {
+        width: temSize(138, $rate);
+        height: temSize(138, $rate);
+        margin: 0 auto;
+        margin-top: temSize(100, $rate);
+        background: url("../img/microshop_withdraw_success.png") $img-pozC;
+        @include background-size100;
+    }
+    .success-mation {
+        text-align: center;
+        font-size: temSize(28, $rate);
+        color: #333;
+        margin-top: 0.75rem;
+    }
+    .withdraw-success {
+        width: temSize(138, $rate);
+        height: temSize(138, $rate);
+        margin: 0 auto;
+        margin-top: temSize(100, $rate);
+        background: url("../img/microshop_withdraw_success.png") $img-pozC;
+        @include background-size100;
+    }
+    .success-mation {
+        text-align: center;
+        font-size: temSize(28, $rate);
+        color: #333;
+        margin-top: 0.75rem;
+    }
+    .withdraw-marking {
+        width: temSize(480, $rate);
+        margin: 0 auto;
+        font-size: temSize(24, $rate);
+        color: #aaa;
+        text-align: center;
+        margin-top: temSize(36, $rate);
+        padding-bottom: temSize(60, $rate);
+    }
+    .confirm-btn.success-btn {
+        background-color: #ff6622;
+    }
+    .showWitnDraw {
+        margin-top: temSize(-350, $rate)
+    }
+    .maskContent,
+    .maskContent2 {
+        position: relative;
+        margin: 0 auto;
+        z-index: 111;
+        // border-radius: temSize(40,$rate);
+        @include border-radius-basic(20px);
+        background-color: #fff;
+        width: temSize(560, $rate);
+        .confirm {
+            text-align: center;
+            height: temSize(74, $rate);
+            line-height: temSize(74, $rate);
+            color: #ff6622;
+            font-size: temSize(28, $rate);
+        }
+    }
+    .content-top {
+        padding-left: temSize(52, $rate);
+        padding-bottom: temSize(30, $rate);
+        border-bottom: 1px solid #dddddd;
+        overflow: hidden;
+        .phone {
+            font-size: temSize(28, $rate);
+            color: #333;
+            margin-top: temSize(48, $rate);
+            span:first-child {
+                margin-left: temSize(30, $rate);
+            }
+        }
+        p:last-child {
+            font-size: temSize(20, $rate);
+            color: #aaa;
+            margin-top: temSize(24, $rate);
+        }
+        p {
+            span {
+                font-size: temSize(24, $rate);
+                color: #ff6622;
+            }
+        }
+        .content-phone {
+            margin-top: temSize(30, $rate);
+            justify-content: flex-start;
+        }
+        .phone-left {
+            input {
+                border: 1px solid #aaa;
+                @include border-radius-basic(4px);
+                width: temSize(296, $rate);
+                height: temSize(60, $rate);
+            }
+        }
+        .phone-right {
+            height: temSize(60, $rate);
+            line-height: temSize(60, $rate);
+            // border-radius: temSize(30,$rate);
+            @include border-radius-basic(30px);
+            font-size: temSize(20, $rate);
+            color: #333;
+            border: 1px solid #aaa;
+            margin-left: temSize(30, $rate);
+            width: temSize(128, $rate);
+            text-align: center;
+        }
+    }
+    .maskContent2 {
+        overflow: hidden;
+        .instruction {
+            margin-top: temSize(30, $rate);
+            font-size: temSize(24, $rate);
+            color: #666;
+            padding-right: temSize(52, $rate);
+            padding-left: temSize(52, $rate);
+        }
+        .content-top.content-top2 {
+            padding-bottom: temSize(24, $rate);
+            .phone {
+                margin-top: temSize(20, $rate);
+                font-size: temSize(24, $rate);
+            }
+            p:last-child {
+                margin-top: temSize(20, $rate);
+            }
+        }
+        .content-phone.content-phone2 {
+            margin-top: temSize(30, $rate);
+        }
+    }
+    .remainder,
+    .payments-item,
+    .payments-detail,
+    .content-phone {
+        display: -webkit-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+// 确认提现end
+// 提现订单详情，交易订单详情 begin
+.schoolpal-wallet-order-detail {
+    background-color: #dfe3ed;
+    .wallet-order-detail {
+        text-align: center;
+        padding-bottom: temSize(30, $rate);
+        border-bottom: 1px solid #cdced7;
+        background-color: #fff;
+        div:last-child {
+            margin-top: temSize(20, $rate);
+            font-size: temSize(20, $rate);
+            color: #aaa;
+        }
+    }
+    .wallet-order-user {
+        padding-top: temSize(22, $rate);
+        vertical-align: middle;
+        .order-user-img {
+            display: inline-block;
+            width: temSize(60, $rate);
+            height: temSize(60, $rate);
+            border-radius: 50%;
+        }
+        div:last-child {
+            display: inline-block;
+            vertical-align: middle;
+            font-size: temSize(20, $rate);
+            color: #666;
+            margin-left: temSize(18, $rate);
+            margin-top: temSize(0, $rate);
+        }
+    }
+    .wallet-order-money {
+        margin-top: temSize(30, $rate);
+        font-size: temSize(46, $rate);
+        color: #333;
+    }
+    .order-detail-box {
+        padding: temSize(6, $rate) temSize(20, $rate) temSize(30, $rate) temSize(40, $rate);
+        background-color: #fff;
+    }
+    .row {
+        font-size: temSize(24, $rate);
+        margin-top: temSize(24, $rate);
+        padding: 0;
+        background-color: #fff;
+        .left,
+        .right {
+            padding: 0;
+        }
+        .right {
+            text-align: right;
+        }
+    }
+}
+
+// 提现订单详情，交易订单详情 end

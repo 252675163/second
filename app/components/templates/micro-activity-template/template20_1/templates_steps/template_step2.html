@@ -1,0 +1,66 @@
+<!--报名页-->
+<div class="help_voucher_enroll_box" ng-if="isNeedHelp">
+    <div class="coin_box2"></div>
+    <!--代金券未激活样式-->
+    <div class="voucher_scrachCard">
+        <span class="voucher_message_1">{{templateModel.couponsAmount}}<em>元</em></span>
+        <span class="voucher_message_2" ng-bind-html="usageInfo.description|newlines"></span>
+    </div>
+    <!--有助力邀请文案-->
+    <div class="invite_message">还差<span>{{templateModel.helperCount - userInfo1.helperNum}}</span>位朋友，即可激活TA的代金券！</div>
+    <!--表单信息-->
+    <div class="form_info_box2">
+        <!--头像-->
+        <div class="header_box_big" ng-click="updateHeadImg()">
+            <img ng-src="{{userInfo.headImg}}" class="person_head-face" err-src="{{defaultHeadImg}}" >
+            <div class="header_border_big"></div>
+        </div>
+        <input class="voucher_name_input" placeholder="您的姓名" ng-model="userInfo.name" maxlength="6" change-placeholder-by-focus />
+        <input class="voucher_phone_input" placeholder="您的电话" ng-model="userInfo.phone" type="tel" maxlength="15" change-placeholder-by-focus />
+        <!--用户条款-->
+        <div class="voucher_useritems">
+            <div class="user_terms_checkdiv" ng-click="checkUserTerms()"><span class="user_terms_checkbox" ng-class="{'user_terms_checkbox_select':isCheckUserTerms}"></span></div>
+            <span class="voucher_useritems_text">同意</span><span class="voucher_useritems_text span2" ng-click="showUserTerms()">用户条款</span>
+        </div>
+    </div>
+    
+    <button class="voucher_btn1_3" type="button" ng-click="submitInfo()"></button><!--喊人激活代金券-->
+
+</div>
+
+<div ng-if="!isNeedHelp">
+    <div class="xmas_box1">
+        <div class="voucher_coin1"></div><!--上层金币-->
+        <div class="voucher_box1">
+            <div class="voucher_box1_1"></div>
+            <div class="voucher_box1_2"> </div>
+        </div>
+        <div class="xmas_title1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="30" ng-bind-html="templateModel.title|newlines"></div>
+        <div class="voucher_coin2"></div><!--底层金币-->
+    </div>
+
+    <!--前台无助力页面-->
+    <div class="help_voucher_info_box">
+        <!--代金券未激活样式-->
+        <div class="voucher_scrachCard">
+            <span class="voucher_message_1">{{templateModel.couponsAmount}}<em>元</em></span>
+            <span class="voucher_message_2" ng-bind-html="usageInfo.description|newlines"></span>
+        </div>
+        <!--表单信息-->
+        <div class="form_info_box2">
+            <!--头像-->
+            <div class="header_box_big" ng-click="updateHeadImg()">
+                <img ng-src="{{userInfo.headImg}}" class="person_head-face" err-src="{{defaultHeadImg}}">
+                <div class="header_border_big"></div>
+            </div>
+            <input class="voucher_name_input" placeholder="您的姓名" ng-model="userInfo.name" maxlength="6" change-placeholder-by-focus />
+            <input class="voucher_phone_input" placeholder="您的电话" ng-model="userInfo.phone" type="tel" maxlength="15" change-placeholder-by-focus />
+            <!--用户条款-->
+            <div class="voucher_useritems voucher_useritems2">
+                <div class="user_terms_checkdiv" ng-click="checkUserTerms()"><span class="user_terms_checkbox" ng-class="{'user_terms_checkbox_select':isCheckUserTerms}"></span></div>
+                <span class="voucher_useritems_text">同意</span><span class="voucher_useritems_text span2" ng-click="showUserTerms()">用户条款</span>
+            </div>
+        </div>
+        <button class="voucher_btn1_2" type="button" ng-click="submitInfo()"></button><!--我要领取代金券-->
+    </div>
+</div>

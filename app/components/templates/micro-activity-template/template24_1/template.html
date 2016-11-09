@@ -1,0 +1,55 @@
+<!--No.9模板页 {-->
+<div class="paneabird microactivity-vegetables xmas_bg bgPan aquarium assistant" ng-style="{'background-image': 'url(' + getImageDoMain('/main_bg.png')+ ')','background-size':'100% 100%'}">
+    <!-- page 1 {-->
+    <div ng-class="{'preview':!isEdit}" style="">
+        <div class="sea_box" ng-style="{'background-image': 'url(' + getImageDoMain('/header.png')+ ')'}">
+            <div class="sea_boxhead1">
+                <img ng-src="{{step==2?getImageDoMain('/enlist_avatar.png'):userInfo1.headImg||templateModel.imageUrl[0]||getImageDoMain('/default_avatar.png')|transformWeixinHeadImg:96}}" class="person_head-face" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/header_avatar_black.png')+ ')','-webkit-mask-size':'cover'}">
+                <div class="header_border_big" ng-style="{'background-image': 'url(' + getImageDoMain('/header_avatar.png')+ ')'}"></div>
+            </div>
+            <div class="sea_boxhead1bg" ng-style="{'color':templateModel.headBarTitleColor,'background-image': 'url(' + getImageDoMain('/header_avatar_inputbox.png')+ ')'}" ng-bind="isEdit?templateModel.name + templateModel.headBarTitle:headBarTitle"></div>
+            <div class="sea_boxhead2" ng-style="{'background-image': 'url(' + getImageDoMain('/item_avatar.png')+ ')'}"></div>
+            <div class="sea_boxhead2bg" ng-style="{'color':templateModel.headBarTitleColor,'background-image': 'url(' + getImageDoMain('/item_avatar_inputbox.png')+ ')'}" ng-bind="!userInfo1.grassCount||step==2?0:userInfo1.grassCount"></div>
+        </div>
+        <div class="sea_intro" ng-style="{'background-image': 'url(' + getImageDoMain('/Intro.png')+ ')'}">
+            <div class="title" ng-style="{'color':templateModel.titleColor}" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="11" ng-bind-html="templateModel.title|newlines"></div>
+            <div class="desc" ng-style="{'color':templateModel.descriptionColor}" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="54" ng-bind-html="templateModel.description|newlines"></div>
+        </div>
+        <!--第一步：水族馆展示（首页）-->
+        <div ng-if="step==1">
+            <template24by1-step1></template24by1-step1>
+        </div>
+        <!--第二步：填写表单页-->
+        <div ng-if="step==2">
+            <template24by1-step2 status='status' image-file-name="templateExtConfig.imageFolderName" share-config-by-visitor="templateExtConfig.shareConfigByVisitor" template-model="templateModel"></template24by1-step2>
+        </div>
+        <!--验证码弹窗-->
+        <div class="maskConfirm imgVerify" ng-style="{'display':isShowVerify?'block':'none'}">
+            <div class="imgVerifyBody">
+                <h1 class="imgVerify_title">请填入“ ? ”处的值</h1>
+
+                <div class="imgVerify_box ">
+                    <img class="imgVerify_img" ng-src="{{imgurl}}" alt="验证码图片">
+                    <input type="text" ng-model="captcha" maxlength="4" class="imgVerify_text">
+                </div>
+                <a class="imgVerify_change" href="" ng-click="reGetVerifyCode()">换一个验证码</a>
+                <div class="popup-buttons imgVerify_buttons">
+                    <button class="button  button-default" ng-click="closeVerify()">取消</button>
+                    <button class="button  button-positive" ng-click="cilckVerifyConfirm()" ng-disabled="">确认</button>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!--旋转金光特效-->
+        <div class="grow_vegetables_foxed" ng-style="{'display':isGrow?'block':'none'}">
+            <div class="assistant_mask" ng-style="{'background-image': 'url(' + getImageDoMain('/holy_light.png')+ ')'}">
+            </div>
+            <div class="vegetables_pic " ng-style="{'background-image':'url(' + getImageDoMain('/active_gif.gif')+ ')'}"></div>
+        </div>
+        <div class="assistant_footer" ng-show="!isEdit" ng-style="{'background-image': 'url(' + getImageDoMain('/slidedown.png')+ ')'}">
+        </div>
+    </div>
+</div>

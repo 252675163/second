@@ -1,0 +1,196 @@
+﻿@charset "utf-8";
+// 微传单第四套
+
+@function temSize($num,$rate:1){
+	@return ceil($num /40*100)/100*$rate*1rem;
+}
+
+.microleaflet4.leafletbg2{background: url("../img/microleaflet4_bg1.jpg") $img-pozC;@include background-size-cover;}
+// 预览反面页 与数值有关的样式<!--
+	.microleaflet4.leafletbg2{
+		.leafletbg2_orgname{
+		    width: temSize(618,$rate);
+		    height: temSize(374,$rate);
+		    .orgname_text{
+		    	width: temSize(17,$rate);
+			    font-size: temSize(17,$rate);
+			    height: temSize(161,$rate);
+			    line-height: temSize(24,$rate);
+			    left: temSize(72,$rate);
+			    color: #ffffff;
+		    	top:temSize(14,$rate);
+		    }
+		    .leafletbg2_orgintro_text{
+		    	width: temSize(204,$rate);
+			    font-size: temSize(13,$rate);
+			    height: temSize(338,$rate);
+			    right: temSize(204,$rate);
+    			line-height: temSize(25,$rate);
+			    top: temSize(96,$rate);
+			    padding:1px;
+		    }
+		}
+
+		.leafletbg2_contents_more{width: temSize(306,$rate);height: temSize(318,$rate);top:temSize(100,$rate);
+			.contents_boxex{width: temSize(140,$rate);height: temSize(253,$rate);}
+			.contents_box1,.contents_box2,.contents_box3{font-size:temSize(19,$rate);line-height: temSize(38,$rate);width:temSize(132,$rate);text-align: center;}
+			.contents_box1 .contentbox,.contents_box2 .contentbox,.contents_box3 .contentbox{
+				line-height:temSize(26,$rate);
+			    width:temSize(306,$rate);
+			    left:temSize(-84,$rate);
+				height:temSize(68,$rate);
+				top:temSize(40,$rate);padding-top:temSize(4,$rate);
+			}
+			.content_box_text1,.content_box_text2,.content_box_text3{height:temSize(48,$rate);overflow:hidden; font-size:temSize(14,$rate);color:#323333!important;line-height: temSize(26,$rate);}
+			.contents_box2{top:temSize(108,$rate);
+				.contentbox{top: temSize(40,$rate);}
+			}
+			.contents_box3{top:temSize(216,$rate);}
+		}
+	}
+
+	// 预览反面页 与数值有关的样式--!>
+	// 预览反面页 与数值无关的样式<!--
+	.microleaflet4.leafletbg2{
+		.leafletbg2_orgname{
+			background: url("../img/microleaflet4_bg2.png") $img-pozC;@include background-size100;
+			margin: 0 auto;
+		    position: relative;
+		    .orgname_text{
+		    	position: absolute;
+			    writing-mode:vertical-rl;
+			    -webkit-writing-mode:vertical-rl;
+			    text-align: center;
+		    }
+		    .leafletbg2_orgintro_text{
+		    	position: absolute;text-align: right;
+			    writing-mode:tb-rl;
+			    writing-mode:vertical-rl;
+			    -webkit-writing-mode: tb-rl;
+			    -webkit-writing-mode:vertical-rl;
+			    text-align: left;
+			    overflow:hidden;
+		    }
+		}
+		.leafletbg2_contents_more{margin:0 auto;position:relative; 
+			.contents_boxex{background:url("../img/microleaflet4_contenbg2.png") $img-pozC;background-size:100% auto;position: relative;margin: 0 auto;}
+			.contents_box1,.contents_box2,.contents_box3{position: absolute;color: #F6F4EF;font-weight: bold;}
+			.contents_box1 .contentbox,
+			.contents_box2 .contentbox,
+			.contents_box3 .contentbox{
+				position: absolute;
+			}
+			.contents_box1 .contentbox .content_box_text1,
+			.contents_box2 .contentbox .content_box_text2,
+			.contents_box3 .contentbox .content_box_text3{
+				word-break:break-word;color:#F4EEE8;font-weight:normal;
+			}
+		}
+	}
+	// 预览反面页 与数值无关的样式--!>
+
+
+// 编辑
+.front_editOuter3.front_editOuter4_3,.front_editOuter4{background:url(../img/microleaflet4_edit_bg.jpg)no-repeat center center!important;background-size:cover !important;color:#fff;height:temSize(800,$rate)!important;
+	textarea{color:#000!important;}
+	.front_edit_title2{background: url(../img/microleaflet4_edit_title_bg.png) no-repeat center center;-webkit-background-size: 100% 100%;background-size: 100% 100%;margin: 0 auto;color: #FAF9F5;text-align: center;}
+    .front_edit_box1,.front_edit_box2,.front_edit_box3,.front_edit_box4,.front_edit_box5{color:#000;}
+    .front_edit_box2,.front_edit_box3,.front_edit_box4,.front_edit_box5{margin-top:temSize(36,$rate)!important;}
+    .front_edit_box1 .front_edit_text1{font-size:temSize(28,$rate);font-weight: bold;}
+    .front_edit_box2 .front_edit_text2{height:temSize(65,$rate);}
+    .front_edit_box5 .front_edit_text5{font-size:temSize(28,$rate);font-weight: bold;}
+    .front_edit2_box2.flet4,.front_edit2_box3.flet4,.front_edit2_box5.flet4{color:#000!important;font-weight:bold;}
+    .front_edit2_text2.edit2_text2{font-size:temSize(18,$rate)!important}
+}
+// 预览正面  
+$rate:1;
+  .microleaflet4.leafletbg1{background: url(../img/microleaflet4_1_bg.jpg)no-repeat;background-size: 100% 100%;position: relative;}
+  .leaflet4-title{width:100%;height:temSize(760,$rate );position: relative;}
+  .leaflet4-title-inner1{width: temSize(267,$rate );height:temSize(27,$rate );top: temSize(90,$rate );position: absolute;font-size: temSize(28,$rate );left: temSize(20,$rate );text-align:center;color:#FBF9E5;font-weight:bold;}
+  .leaflet4-title-inner2{max-width:temSize(95,$rate);overflow:hidden; font-size: temSize(15, $rate);position: absolute;top: temSize(362, $rate);-webkit-writing-mode:vertical-rl;writing-mode: vertical-lr;left: temSize(150, $rate);height: temSize(150, $rate);line-height: temSize(32, $rate);text-align:center;color:#040101;letter-spacing:temSize(3,$rate);}
+  .leaflet4-content{
+      .leaflet4-qrcode{position:absolute;bottom:temSize(200,$rate);
+         .leaflet4-qrcode-bg{background: url(../img/microleaflet4_1_qrcode_bg.png)no-repeat;background-size: 100% auto;width:temSize(199,$rate);height:temSize(164,$rate);padding:1px;
+            img{width:temSize(100,$rate );height:temSize(100,$rate );margin-left:temSize(43,$rate );margin-top:temSize(26,$rate );}
+          }
+         .font{margin-top: temSize(-12,$rate );text-align: center;font-size:temSize(15,$rate );margin-left: temSize(-10,$rate );color:#040101;font-weight:bold;}
+      }
+      .leaflet4-info{margin-left:temSize(31,$rate);position:absolute;bottom:temSize(0,$rate);height:temSize(200,$rate);
+        .info1{font-size:temSize(17, $rate); margin-top:temSize(8,$rate );font-weight:bold;}
+        .info2{font-size:temSize(12, $rate); line-height:temSize(24,$rate );}
+        .info2.phone{width:temSize(250,$rate); height:temSize(68,$rate );overflow: hidden;}
+        .info2.address{width:temSize(369,$rate); height: temSize(24,$rate);overflow: hidden;}
+      }
+  }
+
+// 报名页<!--
+.microleaflet4.leafletbg3{background: url("../img/microflet4_form_bg.jpg")no-repeat;background-size:cover;}
+.microleaflet4{
+    .microleaflet1_form .acty22_box3 .edit_info{color:#df4a36;}
+    .leaflet2_mask_adjustfy .acty22_box6 button{background:#df4a36;}
+}
+.microleaflet4 .preview .microleaflet1_form .acty22_box1Outer.noLogo{
+	.acty22_box3{margin-top:temSize(41,$rate);margin-bottom:temSize(72,$rate);
+		 .edit_info{height:100%;line-height:100%;}
+	}
+	.acty22_box5{margin-bottom:temSize(168,$rate)!important;}
+}
+.microleaflet4 .preview .microleaflet1_form .acty22_box1Outer{
+	.acty22_box1 .acty22_inputbox{width:temSize(472,$rate); height:temSize(61,$rate);line-height:temSize(61,$rate);}
+	.acty22_box3{margin-top:temSize(17.4,$rate);}
+	.acty22_box4{margin-top:temSize(22.4,$rate);}
+	.acty22_box5{margin-top:temSize(30,$rate);}
+}
+.microleaflet4 .preview .leaflet2_mask_adjustfy{background:rgba(0,0,0,0.7) !important;}
+.microleaflet4 .isEdit .leaflet2_mask_adjustfy{background:rgba(0, 0, 0, 0.6) !important}
+.microleaflet4 .isEdit .microleaflet1_form .acty22_box1Outer{
+	 .acty22_box1 .acty22_inputbox,.acty22_box3 .edit_info{width:temSize(340,$rate)!important;height:temSize(61,$rate);line-height:temSize(61,$rate);}
+	 .acty22_box2 .acty22_boximg{width:temSize(151,$rate);height:temSize(151,$rate);}
+}
+// 报名页--!>
+// 下载弹框<!--
+.download_pop_style_4{
+	.download_pop_content {
+	    background: url("../img/microlraflet4_download.jpg") $img-pozC;
+	    @include background-size100;
+	    width: temSize(540,$rate);
+	    height: temSize(820,$rate);
+	    position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    right: 0;
+	    left: 0;
+	    margin: auto auto;
+	    .download_pop_title {
+	      background: url("../img/microleaflet4_edit_title_bg.png") $img-pozC;
+	      @include background-size100;
+	      margin: 0 auto;
+	      color: #fff;
+	      text-align: center;
+	      line-height: temSize(114,$rate);
+	      width: temSize(312, $rate);
+	      height: temSize(114,$rate);
+	      font-size: temSize(30,$rate);
+	    }
+	    p {
+	      color: #fff;
+	      text-align: center;
+	      margin-top: temSize(8, $rate);
+	    }
+	    .download_pop_close {
+	      position: absolute;
+	      background: url("../img/microlraflet4_close.png") $img-pozC;
+	      @include background-size100;
+	      right: temSize(20,$rate);
+	      top: temSize(20,$rate);
+	    }
+	    .download_pop_front,.download_pop_back{
+	      box-shadow: 4px 5px 2px rgba(179, 164, 161, 1);
+	    }
+	    .download_pop_front{
+	      margin-top: 0;
+	      margin-bottom: temSize(15,$rate);
+	    }
+	}
+}
+// 下载弹框--!>

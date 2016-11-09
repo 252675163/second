@@ -1,0 +1,73 @@
+﻿<ion-view class="micro-product-edit">
+    <ion-content has-bouncing="false">
+        <div>
+            <div class="box first-box border-t">
+                <input class="box-left box-c" type="text" ng-model="product.name" ng-bind="product.name" maxlength="12" readonly="readonly" custom-input placeholder="请输入商品名称!" change-placeholder-by-focus/>
+            </div>
+            <div class="upload-image">
+                <multi-image-upload upload-config="uploadConfig" callback="callback"></multi-image-upload>
+            </div>
+            <div class="box first-box border-t">
+                <div class="box-left">价格：</div>
+                <input class="box-right box-c" ng-if="!marking&&!hasActivityUser||priceEdit" type="text" ng-model="product.originPrice" readonly="readonly" ng-bind="product.originPrice" maxlength="4" custom-input placeholder="给商品定个价吧!" change-placeholder-by-focus/>
+                <div class="box-right market-number" ng-if="marking||hasActivityUser||!priceEdit" ng-model="product.originPrice" ng-bind="product.originPrice"></div>
+            </div>
+            <div class="box">
+                <div class="box-left">库存：</div>
+                <input class="box-right" type="text" ng-model="product.stock" ng-bind="product.stock" readonly="readonly" maxlength="3" custom-input placeholder="告诉我你有多少个商品吧!" change-placeholder-by-focus/>
+            </div>
+            <div class="box first-box border-t">
+                <div class="box-left">商品介绍：</div>
+                <input class="box-right" type="text" ng-model="product.introduce" readonly="readonly" ng-bind="product.introduce" maxlength="500" custom-input placeholder="未添加>" change-placeholder-by-focus/>
+            </div>
+            <div class="box first-box">
+                <div class="box-left">营销方式：</div>
+                <div class="box-right" ng-class="{markettime:!new}" ng-click="showList()">{{product.typeModel.name}}<span class="box-arrows">></span></div>
+            </div>
+            <div ng-show="product.typeModel.type==1">
+                <div class="box">
+                    <div class="box-left">优惠价：</div>
+                    <div class="box-right" ng-class="{markettime:marking}">¥1.00</div>
+                </div>
+                <div class="box">
+                    <div class="box-left">砍价人数：</div>
+                    <div class="box-right market-number" ng-if="marking||hasActivityUser" ng-model="product.marketNumber" ng-bind="product.marketNumber"></div>
+                    <input class="box-right market-number" ng-if="!marking&&!hasActivityUser" type="text" readonly="readonly" ng-model="product.marketNumber" ng-bind="product.marketNumber" maxlength="3" custom-input change-placeholder-by-focus/>
+                </div>
+                <div class="box">
+                    <div class="box-left">砍价截止时间：</div>
+                    <div class="box-right" ng-class="{markettime:!marking}" ng-click="showDateTime()" ng-model="product.marketTime" readonly="readonly" ng-bind="product.marketTime| date:'yyyy.MM.dd HH:mm'"></div>
+                    <div ng-style="{'display':false?'block':'none'}">
+                        <input ng-model="$parent.marketTime" mobiscroll-datetime="settings" mobiscroll-instance="myInstance" />
+                    </div>
+                </div>
+            </div>
+            <div ng-show="product.typeModel.type==2">
+                <div class="box">
+                    <div class="box-left">一口价：</div>
+                    <input class="box-right " type="text" readonly="readonly" placeholder="请输入一口价!" ng-model="product.price" maxlength="4" custom-input change-placeholder-by-focus/>
+                </div>
+                <div class="box">
+                    <div class="box-left">活动截止时间：</div>
+                    <div class="box-right" ng-class="{markettime:!marking}" ng-click="showDateTime()" ng-model="product.marketTime" readonly="readonly" ng-bind="product.marketTime| date:'yyyy.MM.dd HH:mm'"></div>
+                    <div ng-style="{'display':false?'block':'none'}">
+                        <input ng-model="$parent.marketTime" mobiscroll-datetime="settings" mobiscroll-instance="myInstance" />
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div class="bottom1 bottom2" ng-if="!compile" ng-show="!check()">上架出售</div>-->
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-btn clearfix">
+        <div class="bottom1" ng-if="compile">
+            <div class="left" ng-click="submitProductInfo(0)">存入仓库</div>
+            <div class="right" ng-click="submitProductInfo(product.typeModel.type)" ng-class="{'bottom3':check(),'bottom2':!check()}">上架出售</div>
+        </div>
+        <div class="bottom1" ng-class="{'bottom3':check(),'bottom2':!check()}" ng-if="!compile" ng-click="submitProductInfo(product.typeModel.type)">上架出售</div>
+
+    </ion-footer-bar>
+    <combobox></combobox>
+
+</ion-view>

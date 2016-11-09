@@ -1,0 +1,17 @@
+<!--No.5模板页 {-->
+<div class="paneabird1 microactivity-template11">
+    <!--跟4相同，背景不同-->
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty11_box4Outer">
+            <div class="acty11_pic_box1" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <img ng-src="{{templateModel.imageUrl[0]}}" class="canEdit" /><!--预览页面需要拿掉editBorder样式-->
+            </div>
+            <div class="acty11_box4">
+                <textarea rows="2" class="acty11_textBox4" cols="13" ng-class="{'editBorder':isEdit}" ng-model="templateModel.name" ng-disabled="!isEdit" maxlength="200"  my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                <textarea rows="8" class="acty11_textBox5" cols="13" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit"  maxlength="200" my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--} No.5模板页-->

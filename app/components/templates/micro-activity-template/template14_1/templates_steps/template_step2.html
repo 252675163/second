@@ -1,0 +1,23 @@
+<!--种草表单页-->
+<div class="grass2_box7">
+    <input placeholder="XXX" class="grass2_text4" ng-model="userInfo.name" type="text" maxlength="15" change-placeholder-by-focus my-max-length /><span class="grass2_text4_2">的圣诞树</span>
+</div>
+<!--换头像按钮-->
+<div class="btnGroup1 btnGroup1Patch" style="display:none;"><!-- 圣诞树没有头像功能 -->
+    <button type="button" class="btn-changeFace" ng-click="updateHeadImg()"></button>
+</div>
+
+<div class="person_box grass2_person" id="animateContainer" style="display:none;"><!-- 圣诞树没有头像功能 -->
+    <!--换头像-->
+    <div class="person_head unhappy" ng-class="{'editBorder':isEdit}" >
+        <!-- 开心的表情样式 把 unhappy 换成 happy -->
+        <img ng-src="{{userInfo.headImg}}" class="person_head-face">
+    </div>
+</div>
+
+<div class="xmas_tree_box"></div><!--圣诞树-->
+
+<div class="grass2_btn_group3">
+    <input placeholder="请输入您的手机号领取圣诞树" class="grass2_text6" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15"  change-placeholder-by-focus my-max-length />
+    <button type="button" class="grass2_btn1_3" ng-click="submitInfo()">立刻分享收获礼物</button>
+</div>

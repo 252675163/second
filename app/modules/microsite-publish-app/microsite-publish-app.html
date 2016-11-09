@@ -1,0 +1,57 @@
+<ion-view class="content-bg" cache-view="false" >
+    <error-remind my-remind="remind" is-show="isShowError"></error-remind>
+    <div class="lockMask_box" style="display:{{isPublish ? 'block':'none'}}">
+        <div class="lockMask"></div>
+        <div class="lockMask_content">
+            <div class="lock_title" ng-class="{'lock_fail_title': isPublishFail}"></div>
+            <div class="lock_text" ng-class="{'lock_fail_text': isPublishFail}">
+                <div class="ps_success">{{isPublishFail?"发布失败！":"发布成功!"}}</div>
+                <div class="ps_text" ng-if="!isErrorByMessage">{{calMessage}}正在为您跳转{{isPublishFail?"回编辑页面":"到我的场景"}}...</div>
+                <div class="ps_text" ng-if="isErrorByMessage">{{calMessage}}正在为您返回...</div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="publish-wrap">
+            <div class="publish-item">
+                <span class="checkbox-copy disabled"></span>
+                保存到我的微官网
+            </div>
+            <div class="publish-item" ng-click="isSelectSynchro=!isSelectSynchro">
+                <span class="checkbox-copy" ng-class="{'checked': isSelectSynchro}"></span><!-- 选中增加样式 checked -->
+                同步到微信公众号(<span style="color:red">不可恢复，谨慎操作</span>)
+            </div>
+        </div>
+        <div class="publish-wrap" ng-show="isSelectSynchro">
+            <div class="publish-box clearfix">
+                <div style="display:none" class="publish-tips">您的应用ID和应用密钥不匹配！</div>
+                <div class="publish-label">AppId(应用ID)</div>
+                <input class="publish-text"  ng-model="publicId" type="text"><!--报错样式增加  publish-text-error -->
+                <div class="publish-label">AppSecret(应用密钥)</div>
+                <input class="publish-text"  ng-model="publicPassword" type="password">
+                <a class="publish-tips2" ng-click="isShowTip=!isShowTip">
+                    如何寻找上述信息？
+                </a>
+            </div>
+
+        </div>
+        <div class="publish-btnBox">
+            <button class="btn_style1" ng-click="savePublish(isSelectSynchro,publicId,publicPassword)">确认保存</button>
+        </div>
+
+        <div class="lockMask_box" style="display:{{isShowTip ? 'block':'none'}}">
+            <div class="lockMask"></div>
+            <div class="publish-popupBox">
+                <button type="button" class="publish-popupBox-close" ng-click="isShowTip=!isShowTip"></button>
+                <div class="publish-popupBox-title">微信公众号信息填写说明</div>
+                <p>如何寻找开发者ID<br /> 1、请登录微信公众平台，点击底部“开发者中心”</p>
+                <div class="publish-message1"></div>
+                <p>2、查看配置项中的appid（应用id）和app secret（应用密钥）。</p>
+                <div class="publish-message2"></div>
+                <p> 3、如需其他帮助，请咨询官方QQ：4000051221</p>
+            </div>
+        </div>
+
+    </div>
+
+</ion-view>

@@ -1,0 +1,191 @@
+<!--No.9模板页 {-->
+<div class="paneabird micro_spellgroup bgPan_js spellgroup_step1">
+    <!--<!-- page 1 {-->
+    <!--微拼团（首页）-->
+    <!--<micro_spellgroup1by1-step1></micro_spellgroup1by1-step1>-->
+    <!--首屏-->
+    <div class="spellgroup_screen1">
+        <!--预览 查看-->
+        <div class="preview " ng-cloak ng-if="!isEdit">
+            <div class="bg_machine_wrap">
+                <div class="bg_machine_img">
+                    <!--机构名-->
+                    <div class="spellgroup_company">
+                        <div class="company_name cty-ell" ng-bind-html="templateModel.title"></div>
+                    </div>
+                    <!--时间-->
+                    <div class="spellgroup_deadline">
+                        <p class="timeBox">
+                            <span class="timeBox_title">活动倒计时:</span>
+                            <span class="timeBox_content" ng-bind-html="time|TimeChangeByspellGroup"></span>
+                        </p>
+                    </div>
+                    <!--参团人-->
+                    <div class="spellgroup_participated" style="z-index:200;">
+                        <!--1-3人团 .parti_item3 四-六人团 .parti_item6 6-10人团 .parti_item10-->
+                        <div class="participated_box " ng-class="{'parti_item3':spellgroupDefaultUserList.length==3,'parti_item6':spellgroupDefaultUserList.length==6,'parti_item10':spellgroupDefaultUserList.length==10}">
+                            <div class="participated_box_item headerImg_js" ng-repeat="applyer in spellgroupDefaultUserList track by $index">
+                                <div class="parti_userWrap">
+                                    <img class="parti_avator cty-wh-100 border-radius-50" ng-src="{{(spellgroupUserList[$index]&&spellgroupUserList[$index].HeadImgUrl)||applyer.headerImg||defaultHeadImg|transformWeixinHeadImg:96}}"
+                                         err-src="{{defaultHeadImg}}">
+                                    <div class="mask-wrap">
+                                         <div class="mask-circle">
+                                            <div class="parti_name_mask"></div>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                                <div class="parti_name cty-ell" ng-bind="(spellgroupUserList[$index]&&spellgroupUserList[$index].Name)||applyer.name"></div>
+                            </div>
+                            <!--  样式 todo -->
+                            <div class="participated_box_item animate-moveX disx_js" ng-class="{'visibilityDiv':!isAnimate}" ng-cloak style="position:absolute;top:5rem; z-index:2;margin: 0 auto; left: 0;right: 0; border:transparent;overflow:visible"
+                                 id="animateHeaderImg">
+                                <div class="cty-wh-100 animate-moveY disy_js">
+                                    <div class="participated_box_item scale_js" style="margin:0;">
+                                        <div class="parti_userWrap">
+                                            <img class="parti_avator cty-wh-100 border-radius-50" ng-src="{{userInfo.headImg||defaultHeadImg|transformWeixinHeadImg:96}}"
+                                                 err-src="{{defaultHeadImg}}">
+      
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--参团人数（文案）-->
+                    <div class="spellgroup_participate_people" ng-show="isActivityUserView">
+                        <p class="parti_people_description" ng-show="spellgroupUserList.length<spellgroupDefaultUserList.length">已有<b class="strong" style="padding-bottom: 1px; display: inline-block; vertical-align: text-bottom;" ng-bind="spellgroupUserList.length"></b>人参与该团，还差<b class="strong" ng-bind="spellgroupDefaultUserList.length-spellgroupUserList.length"></b>人！</p>
+                        <p class="parti_people_description" style="padding-bottom:0.075rem;" ng-show="spellgroupUserList.length>=spellgroupDefaultUserList.length&&!currentUser.isApplyThisGroup">很遗憾你来晚了，请开新团或参与其他团！</p>
+                        <p class="parti_people_description" style="padding-bottom:0.075rem;" ng-show="spellgroupUserList.length>=spellgroupDefaultUserList.length&&currentUser.isApplyThisGroup">恭喜你，拼团成功，请尽快联系我们！</p>
+                    </div>
+                    <!--活动介绍-->
+                    <div class="spellgroup_description jieshao">
+                        <div class="sp_description_title" ng-bind-html="templateModel.description[0]"></div>
+                        <textarea readonly rows="5" class="sp_description_content" ng-model="templateModel.description[1]"></textarea>
+                    </div>
+                    <!--button-->
+                    <div class="spellgroup_buttons buttons">
+                        <div ng-show="isActivityUserView&&!currentUser.isApplyThisGroup&&(activityExtConfig.NeedHelpCount>spellgroupUserList.length)">
+                            <!-- 开新团 -->
+                            <button class="sp_button_newgroup" ng-class="{'ended': activityIsEnd}" type="button" ng-disabled="activityIsEnd" ng-click="newGroup()">
+                                <div class="sp_button_text cty-wh-100">开新团</div>
+                            </button>
+                            <!-- 参加此团 -->
+                            <button class="sp_button_partigroup" ng-class="{'ended': activityIsEnd}" type="button" ng-disabled="activityIsEnd" ng-click="participationGroup()">
+                                <div class="sp_button_text cty-wh-100">参与<br />此团</div>
+                            </button>
+                        </div>
+                        <div ng-show="!isActivityUserView||(activityExtConfig.NeedHelpCount<=spellgroupUserList.length&&!currentUser.isApplyThisGroup)" ng-cloak>
+                            <!-- 我要开新团 -->
+                            <button class="cty-wh-100 sp_button_newgroup_myself" type="button" ng-class="{'ended': activityIsEnd}" ng-disabled="activityIsEnd" ng-click="newGroup()">
+                                <div class="sp_button_text cty-wh-100">我要<br />开团</div>
+                            </button>
+                        </div>
+                        <div ng-show="isActivityUserView&&currentUser.isApplyThisGroup"
+                             ng-cloak>
+                            <!-- 已参团  -->
+                            <button class="cty-wh-100 sp_button_participated" type="button"><div class="sp_button_text cty-wh-100">已参团</div></button>
+                        </div>
+                    </div>
+                    <!--拉杆-->
+                    <div class="spellgroup_pullpod"></div>
+                </div>
+            </div>
+        </div>
+        <!--编辑开始-->
+        <div class="isEdit  " ng-cloak ng-if="isEdit">
+            <div class="eidtHeader">
+                <div class="spellgroupBox1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false"
+                     custom-input readonly="readonly" maxlength="22" isdiff="true" ng-bind-html="templateModel.title"></div>
+            </div>
+            <div class="spellgroupBox">
+                <p class="spellTimeTittle">设置截止时间</p>
+                <div ng-click="showDateTime()" class="spellTime" ng-class="{'editBorder':isEdit}" ng-model="mydatetime" readonly="readonly"
+                     ng-bind-html="mydatetime| date:'yyyy年MM月dd日HH点'"></div>
+                <div ng-style="{'display':false?'block':'none'}">
+                    <input ng-model="$parent.mydatetime" mobiscroll-datetime="settings" mobiscroll-instance="myInstance" />
+                </div>
+                <p class="spellNumberTittle">设置成团人数</p>
+                <div class="spellNumber" ng-click="changeNeedHelpCount()" ng-class="{'editBorder':isEdit}" ng-bind="activityExtConfig.NeedHelpCount+'人'"></div>
+                <div class="spellTip">*当有人参与报名后,成团人数将不可再更改</div>
+                <div class="sepllGoodsName" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-disabled="!isEdit"
+                     ng-trim="false" custom-input readonly="readonly" maxlength="22" isdiff="true" ng-bind-html="templateModel.description[0]"></div>
+            </div>
+            <div class="spellGoodsIntro" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" ng-disabled="!isEdit"
+                 ng-trim="false" custom-input readonly="readonly" maxlength="200" isdiff="true" ng-bind-html="templateModel.description[1]|newlines"></div>
+            <!--<div class="spellDrop"></div>-->
+        </div>
+        <!--编辑结束-->
+
+    </div>
+    <!--填写表单页的弹窗-->
+    <div class="ng-hide" ng-show="!isEdit&&isShowFormPopup&&(!activityIsEnd)">
+        <micro_spellgroup1by1-step2></micro_spellgroup1by1-step2>
+    </div>
+    <!-- 参团已满弹窗：开新团、选择其他团 -->
+    <div class="ng-hide" ng-show="!isEdit&&isShowNewGroupPopup&&(!activityIsEnd)">
+        <div class="cty-mask">
+            <div class="spellgroup_popup_participate bg_white h300">
+                <!--关闭按钮-->
+                <i class="spellgroup_icon_close" ng-click="closePopup(2)"></i>
+                <!--用户头像（部分）-->
+                <p class="spellgroup_popup_title_msg">
+                    抱歉！有人快你一步，席位已满，你可以参加其他团哦~
+                </p>
+                <div class="spellgroup_popup_btnGroup clearfix">
+                    <span class="spellgroup_popup_btn_short cty-fl" ng-class="{'spellgroup_popup_btn_short_center':!spell_2_data.templateData.spellGroupList.length}" ng-click="participationToNewGroup()">开新团</span>
+                    <span class="spellgroup_popup_btn_short cty-fr" ng-click="goNotDoneSpellGroupList()" ng-show="spell_2_data.templateData.spellGroupList.length">查看其他团</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 查看我的团，使用新号码报名 -->
+    <div class="ng-hide" ng-show="!isEdit&&isShowReApplyPopup&&(!activityIsEnd)">
+        <div class="cty-mask">
+            <div class="spellgroup_popup_participate bg_white h300">
+                <!--关闭按钮-->
+                <i class="spellgroup_icon_close" ng-click="closePopup(3)"></i>
+                <!--用户头像（部分）-->
+                <p class="spellgroup_popup_title_msg mlr42">
+                    抱歉！本次活动你已参过团，<br />请尝试用其他联系方式报名！
+                </p>
+                <div class="spellgroup_popup_btnGroup clearfix">
+                    <span class="spellgroup_popup_btn_short cty-fl" ng-click="goToMySpellGroup()">查看我的团</span>
+                    <span class="spellgroup_popup_btn_short cty-fr" ng-click="reApply()">用新号码报名</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 拼团成功弹窗 -->
+    <div class="ng-hide" ng-show="!isEdit&&isShowSpellGroupSuccess&&(!activityIsEnd)">
+        <div class="cty-mask">
+            <div class="spellgroup_popup_participate bg_white h240">
+                <div class="spellgroup_titlebg_congratulate"></div>
+                <!--关闭按钮-->
+                <i class="spellgroup_icon_close congratulate_adjust" ng-click="closePopup(4)"></i>
+                <!--用户头像（部分）-->
+                <p class="spellgroup_popup_title_msg success_text cty-tabl-wrap">
+                    <span class="cty-tabl-center">
+                        *请尽快联系我们<br>
+                        <a class="sp_group_tel" ng-href="tel:{{spellgroupModel_1_5.templateModel.tel}}">{{spellgroupModel_1_5.templateModel.tel}}</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- 参团已满弹窗：开新团、选择其他团 -->
+    <!--<div ng-show="isShowNewGroupPopup2&&(!activityIsEnd)" ng-cloak>
+        <div class="cty-mask">
+            <div class="spellgroup_popup_participate bg_white h300">
+                <i class="spellgroup_icon_close" ng-click="closePopup(5)"></i>
+                <p class="spellgroup_popup_title_msg">
+                    很遗憾你来晚了<br/>请开新团或参与其他团！
+                </p>
+                <div class="spellgroup_popup_btnGroup clearfix">
+                    <span class="spellgroup_popup_btn_short cty-fl" ng-click="newGroup()">开新团</span>
+                    <span class="spellgroup_popup_btn_short cty-fr " ng-click="goNotDoneSpellGroupList()">查看其他团</span>
+                </div>
+            </div>
+        </div>
+    </div>-->
+</div>

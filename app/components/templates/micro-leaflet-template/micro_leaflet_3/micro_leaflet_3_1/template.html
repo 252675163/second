@@ -1,0 +1,58 @@
+<!--微传单正面 {-->
+<div class="microleaflet3 leafletbg1 bgPan" on-swipe-down="downNext()">
+    <!--预览-->
+    <div class="preview ng-hide" ng-show="!isEdit">
+        <div class="leaflet3-front">
+            <div class="logo-box">
+                <img ng-show="templateModel.imageUrl[0]" class="leaflet2-logo" ng-src="{{templateModel.imageUrl[0]||defaultLogo}}" />
+            </div>
+            <div class="leaflet3-title">
+                <p class="leaflet3-title-inner1" ng-model="templateModel.title" ng-trim="false" readonly="readonly" ng-bind-html="templateModel.title|newlines"></p>
+                <p class="leaflet3-title-inner2" ng-model="templateModel.description[0]" ng-trim="false" readonly="readonly" ng-bind-html="templateModel.description[0]|newlines"></p>
+            </div>
+            <div class="leaflet3-inner">
+                <div class="inner-left">
+                    <img class="front_qrcode" ng-show="!isHaveQrCode" ng-src="{{defaultQrcodeImg}}" />
+                    <div class="qrcode" ng-show="isHaveQrCode"></div>
+                    <div class="font" ng-bind-html="templateModel.description[1]|newlines"></div>
+                </div>
+                <div class="inner-right">
+                    <p class="info1">联系方式：</p>
+                    <p class="info2" ng-model="templateModel.description[2]" ng-trim="false" readonly="readonly" ng-bind-html="templateModel.description[2]|newlines"></p>
+                    <p class="info1">地址：</p>
+                    <p class="info2" ng-model="templateModel.description[1]" ng-trim="false" readonly="readonly" ng-bind-html="templateModel.description[3]|newlines"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--编辑-->
+    <div class="isEdit" ng-if="isEdit">
+        <div class="front_editOuter front_editOuter3">
+            <div class="front_edit_title2">传单正面</div>
+            <div class="front_edit_box1">
+                机构名称:
+                <textarea class="front_edit_text1" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" maxlength="16" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+            </div>
+            <!--编辑页logo-->
+            <div class="front_edit_img" ng-class="{'imgGuideMask editBorder':isEdit}" ng-click="updateImg(0)"><img ng-src="{{templateModel.imageUrl[0]||defaultLogo2}}" /></div>
+            <!--编辑页logo-->
+            <div class="front_edit_box2">
+                标语:
+                <textarea class="front_edit_text2" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" maxlength="24" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+            </div>
+            <div class="front_edit_box5">
+                扫码提示:
+                <textarea class="front_edit_text5" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" maxlength="14" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+            </div>
+            <div class="front_edit_box3">
+                联系方式:
+                <textarea class="front_edit_text3" rows="3" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[2]" maxlength="72" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+            </div>
+            <div class="front_edit_box4">
+                地址:
+                <textarea class="front_edit_text4" rows="3" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[3]" maxlength="48" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+<!--}微传单正面-->

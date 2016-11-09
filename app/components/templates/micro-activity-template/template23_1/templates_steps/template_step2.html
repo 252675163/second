@@ -1,0 +1,25 @@
+
+
+<div class="grow_vegetables_tree_box" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_content_bg.png')+ ')'}">
+    <div class="header_box_big" ng-click="updateHeadImg()">
+        <img ng-src="{{userInfo.headImg|transformWeixinHeadImg:132}}" class="person_head-face" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/template1_head_mask2_bg.png')+ ')','-webkit-mask-size':'cover'}">
+        <div class="header_border_big" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_head_border2_bg.png')+ ')'}"></div>
+    </div>
+    <div class="form_info_box">
+        <div class="form_info_1" ng-style="{'background-image':'url(' + getImageDoMain('/template1_name_input_bg.png')+ ')'}">
+            我是<input placeholder="XXX" class="form_info_1_text" ng-model="userInfo.name" type="text" maxlength="15" change-placeholder-by-focus my-max-length />
+        </div>
+        <div class="form_info_2">
+            <input placeholder="请输入手机号" class="form_info_2_text" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15" change-placeholder-by-focus my-max-length ng-style="{'background-image':'url(' + getImageDoMain('/template1_phone_input_bg.png')+ ')'}" />
+        </div>
+        <!--用户条款-->
+        <div class="form_info_usertems2">
+            <div class="user_terms_checkdiv" ng-click="checkUserTerms()"><span class="user_terms_checkbox" ng-class="{'user_terms_checkbox_select':isCheckUserTerms}"></span></div>
+            <span class="form_info_usertems2">同意</span><span class="form_info_usertems2 span2" ng-click="showUserTerms()">用户条款</span>
+        </div>
+        <div class="grow_vegetables_btn_group1"><button type="button" class="form_btn_1" ng-click="submitInfo()" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_mid_btn_bg.png')+ ')'}"></button></div>
+    </div>
+
+</div> 
+
+

@@ -1,0 +1,76 @@
+<ion-view cache-view="false" scroll="false">
+    <error-remind my-remind="remind" is-show="isShowError"></error-remind>
+    <ion-content class="has-footer_cover HFC_new" has-bouncing="false">
+        <div id="editdiv" class="editor-box-wrap EBW_new" on-swipe-up="onSwipeUp()" on-swipe-down="onSwipeDown()">
+            <micro-site-edit-view site-model="siteModel"></micro-site-edit-view>
+        </div>
+
+        <button ng-if="siteModel.currentSectionIndex!=0" class="btn-turn2ToTop " ng-click="upIcon()"></button>
+        <button ng-if="siteModel.currentSectionIndex!=(siteModel.pages[siteModel.currentPageIndex].sections.length-1)" class="btn-turn2ToBottom " ng-click="downIcon()"></button>
+        <button ng-if="siteModel.currentPageIndex!=0 " class="btn-turn2ToLeft " ng-click="leftIcon()"></button>
+        <button ng-if="siteModel.currentPageIndex!=(siteModel.pages.length-1)" class="btn-turn2ToRight " ng-click="rightIcon()"></button>
+
+
+        <div class="foot-tab-bg" >
+            <div class="btn_about" ng-class="{'active': siteModel.currentPageIndex==0}"><input ng-disabled="siteModel.currentPageIndex!=0" ng-model="siteModel.pages[0].pageName" value="{{siteModel.pages[0].pageName}}" /></div>
+            <div class="btn_show" ng-class="{'active': siteModel.currentPageIndex==1}"><input ng-disabled="siteModel.currentPageIndex!=1" ng-model="siteModel.pages[1].pageName" value="{{siteModel.pages[1].pageName}}" /></div>
+            <div class="btn_course" ng-class="{'active': siteModel.currentPageIndex==2}"><input ng-disabled="siteModel.currentPageIndex!=2" ng-model="siteModel.pages[2].pageName" value="{{siteModel.pages[2].pageName}}" /></div>
+        </div>
+    </ion-content>
+    <div style="display:{{isOpenChangeBack ? 'block':'none'}}">
+        <div class="lockMask"></div>
+        <div class="bar_content_box">
+            <div class="bar_content">
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="changeBackGroundByMyself($event)">自定义背景</button>
+                </div>
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="changeBackGround()">素材库</button>
+                </div>
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="OpenLockMark()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--<ion-footer-bar class="">-->
+    <!--<ion-tabs class="tabs-icon-top tabs-color-active-positive editPage-tabs" ng-class="{'tabItem4_dis': siteModel.pages[siteModel.currentPageIndex].sections.length==1 ,'tabItem3_dis':siteModel.pages[siteModel.currentPageIndex].sections.length==10}">-->
+    <!--&lt;!&ndash; 删除页面置灰增加样式名 tabItem3_dis &ndash;&gt;-->
+    <!--<ion-tab title="改背景" icon-off="sireeditback" icon-on="sireeditback" ng-click="OpenLockMark()">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="加页面" icon-off="siteeditnew" icon-on="siteeditnew" disabled="siteModel.pages[siteModel.currentPageIndex].sections.length==10" ng-click="addPage()">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="删页面" icon-off="siteeditdelete" icon-on="siteeditdelete" disabled="siteModel.pages[siteModel.currentPageIndex].sections.length==1" ng-click="delCurrentPage()">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview" ng-click="preview()">-->
+    <!--</ion-tab>-->
+    <!--<ion-tab title="暂存" icon-off="siteeditsave" icon-on="siteeditsave" ng-click="save()">-->
+    <!--</ion-tab>-->
+    <!--</ion-tabs>-->
+    <!--</ion-footer-bar>-->
+    <ion-footer-bar class="HOKO_new">
+        <ion-tabs class="tabs-icon-top editPage-tabs active_tabs_new" ng-class="{'tabItem2_dis':siteModel.pages[siteModel.currentPageIndex].sections.length==10}">
+
+            <ion-tab title="编辑" icon-off="siteeditor" icon-on="siteeditor" ng-click="showEdit($event)">
+            </ion-tab>
+            <ion-tab title="加页" icon-off="siteeditadd" icon-on="siteeditadd" disabled="siteModel.pages[siteModel.currentPageIndex].sections.length==10" ng-click="addPage()">
+            </ion-tab>
+            <ion-tab title="暂存" icon-off="siteeditsave" icon-on="siteeditsave" ng-click="save()">
+            </ion-tab>
+            <ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview" ng-click="preview()">
+            </ion-tab>
+        </ion-tabs>
+    </ion-footer-bar>
+
+    <!--编辑按钮展开菜单 created by wenjun 20151107{-->
+    <div class="list active_tabs_new2" ng-show="isShowEdit" ng-click="changeIsShowEdit()">
+        <a class="item item-icon-left" ng-click="delCurrentPage()" ng-class="{'item_dis':siteModel.pages[siteModel.currentPageIndex].sections.length==1}"><i class="icon siteeditdelete"></i>删页</a>
+        <a class="item item-icon-left item_dis"><i class="icon siteeditmusic"></i>音乐</a>
+        <a class="item item-icon-left" ng-click="OpenLockMark()"><i class="icon sireeditbg"></i>背景</a>
+    </div>
+    <!--} 编辑按钮展开菜单 -->
+
+    <text-input></text-input>
+
+
+</ion-view>

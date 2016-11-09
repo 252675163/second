@@ -1,0 +1,38 @@
+<ion-view cache-view="false">
+    <audio id="myaudio">
+        <source ng-src="{{musicUrl}}" type="audio/mpeg" />
+    </audio>
+    <ion-header-bar class=" bar bar-header bar-light" style="height: 1.75rem;">
+        <div class="tabs active_index_Hbox2">
+            <a class="tab-item active" ng-class="{'active':audioTag==1 }" ng-click="changeAudioTag(1)">抒情</a>
+            <a class="tab-item" ng-class="{'active':audioTag==2}" ng-click="changeAudioTag(2)">安静</a>
+            <a class="tab-item" ng-class="{'active':audioTag==3}" ng-click="changeAudioTag(3)">欢快</a>
+            <a class="tab-item" ng-class="{'active':audioTag==4 }" ng-click="changeAudioTag(4)">动感</a>
+        </div>
+    </ion-header-bar>
+    <ion-content style="background-color: #e7e7e9; -webkit-overflow-scrolling: touch;" has-bouncing="false">
+        <ion-list >
+            <a class="item  text-center" ng-click="pickAudio('')" ng-class="{'item-selected':musicUrl==''}">
+                <!--<img class="icon_music" src="http://cdn.schoolpal.cn/shiningstar/app/img/nomusic.png" ng-show="selectAudioIndex==-1"> 无音乐时不显示图片-->
+                <span class="padding-left">
+                    无音乐
+                </span>
+            </a>
+            <ion-item ng-repeat="audioModel in audios" class="item  text-center" ng-click="pickAudio(audioModel.Url)">
+                <a ng-class="{'item-selected':musicUrl==audioModel.Url}">
+                    <!--已选中或者点击后增加此样式 item-selected ，代码：<a class="item  text-center item-selected" -->
+                    <img class="icon_music" ng-src="{{musicPlayingGifUrl}}" ng-show="musicUrl==audioModel.Url">
+                    <span class="padding-left">
+                        {{audioModel.Name}}
+                    </span>
+                </a>
+            </ion-item>
+
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+    <ion-footer-bar class="bar bar-footer footer_box">
+        <button type="button" class="btn_active_add" ng-click="saveAudioSelector()"><em></em>确认更改</button>
+    </ion-footer-bar>
+</ion-view>

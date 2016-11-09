@@ -1,0 +1,17 @@
+<div class="cardEdit_modal" ng-if="info.isShow">
+    <ion-header-bar class="bar bar-header cardEdit_modal_title">
+        <div class="cardEdit_modal_text">{{info.imageIndex+1}} / {{imageUrl.length}} </div>
+        <!--<div class="siteEdit_delete_lc_box"><div class="siteEdit_delete_lc" ng-click="info.isShow = !info.isShow"></div></div>-->
+    </ion-header-bar>
+
+    <ion-content scroll="true" has-bouncing="false" delegate-handle = "showBigImgContent">
+        <ion-slide-box class="cardEdit_modal_box" on-slide-changed="onSlideChanged($index)" active-slide="info.imageIndex" ng-if="imageUrl" show-pager="false">
+            <ion-slide class="cardEdit_modal_content" ng-repeat="image in imageUrl track by $index">
+                <div class="cardEdit_pic_item"><img ng-src="{{image.url?image.url:image}}" /></div>
+            </ion-slide>
+        </ion-slide-box>
+    </ion-content>
+        <ion-footer-bar class="bar bar-footer cardEdit_modal_btn_box" ng-show="info.isEdit">
+        <button class="button-block cardEdit_modal_btn" ng-click="deleteImage()">删除</button>
+    </ion-footer-bar>
+</div>

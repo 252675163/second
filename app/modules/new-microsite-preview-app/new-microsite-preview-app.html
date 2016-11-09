@@ -1,0 +1,54 @@
+<ion-view cache-view="false"   class = "newSite_Outer" ng-class = "templateStyleClass">
+        <div>
+            <ion-content  class="ion-content_patch" has-bouncing="false" scrollbar-y ="false" on-scroll = "hideNav()">
+                <div id="newMicroSiteContainer">
+                    <new-micro-site-preview-view site-model="siteModel" not-render-empty = "notRenderEmpty"></new-micro-site-preview-view>
+                    <my-footer></my-footer>
+                    <!--<div style="display:{{isBottom ? 'block':'none'}}" class="footer-copyright" ng-bind-html="footer"></div>-->
+                </div>
+            </ion-content>
+            <div class="btnGroup4  bar-header" style="z-index: 5;">
+                <button type="button" class="btnG4_edit" ng-click="goToEdit()"><span>编辑</span></button>
+                <button type="button" class="btnG4_share" ng-click="goShare()"><span>分享</span></button>
+                <!--<button type="button" class="btnG4_synchro" ng-click="goToPublish()"><span>同步</span></button>-->
+            </div>
+            <new-site-nav mode-id="siteModel.plan"></new-site-nav>
+        </div>
+
+    <!--$scope.showShareTitlePopConfig  ={-->
+    <!--isShowButton:[true,true,false],-->
+    <!--isShowGuideText:true-->
+    <!--};-->
+        <div ng-style="{'display':isShowShareTitlePop?'block':'none'}">
+            <button type="button" class="btn-closed" style="z-index:8;" ng-click="colseShareTitlePop()"></button>
+            <div class="lockMask" ng-style="{'display':isShowShareTitlePop?'block':'none'}" style="z-index:7;"></div>
+            <div class="popup-tips-s1" ng-style="{'display':showShareTitlePopConfig.isShowGuideText?'block':'none'}"  style="z-index:7;"></div>
+            <div class="popup-wrap-s1" style="z-index:7;">
+                <div class="popup-share-head">
+                    <div class="popup-text-span">标题：</div>
+                    <input ng-model="showShareTitlePopModel.shareTitle" />
+                </div>
+                <div class="popup-content">
+                    <div class="popup-box clearfix">
+                        <div class="popup-boxL" ng-click="changeShareImage()"><img ng-src="{{showShareTitlePopModel.imageUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button></div>
+                        <!--<span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>-->
+                        <div class="popup-boxR">
+                            <textarea placeholder="分享内容：" class="popup_textbox" maxlength="100" ng-model="showShareTitlePopModel.desc"></textarea>
+                            <span class="popup-box_total"><span>{{showShareTitlePopModel.desc.length||0}}</span> / 100</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-buttons">
+                    <div class="button-share-left" ng-click="showShareTitlePopModel.saveShareTitleFunction('goIndex')" ng-show="showShareTitlePopConfig.isShowButton[0]">
+                        仅保存
+                    </div>
+                    <div class="button-share-right" ng-click="showShareTitlePopModel.saveShareTitleFunction('goShare')" ng-show="showShareTitlePopConfig.isShowButton[1]">
+                        立刻分享
+                    </div>
+                </div>
+            </div>
+        </div>
+        <show-image-big></show-image-big>
+        <!--微官网表单弹窗-->
+        <site-form></site-form>
+</ion-view>

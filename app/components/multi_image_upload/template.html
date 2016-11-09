@@ -1,0 +1,9 @@
+<div class="add-image-box">
+    <div class="image-list" type="item-text-wrap" style="padding: 0;">
+        <div class="image-item" ng-repeat="image in uploadConfig1.imageUrlArr track by $index">
+            <img ng-src="{{image.url?image.url:image}}" class="canEdit" ng-click="showImageBig($index)" />
+        </div>
+    </div>
+    <div class="image-add-btn" ng-click="addImage($index)" ng-show="uploadConfig1.imageUrlArr.length<uploadConfig1.maxImageNum">
+    </div>
+</div>

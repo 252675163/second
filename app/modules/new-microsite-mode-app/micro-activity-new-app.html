@@ -1,0 +1,104 @@
+<!--{"Id":1,"Name":"公开课","Comment":null,"PreviewImg":"http://schoolpal.oss-cn-hangzhou.aliyuncs.com/shiningstar/Activity/20150922175726-d310c.jpg","IsHide":false}-->
+<!--<ion-view touch-top-render  cache-view="false">-->
+    <!--<ion-content>-->
+        <!--<div ng-click = "chooseMode(1)">模式1</div>-->
+        <!--<div ng-click = "chooseMode(2)">模式2</div>-->
+        <!--<div ng-click = "chooseMode(3)">模式3</div>-->
+    <!--</ion-content>-->
+<!--</ion-view>-->
+
+<ion-view style="background:#e7e7e9;" touch-top-render  cache-view="false">
+    <div class="bar bar-header bar-light active_index_header" ng-style="{'height':showSwitchTab?'none':'2.25rem'} " style="  z-index: 2;">
+        <div class="active_choose_tips"><i class="icon_tips"></i>请从方案库中选择您喜欢的微官网</div>
+    </div>
+    <ion-content has-bouncing="false" style="  z-index: 1;">
+        <mode-slide mdoeindex = "{{currentModeId}}">
+            <div class="active_choose_box clearfix" ng-style="{'padding-top':'3.75rem'}">
+                <div class="microsite_choose_project" >
+                    <div class="microsite_project1_wrapper" ng-click = "chooseMode(1)" >
+                        <div class="microsite_project1">
+                            <div class="microsite_project_box">
+                                <div class="microsite_project_title">
+                                    <h1>极速版</h1>
+                                    <p><strong>30</strong>秒打造轻型微官网</p>
+                                </div>
+                                <div class="microsite_project_price_box">
+                                    <span class="microsite_price">FREE</span>
+                                    <span class="microsite_arrow_left"></span>
+                                    <span class="microsite_arrow_right"></span>
+                                </div>
+                                <ul class="microsite_project_list">
+                                    <li><i class="microsite_project_list_icon"></i>首页</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>最新动态</li>
+                                    <li><i class="microsite_project_list_icon"></i>机构介绍</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>精品课程</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>名师风采</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>联系我们</li>
+                                    <li><i class="microsite_project_list_icon"></i>二维码名片</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="microsite_project2_wrapper" ng-click = "chooseMode(2)">
+                        <div class="microsite_project2">
+                            <div class="microsite_project_box">
+                                <div class="microsite_project_title">
+                                    <h1>标准版</h1>
+                                    <p><strong>3</strong>分钟打造经典微官网</p>
+                                </div>
+                                <div class="microsite_project_price_box">
+                                    <span class="microsite_price">FREE</span>
+                                    <span class="microsite_arrow_left"></span>
+                                    <span class="microsite_arrow_right"></span>
+                                </div>
+                                <ul class="microsite_project_list">
+                                    <li><i class="microsite_project_list_icon"></i>首页</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>最新动态</li>
+                                    <li><i class="microsite_project_list_icon"></i>机构介绍</li>
+                                    <li><i class="microsite_project_list_icon"></i>精品课程</li>
+                                    <li class="list_invalid"><i class="microsite_project_list_icon"></i>名师风采</li>
+                                    <li><i class="microsite_project_list_icon"></i>联系我们</li>
+                                    <li><i class="microsite_project_list_icon"></i>二维码名片</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="microsite_project3_wrapper" ng-click = "chooseMode(3)">
+                        <div class="microsite_project3">
+                            <div class="microsite_vip_icon"></div>
+                            <div class="microsite_project_box">
+                                <div class="microsite_project_title">
+                                    <h1>尊享版</h1>
+                                    <p><strong>10</strong>分钟打造高端微官网</p>
+                                </div>
+                                <div class="microsite_project_price_box">
+                                    <span class="microsite_price">￥<em>288</em>/年</span>
+                                    <p class="microsite_vip_text">VIP专享</p>
+                                    <span class="microsite_arrow_left"></span>
+                                    <span class="microsite_arrow_right"></span>
+                                </div>
+                                <ul class="microsite_project_list">
+                                    <li><i class="microsite_project_list_icon"></i>首页</li>
+                                    <li><i class="microsite_project_list_icon"></i>最新动态</li>
+                                    <li><i class="microsite_project_list_icon"></i>机构介绍</li>
+                                    <li><i class="microsite_project_list_icon"></i>精品课程</li>
+                                    <li><i class="microsite_project_list_icon"></i>名师风采</li>
+                                    <li><i class="microsite_project_list_icon"></i>联系我们</li>
+                                    <li><i class="microsite_project_list_icon"></i>二维码名片</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mode-slide>
+        <div class="microsite_project_page_tips">
+            <div class="microsite_circle_gray" id="circle1"></div>
+            <div class="microsite_circle_gray" id="circle2" style="background:#666"></div>
+            <div class="microsite_circle_gray" id="circle3"></div>
+        </div>
+
+    </ion-content>
+</ion-view>
+
+

@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="refreze-guide">
+    <div class="guide-header">
+      <h2 class="title">解冻指导</h2>
+      <p class="time">{{frezetime|formatJsonDate:'yyyy-MM-dd'}} 校宝秀</p>
+    </div>
+    <div class="frezereason">
+      <p>冻结场景:{{title}}</p>
+      <p>{{replaytext}}原因:{{frezereason}}</p>
+      <div ng-if="imgs.length>0" >
+        <p>违规页面:</p>
+        <div ng-repeat="imgurl in imgs" class="frezeimg">
+          <img ng-src="{{imgurl}}" alt="">
+        </div>
+      </div>
+      <p>{{replaytext}}时间:{{frezetime|formatJsonDate:'yyyy年MM月dd日HH时mm分'}}</p>
+    </div>
+    <div class="guidecontain">
+      <h3 class="title">如有疑义，请按照下述指引进行场景解冻申请：</h3>
+      <div class="guide-step">
+        <ol>
+          <li>
+            <p class="title">进入我的场景，找到被冻结的场景</p>
+            <div class="guide-step1-img"></div>
+          </li>
+          <li>
+            <p class="title">点击被冻结场景右下角<span class="guide-dot-img"></span>上图所示按钮后，在页面底部点击【编辑】按钮，根据冻结原因对场景内容进行修改，修改完毕并保存后，返回我的场景</p>
+            <div class="guide-step2-img"></div>
+          </li>
+          <li>
+            <p class="title">点击【申诉】并填写相关内容（注意：为提升处理效率，请不要重复提交申请）</p>
+            <div class="guide-step3-img"></div>
+          </li>
+          <li>
+            <p class="title">提交成功后，请耐心等待工作人员给你信息反馈（约3个工作日），感谢您对校宝秀团队工作的理解与支持，祝您生活愉快！</p>
+          </li>
+        </ol>
+      </div>
+      <div class="guide-footer">
+        <p>点击快速跳转至<a href="" ng-click="gohome()">我的场景</a></p>
+      </div>
+    </div>
+  </div>
+</ion-content>

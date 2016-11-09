@@ -1,0 +1,16 @@
+<div class="card siteEdit_card_box6 siteEdit_card_style" >
+    <div class="list_item_style2">
+        <input maxlength="16" my-max-length class="card_input_style canShow" type="text" ng-model="campusInfoModel.campusName"    placeholder="请输入校区名称" change-placeholder-by-focus ng-trim="false"/>
+                        <span class="siteEdit_item_note" ng-click="removeCampusInfo({index:$index})">
+                            删除
+                        </span>
+    </div>
+    <div class="item item-icon-left list_item_style">
+        <i class="icon icon_local"></i>
+        <input  maxlength="32" my-max-length class="card_input_style canShow" type="text" ng-model="campusInfoModel.address"  placeholder="请输入校区地址"  change-placeholder-by-focus ng-trim="false" />
+    </div>
+    <div class="item item-icon-left list_item_style">
+        <i class="icon icon_phone"></i>
+        <input  maxlength="15" my-max-length class="card_input_style canShow" type="text" ng-model="campusInfoModel.tel"    placeholder="请输入校区电话" change-placeholder-by-focus ng-trim="false"/>
+    </div>
+</div>

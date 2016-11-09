@@ -1,0 +1,47 @@
+<ion-view   cache-view="false" style="background: #242429;">
+    <ion-content has-bouncing="false">
+        <!--新微官网风云榜 {-->
+        <div class="newSite_award">
+            <div class="newSite_award_banner">
+                <a ng-href="{{showLink}}"></a>
+            </div>
+            <div class="microactivity-grass bgPan">
+                <div ng-class="{'preview':!isEdit}">
+                    <div class="grass2_box3Outer">
+                        <div class="grass2_box3_3 list" ng-hide = "(!userWebsiteInfo)&&isShareView">
+                            <div class="item noborder" ng-click="goWebsiteView(userWebsiteInfo)" ng-show="userWebsiteInfo">
+                                <span class="item-pic"><img ng-src="{{userWebsiteInfo.Logo||defaultLogo}}"></span>
+                                <h2>{{userWebsiteInfo.Title}}</h2>
+                                <span class="item-ranking">第{{userWebsiteInfo.Rank}}名</span>
+                                <span class="item-note"><em>{{userWebsiteInfo.Total}}</em><i></i></span>
+                            </div>
+                            <div class="item noborder item_textOnly" ng-show="(!userWebsiteInfo)&&(!isHaveWebsite)">您尚未用校宝秀制作微官网</div>
+                            <div class="item noborder item_textOnly" ng-show="(!userWebsiteInfo)&&isHaveWebsite">您的微官网尚未制作完整</div>
+                        </div>
+                        <div class="ranking_box">
+                            校宝秀微官网风云榜
+                            <span class="ranking_arrow_left"></span>
+                            <span class="ranking_arrow_right"></span>
+                        </div>
+                        <div class="grass2_box3_3 list" ng-repeat="data in list">
+                            <div class="item" ng-click="goWebsiteView(data)">
+                                <span class="item-ranking " ng-class="{'ranking_bg1':$index==0,'ranking_bg2':$index==1,'ranking_bg3':$index==2}">{{$index+1}}</span><!--排行榜第2、3名需要加 样式 ranking_bg2/ranking_bg3；排名4以后不需要加这个样式  -->
+                                <span class="item-pic"><img ng-src="{{data.Logo||defaultLogo}}"></span>
+                                <h2>{{data.Title}}</h2>
+                                <span class="item-note"><em>{{data.Total}}</em><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grass2_box_more" ng-show="(page.currentIndex >= page.totalCount)&&page.currentIndex!=0">没有更多了</div>
+                </div>
+            </div>
+        </div>
+      
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex < page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+        <!--}新微官网风云榜 -->
+
+    </ion-content>
+</ion-view>
+
+

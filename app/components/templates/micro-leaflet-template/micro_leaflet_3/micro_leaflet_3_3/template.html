@@ -1,0 +1,31 @@
+<!--微传单表单页 {-->
+<div class="paneabird1 microleaflet3 leafletbg3 bgPan">
+    <!--ng-if 防止iphone页面切换时闪烁-->
+    <div ng-class="{'isEdit':isEdit,'preview':!isEdit}" ng-if="true">
+        <div class="microleaflet1_form">
+            <div class="acty22_box1Outer acty22_mask leaflet2_mask_adjustfy" ng-class="{true:'noLogo',false:''}[isEdit?false:true && templateModel.imageUrl[0]!=''?false:true]">
+                <div class="acty22_box1">
+                    <textarea class="acty22_inputbox edit_info" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" maxlength="16" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="acty22_box2" ng-show="isEdit?true:false || templateModel.imageUrl[0]==''?false:true">
+                    <div class="acty22_boximg" ng-class="{'editBorder':isEdit,'imgGuideMask editBorder':isEdit}" ng-click="updateImg(0)">
+                        <img class="acty22_box1_logo" ng-src="{{templateModel.imageUrl[0]||defaultLogo}}" /><!--预览页面需要拿掉editBorder样式-->
+                    </div>
+                </div>
+                <div class="acty22_box3">
+                    <textarea class="acty22_inputbox edit_info " rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" maxlength="24" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="acty22_box4">
+                    <input placeholder="姓名" class="acty22_inputbox info_input" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+                </div>
+                <div class="acty22_box5">
+                    <input placeholder="联系方式" class="acty22_inputbox info_input" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+                </div>
+                <div class="acty22_box6">
+                    <button class="acty22_inputbox submit_btn" ng-click="submitInfo()">马上报名</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--}微传单表单页-->

@@ -1,0 +1,59 @@
+<ion-view class="schoolpal-wallet-withdrawals-confirm">
+    <!-- 进行提现 -->
+    <div ng-show="withdrawalsConfirm">
+        <div class="withdrawals-confirm">
+            提现金额
+            <div class="">
+                ￥<input class="inputNum" ng-model="inputNum" type="tel" maxlength="10" />
+            </div>
+        </div>
+        <div class="money-surplus">可用余额 ￥<span ng-bind="account.balance | twoDecimal"></span></div>
+        <div class="withdrawals-instruction">
+            提现说明
+            <div ng-bind-html="introduction|newlines">
+
+            </div>
+        </div>
+        <div class="confirm-btn" ng-click="withDraw()" ng-class="{'success-btn':check()}">确认提现</div>
+    </div>
+    <!-- 提现成功 -->
+    <div ng-show="withdrawalsSuccess">
+        <div class="withdraw-success"></div>
+        <div class="success-mation">申请提现成功</div>
+        <div class="withdraw-marking">您已成功申请提现，该笔金额将于第二日到账您可在微信的【我的】>【钱包】中查看</div>
+        <div class="confirm-btn success-btn" ng-class="" ng-click="backToWallet()">确认</div>
+    </div>
+    <!-- 个人版提现遮罩 -->
+    <div class="showWitnDraw" ng-show="showPopup && !isOrg">
+        <div class="lockMask" ng-click="cencelMask()"></div>
+        <div class="maskContent">
+            <div class="content-top">
+                <p class="phone">请确认您的手机号码:<span ng-bind="phone"></span></p>
+                <div class="content-phone">
+                    <div class="phone-left"><input class="" type="tel" ng-keyup="" maxlength="13" my-max-length ng-model="code" /></div>
+                    <div class="phone-right" ng-click="getVerificationCode()" ng-show="countdown==0 || firstSend==1">获取验证码</div>
+                    <div class="phone-right" ng-click="getVerificationCode()" ng-show="countdown>0 && firstSend==0">已发送{{countdown}}</div>
+                </div>
+                <p>如绑定的手机号码不正确，请联系客服</p>
+            </div>
+            <div class="confirm" ng-click="verify(code,inputNum)">确认</div>
+        </div>
+    </div>
+    <!-- 专业企业版体现遮罩 -->
+    <div class="showWitnDraw" ng-show="showPopup && isOrg">
+        <div class="lockMask" ng-click="cencelMask()"></div>
+        <div class="maskContent2">
+            <p class="instruction">由于校宝钱包是属于机构所有的，所以提现操作需要机构所在的校长手机短信验证通过，同意后才能进行提现</p>
+            <div class="content-top content-top2">
+                <p class="phone">请确认校长绑定的手机号码:<span ng-bind="phone"></span></p>
+                <div class="content-phone content-phone2">
+                    <div class="phone-left"><input class="" type="tel" ng-keyup="" maxlength="13" my-max-length ng-model="code" /></div>
+                    <div class="phone-right" ng-click="getVerificationCode()" ng-show="countdown==0 || firstSend==1">获取验证码</div>
+                    <div class="phone-right" ng-click="getVerificationCode()" ng-show="countdown>0 && firstSend==0">已发送{{countdown}}</div>
+                </div>
+                <p>如绑定的手机号码不正确，请联系客服</p>
+            </div>
+            <div class="confirm" ng-click="verify(code,inputNum)">确认</div>
+        </div>
+    </div>
+</ion-view>

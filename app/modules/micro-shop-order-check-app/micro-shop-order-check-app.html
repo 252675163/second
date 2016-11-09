@@ -1,0 +1,73 @@
+<ion-view class="micro-shop-order-check-app ">
+    <div ng-show="!paySuccess">
+        <div class="micro-shop-common2">
+            <div class="micro-shop-common2-top">
+                <div class="img">
+                    <img ng-src={{order.imgUrl}}>
+                </div>
+                <div class="micro-shop-common2-text">
+                    <div class="title" ng-bind="order.title">
+                        <h2></h2>
+                    </div>
+                    <div class="introduce" ng-bind="order.introduce">
+                    </div>
+                    <div class="price">
+                        <span class="present-price1">￥<span ng-bind="order.price|twoDecimal"></span></span>
+                        <span class="original-price1">价格<span>￥<span class="original-price1-num" ng-bind="order.originPrice"></span></span>
+                        </span>
+                        <span class="act-type" ng-bind="order.activityTypeModel.name"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="micro-shop-common2-mid">
+                <div class="text">
+                    <div class="left">预留姓名</div>
+                    <div class="right" ng-bind="order.userName"></div>
+                </div>
+                <div class="text">
+                    <div class="left">预留手机号</div>
+                    <div class="right" ng-bind="order.userPhone"></div>
+                </div>
+            </div>
+            <div class="micro-shop-common2-mid">
+                <div class="text">
+                    <div class="left">支付方式</div>
+                    <div class="right">微信支付</div>
+                </div>
+            </div>
+        </div>
+        <div class="micro-shop-common2-pay-bottom">
+            <span>
+                价格：<span class="pay-number-r">￥<span ng-bind="order.price|twoDecimal"></span></span>
+            </span>
+            <div class="pay-bottom-submit-order" ng-click="pay()">去支付</div>
+        </div>
+    </div>
+    <!--支付成功页面-->
+    <ion-content has-bouncing="false" class="micro-shop-pay" ng-show="paySuccess">
+        <div class="pay-success-top">
+            <div class="pay-success-icon"></div>
+            <p class="pay-success-tip">支付成功！</p>
+            <p class="pay-order-number">订单号: <em ng-bind="order.orderNumber"></em></p>
+        </div>
+        <div class="line"></div>
+        <div class="pay-success-body">
+            <h1>订单详情</h1>
+            <div class="order-content">
+                <div class="order-item">商品名称<span ng-bind="order.title"></span></div>
+                <div class="order-item">营销方案<span ng-bind="order.activityTypeModel.activityTypeName"></span></div>
+                <div class="order-item">成交价格<span class="order-price">￥<em ng-bind="order.price|twoDecimal"></em></span></div>
+                <div class="order-item">商品数量<span>1件</span></div>
+                <div class="order-item item-produce">商品介绍<span ng-bind="order.introduce"></span></div>
+                <div class="order-item">预留姓名<span ng-bind="order.userName"></span></div>
+                <div class="order-item">预留手机号<span ng-bind="order.userPhone"></span></div>
+            </div>
+            <p class="pay-sucess-msg">
+                由于商品的特殊性，我们不提供退款和物流服务<br /> 请前往机构领取商品。
+            </p>
+            <div class="btn-wrapper">
+                <button class="btn-sure" ng-click="goMyOrder()">确认</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

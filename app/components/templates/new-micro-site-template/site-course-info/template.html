@@ -1,0 +1,53 @@
+<div ng-show="isEdit" >
+    <ion-content has-bouncing="false">
+        <div class="card siteEdit_card_box4 siteEdit_card_style"  ng-repeat="courseType in templateModel.list" >
+                <div class="list_item_style2">
+                    <input  maxlength="16" my-max-length class="card_input_style canShow" type="text" ng-model="courseType.name"  ng-trim="false"  placeholder="请输入课程类别" change-placeholder-by-focus />
+                                <span class="siteEdit_item_note" ng-click = "removeCourseType($index)">
+                                    删除
+                                </span>
+                </div>
+                <div >
+                    <site-course-info-edit  ng-repeat="course in courseType.list" course-model ="course" remove-course = "removeCourse(courseType,$index)" course-type = "courseType"></site-course-info-edit>
+                    <div class = "card_inner_text_box">
+                        <div class="card_inner_text" ng-click="addCourse(courseType)">
+                            <span class="card_icon">+</span>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar align-title="center" class=" siteEdit_button_box" ng-click="addCourseType()"  class = "hide-on-keyboard-open">
+        <button class=" card button_inner_text siteEdit_card_style">
+            <span class="card_icon">+</span>
+        </button>
+    </ion-footer-bar>
+</div>
+
+<!-- 第四版块 精品课程 { -->
+<div class="newSite_course_Outer" ng-show="!isEdit">
+    <div class="newSite_title_box"><!-- 此背景图不可以替换！ -->
+        <span>精品课程</span>
+    </div>
+    <div class="list newSite_course_list">
+        <!-- 一个循环结构 { -->
+        <div class="newSite_course_listItem" ng-repeat="courseType in templateModel.list">
+            <div class="item item-divider item-icon-right" ng-click="isShowCourseList[$index] = !isShowCourseList[$index]">
+                <span ng-bind-html="courseType.name|newlines"></span>
+                <i class="icon ion-ios-arrow-down" ng-class="{'ion-ios-arrow-down':isShowCourseList[$index],'ion-ios-arrow-up':!isShowCourseList[$index]}" ></i><!--展开icon ion-ios-arrow-down/收起icon ion-ios-arrow-up -->
+            </div>
+            <div ng-show = "isShowCourseList[$index]">
+                <!-- 一个循环子集 { -->
+                <div class="item item-button-right"  ng-repeat="course in courseType.list">
+                    <h2 ng-bind-html="course.name|newlines"></h2>
+                    <p ng-bind-html="course.description|newlines"></p>
+                    <button class="newSite_btn_normol" type="button" ng-click="goConsult(courseType,course)">免费预约</button>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--} 第四版块 精品课程  -->
+

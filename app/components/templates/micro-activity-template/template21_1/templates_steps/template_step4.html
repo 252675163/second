@@ -1,0 +1,56 @@
+<div class="step4 bgpan">
+    <!--<div class="lockMask"></div>-->
+
+    <div class="userinfo_box">
+        <div class="vote_departinfo" ng-bind-html="templateModel.title"></div>
+        <div class="vote_img_info_box">
+            <div ng-if="userinfo.Rank<4&&!userinfo.IsDeleted" class="rank_bg" ng-class="{'first':userinfo.Rank==1,'second':userinfo.Rank==2,'third':userinfo.Rank==3}"></div>
+            <div class="img_info_box">
+                <div class="rank" ng-if="userinfo.Rank>3&&!userinfo.IsDeleted">
+                    <div class="rank_number">第{{userinfo.Rank}}名</div>
+                </div>
+                <div class="personimg">
+                    <img ng-src="{{config.headImg}}" ng-style="{'display':isView?'block':'none'}">
+                    <img ng-src="{{placeimg_small}}{{userinfo.Id}}.jpg" ng-style="{'display':!isView?'block':'none'}">
+                </div>
+                <div class="personinfo">
+                    <div class="name">姓名:{{userinfo.Name}} </div>
+                    <div class="score">票数:<em>{{userinfo.Score}}</em></div>
+                </div>
+            </div>
+            <div class="personslogn">
+                <p ng-style="{'display':isView?'block':'none'}"><span>参赛宣言：</span>{{config.slogn}}</p>
+                <p ng-style="{'display':!isView?'block':'none'}"><span>参赛宣言：</span>{{userinfo.slogn}}</p>
+            </div>
+            <div class="resign_box">
+                <div class="resign_btn" ng-click="gostep3()" ng-if="ifSelf&&ifSignIn">重新报名</div>
+            </div>
+        </div>
+        <div class="">
+            <div class="vote_btn_box" ng-class="{'btn-disabled':ifVote,'vote_btn_box_bad':!ifVote&&ifPass}" ng-click="voteToSomeone()"
+                ng-style="{'display':(isView&&userinfo.Score<501)?'block':'none'}"></div>
+            <div class="vote_btn_box" ng-class="{'btn-disabled':ifVote,'vote_btn_box_bad':!ifVote&&ifPass}" ng-click="voteThisandcheck()"
+                ng-style="{'display':(isView&&userinfo.Score>500)?'block':'none'}"></div>
+            <div class="vote_btn_box" ng-class="{'btn-disabled':userinfo.IsHaveGrow}" ng-click="voteToSomeonefake(userinfo)" ng-style="{'display':!isView?'block':'none'}"></div>
+            <div class="activity_detail" ng-click="toggle()"></div>
+        </div>
+    </div>
+    <div class="maskConfirm" ng-style="{'display':ifVerifyShow?'block':'none'}">
+        <div class="confirmInfo">
+            <i class="close-icon" ng-click="closeCheckBox()"></i>
+            <h1>请填入“ ? ”处的值</h1>
+            <input type="text" ng-model="captcha" maxlength="4">
+            <div class="confirmCode clearfix">
+                <img class="confirmCode-img" ng-src="{{imgurl}}" alt="验证码图片">
+                <a class="changeConfirm" href="" ng-click="reGetVerifyCode()"></a>
+            </div>
+            <div class="voteConfirm-btn" ng-click="voteTothis()"></div>
+        </div>
+    </div>
+
+    <div class="bottom_btn">
+        <div ng-click="gostep1()" class="vote-btn-half "><i class="vote-home"></i><br /><span>首页</span></div>
+        <div ng-click="gostep3()" class="vote-btn-half " ng-if="!ifSignIn"><i class="vote-join"></i><br /><span>我也要参加</span></div>
+        <div ng-click="gonext()" class="vote-btn-half" ng-if="ifSignIn" ng-class="{'active':ifSelf}"><i class="vote-myChoice"></i><br /><span>我的报名</span></div>
+    </div>
+</div>

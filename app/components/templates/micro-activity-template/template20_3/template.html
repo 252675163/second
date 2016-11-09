@@ -1,0 +1,35 @@
+<!--No.9模板页 {-->
+
+
+
+
+<div class="paneabird microactivity-voucher xmas_bg bgPan" ng-show="(uiConfig.isShow||isEdit)&&isShowPage">
+    <div ng-class="{'preview':!isEdit,'voucher_edit':isEdit}">
+        <div class="voucher_bg">
+            <div class="help_voucher_edit_box1">
+                <div class="voucher_input_detail" ng-show="isShowDescription">
+                    <div class="title_box">
+                        <div class="title" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title[0]" ng-disabled="!isEdit" ng-trim="false" isdiff="true" custom-input readonly="readonly" maxlength="8" ng-bind-html="templateModel.title[0]|newlines"></div>
+                    </div>
+                    <div class="description" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" isdiff="true" maxlength="220" ng-bind-html="templateModel.description[0]|newlines"></div>
+                </div>
+                <div class="voucher_contact_box">
+                    <div class="voucher_input_detail" ng-show="isShowContactBg">
+                        <div class="title_box" ng-show="isShowContact">联系方式</div>
+                        <div class="title_box" ng-show="isEdit">
+                            <div class="title">电话</div>
+                        </div>
+                        <div ng-hide="isShowPhone" class="description description_phone" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" isdiff="true" maxlength="24" ng-bind-html="templateModel.description[1]|newlines"></div>
+                        <a ng-hide="isShowPhone" href="tel:{{templateModel.description[1]}}"></a>
+                    </div>
+                    <div class="voucher_input_detail address_detail" ng-show="isShowContactBg">
+                        <div class="title_box" ng-show="isEdit">
+                            <div class="title">地址</div>
+                        </div>
+                        <div class="description" ng-class="{'editBorder':isEdit,'visibilityDiv':isShowAddress}" ng-model="templateModel.description[2]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" isdiff="true" maxlength="60" ng-bind-html="templateModel.description[2]|newlines"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

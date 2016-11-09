@@ -1,0 +1,45 @@
+
+<ion-view class="micro-shop-management">
+    <div class="manage-tabs" ng-show="data.isShowTabs">
+        <div class="manage-tab" ng-click="changeTab(1)">
+            <span ng-class="{'active':data.tabIndex==1}">商品管理</span>
+        </div>
+        <div class="manage-tab" ng-click="changeTab(2)">
+            <span ng-class="{'active':data.tabIndex==2}">订单管理</span>
+        </div>
+        <div class="manage-tab" ng-click="changeTab(3)">
+            <span ng-class="{'active':data.tabIndex==3}">店铺管理</span>
+        </div>
+    </div>
+
+    <ion-nav-view class="micro-shop-nav-view">
+
+    </ion-nav-view>
+
+</ion-view>
+
+
+<ion-footer-bar class="bar bar-footer footer_book new_tabs">
+    <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+    <a class="new_tab_item active" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+    <a class="new_tab_item" ng-click="goRegistrationBook()"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+    <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+</ion-footer-bar>
+
+
+<!--二维码弹窗-->
+<div ng-style="{'display':data.isShowQrCode?'block':'none'}">
+    <button type="button" class="btn-closed2" ng-click="closeQrCode()"></button>
+    <div class="lockMask"></div>
+    <div class="popup-tips-s2"></div>
+    <div class="popup-wrap-s1 code_height">
+        <div id="qrcode">
+            <img ng-src="{{data.qrCodeUrl}}" style="height: 100%; width: 100%; position: absolute; left: 0; top: 0;" />
+        </div>
+    </div>
+</div>
+<!--分享遮罩 {-->
+<div ng-style="{'display':isShowShare?'block':'none'}">
+    <div class="lockMask"></div>
+    <div class="lockMask_activity_share4"></div>
+</div>

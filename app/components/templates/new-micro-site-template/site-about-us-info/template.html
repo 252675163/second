@@ -1,0 +1,52 @@
+<!--编辑-->
+<div ng-show = "isEdit">
+    <ion-content has-bouncing="false">
+        <site-about-us-info-edit ng-repeat="campusInfoModel in  templateModel.aboutUsInfoList" campus-info-model = "campusInfoModel" remove-campus-info = "removeCampusInfo($index)"></site-about-us-info-edit>
+    </ion-content>
+    <ion-footer-bar align-title="center" class=" siteEdit_button_box " ng-click = "addCampusInfo()"  class = "hide-on-keyboard-open">
+        <button class=" card button_inner_text siteEdit_card_style">
+            <span class="card_icon">+</span>
+        </button>
+    </ion-footer-bar>
+</div>
+<!--非编辑-->
+<div ng-show = "!isEdit">
+    <div class="newSite_aboutUs_Outer">
+    <div class="newSite_title_box"><!-- 此背景图不可以替换！ -->
+        <span>联系我们</span>
+    </div>
+
+    <div class="list newSite_aboutUs_list">
+        <!-- 一个循环结构 { -->
+        <div class="newSite_aboutUs_listItem" ng-repeat="campusInfoModel in  templateModel.aboutUsInfoList">
+            <div class="item item-divider item-button-right">
+                <span ng-bind-html="campusInfoModel.campusName|newlines"></span>
+                <button class="newSite_btn_normol" ng-click="goConsult(campusInfoModel,$index)">免费预约</button>
+            </div>
+
+            <a ng-href="{{status=='view'?'http://api.map.baidu.com/geocoder?address='+campusInfoModel.address+'&output=html':'javascript:void(0)'}}">
+                <div class="item item-icon-left item-icon-right">
+                    <!--这里有个问题，ionic的item样式下文本超出显示点点点的，而效果图需要显示完整样式-->
+                    <i class="icon icon_local"></i>
+                    <span ng-bind-html="campusInfoModel.address|newlines"></span>
+                    <span class="newSite_item-note">导航</span>
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+            </a>
+
+            <a ng-href="{{status=='view'?'tel:'+campusInfoModel.tel:'javascript:void(0)'}}">
+                <div class="item item-icon-left item-icon-right">
+                    <!--这里有个问题，ionic的item样式下文本超出显示点点点的，而效果图需要显示完整样式-->
+                    <i class="icon icon_phone"></i>
+                    {{campusInfoModel.tel}}
+
+                    <span class="newSite_item-note">拨号</span>
+
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+</div>

@@ -1,0 +1,1344 @@
+﻿@charset "utf-8";
+/*微拼团模板*/
+/********************
+*
+*name：变量(variable)
+*authoer:lechao.ying
+*
+*********************/
+$editRate: 0.8; /*首屏编辑*/
+
+
+
+/********************
+*
+*name：函数&mixin(helper)
+*authoer:tianyu.chen && lechao.ying
+*
+*********************/
+/*function*/
+@function temSize($num, $rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+/*背景-100%填充*/
+@mixin background100($url) {
+    background-image: url($url);
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+/*定位-绝对定位居中*/
+@mixin absoluteCenter($direction: default) { /*默认垂直水平居中*/
+    @if $direction == center { /* 水平居中*/
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    @else if $direction == vertical-center { /*垂直居中 */
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @else {
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+}
+
+@mixin mask-black($opacity: 70) {
+    position: absolute;
+    z-index: 110;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,$opacity/100);
+    overflow: hidden;
+}
+/*@lechao.ying*/
+@mixin spellBox {
+    margin: 0 auto;
+    width: temSize(430,$editRate);
+    height: temSize(68,$editRate);
+    @include border-radius(temSize(5));
+}
+
+@mixin font-style($size) {
+    font-size: temSize($size,$editRate);
+    text-align: center;
+    color: #fff;
+}
+
+
+/*******************
+*name：组件类(util)
+*description:提供一些便捷写法,以自己名字简写来标注命名空间，方便后期整合
+*authoer:tianyu.chen
+*email:tianyu.chen@xiaobao100.com | cty8998@163.com
+*
+********************/
+/*文字相关*/
+.cty-ell {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+/*文字超出省略*/
+/*盒模型*/
+.cty-wh-100 {
+    width: 100%;
+    height: 100%;
+}
+/*遮罩*/
+.cty-mask {
+    @include mask-black(70);
+}
+/* 浮动*/
+.cty-fl {
+    float: left;
+}
+
+.cty-fr {
+    float: right;
+}
+/*定位*/
+/*多行文本水平垂直居中*/
+.cty-tabl-wrap {
+    display: table;
+    width: 100%;
+}
+
+.cty-tabl-center {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+/*图片宽度自适应*/
+.cty-img-responsive {
+    /*增加预设（宽度）*/
+    &.w540 {
+        width: 540px;
+    }
+    /*增加预设（为了防止图片溢出请使用padding控制左右边距）*/
+    &.plr20 {
+        padding-left: temSize(20, $rate);
+        padding-right: temSize(20, $rate);
+    }
+    /*增加预设（图片间距）*/
+    .mtb15 {
+        margin-top: temSize(15, $rate);
+        margin-bottom: temSize(15, $rate);
+    }
+    /*默认*/
+    width: 100%;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+/*=============================================================*/
+/**/
+/*                       main part*/
+/**/
+/*=============================================================*/
+
+/*首屏编辑*/
+.micro_spellgroup {
+    position: relative;
+
+    .spellgroupEdit {
+        background-color: #362c51;
+    }
+
+    .isEdit {
+        position: relative;
+        width: temSize(640,$editRate);
+        height: temSize(1015,$editRate);
+        background: url("../img/spellgroup_edit_bg1.png") $img-pozC;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+
+    .eidtHeader {
+        padding-top: temSize(60,$editRate);
+    }
+
+    .spellgroupBox1 {
+        @include spellBox;
+        @include font-style(26);
+        line-height: temSize(68,$editRate);
+    }
+
+    .spellgroupBox {
+        padding-top: temSize(102,$editRate);
+        @include font-style(24);
+    }
+
+    .spellTimeTittle {
+        margin-bottom: temSize(16,$editRate);
+        line-height: 1;
+    }
+
+    .spellTime {
+        @include spellBox;
+        line-height: temSize(68,$editRate);
+    }
+
+    .spellNumberTittle {
+        margin-top: temSize(26,$editRate);
+        margin-bottom: temSize(20,$editRate);
+        line-height: 1;
+    }
+
+    .spellNumber {
+        @include spellBox;
+        line-height: temSize(68,$editRate);
+    }
+
+    .spellTip {
+        margin: temSize(18,$editRate) auto temSize(26,$editRate) auto;
+        color: #f4a904;
+        width: temSize(430,$editRate);
+        font-size: temSize(16,$editRate);
+        text-decoration: underline;
+        line-height: 1;
+    }
+
+    .sepllGoodsName {
+        @include spellBox;
+        line-height: temSize(68,$editRate);
+    }
+
+    .spellGoodsIntro {
+        margin: temSize(24,$editRate) auto 0 auto;
+        width: temSize(526,$editRate);
+        height: temSize(160,$editRate);
+        font-size:temSize(24,$editRate);
+        color: #fff;
+        line-height:1.2;
+        border-radius: 5px;
+        overflow-y: hidden;
+    }
+
+    .spellDrop {
+        position: absolute;
+        right: 0;
+        top: temSize(630,$editRate);
+        width: temSize(106,$editRate);
+        height: temSize(210,$editRate);
+        background: url("../img/spellgroup_next_bg.png") $img-pozC;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+    }
+
+    .spellAddEditBgColor {
+        background-color: #362c51;
+        padding-top: temSize(10,$editRate);
+        width: temSize(640,$editRate);
+        height: temSize(1015,$editRate);
+    }
+
+    .spellAddEditBg {
+        position: relative;
+        width: temSize(554,$editRate);
+        height: temSize(964,$editRate);
+        background: url("../img/spellgroup_edit_bg2.png") $img-pozC;
+        -webkit-background-size: 100% 100%;
+        background-size: 100% 100%;
+        margin: 0 auto;
+        padding-top: temSize(80,$editRate);
+    }
+
+    .editBorder {
+        border: 1px dashed #fff;
+    }
+
+    .phoneTitle {
+        @include font-style(24);
+        line-height: 1;
+        margin-bottom: temSize(20,$editRate);
+    }
+
+    .telContent {
+        @include spellBox;
+        @include font-style(24);
+        line-height: temSize(68,$editRate);
+    }
+
+    .addressTitle {
+        @include font-style(24);
+        margin-top: temSize(30,$editRate);
+        margin-bottom: temSize(20,$editRate);
+        line-height: 1;
+    }
+
+    .AddContent {
+        margin: 0 auto;
+        width: temSize(430,$editRate);
+        height: temSize(238,$editRate);
+        border-radius: 5px;
+        border: 1px dashed #fff;
+        line-height: 1;
+        font-size: temSize(24,$editRate);
+        color: #fff;
+        padding: 10px;
+    }
+}
+
+/*首屏预览*/
+/* reset（清除受到其他项目影响的背景图层）*/
+.spellgroup_step1.paneabird {
+    background: #362c51;
+}
+
+.spellgroup_screen1 {
+    margin-top: 1px; /*调整ion-pane2px偏移量*/
+    height: calc(100% + 1px);
+    width: 100%;
+    position: relative;
+    background: #362c51;
+    /*首屏背景图相关*/
+    .bg_machine_wrap {
+        position: absolute;
+        @include absoluteCenter(center);
+        bottom: 0;
+        width: temSize(640, $rate);
+        height: temSize(1006, $rate);
+
+        &:before {
+            @extend %bg_machine_corner;
+            left: temSize(-38, $rate);
+        }
+
+        &:after {
+            @extend %bg_machine_corner;
+            right: temSize(-38, $rate);
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+
+        &%bg_machine_corner {
+            position: absolute;
+            z-index: 1;
+            content: '';
+            bottom: 0;
+            width: temSize(57, $rate);
+            height: temSize(190, $rate);
+            @include background100("../img/spellgroup_machine_corner.png");
+        }
+    }
+
+    .bg_machine_wrap .bg_machine_img {
+        position: relative;
+        z-index: 2;
+        width: temSize(640, $rate);
+        height: temSize(1006, $rate);
+        @include background100("../img/spellgroup_bg_machine.png");
+    }
+    /*机构名*/
+    .spellgroup_company {
+        position: absolute;
+        top: temSize(136, $rate);
+        @include absoluteCenter(center);
+
+        .company_name {
+            width: temSize(292, $rate);
+            text-align: center;
+            font-size: temSize(26, $rate);
+            line-height: temSize(26, $rate);
+            color: #fff;
+        }
+    }
+    /*活动倒计时*/
+    .spellgroup_deadline {
+        position: absolute;
+        top: temSize(204, $rate);
+        @include absoluteCenter(center);
+        height: temSize(48);
+
+        .timeBox {
+            white-space: nowrap;
+            font-size: temSize(24, $rate);
+            color: #fff;
+        }
+
+        .timeBox_title {
+            display: inline-block;
+            vertical-align: middle;
+            width: temSize(138, $rate);
+            line-height: temSize(24, $rate);
+        }
+
+        .timeBox_content {
+            white-space: nowrap;
+        }
+
+        .timeBox_content .icon_black_circle,
+        .timeBox_content em {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .timeBox_content em {
+            line-height: temSize(24, $rate);
+        }
+
+        .timeBox_content .icon_black_circle {
+            text-align: center;
+            width: temSize(30, $rate);
+            height: temSize(40, $rate);
+            font-size: temSize(30, $rate);
+            line-height: temSize(40, $rate);
+            border-radius: temSize(7, $rate);
+            background: #313131;
+        }
+    }
+    /*参团人数（文案）*/
+    .spellgroup_participate_people {
+        position: absolute;
+        top: temSize(522, $rate);
+        @include absoluteCenter(center);
+        text-align: center;
+        min-width: temSize(338, $rate);
+        height: temSize(36, $rate);
+        line-height: temSize(36, $rate);
+
+        .parti_people_description {
+            font-size: temSize(26, $rate);
+            color: #fff;
+            font-weight: bold;
+            white-space: nowrap;
+            padding-bottom: temSize(4, $rate);
+            display: inline-block;
+            vertical-align: text-bottom;
+        }
+
+        .parti_people_description .strong {
+            font-weight: bold;
+            font-size: temSize(36, $rate);
+            color: #fceb22;
+        }
+    }
+    /*活动介绍*/
+    .spellgroup_description {
+        position: absolute;
+        top: temSize(566, $rate);
+        @include absoluteCenter(center);
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: temSize(552, $rate);
+        height: temSize(250, $rate);
+        border: temSize(6, $rate) solid #c72c00;
+        border-radius: temSize(38, $rate);
+        background: #621f09;
+        -webkit-box-shadow: inset 0px 1px 5px rgba(0,0,0,.3);
+        box-shadow: inset 0px 1px 5px rgba(0,0,0,.3);
+        color: #fff;
+
+        .sp_description_title {
+            // width: 11em;
+            margin: temSize(26, $rate) auto temSize(16, $rate);
+            font-size: temSize(30, $rate);
+            line-height: temSize(30, $rate);
+            text-align: center;
+            // overflow:hidden;
+        }
+
+        .sp_description_content {
+            font-size: temSize(22, $rate);
+            width: temSize(492, $rate);
+            overflow-y: hidden;
+            margin: 0 auto;
+            text-indent: 2em;
+            text-align: left;
+            line-height: 1.4;
+            color:inherit;
+        }
+    }
+    /*button按钮（我要参团、开新团、已参团、我要开新团）*/
+    .spellgroup_buttons {
+        position: absolute;
+        @include absoluteCenter(center);
+        top: temSize(816, $rate);
+        width: temSize(494, $rate);
+        height: temSize(172, $rate);
+        text-align: center;
+
+        .sp_button_newgroup,
+        .sp_button_partigroup,
+        .sp_button_newgroup_myself,
+        .sp_button_participated{
+            width: temSize(194, $rate);
+        }
+		%ended{
+			&.ended {
+				height: temSize(173, $rate);
+            	@include background100("../img/spellgroup_button_grey.png");
+        	}
+			&.ended .sp_button_text{
+				color:#666;
+			}
+		}
+        .sp_button_newgroup {
+			height: temSize(169, $rate);
+			padding-top: temSize(46, $rate);
+            float: left;
+            @include background100("../img/spellgroup_button_blue.png");
+			@extend %ended;
+        }
+
+        .sp_button_partigroup {
+			height: temSize(173, $rate);
+			padding-top: temSize(26, $rate);
+            float: right;
+            @include background100("../img/spellgroup_button_yellow.png");
+			@extend %ended;
+            .sp_button_text{
+                line-height: temSize(38, $rate);
+            }
+        }
+
+        .sp_button_newgroup_myself {
+			height: temSize(169, $rate);
+			padding-top: temSize(26, $rate);
+            display: inline-block;
+            @include background100("../img/spellgroup_button_blue_light.png");
+			@extend %ended;
+            .sp_button_text{
+                line-height: temSize(38, $rate);
+            }
+			}
+        .sp_button_participated{
+            display: inline-block;
+            padding-top: temSize(46, $rate);
+            height: temSize(173, $rate);
+            @extend %ended;
+            @include background100("../img/spellgroup_button_grey.png");
+        }
+		.sp_button_text{
+			text-align:center;
+			font-size: temSize(30, $rate);
+			color:#621f09;
+		}
+		
+    }
+    /*拉杆*/
+    .spellgroup_pullpod {
+        position: absolute;
+        right: 0;
+        top: temSize(651, $rate);
+        width: temSize(106, $rate);
+        height: temSize(211, $rate);
+        @include background100("../img/spellgroup_pullrod.png");
+    }
+}
+
+/*================================================================*/
+/*=                    首屏和弹窗公共部分                          =*/
+/*================================================================*/
+
+/*参团人*/
+.spellgroup_participated {
+    &.popup_adjiust {
+        position: relative;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        margin-left: 0;
+    }
+
+    position: absolute;
+    top: temSize(272, $rate);
+    @include absoluteCenter(center);
+    margin-left: temSize(-4, $rate);
+    height: temSize(225, $rate);
+
+    .participated_box {
+        height: 100%;
+        width: temSize(536, $rate);
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    /*组团公共*/
+    .participated_box.popup_item_adjust > li {
+        overflow: visible;
+        border: none;
+
+        .popup_adjust_avator {
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+
+    .participated_box > li,
+    .participated_box_item {
+        position: relative;
+        // border-radius: 50%;
+        // border: 1px solid #e67b1e;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        // overflow: hidden;
+        z-index:1;
+    }
+
+    .participated_box .parti_userWrap {
+        position: relative;
+        //overflow: hidden;
+        z-index: 5;
+        margin-left: -1px; /*调整边框1px偏移量*/
+        margin-top: -1px; /*调整边框2px偏移量*/
+    }
+
+    .participated_box .parti_avator {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+        border-radius: 9999px;
+    }
+    .participated_box .mask-wrap{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:3;
+        width:100%;
+        height:100%;
+    }
+    .participated_box .mask-circle{
+        border:0.05rem solid #e67b1e;
+        z-index:3;
+        width:100%;
+        height:100%;
+        border-radius:100%;
+        overflow:hidden;
+    }
+    .participated_box .parti_name_mask {
+        width: 100%;
+        z-index: 4;
+        background: rgba(0,0,0,.5);
+    }
+
+    .participated_box .parti_name {
+        &.popup_parti_name_adjust {
+            bottom: 0 !important;
+        }
+
+        position: absolute;
+        text-align: center;
+        z-index: 6;
+        color: #fff;
+        @include absoluteCenter(center);
+    }
+    /*三人团*/
+    .participated_box.parti_item3 {
+        &.popup_item_adjust {
+            width: temSize(500, $rate);
+            margin:0 auto;
+        }
+
+        &.popup_item_adjust > li {
+            height: temSize(194, $rate);
+        }
+
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: distribute;
+        -webkit-box-pack: justify;
+                justify-content: space-between;
+        width: temSize(494, $rate);
+    }
+
+    .participated_box.parti_item3 > li,
+    .participated_box.parti_item3 .participated_box_item,
+    .participated_box.parti_item3 .parti_userWrap {
+        width: temSize(152, $rate);
+        height: temSize(152, $rate);
+    }
+
+    .participated_box.parti_item3 .parti_avator {
+        &.popup_adjust_avator {
+            width: temSize(150, $rate);
+            height: temSize(150, $rate);
+        }
+
+        width: temSize(152, $rate);
+        height: temSize(152, $rate);
+    }
+    .participated_box.parti_item3 .parti_name_mask {
+        height: temSize(40, $rate);
+        margin-top: temSize(112, $rate)
+    }
+
+    .participated_box.parti_item3 .parti_name {
+        &.popup_parti_name_adjust {
+            font-size: temSize(24, $rate);
+            line-height: 1.1;
+        }
+
+        bottom: temSize(8, $rate);
+        width: temSize(98, $rate);
+        font-size: temSize(20, $rate);
+    }
+    /*六人团*/
+    .participated_box.parti_item6 {
+        &.popup_item_adjust > li {
+            height: temSize(136, $rate);
+            margin-bottom: temSize(24, $rate);
+        }
+
+        &.popup_item_adjust {
+            margin: 0 auto;
+        }
+
+        &.popup_item_adjust .parti_userWrap{
+            margin: 0;
+        }
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        width: temSize(388, $rate);
+    }
+
+    .participated_box.parti_item6:after {
+        content: "";
+        width: temSize(102, $rate);
+    }
+
+    .participated_box.parti_item6 > li,
+    .participated_box.parti_item6 .participated_box_item,
+    .participated_box.parti_item6 .parti_userWrap {
+        width: temSize(102, $rate);
+        height: temSize(102, $rate);
+        margin-bottom: temSize(6, $rate);
+    }
+
+    .participated_box.parti_item6 .parti_avator {
+        &.popup_adjust_avator {
+            width: temSize(100, $rate);
+            height: temSize(100, $rate);
+            position: static;
+        }
+
+        width: temSize(102, $rate);
+        height: temSize(102, $rate);
+    }
+
+    .participated_box.parti_item6 .parti_name_mask {
+        height: temSize(30, $rate);
+        margin-top: temSize(72, $rate);
+    }
+
+    .participated_box.parti_item6 .parti_name {
+        &.popup_parti_name_adjust {
+            font-size: temSize(24, $rate);
+            line-height: 1.1;
+        }
+
+        bottom: temSize(2, $rate);
+        width: temSize(98, $rate);
+        font-size: temSize(14, $rate);
+    }
+    /*十人团*/
+    .participated_box.parti_item10 {
+        width: temSize(498, $rate);
+        &.popup_item_adjust {
+            margin: 0 auto;
+        }
+
+        &.popup_item_adjust > li {
+            height: temSize(98, $rate);
+            margin: 0 temSize(15, $rate) temSize(34, $rate) temSize(15, $rate);
+        }
+	}
+        .participated_box.parti_item10 > li,
+        .participated_box.parti_item10 .participated_box_item {
+			border:none;
+			.parti_userWrap{
+				//overflow: hidden;
+				/*border: temSize(2, $rate) solid #e67b1e;*/
+				//border-radius: 50%;
+			}
+            margin: 0 temSize(15, $rate) temSize(34, $rate) temSize(15, $rate);
+			overflow:visible;
+        }
+
+        .participated_box.parti_item10 > li,
+        .participated_box.parti_item10 .participated_box_item,
+        .participated_box.parti_item10 .parti_userWrap {
+                width: temSize(68, $rate);
+                height: temSize(68, $rate);
+            }
+
+            .participated_box.parti_item10 .parti_avator {
+                &.popup_adjust_avator {
+                    width: temSize(66, $rate);
+                    height: temSize(66, $rate);
+                    position:static;
+                }
+
+                width: 100%;
+                height:100%;
+            }
+
+            .participated_box.parti_item10 .parti_name {
+                &.popup_parti_name_adjust {
+                    font-size: temSize(20, $rate);
+                    line-height: 1.4;
+                    margin-bottom: temSize(-10,$rate);
+                    width: temSize(100, $rate);
+                }
+
+                width: temSize(69, $rate);
+                font-size: temSize(16, $rate);
+                bottom: temSize(5, $rate);
+                margin-bottom: temSize(-36, $rate);
+            }
+        }
+
+    /*================================================================*/
+    /*=                          首屏弹窗                             =*/
+    /*================================================================*/
+    .spellgroup_popup_participate {
+        &.bg_white {
+            background: #fff;
+        }
+
+        &.bg_orange_gradient {
+            background: -webkit-linear-gradient(120deg, #ff3a34, #ff9a58);
+            background: linear-gradient(-30deg, #ff3a34, #ff9a58);
+        }
+
+        &.h240 {
+            height: temSize(240, $rate);
+        }
+
+        &.h300 {
+            height: temSize(300, $rate);
+        }
+
+        &.h400 {
+            height: temSize(400, $rate);
+        }
+
+        &.w540 {
+            width: temSize(540, $rate);
+        }
+
+        position: absolute;
+        @include absoluteCenter;
+        width: temSize(480, $rate);
+        height: temSize(648, $rate);
+        border-radius: temSize(22, $rate);
+        background: -webkit-gradient(linear, left top, right top, from(#6e5cc0), to(#8475c8));
+        background: -webkit-linear-gradient(left, #6e5cc0, #8475c8);
+        background: linear-gradient(90deg, #6e5cc0, #8475c8);
+    }
+
+    .spellgroup_popup_title_msg {
+        &.mlr42 {
+            margin-left: temSize(42, $rate);
+            margin-right: temSize(42, $rate);
+        }
+
+        &.success_text {
+            margin: 0;
+            font-size: temSize(30, $rate);
+            line-height: temSize(60, $rate);
+            height: temSize(240, $rate);
+        }
+
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+        margin: temSize(63, $rate) temSize(50, $rate) temSize(43, $rate) temSize(66, $rate);
+        font-size: temSize(24, $rate);
+        line-height: temSize(40, $rate);
+    }
+
+    .sp_group_tel {
+        color: #3ab5e7;
+    }
+
+    .spellgroup_popup_btnGroup {
+        margin: 0 temSize(26, $rate);
+        position:relative;
+        .spellgroup_popup_btn_short {
+            display: inline-block;
+            text-align: center;
+            font-size: temSize(28, $rate);
+            color: #fff;
+            font-weight: bold;
+            padding-top: temSize(26, $rate);
+            width: temSize(200, $rate);
+            height: temSize(94, $rate);
+            @include background100("../img/spellgroup_popup_btn_short.png");
+        }
+        .spellgroup_popup_btn_short_center{
+            position:absolute;
+            left:0;
+            right:0;
+            margin:0 auto;
+        }
+    }
+
+    .spellgroup_titlebg_congratulate {
+        position: absolute;
+        @include absoluteCenter(center);
+        top: temSize(-244, $rate);
+        width: temSize(547, $rate);
+        height: temSize(274, $rate);
+        @include background100("../img/spellgroup_titlebg_congratulate.png");
+    }
+
+    .spellgroup_icon_close {
+        &.congratulate_adjust {
+            margin-top: temSize(-178, $rate);
+        }
+
+        &.orange_gradient_adjust {
+            margin-left: temSize(480, $rate);
+        }
+
+        position: absolute;
+        display: inline-block;
+        width: temSize(61, $rate);
+        height: temSize(96, $rate);
+        margin-top: temSize(-96, $rate);
+        margin-left: temSize(377, $rate);
+        @include background100("../img/spellgroup_icon_close.png");
+    }
+
+    .spellgroup_popup_uploadImage_bg {
+        position: relative;
+        margin: 0 auto;
+        width: temSize(438, $rate);
+        height: temSize(249, $rate);
+        @include background100("../img/spellgroup_bg_lights.png");
+    }
+
+    .spellgroup_popup_uploadImage_avator {
+        position: absolute;
+        overflow: hidden;
+        @include absoluteCenter;
+        width: temSize(162, $rate);
+        height: temSize(162, $rate);
+        border-radius: 50%;
+        background-color: #fff;
+        border: temSize(8, $rate) solid #9587d1;
+    }
+
+    .spellgroup_popup_uploadImage_avator.uploadImage_avator_wrap {
+        width: temSize(162, $rate);
+        height: temSize(162, $rate);
+        margin-top: temSize(-8, $rate);
+        margin-left: temSize(-8, $rate);
+    }
+
+    .spellgroup_popup_contentWrap {
+        border-radius: 0 0 temSize(22, $rate) temSize(22, $rate);
+        background: #fff;
+        height: temSize(399, $rate);
+
+        .form_info_mtb30 {
+            margin: temSize(30, $rate) auto temSize(30, $rate);
+            text-align: center;
+
+            &:first-child {
+                padding-top: temSize(30, $rate);
+                margin-top: temSize(0, $rate);
+            }
+
+            &:nth-child(3) {
+                margin-bottom: temSize(20, $rate);
+            }
+
+            .join_btn {
+                width: temSize(406, $rate);
+                height: temSize(94, $rate);
+                color: #fff;
+                font-size: temSize(28, $rate);
+                @include background100("../img/spellgroup_popup_btn.png");
+            }
+        }
+
+        .form_info_text {
+            width: temSize(408, $rate);
+            height: temSize(70, $rate);
+            margin: 0 auto;
+            font-size: temSize(24, $rate);
+            border: 1px solid #6e5cc0;
+            border-radius: temSize(7, $rate);
+            color: #999;
+            text-align: center;
+        }
+
+        .form_info_declare {
+            text-align: center;
+            color: #999;
+            font-size: temSize(20, $rate);
+        }
+    }
+    /*================================================================*/
+    /*=                          第二屏 && 第六屏                     =*/
+    /*================================================================*/
+    .spellgroup_screen2,
+    .spellgroup_screen6 {
+        width: 100%;
+        background: #c72c00;
+    }
+
+    .spellgroup_screen6 {
+        margin-top: temSize(-21, $rate);
+
+        .spellgroup_groupList {
+            margin-bottom: temSize(21, $rate);
+        }
+    }
+    /*未成团模块 && 已成团模块*/
+    .spellgroup_groupList {
+        position: relative;
+        padding-top: temSize(21, $rate);
+
+        .sp_grouping_title,
+        .sp_grouped_title {
+            position: relative;
+            z-index: 3;
+            margin: 0 auto;
+        }
+
+        .sp_grouping_title {
+            width: temSize(292, $rate);
+            height: temSize(98, $rate);
+            @include background100("../img/spellgroup_titlebg_grouping.png");
+        }
+
+        .sp_grouped_title {
+            width: temSize(343, $rate);
+            height: temSize(127, $rate);
+            @include background100("../img/spellgroup_titlebg_grouped.png");
+        }
+
+        .sp_grouping_content,
+        .sp_grouped_content {
+            width: temSize(582, $rate);
+            margin: 0 auto;
+            position: relative;
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            z-index: 2;
+            padding: temSize(76, $rate) temSize(30, $rate) temSize(24, $rate) temSize(20, $rate);
+            background: #8a2405;
+            // min-height: temSize(360, $rate);
+            border-radius: temSize(26, $rate);
+        }
+
+        .sp_grouping_content {
+            margin-top: temSize(-56, $rate);
+        }
+
+        .sp_grouped_content {
+            margin-top: temSize(-60, $rate);
+        }
+        /*未参团项*/
+        .sp_grouping_ajaxBox > li,
+        .sp_grouped_ajaxBox > li {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -webkit-justify-content: space-between;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-bottom: temSize(30, $rate);
+        }
+
+        .sp_grouping_avator,
+        .sp_grouped_avator {
+            -webkit-box-ordinal-group: 2;
+            -webkit-order: 1;
+            -ms-flex-order: 1;
+            order: 1;
+            overflow: hidden;
+            border: temSize(6, $rate) solid #a15037;
+            border-radius: 50%;
+        }
+
+        .sp_grouping_avator,
+        .sp_grouped_avator,
+        .sp_grouped_avatorWrap {
+            width: temSize(90, $rate);
+            height: temSize(90, $rate);
+        }
+
+        .sp_grouped_avatorWrap {
+            position: relative;
+        }
+
+        .sp_grouped_avator_crown {
+            position: absolute;
+            width: temSize(27, $rate);
+            height: temSize(28, $rate);
+            top: temSize(-16, $rate);
+            left: 0;
+            @include background100("../img/spellgroup_avator_crown.png");
+        }
+
+        .sp_grouping_description,
+        .sp_grouped_description {
+            padding: 0 temSize(22, $rate);
+            -webkit-box-flex: 1;
+            -webkit-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            -webkit-box-ordinal-group: 3;
+            -webkit-order: 2;
+            -ms-flex-order: 2;
+            order: 2;
+            font-size: temSize(24, $rate);
+            color: #fff;
+        }
+
+        .sp_grouping_button,
+        .sp_grouped_button {
+            -webkit-box-ordinal-group: 4;
+            -webkit-order: 3;
+            -ms-flex-order: 3;
+            order: 3;
+            width: temSize(130, $rate);
+            height: temSize(46, $rate);
+            line-height: temSize(46, $rate);
+            border-radius: temSize(8, $rate);
+            color: #621f09;
+            background: #ffb300;
+            font-size: temSize(24, $rate);
+        }
+
+        .sp_grouping_loadmore,
+        .sp_grouped_loadmore {
+            &.nomore {
+                color: #aaa;
+            }
+
+            text-align: center;
+            color: #ffb300;
+            font-size: temSize(20, $rate);
+        }
+    }
+    /*机构、游戏介绍页*/
+    /*机构、游戏介绍页*/
+    .micro_spellgroup .isEdit .introduce {
+        background-color: #362c51;
+        width: temSize(640,$editRate);
+        height: temSize(1015,$editRate);
+        padding-top: temSize(10,$editRate);
+
+        .editBorder {
+            border: 1px dashed #fff;
+        }
+
+        .form {
+            width: temSize(554,$editRate);
+            height: temSize(964,$editRate);
+            background: url("../img/spellgroup_edit_bg2.png") $img-pozC;
+            -webkit-background-size: 100% 100%;
+            background-size: 100% 100%;
+            margin: 0 auto;
+            padding-top: temSize(60,$editRate);
+        }
+
+        .title {
+            @include spellBox;
+            @include font-style(24);
+            line-height: temSize(68,$editRate);
+            margin: 0 auto;
+            @include border-radius(temSize(5))
+        }
+
+        .body {
+            margin-top: temSize(70,$editRate);
+        }
+
+        .body_text_content {
+            width: temSize(468,$editRate);
+            height: temSize(680,$editRate);
+            font-size: temSize(24,$editRate);
+            color: #fff;
+            line-height: 1.4;
+            margin: 0 auto;
+            text-align:justify;
+            @include border-radius(temSize(5));
+            padding: temSize(15);
+
+        }
+
+        overflow-y: scroll;
+    }
+
+    .micro_spellgroup .preview .introduce {
+        $rate: 1;
+        background-color: #c72c00;
+        padding: temSize(66, $rate) 0 temSize(30, $rate) 0;
+
+        .form {
+            .title {
+                position: relative;
+                margin: temSize(-36, $rate) auto;
+                text-align: center;
+                color: #ffffff;
+                font-size: temSize(36,$rate);
+                line-height: temSize(72, $rate);
+                width: temSize(400, $rate);
+                height: temSize(72, $rate);
+                @include background100("../img/spellgroup_title_bg_1.png");
+                z-index: 2;
+                overflow-y: hidden;
+            }
+
+            .body {
+                background-color: #8a2405;
+                color: #ffffff;
+                width: temSize(582,$rate);
+                min-height: temSize(200,$rate);
+                margin: 0 auto;
+                font-size: temSize(24,$rate);
+                @include border-radius(temSize(25));
+                padding: temSize(60) 0 temSize(60) 0;
+                line-height:1.3;
+
+            }
+
+            .body_text_content {
+                width: temSize(540);
+                margin: auto;
+            }
+
+            .address_text {
+                display: inline-block;
+                width: temSize(410);
+                vertical-align: top;
+            }
+        }
+    }
+    /*======================================*/
+    /**/
+    /*           动效(放大后缩小）*/
+    /**/
+    /*======================================*/
+    .bounceIn {
+        -webkit-animation-name: bounceIn;
+                animation-name: bounceIn;
+        -webkit-animation-duration: 1.8s;
+                animation-duration: 1.8s;
+        -webkit-animation-fill-mode: both;
+                animation-fill-mode: both;
+        -webkit-transform-origin: center;
+                transform-origin: center;
+    }
+
+    @-webkit-keyframes bounceIn {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        16% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        50% {
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+        }
+
+        80% {
+            -webkit-transform: scale(.8);
+                    transform: scale(.8);
+        }
+
+        92% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+    }
+
+    @keyframes bounceIn {
+        0% {
+            -webkit-transform: scale(1);
+            transform: scale(1);
+        }
+
+        16% {
+            -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+        }
+
+        50% {
+            -webkit-transform: scale(.8);
+            transform: scale(.8);
+        }
+
+        80% {
+            -webkit-transform: scale(.8);
+                    transform: scale(.8);
+        }
+
+        92% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+
+        100% {
+            -webkit-transform: scale(1);
+                    transform: scale(1);
+        }
+    }
+    /*控制路径*/
+    .animate-moveX {
+        -webkit-transition: 1.4s all .15s ease-in-out;
+        transition: 1.4s all .15s ease-in-out;
+    }
+
+    .animate-moveY {
+        -webkit-transition: 1.4s all .15s cubic-bezier(0.74, 0.05, 0.79, 0.54);
+        transition: 1.4s all .15s cubic-bezier(0.74, 0.05, 0.79, 0.54);
+    }
+

@@ -1,0 +1,11 @@
+<div class=" bgPan">
+        <!--第一步：展示（首页）-->
+        <div ng-if = "step==1" style="height:100%">
+            <template18by1-step1 template-model = "templateModel"  is-end="isEnd"   status = 'status'  user-info-of-reference = "userInfoOfReference" ></template18by1-step1>
+        </div>
+        <!--第二步：填写表单页-->
+        <div ng-if = "step==2" style="height: 100%;">
+            <template18by1-step2 status = 'status' is-end="isEnd" ></template18by1-step2>
+        </div>
+</div>
+

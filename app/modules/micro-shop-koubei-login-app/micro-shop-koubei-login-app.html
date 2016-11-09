@@ -1,0 +1,62 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<user-terms></user-terms>
+<!--密码登录-->
+<div ng-if="showPage==1">
+    <div class="user-login1 koubei-login" ng-show="step==1">
+        <div class="logo-box"></div>
+        <div class="input-bg">
+            <div class="input-icon icon-phone"></div>
+            <input class="input-ctrl" ng-model="userLogin.phone" placeholder="请输入你的手机号" />
+        </div>
+        <div class="input-bg input-line">
+            <div class="input-icon icon-lock"></div>
+            <input class="input-ctrl" type="password" placeholder="请输入你的密码" change-placeholder-by-focus ng-model="userLogin.password" />
+        </div>
+        <div class="reg" ng-click="gotoReg()">立即注册</div>
+        <div class="btn-submit" ng-click="login()">开启我的校宝秀</div>
+        <div class="terms">点击『开启我的校宝秀』即为同意<span ng-click="showUserTerms()">用户条款</span></div>
+    </div>
+</div>
+
+<!--验证码-->
+<div class="user-login1" ng-show="step==3">
+    <div class="logo-box"></div>
+    <div class="warn-info" ng-show="countdown>0 && firstSend==0">验证码已发送，请输入验证码并设置密码</div>
+    <div class="input-bg">
+        <div class="input-icon icon-phone"></div>
+        <input class="input-ctrl" ng-model="userReg.phone" placeholder="请输入你的手机号" />
+        <div class="send-box" ng-click="sendVerificationCode()">发送验证码</div>
+        <div class="send-box2" ng-show="countdown>0 && firstSend==0">已发送({{countdown}})</div>
+        <div class="send-box" ng-click="sendVerificationCode()" ng-show="countdown==0 &&firstSend==0">重新发送</div>
+    </div>
+    <div class="input-bg input-line">
+        <div class="input-icon icon-shield"></div>
+        <input class="input-ctrl" ng-model="userReg.code" type="tel" placeholder="请输入验证码" change-placeholder-by-focus />
+    </div>
+    <div class="input-bg">
+        <div class="input-icon icon-lock"></div>
+        <input class="input-ctrl" ng-model="userReg.password" type="password" placeholder="请设置你的密码" change-placeholder-by-focus />
+    </div>
+
+    <div class="btn-submit" ng-click="reg()">开启我的校宝秀</div>
+    <div class="terms">点击『开启我的校宝秀』即为同意<span ng-click="showUserTerms()">用户条款</span></div>
+</div>
+<ion-content has-bouncing="false" class="micro-koubei-syn gray-bg ng-hide koubei-login" ng-show="step==2">
+    <div class="mar-t-15" ng-if="shopList.length>0">
+        <div class="box" ng-repeat="shop in shopList">
+            <div class="box-left" ng-bind="shop.name"></div>
+            <span class="box-right btn btn-size-160 btn-orange-outline mar-t-20" ng-click="syncShop(shop)">同步</span>
+        </div>
+    </div>
+    <div ng-if="shopList.length==0" class="noShopTip">
+        您的校宝账号下没有开通的校宝微店，<br />请进入校宝秀->我的微店，申请开通！
+    </div>
+</ion-content>
+
+<div ng-if="showPage==2">
+    <div style="font-size:18px;margin:10px auto;width:400px;text-align:center">请使用手机支付宝app扫描下方二维码</div>
+    <div style="width:200px;height:200px;margin:40px auto">
+        <img ng-src="{{qrCode}}" alt="二维码" style="width:200px;height:200px" />
+    </div>
+</div>

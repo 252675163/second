@@ -1,0 +1,31 @@
+
+<div class="preview">
+    <div class="user_enroll_box">
+        <div class="time_box_bg">
+            <div class="time_box_show">{{time|TimeChange}}</div>
+        </div>
+        <div class="title_box_bg">
+            <div class="title_box_inner">{{templateModel.bargainProduct}}</div>
+        </div>
+        <div class="header_box_big" ng-click="updateHeadImg()">
+            <img ng-src="{{userInfo.headImg}}" class="person_head-face">
+            <div class="header_border_big"></div>
+        </div>
+        <div class="form_info_box">
+            <div class="form_info_1">
+                <input placeholder="您的姓名" class="form_info_1_text" ng-model="userInfo.name" type="text" maxlength="8" change-placeholder-by-focus my-max-length />
+            </div>
+            <div class="form_info_2">
+                <input placeholder="您的手机号" class="form_info_2_text" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15" change-placeholder-by-focus my-max-length />
+            </div>
+            <!--用户条款-->
+            <div class="user_terms form_info_userterms">
+                <div class="user_terms_checkdiv" ng-click="checkUserTerms()"><span class="bargain_terms_checkbox" ng-class="{'bargain_terms_checkbox_select':isCheckUserTerms}"></span></div>
+                <span class="form_info_userterms_text"> 同意</span><span class="form_info_userterms_text span2" ng-click="showUserTerms()">用户条款</span>
+            </div>
+            <div class="grow_vegetables_btn_group1"><button type="button" class="form_btn_1" ng-click="submitInfo()">生成我的砍价主页</button></div>
+
+        </div>
+
+    </div>
+</div>

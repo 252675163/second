@@ -1,0 +1,41 @@
+<ion-view class="micro-shop-my-product">
+    <ion-content has-bouncing="false" class="micro-shop-common1-borderTop">
+        <div class="micro-shop-common1-nosth " ng-if="productList.length==0">
+            <div class="background-img background-img-product top-img1"></div>
+            <div class="text1 top-text1">您还没有商品哦！</div>
+        </div>
+        <ion-list ng-if="productList.length>0">
+            <ion-item class="micro-shop-common1" collection-repeat="product in productList">
+                <div class="micro-shop-common1-top" ng-click="toProductActivity(product)">
+                    <div class="img">
+                        <img ng-src="{{product.imgUrl}}">
+                    </div>
+                    <div class="micro-shop-common1-text micro-shop-my-product-text ">
+                        <div class="title">
+                            <h3 ng-bind="product.title"></h3>
+                            <h6 class="pay-status {{product.productStateModel.className}}" ng-bind="product.productStateModel.name"></h6>
+                            <div class="discount-activity {{product.activityTypeModel.className}}" ng-bind="product.activityTypeModel.name"></div>
+                        </div>
+                        <div class="price">
+                            <span class="price-name"><span ng-bind="product.priceModel.name"></span></span>
+                            <span class="price-num">￥<span ng-bind="product.priceModel.price|twoDecimal"></span></span>
+                        </div>
+                        <div class="progress-bar" ng-if="product.productStateModel.code==0">
+                            <div class="progress" ng-style="{'width':product.progress+'%'}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom" ng-style="{'margin-top':$index==(productList.length-1)?'1px':0}">
+                    <div class="micro-shop-btn" ng-if="product.productStateModel.code==2 && !product.hasOrder" ng-click="toSubmitOrder(product)">去下单</div>
+                    <div class="micro-shop-btn micro-shop-btn-gray" ng-if="product.productStateModel.code==2 && product.hasOrder">去下单</div>
+                    <div class="micro-shop-btn" ng-if="product.productStateModel.code==0 ||product.productStateModel.code==1" ng-click="toProductActivity(product)">查看商品</div>
+                    <div class="order-details">
+                        <div class="count-down order-details-text" ng-if="product.productStateModel.code==0">活动倒计时：<span ng-bind="product.leftSeconds|leftTimeStr"></span></div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

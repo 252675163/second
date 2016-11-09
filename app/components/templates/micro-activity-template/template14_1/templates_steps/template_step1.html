@@ -1,0 +1,40 @@
+<!---->
+<div class = "xmas_box2Outer" >
+    <div class="xmas_box2" >
+        <div class="xmas_box2Inner">
+            <div class="xmas_box2_textBox">
+                我是<span class="xmas_box2_text1" ng-class="{'editBorder':isEdit}" ng-model = "templateModel.name" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "20"  ng-bind-html="userInfo1.name||templateModel.name|newlines"></span>
+                <span ng-if="isView && userType=='new'">，现居礼物排行榜第{{userInfo1.rank}}名</span>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div class="xmas_box3">
+    <span ng-if = "!(isEdit||userInfo1.grassCount)">我的圣诞树上神马礼物都没有哦~ </span>
+    <span ng-if = "isEdit||userInfo1.grassCount">我的圣诞树上已经挂了<span class="xmas_box2_text2">{{userInfo1.grassCount||"XXX"}}</span>个礼物了哦~</span>
+</div>
+
+<!--种草动画-->
+<img ng-src="{{giftObj.grassGrowUrl}}" class="xmas_gift_item {{giftObj.className}}" id="grass" ng-show="isGrow" />
+<img ng-src="{{giftObj.grassDanceUrl}}" class="xmas_gift_item {{giftObj.className}}" id="grassDance" ng-show="isDance" />
+<!--草帽-->
+<img  ng-src="{{giftTemp.imgUrl}}"   class="xmas_gift_item {{giftTemp.className}}" ng-repeat="giftTemp in gifts"/>
+<div class="xmas_tree_box" id="animateContainer"></div>
+    <!--换头像-->
+    <!-- <div class="person_head happy" ng-class="{'editBorder':isEdit,'happy':!(userInfo1.grassCount===0),'unhappy':userInfo1.grassCount===0}" ng-click="updateImg(0)"> -->
+    
+        <!-- 开心的表情样式 把 unhappy 换成 happy -->
+        
+        <!--<img ng-if="isView" ng-src="{{userInfo1.headImg}}" class="person_head-face">-->
+
+        <!--<img ng-if="!isView" ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}" class="person_head-face">-->
+
+
+<div class="xmas_head"><img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}"></div><!-- 显示头像 -->    
+
+<div class="xmas_btn_group1">
+    <!--<button type="button" class="xmas_btn1_1" ng-click="showGrassList()" ng-style="{'visibility': isHideDddGrassButton?'hidden':'visible'}" ng-disabled="isEnd">送TA圣诞礼物</button>-->
+    <button type="button" class="xmas_btn1_1" ng-click="showGrassList()" ng-class="{'xmas_btn1_1Dis':isHideDddGrassButton}" ng-disabled="isEnd || isHideDddGrassButton">送TA圣诞礼物</button>
+    <button type="button" class="xmas_btn1_2" ng-click="goForm()" ng-disabled="isEnd">我也要圣诞礼物</button>
+</div>

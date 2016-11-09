@@ -1,0 +1,64 @@
+<!--预览-->
+<div class="grow_vegetables_box2Outer" ng-show="!isEdit">
+    <div class="xmas_box2">
+        <div class="xmas_head" ng-click="updateImg(0)" ng-class="{'xmas_head_only':(isEnd || isHideDddGrassButton)}">
+            <img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]||getImageDoMain('/template1_head_bg.png')|transformWeixinHeadImg:96}}" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/template1_head_mask1_bg.png')+ ')','-webkit-mask-size':'cover'}" />
+            <div class="head-border" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_head_border1_bg.png')+ ')'}"></div>
+        </div>&nbsp;<div class="xmas_box2Inner" ng-hide="isEnd || isHideDddGrassButton" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_head_content_bg.png')+ ')'}">
+            <div class="xmas_box2_textBox">
+                <span class="xmas_box2_text1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.name" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="20" ng-bind-html="'我是'+(userInfo1.name||templateModel.name|newlines)"></span>
+                <!--<span ng-if="isView && userType=='new'">，现居礼物排行榜第{{userInfo1.rank}}名</span>-->
+            </div>
+            <div class="xmas_box3">
+                <span ng-if="!(isEdit||userInfo1.grassCount)">我的水族馆一条鱼都没有哦~ </span>
+                <span ng-if="isEdit||userInfo1.grassCount">我的水族馆有<span class="xmas_box2_text2">{{userInfo1.grassCount||"XXX"}}</span>条鱼啦~</span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--&lt;!&ndash;种草动画&ndash;&gt;-->
+<!--<img ng-src="{{giftObj.grassGrowUrl}}" class="xmas_gift_item {{giftObj.className}}" id="grass" ng-show="isGrow" />-->
+<!--<img ng-src="{{giftObj.grassDanceUrl}}" class="xmas_gift_item {{giftObj.className}}" id="grassDance" ng-show="isDance" />-->
+<!--&lt;!&ndash;草帽&ndash;&gt;-->
+<!--<img  ng-src="{{giftTemp.imgUrl}}"   class="xmas_gift_item {{giftTemp.className}}" ng-repeat="giftTemp in gifts"/>-->
+<div class="grow_vegetables_tree_box" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_content_bg.png')+ ')'}">
+    <!--编辑-->
+    <div ng-show="isEdit">
+        <div class="header_box_big" ng-click="updateImg(0)">
+            <img ng-src="{{templateModel.imageUrl[0]||getImageDoMain('/template1_head_bg.png')|transformWeixinHeadImg:96}}" class="person_head-face" ng-style="{'-webkit-mask':'url(' + getImageDoMain('/template1_head_mask2_bg.png')+ ')','-webkit-mask-size':'cover'}">
+            <div class="header_border_big" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_head_border2_bg.png')+ ')'}"></div>
+        </div>
+        <div class="form_info_box">
+            <div class="form_info_1" ng-style="{'background-image':'url(' + getImageDoMain('/template1_name_input_bg.png')+ ')'}">
+                我是<input placeholder="XXX" class="form_info_1_text" ng-model="templateModel.name" ng-disabled="!isEdit" ng-trim="false" type="text" custom-input readonly="readonly" maxlength="15" my-max-length />
+            </div>
+
+        </div>
+    </div>
+
+    <div ng-show="!isEdit">
+        <!--种完菜的gif-->
+        <div class="grow_vegetables_singular" ng-show="isDance&&!isGrow">
+            <div class="grow_vegetables_pic " ng-style="{'background-image':!itemGifUrl?'':'url(' + getImageDoMain(itemGifUrl)+ ')'}"></div>
+        </div>
+        <!--几棵菜展示-->
+        <div class="grow_vegetables_plural" ng-show="!(isGrow||isDance||userInfo1.grassCount===0) ">
+            <div class="grow_vegetables_gif " ng-style="{'background-image':!groupGifUrl?'':'url(' + getImageDoMain(groupGifUrl)+ ')'}"></div>
+        </div>
+    </div>
+</div>
+
+
+<!--<div class="xmas_head"><img ng-src="{{userInfo1.headImg||templateModel.imageUrl[0]}}"/></div>&lt;!&ndash; 显示头像 &ndash;&gt;-->
+
+<div class="grow_vegetables_btn_group1" ng-class="{'grow_vegetables_btn_group2':(isEnd || isHideDddGrassButton||isHaveGrow)}" ng-show="!isEdit">
+    <!--<button type="button" class="xmas_btn1_1" ng-click="showGrassList()" ng-style="{'visibility': isHideDddGrassButton?'hidden':'visible'}" ng-disabled="isEnd">送TA圣诞礼物</button>-->
+    <button type="button" class="xmas_btn1_1" ng-click="showGrassList()" ng-disabled="isEnd || isHideDddGrassButton" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_left_btn_bg.png')+ ')'}"></button>
+    <button ng-if="!visitorInfo.isSelfShare" type="button" class="xmas_btn1_2" ng-click="goForm()" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_right_btn_bg.png')+ ')'}"></button>
+    <button ng-if="visitorInfo.isSelfShare" type="button" class="xmas_btn1_2" ng-click="goForm()" ng-disabled="isEnd" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_mid_btn_bg.png')+ ')'}"></button>
+</div>
+
+

@@ -1,0 +1,57 @@
+﻿<ion-view class="content-bg">
+    <ion-content scroll="false" has-bouncing="false">
+
+        <div class="statistics-total-wrap clearfix">
+            <div class="mycol">
+                <div class="myrow">
+                    <span class="statistics-total_text1">总阅读量</span><span class="statistics-total_text2 style1">{{data.Sum.Pv}}</span>
+                </div>
+                <div class="myrow">
+                    <span class="statistics-total_text1">总访客量</span><span class="statistics-total_text2 style2">{{data.Sum.Uv}}</span>
+                </div>
+            </div>
+            <div class="mycol" ng-click="consults()">
+                <div class="statistics-total-icon1"></div>
+                <div class="statistics-total-icon2"></div>
+                <div class="myrow">
+                    <span class="statistics-total_text3">总报名量</span><span class="statistics-total_text2 style3">{{data.Sum.Consult}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="statistics-title">近7天数据汇总</div>
+        <div class="statistics-list">
+            <table>
+                <tr>
+                    <th>
+                        日期
+                    </th>
+                    <th>
+                        阅读量
+                    </th>
+                    <th>
+                        访客量
+                    </th>
+                    <th>
+                        报名量
+                    </th>
+                </tr>
+                <tr ng-repeat="rowData in data.Daily">
+                    <td>
+                        {{formatDateByStatistics(rowData.CreatedAt) | date:'yyyy-MM-dd'}}
+                    </td>
+                    <td class="color-s1">
+                        {{rowData.Pv}}
+                    </td>
+                    <td class="color-s2">
+                        {{rowData.Uv}}
+                    </td>
+                    <td class="color-s3">
+                        {{rowData.Consult}}
+                    </td>
+                    <!--}数据列表 -->
+                </tr>
+            </table>
+        </div>
+    </ion-content>
+</ion-view>

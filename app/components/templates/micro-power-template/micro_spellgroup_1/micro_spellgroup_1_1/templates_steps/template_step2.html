@@ -1,0 +1,31 @@
+<div class="cty-mask bgPan_js" style="z-index:2;">
+    <div class="spellgroup_popup_participate">
+        <!--关闭按钮-->
+        <i class="spellgroup_icon_close" ng-click="closePopup(1)"></i>
+        <!--用户头像（部分）-->
+        <div class="spellgroup_popup_uploadImage_bg" ng-click="updateHeadImg()">
+            <div class="spellgroup_popup_uploadImage_avator">
+                <div class="uploadImage_avator_wrap">
+                    <img width="100%" height="100%" ng-src="{{userInfo.headImg}}" class="person_head-face">
+                </div>
+            </div>
+            <div class="header_border_big"></div>
+        </div>
+        <!--输入框（部分）-->
+        <div class="spellgroup_popup_contentWrap">
+            <div class="form_info_mtb30">
+                <input placeholder="您的姓名" class="form_info_text" ng-model="userInfo.name" type="text" maxlength="4" change-placeholder-by-focus
+                       />
+            </div>
+            <div class="form_info_mtb30">
+                <input placeholder="您的电话" class="form_info_text" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15"
+                       change-placeholder-by-focus my-max-length />
+            </div>
+            <!--用户条款-->
+            <div class="form_info_mtb30">
+                <button class="join_btn" ng-click="submitInfo()">我要报名</button>
+            </div>
+            <p class="form_info_declare">*本活动您只可以报名一次哦~</p>
+        </div>
+    </div>
+</div>

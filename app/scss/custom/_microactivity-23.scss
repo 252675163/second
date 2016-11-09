@@ -1,0 +1,163 @@
+﻿@charset "utf-8";
+//招生简章通用模板,现场快速报名模板,体验课海报模板 模板样式 by weijun 20150111{
+
+.microactivity-template23{height: 100%; position:relative; padding-top:0;
+  textarea.canEdit,input.canEdit,.editBorder {border:#ccc 1px dashed;}//本活动文本框编辑框样式
+  textarea{overflow-y: hidden;}//本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+@mixin base($rate:1) {
+//与数值相关的样式写这里：
+
+  .acty23_box1Outer{
+     .acty23_box1{ width:100%; height:temSize(360,$rate); padding-top:temSize(80,$rate);	
+	   .acty23_boximg{width:temSize(218,$rate);height:temSize(218,$rate);}  
+	   .acty23_box1_logo{width:temSize(218,$rate);height:temSize(218,$rate);}
+       
+     }
+	 .acty23_box2{ width:temSize(516,$rate); margin: 0 auto; border-bottom:temSize(4,$rate) #fff solid; margin-bottom:temSize(10,$rate); padding-bottom:temSize(10,$rate);
+	   .acty23_textBox2{ font-size:temSize(60,$rate); }
+	 }	 
+    .acty23_box3{ width:temSize(516,$rate);margin:0 auto;
+	   .acty23_textBox3{font-size:temSize(32,$rate);}    
+	 }		
+	 .axty23_box4{ margin:temSize(152,$rate) auto 0; width:temSize(420,$rate);
+	    .acty23_textBox4{font-size:temSize(24,$rate);}  
+	 }
+	 
+  } 
+  .acty23_box2Outer{
+   .acty23_box1{ width:temSize(555,$rate); margin:0 auto temSize(40,$rate); padding-top:temSize(40,$rate);
+       .acty23_textBox{ font-size:temSize(48,$rate);}	
+     }
+   .acty23_box2{width:temSize(555,$rate); height:temSize(820,$rate); margin:0 auto temSize(30,$rate);padding:temSize(20,$rate) temSize(24,$rate);
+	   .acty23_textBox2{ font-size:temSize(24,$rate);}		
+	 }
+  }
+  .acty23_box3Outer{    
+    .acty23_box1{ width:temSize(555,$rate); margin:0 auto temSize(40,$rate); padding-top:temSize(40,$rate);
+	    .acty23_textBox{ font-size:temSize(48,$rate);}	
+	 }	  
+	.acty23_box2{ width:temSize(555,$rate); height:temSize(820,$rate); margin:0 auto temSize(30,$rate);padding:0 temSize(45,$rate);
+	    .acty23_textBox2{ font-size:temSize(24,$rate); margin-bottom:temSize(80,$rate);}
+	    .acty23_inputBox{ height:temSize(68,$rate);margin-bottom:temSize(30,$rate); font-size:temSize(28,$rate);}		
+	    .acty23_form_btn{margin-top:temSize(30,$rate);
+            input{height:temSize(90,$rate); font-size:temSize(36,$rate); padding:temSize(24,$rate);  width:100%;}
+         }
+	    .acty23_imgbox2{width:temSize(200,$rate); height:temSize(200,$rate); margin:temSize(80,$rate) auto temSize(30,$rate);}
+		
+	 }
+	 
+  }
+  // 以下是体验课海报模板scss
+   .acty23_box4Outer{  padding-top:temSize(145,$rate);
+	   .acty23_box1{width:temSize(555,$rate); height:temSize(800,$rate); margin:0 auto temSize(30,$rate);padding:temSize(130,$rate) temSize(30,$rate) 0;
+	       .acty23_boximg{ width:temSize(216,$rate); height:temSize(216,$rate); margin-left: temSize(-108,$rate); margin-top: temSize(-108,$rate);}
+		   .acty23_box1_logo{ width:temSize(216,$rate); height:temSize(216,$rate);}	  
+		   .acty23_textBox{font-size:temSize(48,$rate); margin-bottom:temSize(32,$rate);}	
+		   .acty23_textBox2{ font-size:temSize(24,$rate); padding:0 temSize(4,$rate);}		
+		 }
+	 
+  }
+  // 以下是现场快速报名模板scss
+   .acty23_box6Outer{ padding-top:temSize(145,$rate);   	  
+	.acty23_box2{ width:temSize(555,$rate); height:temSize(820,$rate); margin:0 auto temSize(30,$rate);padding:temSize(130,$rate) temSize(36,$rate) 0;
+	    .acty23_textBox{ font-size:temSize(48,$rate); margin-bottom:temSize(100,$rate);}	
+	    .acty23_textBox2{  font-size:temSize(24,$rate); margin-bottom:temSize(80,$rate);}
+	    .acty23_inputBox{ height:temSize(68,$rate);margin-bottom:temSize(30,$rate); font-size:temSize(28,$rate);}		
+	    .acty23_form_btn{margin-top:temSize(30,$rate);
+            input{height:temSize(90,$rate); font-size:temSize(36,$rate); padding:temSize(24,$rate);  width:100%;}
+         }
+	    .acty23_imgbox2{width:temSize(216,$rate); height:temSize(216,$rate); margin:temSize(80,$rate) auto temSize(30,$rate); margin-left:temSize(-108,$rate); margin-top:temSize(-108,$rate);}
+		.acty23_box2_qrcode{ width:temSize(216,$rate); height:temSize(216,$rate);}
+	 }
+	 
+  }
+
+   @content;
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-template23{
+ @include base($editrate){
+//commonclass  与数值无关的样式写这里
+	//以下是招生简章-通用模板的scss
+   .acty23_box1Outer{
+     .acty23_box1{ text-align:center; 
+	     .acty23_boximg{ position:relative; display:inline-block; @include face-radius;overflow:hidden; overflow-x:hidden; overflow-y:hidden;  border:temSize(8) rgba(255,255,255,0.5) solid;@include box-shadow-base(0 0 0 temSize(8) rgba(255,255,255,0.2));
+                  &:before{ @include face-radius;}
+         }
+		 .acty23_box1_logo{ max-width: 100%; max-height: 100%;overflow:hidden; overflow-x:hidden; overflow-y:hidden; border:none; @include face-radius;}
+		}     
+	 .acty23_box2{
+	     .acty23_textBox2{ width:100%; line-height: 1.4; text-align:center; color: #fff; text-align:center; @include text-shadow-style;}
+	 }	 
+	 .acty23_box3{text-align:center; 
+	    .acty23_textBox3{width:100%; display:inline-block;color:#fff;line-height:1.5; text-align:center;@include text-shadow-style;}
+	 }
+	  .axty23_box4{text-align:center;
+	    .acty23_textBox4{ color:#fff; width:100%; @include text-shadow-style;}  
+	 }
+  } 
+  .acty23_box2Outer{  
+     .acty23_box1{
+         .acty23_textBox{ width:100%; color:#fff; line-height:1.5; text-align: center; @include text-shadow-style;}	
+     }
+	 .acty23_box2{ background:rgba(0,0,0,.4); border:4px rgba(0,0,0,.14) solid; border-radius:8px;
+	     .acty23_textBox2{ width:100%; color:#fff; line-height: 1.7; @include text-shadow-style;}
+	 }
+  }
+  .acty23_box3Outer{
+       .acty23_box1{
+	      .acty23_textBox{ width:100%; color:#fff; line-height:1.5; text-align: center; @include text-shadow-style;}	
+	    }  		 		 
+		  .acty23_box2{  background:rgba(0,0,0,.4); border:4px rgba(0,0,0,.14) solid; border-radius:8px;
+		      .acty23_textBox2{ width:100%; line-height: 1.4; text-align:center; color: #fff; text-align:left; @include text-shadow-style;}
+			  .acty23_inputBox{ width:100%; text-align:center; @include border-radius-basic(5px);line-height:1;background:#fff; color:#aaa;}			  
+			  .acty23_form_btn{background:#3391ff;@include border-radius-basic(5px);
+				   input{ color:#fff;text-align: center;@include border-radius-basic(5px);}
+			  }
+			  .acty23_btn_color{background:#f78f13;}
+			  .acty23_box2_qrcode{display:block; width:100%; height:100%;}
+		 }     
+  }
+  // 以下是体验模板scss
+  .acty23_box4Outer{    
+	 .acty23_box1{ position: relative; background:rgba(0,0,0,.4); border:4px rgba(0,0,0,.14) solid; border-radius:8px; text-align:center;
+	     .acty23_boximg{ position: absolute; top: 0px; left: 50%; overflow:hidden; @include face-radius; border:temSize(8) rgba(255,255,255,0.2) solid;
+		       &:before{ @include face-radius;}
+		 }    
+	     .acty23_box1_logo{display:block; max-width:100%; max-height:100%; @include face-radius; }
+	     .acty23_textBox{width:100%; color:#fff; line-height:1.5; text-align: center; @include text-shadow-style;}	
+	     .acty23_textBox2{width:100%; color:#fff; line-height: 1.8; @include text-shadow-style;}
+	 }
+		 
+  }
+
+  //  以下是现场快速报名模板scss
+   .acty23_box6Outer{          		 		 
+		  .acty23_box2{ position: relative; background:rgba(0,0,0,.4); border:4px rgba(0,0,0,.14) solid; border-radius:8px;
+		      .acty23_imgbox2{ position: absolute; top: 0;left: 50%; overflow: hidden; @include face-radius; border:temSize(8) rgba(255,255,255,0.2) solid;
+			      &:before{ @include face-radius;}
+			  }
+			  .acty23_textBox{ width:100%; color:#fff; line-height:1.5; text-align: center; @include text-shadow-style;}
+		      .acty23_textBox2{ width:100%; line-height: 1.4; text-align:center; color: #fff; text-align:left; @include text-shadow-style; }
+			  .acty23_inputBox{ width:100%; text-align:center; @include border-radius-basic(5px);line-height:1;background:#fff; color:#aaa;}			  
+			  .acty23_form_btn{background:#3391ff;@include border-radius-basic(5px);
+				   input{ color:#fff;text-align: center;@include border-radius-basic(5px);}
+			  }
+			  .acty23_box2_qrcode{display:block; max-width:100%; max-height:100%;  @include face-radius;}
+		 }     
+  }  
+
+
+  }
+}
+.microactivity-template23 .maxbox{
+  @include base($viewrate);  
+  //仅预览页面使用样式写这里
+  .acty23_form_btn input{color:#fff!important;}
+  
+}

@@ -1,0 +1,120 @@
+<ion-view cache-view="false">
+    <ion-content class="has-footer_cover HFC_new" has-bouncing="false">
+        <error-remind my-remind="remind" is-show="isShowError"></error-remind>
+        <div id="editdiv" class=" editor-box-wrap EBW_new" on-swipe-up="onSwipeUp()" on-swipe-down="onSwipeDown()">
+            <old-and-new-edit-view site-model="siteModel" is-actived="isActived" template-ext-config="templateExtConfig" activity-other-config="activityOtherConfig"></old-and-new-edit-view>
+        </div>
+        <button ng-if="siteModel.currentSectionIndex>sectionIndexListForShow[0]" class="btn-turn2ToTop " ng-click="upIcon()"></button>
+        <button ng-if="siteModel.currentSectionIndex<sectionIndexListForShow[sectionIndexListForShow.length-1]" class="btn-turn2ToBottom" ng-click="downIcon()"></button>
+    </ion-content>
+    <div style="display:{{isOpenChangeBack ? 'block':'none'}}">
+        <div class="lockMask"></div>
+        <div class="bar_content_box">
+            <div class="bar_content">
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="changeBackGroundByMyself($event)">自定义背景</button>
+                </div>
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="changeBackGround()">素材库</button>
+                </div>
+                <div class="bar_items">
+                    <button class="bar_item_button" ng-click="OpenLockMark()">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <ion-footer-bar class="HOKO_new">
+        <ion-tabs class="tabs-icon-top editPage-tabs active_tabs_new  " ng-class="{'tabItem1_dis':!(editPermissions.addPage||editPermissions.deletePage||editPermissions.replaceMusic),'tabItem2_dis':!editPermissions.replaceBackground,'tabItem3_dis':!editPermissions.save}">
+
+            <ion-tab title="编辑" icon-off="siteeditor" icon-on="siteeditor" ng-click="showEdit($event)">
+            </ion-tab>
+            <ion-tab title="背景" icon-off="sireeditbg" icon-on="sireeditbg" disabled ="!editPermissions.replaceBackground" ng-click="OpenLockMark()">
+            </ion-tab>
+            <ion-tab title="暂存" icon-off="siteeditsave" icon-on="siteeditsave" disabled ="!editPermissions.save"  ng-click="save()">
+            </ion-tab>
+            <ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview"  disabled ="!editPermissions.preview" ng-click="preview()">
+            </ion-tab>
+        </ion-tabs>
+    </ion-footer-bar>
+
+    <!--编辑按钮展开菜单 created by wenjun 20151107{-->
+    <div class="list active_tabs_new2" ng-show="isShowEdit">
+        <a class="item item-icon-left " ng-click="delCurrentPage()" ng-class="{'item_dis':(!editPermissions.deletePage)||(siteModel.pages[siteModel.currentPageIndex].sections.length==1)}" ng-disabled="!editPermissions.deletePage"><i class="icon siteeditdelete"></i>删页</a>
+        <a class="item item-icon-left" ng-click="addPage()" ng-class="{'item_dis':(siteModel.pages[siteModel.currentPageIndex].sections.length>=10)||(!editPermissions.addPage)}" ng-disabled="(siteModel.pages[siteModel.currentPageIndex].sections.length>=10)||(!editPermissions.addPage)"><i class="icon siteeditadd"></i>加页</a>
+        <a class="item item-icon-left " ng-click="changeAudio()" ng-class="{'item_dis':!editPermissions.replaceMusic}" ng-disabled="!editPermissions.replaceMusic"><i class="icon siteeditmusic"></i>音乐</a>
+    </div>
+    <!--} 编辑按钮展开菜单 -->
+    <!--文字编辑 created by wenjun 2015/10/28{-->
+    <!--文字内容编辑{-->
+    <text-input></text-input>
+    <new-text-input></new-text-input>
+    <div style="display:none;">
+        <div class="lockMask_editor1"></div>
+        <div class="editor_wrap1">
+            <textarea class="editor_text_box"></textarea>
+            <button type="button" class="editor_icon icon1"><em></em>文字样式</button>
+            <span class="editor_text"><label>0</label>&nbsp;&frasl;&nbsp;<label>200</label></span>
+            <button type="button" class="button-sure">确定</button>
+        </div>
+    </div>
+    <!--}文字内容编辑 -->
+    <!--文字样式编辑{-->
+    <div style="display:none;">
+        <div class="lockMask_editor2"></div>
+        <div class="editor_wrap2">
+            <button type="button" class="editor_icon icon2"><em></em>文字内容</button>
+            <!-- tabs {-->
+            <div class="editor_tabs clearfix">
+                <span class="editor_tabs_item current-item">文字样式</span>
+                <span class="editor_tabs_item">文字颜色</span>
+            </div>
+            <!--} tabs -->
+            <!-- fontStyle {-->
+            <div class="editor_fontStyle_box clearfix">
+                <button type="button" class="editor_fontStyle_item icon_textL"></button>
+                <button type="button" class="editor_fontStyle_item icon_textC"></button>
+                <button type="button" class="editor_fontStyle_item icon_textR"></button>
+                <button type="button" class="editor_fontStyle_item icon_textI"></button>
+                <button type="button" class="editor_fontStyle_item icon_textB"></button>
+                <button type="button" class="editor_fontStyle_item icon_textS"></button>
+                <button type="button" class="editor_fontStyle_item icon_textBig"></button>
+            </div>
+            <!--} fontStyle -->
+            <!-- colorStyle {-->
+            <div class="editor_colorStyle_box clearfix" style="display:none;">
+                <button type="button" class="editor_colorStyle_item colorStyle1"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle2"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle3"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle4"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle5"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle6"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle7"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle8"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle9"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle10"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle11"></button>
+                <button type="button" class="editor_colorStyle_item colorStyle12"></button>
+            </div>
+            <!--} colorStyle -->
+        </div>
+    </div>
+    <!--}文字样式编辑 -->
+    <!--}文字编辑 -->
+
+
+    <!-- 免责弹窗 -->
+    <!--分享遮罩 {-->
+    <div ng-style="{'display':isShowDisclaimerBox?'block':'none'}">
+        <div class="lockMask"></div>
+        <!--    <div class="lockMask_activity_share"></div>-->
+        <div class="lockMask_disclaimer_box">
+            <div class="lockMask_disclaimer_box_text">“校宝秀”是一个健康、绿色的平台，请勿发布任何非法信息、上传非法图片，如有违规，我们将对场景进行冻结，详见<span ng-click="showUserTerms()">用户条款</span>。</div>
+            <div class="lockmask_disclaimer_box_btn" ng-click="hideDisclaimerBox()">我知道了</div>
+        </div>
+    </div>
+    <!--} 分享遮罩-->
+
+
+
+</ion-view>

@@ -1,0 +1,368 @@
+﻿@charset "utf-8";
+//created in 2015/11/24
+//author：wenjun.wang
+
+.microactivity-grass{height: 100%; padding-top:0;}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+@mixin base($rate:1) {
+  //与数值相关的样式写这里：
+    .grass2_box1{height:temSize(296,$rate); padding:temSize(134,$rate) temSize(54,$rate) 0;
+        .grass2_title1{margin:0 temSize(66,$rate) 0;height:temSize(54,$rate); line-height:temSize(54,$rate); font-size:temSize(32,$rate);}
+        .grass2_text1{font-size:temSize(24,$rate);height:temSize(90,$rate);}
+    }
+    .grass2_box2Outer{width:temSize(540,$rate);height:temSize(185,$rate); top:temSize(326,$rate); margin-left:temSize(-270,$rate); padding:temSize(4,$rate) temSize(20,$rate) temSize(100,$rate);
+        .grass2_box2{height:temSize(85,$rate);
+            .grass2_box2_inner{height:temSize(85,$rate);}
+            .grass2_text2{font-size:temSize(24,$rate);
+                .grass2_text2_text{width:temSize(160,$rate);}
+            }
+        }
+    }
+    
+    .grass2_person{top:temSize(675,$rate); bottom:auto;}
+    .person_head{top:temSize(-175,$rate);}
+
+    .grass2_btn_group,.grass2_btn_group2{width:temSize(480,$rate); height:temSize(100,$rate); line-height:temSize(76,$rate); 
+       .grass2_btn1_1,.grass2_btn1_2{width:temSize(480,$rate);height:temSize(100,$rate);font-size:temSize(32,$rate);line-height:temSize(80,$rate);} 
+       .grass2_btn1_1{margin-bottom:temSize(18,$rate);@include box-shadow-base(0 temSize(-20,$rate) 0 #c89200 inset);}
+       .grass2_btn1_2{@include box-shadow-base(0 temSize(-20,$rate) 0 #3e8fd3 inset);}
+    }
+    .grass2_btn_group{top:temSize(755,$rate); margin-left:temSize(-240,$rate);}
+    .grass2_btn_group2{margin:temSize(369,$rate) auto 0;}
+    .grass2_box3Outer{padding-top:temSize(26,$rate);
+        .grass2_box3_1{height:temSize(80,$rate); background:url("../img/grass-title_bg4.gif") $img-pozC;@include background-size(100%,temSize(4,$rate));
+            .grass2_title2{font-size:temSize(28,$rate);width:temSize(240,$rate); height:temSize(80,$rate);line-height:temSize(80,$rate);}
+       }
+        .grass2_box3_2{padding:temSize(26,$rate) temSize(40,$rate); top:temSize(106,$rate);
+            .grass2_text3{font-size:temSize(28,$rate);}
+        }
+        .grass2_box3_2.list{
+           .item{
+               h2,p{font-size:temSize(24,$rate);}
+               .item-note{font-size:temSize(20,$rate);}
+           }
+       }
+        .grass2_box3_3.list{font-size:temSize(24,$rate); width:temSize(640,$rate); margin:0 auto;
+            .item{padding:0 temSize(200,$rate) 0 temSize(222,$rate);height:temSize(100,$rate);line-height:temSize(100,$rate);
+                .item-ranking{width:temSize(62,$rate);left:temSize(40,$rate);font-size:temSize(28,$rate);}
+                .item-note{right: temSize(40,$rate);font-size:temSize(24,$rate);
+                    em{font-size:temSize(32,$rate);margin-right:2px;}
+                }
+                h2{font-size:temSize(24,$rate);line-height:temSize(100,$rate);}
+                .item-pic{margin-top:temSize(-30,$rate);left:temSize(142,$rate); width: temSize(60,$rate); height: temSize(60,$rate);}
+               }
+       }
+        .ranking_box{height:temSize(100,$rate);width:temSize(600,$rate);line-height:temSize(100,$rate);font-size:temSize(32,$rate);
+               .ranking_arrow_left{border-left: temSize(20,$rate) solid transparent;border-top: temSize(20,$rate) solid #e97b04;bottom:temSize(-20,$rate);}
+               .ranking_arrow_right{border-right: temSize(20,$rate) solid transparent;border-top: temSize(20,$rate) solid #e97b04;bottom:temSize(-20,$rate);}
+        }
+    }
+    .grass2_box4{ padding:temSize(30,$rate) temSize(120,$rate) 0;font-size:temSize(32,$rate);
+        .grass2_text4{width:temSize(200,$rate); height:temSize(60,$rate); padding:0 temSize(15,$rate);font-size:temSize(32,$rate); margin-left:temSize(20,$rate);}
+    }
+    .grass2_text5{width:temSize(480,$rate);height:temSize(80,$rate); font-size:temSize(24,$rate);margin-bottom:temSize(38,$rate);} 
+    .btnGroup1Patch{top:temSize(394,$rate);}
+	.grass2_box_more{ width:temSize(560,$rate); height:temSize(100,$rate);line-height:temSize(100,$rate); font-size:temSize(24,$rate); margin:0 auto;}
+    //圣诞树 by weijun 20151208
+
+	 .grass2_box7{ padding:temSize(30,$rate) temSize(80,$rate) 0;font-size:temSize(32,$rate); margin-top:temSize(90,$rate);
+        .grass2_text4{width:temSize(310,$rate); height:temSize(80,$rate); padding:0 temSize(15,$rate);font-size:temSize(32,$rate); margin-left:temSize(26,$rate); margin-right:temSize(10,$rate);}
+    }
+	.grass2_box7:before{content: ""; width: temSize(505,$rate);height: temSize(500,$rate); margin-top:temSize(-90,$rate);}
+	.grass2_btn_group3{ margin:temSize(40,$rate) auto 0; width:temSize(430,$rate); height:temSize(100,$rate); line-height:temSize(76,$rate);
+		.grass2_text6{width:temSize(430,$rate);height:temSize(80,$rate); font-size:temSize(24,$rate);margin-bottom:temSize(40,$rate);}
+		.grass2_btn1_3{width:temSize(430,$rate);height:temSize(100,$rate);line-height:temSize(80,$rate); @include box-shadow-base(0 temSize(-20,$rate) 0 #3e8fd3 inset); font-size:temSize(32,$rate);}
+	}
+
+    .xmas_box1{height:temSize(290,$rate); padding-top:temSize(20,$rate);
+        .xmas_title1{margin:0 temSize(80,$rate) temSize(20,$rate) temSize(104,$rate);height:temSize(70,$rate); line-height:temSize(70,$rate); font-size:temSize(38,$rate);}
+        .xmas_text1{margin:0 auto;font-size:temSize(24,$rate);height:temSize(90,$rate);width:temSize(500,$rate);}
+    }
+    .xmas_btn_group1{width:temSize(560,$rate); height:temSize(150,$rate); margin-left:temSize(-280,$rate);padding-top:temSize(30,$rate); top:temSize(856,$rate);
+        .xmas_btn1_1,.xmas_btn1_2{width:temSize(265,$rate); height:temSize(80,$rate); font-size:temSize(28,$rate);}
+        .xmas_btn1_1{@include box-shadow-base(0 temSize(20,$rate) 0 #4b657e); padding-right:temSize(30,$rate);}
+        .xmas_btn1_1Dis{@include box-shadow-base(0 temSize(20,$rate) 0 #66696c);}
+        .xmas_btn1_2{@include box-shadow-base(0 temSize(20,$rate) 0 #59b1c7);
+             &:before{width:temSize(113,$rate); height:temSize(66,$rate); top:temSize(-47,$rate); right:temSize(19,$rate);}
+        }
+    }
+    .xmas_box2Outer{height:temSize(88,$rate);margin-top:temSize(-80,$rate); padding:0 temSize(74,$rate) 0 temSize(116,$rate);
+        .xmas_box2{height:temSize(88,$rate);
+            .xmas_box2Inner{height:temSize(88,$rate);}
+            .xmas_box2_textBox{font-size:temSize(24,$rate);
+                .xmas_box2_text1{width:temSize(160,$rate);}
+            }
+        }
+    }
+    .xmas_box3{font-size:temSize(32,$rate); line-height:temSize(80,$rate);padding-top:temSize(10,$rate);
+        .xmas_box2_text2{font-size:temSize(64,$rate); padding:temSize(4,$rate) temSize(25,$rate); margin:0 temSize(20,$rate);}
+    }
+    .xmas_tree_box{height:temSize(857,$rate); top:temSize(82,$rate);}
+    .xmas_head{width:temSize(116,$rate); height:temSize(116,$rate); padding-top:temSize(6,$rate);top:temSize(800,$rate);margin-left:temSize(-300,$rate);
+        img{width:temSize(104,$rate); height:temSize(104,$rate); @include box-shadow-base(temSize(5,$rate) temSize(5,$rate) 0 #415f7e);}       
+        &:before{width:temSize(91,$rate); height:temSize(77,$rate); left:temSize(56,$rate); top:temSize(-28,$rate);}
+    }
+
+   @content;
+  //媒体查询写在这里  使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603
+    
+ } 
+   
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567
+    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+ }
+
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+ }
+
+
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-grass{
+ @include base($editrate){
+    //commonclass  与数值无关的样式写这里
+    .grass2_box1{width:100%;background:url("../img/grass-title_bg2.png") $img-pozC;@include background-size100;overflow: hidden;
+        .grass2_title1{text-align:center; font-weight:bold; overflow: hidden;}
+        .grass2_text1{width:100%;text-align:center;  display:table;
+            span{display:table-cell; vertical-align:middle;}
+        }
+    }
+    .grass2_box2Outer{background:url("../img/grass-title_bg3.png") $img-pozC;@include background-size100;position:absolute;left:50%; 
+        .grass2_box2{overflow:hidden;
+            .grass2_box2_inner{display:table;width:100%;}
+            .grass2_text2{ text-align:center; display:table-cell; vertical-align:middle; line-height: 140%;
+                .grass2_text2_text{display:inline-block;}
+            }
+        }
+    }
+    .grass2_person{
+        .person_head{img{width:100%; height:100%;}}
+    }
+    .grass2_btn_group,.grass2_btn_group2{
+       .grass2_btn1_1,.grass2_btn1_2{text-align:center; color:#fff; border:#040000 2px solid; @include border-radius-basic(5px);} 
+       .grass2_btn1_1{ background:#fbba0b;}
+       .grass2_btn1_2{ background:#54acf6;}
+    }
+    .grass2_btn_group{position:absolute;left:50%;}
+    .grass2_btn_group2{position:relative; z-index:2;}
+
+   .grass2_box3Outer{height:100%; background:#eee;
+       .grass2_box3_1{width:100%;text-align:center;
+            .grass2_title2 {display:block; margin:0 auto;}
+       }
+       .grass2_box3_2{position:absolute; left:0; right:0; bottom:0;
+            .grass2_text3{width:100%;height:100%;line-height: 1.5;}
+       }
+       .grass2_box3_2.list{
+           .item{padding-right:0; border:none;background:none; padding-left:56px; min-height:72px;
+               .item-note{position: absolute; right: 0px; top: 22px;}
+               .item-pic{position: absolute; top: 16px; left:0; width: 40px; height: 40px;
+                    img{@include face-radius;width:100%; height:100%;}
+               }
+           }
+       }
+        .grass2_box3_3.list{margin:0;color:#333;
+            .noborder{border-bottom:none;}
+            .item{padding-right:0; border:1px solid #d9d9d9;border-top:none;background:#fff; margin:0 auto;position:relative;
+                .item-ranking{position:absolute;top:0;text-align:center;}
+                .item-note{position: absolute; top:0;color:#333;}
+                h2{color:#333;}
+                .item-pic{position: absolute; top:50%;
+                        img{@include face-radius;width:100%; height:100%;vertical-align:top;}
+                }
+            }
+       }
+        .ranking_box{background:#ff911a;position:relative;margin:0 auto;color:#fff;text-align:center;@include text-shadow-base(rgba(4,0,0,0.4) 0 1px 5px);@include box-shadow-base(rgba(4,0,0,0.2) 0px 5px 15px);
+                .ranking_arrow_left{width: 0;height: 0;position: absolute;left:0;}
+                .ranking_arrow_right{width: 0;height: 0;position: absolute;right:0;}
+        }
+
+        //动态添加排名1，2，3的背景样式
+        .ranking_bg1{background:url("../img/ranking_bg1.png") $img-pozC;@include background-size100;color:#fff;}
+        .ranking_bg2{background:url("../img/ranking_bg2.png") $img-pozC;@include background-size100;color:#fff;}
+        .ranking_bg3{background:url("../img/ranking_bg3.png") $img-pozC;@include background-size100;color:#fff;}
+    }
+   .grass2_box4,.grass2_text5{text-align:center;}
+   .grass2_text4, .grass2_text5{border:#040000 2px solid; @include border-radius-basic(5px); background:#fff;}
+   .grass2_text4{text-align:left; display:inline-block; vertical-align:middle;line-height: 1.2;}
+   .grass2_box_more{background:#fff; color:#aaa; text-align:center;}
+   // 圣诞树 
+   .grass2_btn_group3{position:relative; z-index:3;
+	  .grass2_btn1_3{text-align:center; color:#fff; @include border-radius-basic(5px); background:#54acf6;} 
+	}
+   .grass2_box7{text-align:left; color:#000;
+         .grass2_text4{ position:relative; z-index:3; border:rgba(4,0,0,.45) 2px solid; @include border-radius-basic(5px); background:#fff; text-align:left; display:inline-block; vertical-align:middle;line-height: 1.2;}
+         .grass2_text4_2{ position:relative; z-index:3;}
+   }
+   .grass2_box7:before{position: absolute; z-index:2;  background:rgba(255,255,255,0.49); @include box-shadow-base(temSize(3) temSize(3) temSize(5) rgba(0,0,0,.4));}
+   .grass2_text6{border:rgba(4,0,0,.45) 2px solid; @include border-radius-basic(5px); background:#fff; text-align:center;}
+   .xmas_box1{width:100%;background:url("../img/xmas_bg3.png") $img-pozC;@include background-size100;overflow: hidden; position:relative; z-index:2;
+        .xmas_title1{text-align:center; font-weight:bold; overflow: hidden; color:#b51d1a;}
+        .xmas_text1{text-align:center; display:table;
+            span{display:table-cell; vertical-align:middle; color:#fff;}
+        }
+    }
+   .xmas_btn_group1{position: absolute; left:50%; background:rgba(247,246,245,.27); z-index:2;
+        .xmas_btn1_1,.xmas_btn1_2{color:#fff; @include border-radius-basic(5px);}
+        .xmas_btn1_1{background:#5782ab; float:left; text-align:right;}
+        .xmas_btn1_1Dis{background:#868a8d;}
+        .xmas_btn1_2{background:#3dcbef; float:right;text-align:center; position:relative;
+             &:before{content:""; position:absolute; background:url("../img/xmas_icon2.png") $img-pozC;@include background-size100;}
+        }
+   }
+   .xmas_box2Outer{position:relative; z-index:2;
+        .xmas_box2{overflow:hidden;
+            .xmas_box2Inner{display:table;width:100%;}
+            .xmas_box2_textBox{ text-align:center; display:table-cell; vertical-align:middle; line-height: 120%; color:#b51d1a;
+                .xmas_box2_text1{display:inline-block;}
+            }
+        }
+    }
+    .xmas_box3{color:#c52420; text-align:center; font-weight:bold;position:relative; z-index:2; @include text-shadow-s1(#fff);
+        .xmas_box2_text2{display:inline-block; vertical-align:middle; position:relative; background:rgba(238,238,238,.89);@include border-radius-basic(2px); text-shadow: none;
+        &:before{content:""; position:absolute; top:temSize(4); bottom:temSize(4); left:temSize(6); right:temSize(6); border:#df927a 1px dotted;@include border-radius-basic(2px);}                                                                                                                            
+        }
+    }
+    .xmas_tree_box{position: absolute; width:100%; background: url("../img/xmas_bg2.png") $img-pozC;@include background-size100; z-index:1;}
+    .xmas_head{position: absolute; left:50%; z-index:3; text-align:center; background:#5782ab;@include face-radius;
+        img{@include face-radius;}       
+        &:before{content:""; position:absolute;background:url("../img/xmas_icon1.png") $img-pozC;@include background-size100;}
+    }
+
+  }
+}
+.microactivity-grass .preview{
+  @include base($viewrate);  
+  //仅预览页面使用样式写这里
+  .grass2_title1,.grass2_title2,.grass2_text1,.grass2_text2,.grass2_text3{color:#000!important;}
+  .grass2_box2Outer .grass2_box2 .grass2_text2{line-height:160%;}
+  .grass2_box2Outer .grass2_box2 .grass2_text2 .grass2_text2_text{width:auto;}
+  .grass2_box3Outer{height:auto;
+    .grass2_box3_1{height:temSize(36);
+            .grass2_title2{height:temSize(36);line-height:temSize(36);}
+       }    
+    .grass2_box3_2{position:relative; top:0;
+        .grass2_text3{height:auto;}
+    }
+    .grass2_box3_3{position:relative; top:0;padding:0 temSize(40);
+    }
+  }
+  .person_head_grass{top:9.42rem;}
+  .grass2_box6Outer{position: absolute; top:temSize(36); right:temSize(16); left:temSize(16);height:temSize(890); z-index: 112; text-align: center; background: #fccc4b; border:#977519 temSize(4) solid;@include border-radius-large; padding-top:temSize(25);}
+  .grass2_box6Head{height:temSize(41); width:temSize(304);background:url("../img/grass-title_bg4.png") $img-pozC;@include background-size100; margin:0 auto temSize(30);}
+  .grass2_box6{width:temSize(600); padding-left:temSize(6)}
+  .grass2_box6_item{float:left; margin:0 0 temSize(12) temSize(12); width:temSize(180); height:temSize(250); border:#977519 temSize(4) solid; @include border-radius-base; position: relative;}
+  .page_box1_text{bottom:.3rem;}
+
+
+    //圣诞选礼物弹框样式  by huijuan 20151208{
+    .xmas_choosegift{height:100%;width:100%;background:#2b3045 url("../img/xmas_choosegift_bg.jpg") $img-pozT;@include background-size-s1;position:absolute;z-index:120;top:0;left:0;
+        .xmas_choosegift_head{height:temSize(38);width:temSize(353);background:url("../img/xmas_gift_title_bg.png") $img-pozC;@include background-size100;margin:temSize(65) auto 0 auto;}
+        .xmas_choosegift_item{float:left; margin:temSize(8); width:temSize(172); height:temSize(250);@include border-radius-base; position: relative;
+              &:before{content:" ";width:temSize(176);height:temSize(256);background:url("../img/xmas_choosegift_item_bg.png") $img-pozC;@include background-size100;position:absolute;left:0;top:0;z-index:-1;}
+        }
+        .xmas_choosegift_box{width:100%;margin-top:temSize(30);padding:0 temSize(35) temSize(80) temSize(35);}
+        .item1{background:url("../img/xmas_gift_bg1.png") $img-pozC;@include background-size-s1;}
+        .item2{background:url("../img/xmas_gift_bg2.png") $img-pozC;@include background-size-s1;}
+        .item3{background:url("../img/xmas_gift_bg3.png") $img-pozC;@include background-size-s1;}
+        .item4{background:url("../img/xmas_gift_bg4.png") $img-pozC;@include background-size-s1;}
+        .item5{background:url("../img/xmas_gift_bg5.png") $img-pozC;@include background-size-s1;}
+        .item6{background:url("../img/xmas_gift_bg6.png") $img-pozC;@include background-size-s1;}
+        .item7{background:url("../img/xmas_gift_bg7.png") $img-pozC;@include background-size-s1;}
+        .item8{background:url("../img/xmas_gift_bg8.png") $img-pozC;@include background-size-s1;}
+        .item9{background:url("../img/xmas_gift_bg9.png") $img-pozC;@include background-size-s1;}
+        
+        .page_box1_text{background:none;}
+    }
+    //} 圣诞选礼物弹框样式
+
+    .xmas_box2Outer .xmas_box2 .xmas_box2_text1{line-height:160%;}
+    .xmas_box2Outer .xmas_box2 .xmas_box2_textBox .xmas_box2_text1{width:auto;}
+
+    // 圣诞礼物动画样式 by wenjun 20151209 {
+    .xmas_gift_item{position: absolute;left:50%; z-index:5;
+      &.one{width:temSize(129);height:temSize(108); top:temSize(574); margin-left:temSize(-97);}
+      &.two{width:temSize(84);height:temSize(111); top:temSize(452); margin-left:temSize(-60);}
+      &.three{width:temSize(132);height:temSize(83); top:temSize(494); margin-left:temSize(26);}
+      &.four{width:temSize(125);height:temSize(133); top:temSize(572); margin-left:temSize(20);}
+      &.five{width:temSize(109);height:temSize(119); top:temSize(662); margin-left:temSize(-54);}
+      &.six{width:temSize(142);height:temSize(110); top:temSize(524); margin-left:temSize(-188);}
+      &.seven{width:temSize(136);height:temSize(116); top:temSize(655); margin-left:temSize(112);}
+      &.eight{width:temSize(112);height:temSize(129); top:temSize(667); margin-left:temSize(-194);}
+      &.nine{width:temSize(81);height:temSize(63); top:temSize(404); margin-left:temSize(-42);}
+    }
+
+    //} 圣诞礼物动画样式
+
+
+
+
+  @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+    .person_head_grass{top:8.42rem;}
+    .grass2_box6Outer{height:temSize(792);}
+    .grass2_box6_item{height:temSize(216); background-size: 90% auto;}
+    
+    .xmas_choosegift .xmas_choosegift_box{margin-top:0;}
+    .xmas_choosegift .xmas_choosegift_item{height:temSize(220); background-size: 90% auto;}
+    .xmas_choosegift .xmas_choosegift_item:before{height:temSize(240);}
+    .xmas_choosegift .page_box1_text{bottom:0;}
+
+    .xmas_gift_item{
+      &.one{top:temSize(534);}
+      &.two{top:temSize(412);}
+      &.three{top:temSize(454);}
+      &.four{top:temSize(532);}
+      &.five{top:temSize(622);}
+      &.six{top:temSize(484);}
+      &.seven{top:temSize(575);}
+      &.eight{top:temSize(587);}
+      &.nine{top:temSize(364);}
+    }
+}
+
+}
+.grass2_box5{height:temSize(24); margin-top:temSize(-24);width:100%; background:url("../img/grass-bg1.png") $img-pozC;@include background-size100;}
+.grass2_edit_box{height: 100%;}
+
+// 圣诞节装扮圣诞树活动样式 20151208 by wenjun
+
+.xmas_bg{background: url("../img/xmas_bg1.jpg") $img-pozC;@include background-size-cover;}
+//雪花渲染样式 {
+.snowContainer{position: absolute;z-index: 1;width: 100%;height: 100%;top: 0;overflow: hidden;}.snowContainer > div{position: absolute;max-width: 100px;max-height: 100px;-webkit-animation-iteration-count: infinite, infinite;-webkit-animation-direction: normal, normal;-webkit-animation-timing-function: linear, ease-in;}.snowContainer div > div{width: 100%;min-width:10px;min-height:10px;-webkit-animation-iteration-count: infinite;-webkit-animation-direction: alternate;-webkit-animation-timing-function: ease-in-out;}@-webkit-keyframes fade{0%{opacity: 1;}95%{opacity: 1;}100%{opacity: 0;}}@-webkit-keyframes drop{0%{-webkit-transform: translate3d(0px, 0,0);}100%{-webkit-transform: translate3d(0px, 500px,0);}}@-webkit-keyframes wiseSpin{0%{-webkit-transform: translate3d(0px,0,0);}50%{-webkit-transform: translate3d(50px,0,0);}100%{-webkit-transform: translate3d(0px,0,0);}}
+//} 雪花渲染样式
+
+//新微官网风云榜  edit by huijuan 20160104{
+.newSite_award{width:100%;
+     .newSite_award_banner{height:temSize(503);width:100%;background:url("../img/newsite_award_banner.jpg") $img-pozC;@include background-size100;padding-top:temSize(375);
+        a{display:block;height:temSize(60);width:temSize(280);background:#ff911a url("../img/newsite_award_button.png") $img-pozC;@include background-size(temSize(190),temSize(30));margin:0 auto;}
+     }   
+     .microactivity-grass{
+      .grass2_box3Outer{background:none;
+        .grass2_box3_3.list{     
+          .item{padding:0 temSize(70) 0 temSize(170);
+                .item-ranking{left:temSize(20);width:temSize(50);}
+                .item-note{min-width:temSize(80);text-align:center;right:0;
+                      em{font-size:temSize(20);line-height:temSize(45);margin-top:temSize(15); display:block;}
+                      i{display:block;height:temSize(22);width:temSize(24);background:url("../img/icon18.png") $img-pozC;@include background-size100;position:absolute;top:50%; margin-top:temSize(25);right:temSize(30);}
+                }
+                .item-pic{left:temSize(90);}
+          }
+          .item.noborder{
+                .item-ranking{width:auto;left:temSize(170);height:temSize(30);line-height:temSize(30);top:temSize(55);color:#aaa;font-size:temSize(20);}
+                .item-note{position: absolute; top:0;color:#333;}
+                h2{line-height:temSize(45);margin-top:temSize(12);}
+          }
+          .item_textOnly{padding:0 temSize(5); text-align:center;font-size:temSize(32);}
+          
+       }     
+      }
+   }
+    .item-pic img{background: #aaa;}
+}
+//} 新微官网风云榜

@@ -1,0 +1,18 @@
+<!--冬令营活动-->
+<!--No.2模板页 {-->
+<div class="paneabird1 microactivity-template8">
+    
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty8_box3_1">
+            <div class="images" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <img ng-src="{{templateModel.imageUrl[0]}}" class="canEdit">
+            </div>
+        </div>
+        <div class="acty8_box3_2">            
+            <textarea ng-if="!isEdit" rows="5" ng-model="templateModel.description" class="acty8_textBox2 canShow"  scroll-top-by-blur ng-disabled ="!isEdit" ng-trim="false" readonly="readonly"  ></textarea>
+            <textarea ng-if="isEdit" rows="5" ng-model="templateModel.description" class="acty8_textBox2 canEdit" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig}}" new-custom-input readonly="readonly"></textarea>
+        </div>
+        
+    </div>
+</div>
+<!--} No.2模板页-->

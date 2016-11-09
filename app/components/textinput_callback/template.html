@@ -1,0 +1,9 @@
+<div class="ng-hide" ng-show="isShow">
+    <div class="lockMask_input" on-swipe="onSwipe($event)"></div>
+    <div class="editor_wrap_callback editor_index" on-swipe="onSwipe($event)">
+        <textarea placeholder="{{placeholder}}" class="editor_text_box_callback" id="customInputCallback" ng-model="inputModel" ng-trim="false"></textarea>
+        <button type="button" class="button-cancel-callback" ng-click="cancel()">取消</button>
+        <span class="editor_text_callback"><label>{{getCurrentValue()}}</label>&nbsp;&frasl;&nbsp;<label>{{getMaxValue()}}</label></span>
+        <button type="button" class="button-sure-callback" ng-click="callback()">确定</button>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+<ion-view class="micro-shop-management micro-shop-syn">
+    <ion-content class="syn-introduction-container" has-bouncing="false">
+        <img style="width: 100%" ng-src={{introductionImg}} />
+    </ion-content>
+    <div class="to-syn" ng-if="type==1">
+        <div class="micro-shop-btn to-syn-btn" ng-click="toSyn(1)">去同步</div>
+    </div>
+    <div class="to-syn" ng-if="type==2">
+        <div class="micro-shop-btn to-syn-btn" ng-click="toSyn(2)">去口碑开店</div>
+    </div>
+</ion-view>

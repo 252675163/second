@@ -1,0 +1,28 @@
+<ion-view cache-view="false" class="newSite_Outer" ng-class="templateStyleClass">
+    <ion-content class="ion-content_patch" has-bouncing="false" scrollbar-y="false" delegate-handle = "myStyleContent">
+        <div id="newMicroSiteContainer">
+            <!--使用预览的指令-->
+            <new-micro-site-style-view site-model="siteModel" render-fun="renderStyleViewFun"></new-micro-site-style-view>
+            <my-footer></my-footer>
+            <!--<div style="display:{{isBottom ? 'block':'none'}}" class="footer-copyright" ng-bind-html="footer"></div>-->
+        </div>
+    </ion-content>
+    <!-- 遮罩--风格选择 {-->
+    <button type="button" class="btnG4_sure bar-header" ng-click="confirm()">
+        <span>选定</span></button>
+    <div class="newSite_popup_styleOuter bar-footer" ng-class="{'newSite_popup_styleClosed':!isOpenStyleList}">
+        <!-- 点击按钮隐藏下面内容需要在外层增加样式 newSite_popup_styleClosed （带动画） -->
+        <button type="button" class="btn_state" ng-click="triggerIsOpenStyleList()">
+            <span></span></button>
+        <div class="newSite_popup_styleBox">
+            <ion-scroll direction="x" scrollbar-x="false" has-bouncing="false">
+                <img ng-repeat="styleModel in styleListModel" ng-src="{{styleModel.styleImageUrl}}"  ng-click="chooseStyle(styleModel.styleId)"/>
+              
+            </ion-scroll>
+        </div>
+
+    </div>
+    <!--}-->
+
+
+</ion-view>

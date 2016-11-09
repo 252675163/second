@@ -1,0 +1,71 @@
+﻿<div style="min-height: {{winHeight}}px;background: #eee;" touch-top-render>
+    <ion-content>
+
+        <div class="active_add">
+            <div class="active_add_item" ng-repeat="activityModel in data">
+                <div class="active_info_box">
+                    <div class="clearfix" ng-click="goPreview(activityModel.Id,activityModel.TemplateId)">
+                        <img ng-src="{{activityModel.configPreviewImg||activityModel.PreviewImg}}" class="active_pic" /><!-- 图为正方形 -->
+                        <!--<span class="active_tag tag_red" >{{activityModel.TemplateName}}</span>-->
+                        <span class="active_text1" >{{activityModel.Title||activityModel.TemplateName}}</span>
+                        <span class="active_text2">最后修改时间：{{formatDateByStatistics(activityModel.CreatedAt)}}</span>
+                    </div>
+                </div>
+                <div class="active_btn_box">
+                    <button type="button" class="active_btn" ng-click="shareActivity(activityModel.Id,activityModel.TemplateId)">
+                        <em class="a_icon_share"></em><span>分享活动</span>
+                    </button><button type="button" class="active_btn" ng-click="statistics(activityModel.Id,activityModel.TemplateId)">
+                        <em class="a_icon_statistics"></em><span>数据统计</span>
+                    </button><!--<button type="button" class="active_btn disabled" style="display: none;">-->
+                    <!--<em class="a_icon_forbidden"></em><span>禁用</span>-->
+                    <!--</button>-->
+                </div>
+            </div>
+
+        </div>
+
+    </ion-content>
+    <div class="footer_box">
+        <button type="button" class="btn_active_add" ng-click="goNewActivity()"><em></em>制作我的场景</button>
+    </div>
+</div>
+<div ng-style="{'display':isShare?'block':'none'}">
+    <div class="lockMask lcstyle"></div>
+    <div class="lockMask_index popup-tips">
+        即将为您跳转到分享页面
+        <br/>
+        记得点击下一页右上角分享哦~
+    </div>
+    <div class="lockMask_loading_normol">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!--loading效果 -->
+</div>
+
+<div ng-style="{'display':isShowShareTitlePop?'block':'none'}">
+    <button type="button" class="btn-closed" ng-click="colseShareTitlePop()"></button>
+    <div class="lockMask"></div>
+    <div class="popup-tips-s1"></div>
+    <div class="popup-wrap-s1">
+        <div class="popup-content">
+            <input type="text" class="popup-text-box" ng-model="showShareTitlePopModel.shareTitle"/>
+
+            <div class="popup-box">
+                <img ng-src="{{showShareTitlePopModel.imageUrl}}"/>
+                <span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>
+            </div>
+        </div>
+        <div class="popup-buttons">
+            <button type="button" class="button-share" ng-click="showShareTitlePopModel.saveShareTitleFunction()">
+                立刻分享
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="active_add_empty" style="display:none" ></div>

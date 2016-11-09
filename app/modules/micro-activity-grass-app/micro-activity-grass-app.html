@@ -1,0 +1,62 @@
+﻿<ion-view>
+    <ion-content class="has-footer_cover HFC_new" has-bouncing="false">
+        <div class=" editor-box-wrap EBW_new paneabird1">
+            <div class="grass_head_bg">
+                <div class="grass_title1"></div>
+                <textarea class="textarea_style1" ng-model="model.title" ng-trim="false" custom-input readonly="readonly" my-max-length maxlength="200"  ></textarea>
+                <!--<div class="textarea_style1 notedit" ng-bind-html="titleHtml()" ng-style="{'display':isCheck}" ng-click="goEditTitle()"></div>-->
+            </div>
+        </div>
+        <!--<ion-footer-bar>-->
+        <!--<ion-tabs class="tabs-icon-top tabs-color-active-positive grass-edit-tabs">-->
+        <!--<ion-tab title="改背景" icon-off="sireeditback" icon-on="sireeditback">-->
+        <!--</ion-tab>-->
+        <!---->
+        <!--<ion-tab title="改音乐" icon-off="siteeditmusic" icon-on="siteeditmusic" ng-click="goChoseMusic()">-->
+        <!--</ion-tab>-->
+        <!--<ion-tab title="加页面" icon-off="siteeditnew" icon-on="siteeditnew" ng-click="addPage()">-->
+        <!--</ion-tab>-->
+        <!--<ion-tab title="删页面" icon-off="siteeditdelete" icon-on="siteeditdelete" ng-click="delCurrentPage()">-->
+        <!--</ion-tab>-->
+        <!--<ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview" ng-click="goPreview()">-->
+        <!--</ion-tab>-->
+        <!--</ion-tabs>-->
+        <!--</ion-footer-bar>-->
+    </ion-content>
+
+
+        <ion-footer-bar class="HOKO_new">
+            <ion-tabs class="tabs-icon-top editPage-tabs active_tabs_new tabItem2_dis tabItem3_dis">
+
+                <ion-tab title="编辑" icon-off="siteeditor" icon-on="siteeditor" ng-click="showEdit($event)">
+                </ion-tab>
+                <ion-tab title="背景" icon-off="sireeditbg" icon-on="sireeditbg">
+                </ion-tab>
+                <ion-tab title="暂存" icon-off="siteeditsave" icon-on="siteeditsave">
+                </ion-tab>
+                <ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview" ng-click="goPreview()">
+                </ion-tab>
+            </ion-tabs>
+        </ion-footer-bar>
+
+        <!--编辑按钮展开菜单 created by wenjun 20151107{-->
+        <div class="list active_tabs_new2" ng-show="isShowEdit">
+            <a class="item item-icon-left item_dis"><i class="icon siteeditdelete"></i>删页</a>
+            <a class="item item-icon-left item_dis"><i class="icon siteeditadd"></i>加页</a>
+            <a class="item item-icon-left" ng-click="goChoseMusic()"><i class="icon siteeditmusic"></i>音乐</a>
+        </div>
+        <!--} 编辑按钮展开菜单 -->
+        <!--文字内容编辑{-->
+        <text-input></text-input>
+
+
+
+
+
+        <!--音频-->
+        <!--<audio autoplay="autoplay" loop="loop">
+            <source ng-src="{{musicUrl}}" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>-->
+</ion-view>
+

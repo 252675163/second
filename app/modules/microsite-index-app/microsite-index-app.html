@@ -1,0 +1,57 @@
+<ion-view touch-top-render>
+    <div style="display:{{isShare ? 'block':'none'}}">
+        <div class="lockMask lcstyle" style="z-index:250"></div>
+        <div class="lockMask_index popup-tips" style="z-index:250">
+            即将为您跳转到分享页面
+            <br />
+            记得点击下一页右上角分享哦~
+        </div>
+        <div class="lockMask_loading_normol" style="z-index:250">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div><!--loading效果  -->
+    </div>
+    <ion-content scroll="false" class="has-footer_cover">
+        <div class="lockMask_index" ng-click="goToPreview()"></div>
+        <div id="editdiv" class="editor-box-wrap" ng-hide="isHide">
+            <micro-site-index-view site-model="siteModel"></micro-site-index-view>
+        </div>
+        <div class="foot-tab-bg">
+            <a class="btn_about active">{{siteModel.pages[0].pageName}}</a>
+            <a class="btn_show">{{siteModel.pages[1].pageName}}</a>
+            <a class="btn_course">{{siteModel.pages[2].pageName}}</a>
+        </div>
+    </ion-content>
+    <ion-tabs class="tabs-icon-left activity-index_tabs">
+
+        <ion-tab title="编辑" icon-off="tab-icon1" icon-on="tab-icon1" ng-click="editView()">
+        </ion-tab>
+
+        <ion-tab title="分享" icon-off="tab-icon2" icon-on="tab-icon2" ng-click="share()">
+        </ion-tab>
+
+        <ion-tab title="数据统计" icon-off="tab-icon3" icon-on="tab-icon3" ng-click="statistics()">
+        </ion-tab>
+
+    </ion-tabs>
+</ion-view>
+<div style="display:{{ isShowShareTitlePop ? 'block':'none'; }}">
+    <button type="button" class="btn-closed" ng-click = "colseShareTitlePop()"></button>
+    <div class="lockMask"></div>
+    <div class="popup-tips-s1"></div>
+    <div class="popup-wrap-s1">
+        <div class="popup-content">
+            <input type="text" class="popup-text-box"   ng-model = "showShareTitlePopModel.shareTitle"/>
+            <div class="popup-box">
+                <img ng-src="{{showShareTitlePopModel.imageUrl}}" />
+                <span class="popup-box-text">mtx.xiaobao1001.cn</span>
+            </div>
+        </div>
+        <div class="popup-buttons">
+            <button type="button" class="button-share" ng-click = "showShareTitlePopModel.saveShareTitleFunction()">立刻分享</button>
+        </div>
+    </div>
+</div>

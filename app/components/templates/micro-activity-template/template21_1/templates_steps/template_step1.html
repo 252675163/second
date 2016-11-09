@@ -1,0 +1,84 @@
+<div class="step1 vote_bg">
+    <div class="voter-list-box">
+        <ion-scroll has-bouncing="false" class="content-adjust">
+            <div class="vote_list_scroll bgPan3">
+
+                <div class="title_box">
+                    <div class="vote-name-bg">
+                        <div class="vote_name" ng-class="{'editBorder':isEdit}" ng-model="templateModel.name" ng-trim="true"
+                            custom-input readonly="readonly" maxlength="12" ng-bind-html="templateModel.name">
+                        </div>
+                    </div>
+                    <dic class="vote-title-bg">
+                        <div class="vote_title" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-trim="true"
+                            custom-input readonly="readonly" maxlength="11" ng-bind-html="templateModel.title">
+                        </div>
+                    </dic>
+                    <div class="vote-otherinfo-bg">
+                        <div class="vote_otherinfo">
+                            <p>
+                                <em class="offset-left"><i class="vote_clock"></i>
+                                <span ng-if="ifPass">活动已结束</span>
+                                <span ng-if="!ifPass">截止时间:{{enddate| date:"yyyy年MM月dd日HH:00"}}</span>
+                               </em>
+                                <em class="other-info-btn offset-right" ng-click="toggle()">活动详情</em>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <ul class="person-box clearfix">
+                    <li ng-repeat="d in votelist ">
+                        <i class="crown" ng-class="{'crown-gold':$index ==0,'crown-silver':$index ==1,'crown-copper':$index ==2}"></i>
+                        <div class="avator" ng-click="gothisone(d)">
+                            <img ng-src="{{d.Config|parsetostring}}" ng-if="isView">
+                            <img ng-src="{{placeimg_small}}{{$index+1}}.jpg" ng-if="!isView">
+                            <div class="info">
+                                <div class="name">{{d.Name|cutname}}</div>
+                                <div class="votes"><b>{{d.Score}}</b>票</div>
+                            </div>
+                        </div>
+
+                        <div class="votegroup-btn" ng-click="voteThis(d)" ng-style="{'display':d.Score<501?'block':'none'}">
+                            <p class="vote-btn voted" ng-if="d.IsHaveGrow"></p>
+                            <p class="vote-btn vote-for" ng-if="!d.IsHaveGrow" ng-class="{'vote-for-bad':ifPass}"></p>
+                        </div>
+
+                        <div class="votegroup-btn" ng-click="voteThisandcheck(d)" ng-style="{'display':d.Score>500?'block':'none'}">
+                            <p class="vote-btn voted" ng-if="d.IsHaveGrow"></p>
+                            <p class="vote-btn vote-for" ng-if="!d.IsHaveGrow" ng-class="{'vote-for-bad':ifPass}"></p>
+                        </div>
+                    </li>
+                </ul>
+
+            </div>
+            <my-footer ng-if="page.currentIndex==page.totalCount||page.itemCount==0"  ng-style="{'display':!isEdit?'block':'none'}" ></my-footer>
+            <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="4%" immediate-check="false">
+            </ion-infinite-scroll>
+        </ion-scroll>
+    </div>
+
+    <div class="bottom_btn"  id="bottom_btn" ng-style="{'display':!isEdit?'block':'none'}" >
+        <div ng-click="gostep1()" class="vote-btn-half active">
+            <i class="vote-home"></i><br /><span>首页</span>
+        </div>
+        <div ng-click="gonext()" class="vote-btn-half" ng-if="!ifSignIn">
+            <i class="vote-join"></i><br /><span>我也要参加</span>
+        </div>
+        <div ng-click="goItSelf()" class="vote-btn-half" ng-if="ifSignIn"><i class="vote-myChoice"></i><br /><span>我的报名</span></div>
+
+    </div>
+
+    <div class="maskConfirm" ng-style="{'display':ifVerifyShow?'block':'none'}">
+        <div class="confirmInfo">
+            <i class="close-icon" ng-click="closeCheckBox()"></i>
+            <h1>请填入“ ? ”处的值</h1>
+            <input type="text" ng-model="captcha" maxlength="4" >
+            <div class="confirmCode clearfix">
+                <img class="confirmCode-img" ng-src="{{imgurl}}" alt="验证码图片"><a class="changeConfirm" href="" ng-click="reGetVerifyCode()"></a>
+            </div>
+           <button class="voteConfirm-btn" ng-click="voteTothis(voteddata)" ng-disabled="{{ifSubmit}}" ng-class="ifSubmit?'report-btn-disabled':''"></button>
+        </div>
+    </div>
+
+</div>

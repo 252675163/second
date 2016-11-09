@@ -1,0 +1,18 @@
+﻿<div style="min-height: {{winHeight}}px;background: #eee;">
+    <ion-content has-bouncing="false">
+
+        <div class="consultbooklist">
+            <div class="consultlist_item" ng-repeat="activityModel in data">
+                <div class="consultlist_info_box">
+                    <div class="clearfix" ng-click="consults(activityModel.Id,activityModel.Type)">
+                        <span class="active_text1">{{activityModel.Title}}</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%">
+        </ion-infinite-scroll>
+
+    </ion-content>
+</div>

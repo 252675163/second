@@ -1,0 +1,54 @@
+<!--No.6模板页 {-->
+<div class="paneabird1 microactivity-template22 bgPan"  >
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty22_box6">
+            <div class="acty22_form">
+                <!--表单-->
+                <div class="acty22_inputBox1">
+                    <!--宝贝姓名-->
+                    <input maxlength="14" my-max-length class="canShow acty22_input_name" type="text" readonly="readonly" ng-model="templateModel.description[0]" ng-trim="false" />
+                    <!--<input ng-if="isEdit" maxlength="200" my-max-length class="canEdit acty22_input_name" type="text" ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />-->
+
+                    <input placeholder="" class="acty22_form_text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" my-max-length /><!--用户输入框-->
+                </div>
+                <div class="acty22_inputBox2">
+                    <!--宝贝电话-->
+                    <input  maxlength="14" type = "text" my-max-length class="canShow acty22_input_name"  readonly="readonly" ng-model="templateModel.description[1]" />
+                    <!--<input ng-if="isEdit" maxlength="200" my-max-length class="canEdit acty22_input_name" type="text" ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />-->
+
+                    <input placeholder="" class="acty22_form_text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" my-max-length />
+                </div>
+                <div class="acty22_btn">
+                    <input ng-if="!isEdit" maxlength="200"  my-max-length class="canShow acty22_btn_text" type="text" readonly="true" ng-model="templateModel.submitName" ng-click="submitInfo()" ng-trim="false" />
+                    <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit acty22_btn_text" type="text" ng-model="templateModel.submitName" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />
+                </div>
+            </div>
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="acty22_textBox6_1" disabled="disabled" ng-model="templateModel.description[2]" ng-trim="false"></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length scroll-top-by-blur class="acty22_textBox6_1 canEdit" ng-model="templateModel.description[2]" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+            <div class="acty22_address">
+                <!--学校地址-->
+                <div class="acty22_address_icon">
+                    <textarea rows="1" class="acty22_textBox6_address" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[3]" ng-disabled="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                     </div>
+                 
+                <textarea ng-if="isEdit" rows="2" class="acty22_textBox6_2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[4]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                 <div ng-if="!isEdit" class="acty22_textBox6_2 acty22_font_align acty22_adress_height" ng-bind-html="templateModel.description[4]" ></div>
+            </div>
+            <div class="acty22_phone">
+                <!--联系方式-->
+                <div class="acty22_phone_icon">
+                    <textarea rows="1" class="acty22_textBox6_phone" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[5]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                 </div>
+                <div  ng-if="isEdit">
+              <textarea rows="1" class="acty22_textBox6_3" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[6]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>   
+                <textarea rows="1" class="acty22_textBox6_4" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[7]" ng-disabled="!isEdit"  maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>
+                    </div>
+                <div ng-if="!isEdit" class="acty22_font_align">
+                    <div class="acty22_textBox6_3 addrow" ng-bind-html="templateModel.description[6]|recogTel:false "></div>
+                    <div class="acty22_textBox6_4 addrow" ng-bind-html="templateModel.description[7]"></div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} No.6模板页-->

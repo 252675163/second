@@ -1,0 +1,27 @@
+<div class="microposter1 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter1-by6">
+            <textarea ng-if="!isEdit" class="poster1-title canShow" rows="1" type="text"
+                ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster1-title canEdit editBorder" rows="1" type="text"
+                ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+        </div>
+        <div class="microposter1-by6">
+            <div class="poster1-qrcode" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <img ng-src="{{templateModel.imageUrl}}" alt="二维码" />
+            </div>
+            <p class="poster-qrcode-info">请长按或扫描二维码关注我们的公众号，更多惊喜等你来哦~</p>
+            <div class="acty12_form">
+                <input placeholder="您的姓名" class="poster1-text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit"
+                    change-placeholder-by-focus />
+                <input placeholder="您的手机号" class="poster1-text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit"
+                    ng-disabled="isEdit" change-placeholder-by-focus />
+
+                <div class="poster1_form_btn" ng-click="submitInfo()">
+                    马上报名
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

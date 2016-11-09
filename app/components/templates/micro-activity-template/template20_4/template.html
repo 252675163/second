@@ -1,0 +1,46 @@
+<!-- page 4 助力记录 {-->
+<div class="microactivity-voucher bgPan" ng-show="uiConfig.isShow||isEdit">
+    <div ng-class="{'preview':!isEdit}" ng-show="isView&&grassRecordList.length ">
+        <div class="voucher_box3Outer">
+            <div class="voucher_box2_3">
+                <div class="voucher_title1" ng-class="{'editBorder':isEdit}"><div class = "voucher_title1_text">看朋友手气如何</div></div>
+            </div>
+
+            <div class="voucher_box2_4 list">
+                <!--<div class="voucher_item2 clearfix" ng-repeat="item in grassRecordList">-->
+                    <!--<div class="Amount_best">手气最佳</div>-->
+                    <!--<span class="item-pic"><img ng-src="{{item.HeadImgUrl||defaultHeadImg}}"></span>-->
+                    <!--<span class="item-content2">-->
+                        <!--{{item.NickName||defaultName}}<br/>-->
+                        <!--<span>帮你激活<em>{{item.Amount}}</em>元</span>-->
+                    <!--</span>-->
+                    <!--<span class="item-text">{{item.CreatedAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</span>-->
+                <!--</div>-->
+
+                <div class="voucher_item2 clearfix"  ng-repeat="item in grassRecordList">
+                    <span class="item-pic"><img ng-src="{{item.HeadImgUrl||defaultHeadImg}}" err-src="{{defaultHeadImg}}"/></span>
+                    <span class="item-content2">
+                        <div class="item-left">
+                            <span class = "item-text1">{{item.NickName||defaultName}}</span><br/>
+                            <span class="item-time">{{item.CreatedAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</span>
+                        </div>
+                        <div class="item-right">
+                            <div class="item-right-inner">
+                                <span class = "item-text2"><em>{{item.Amount}}</em>元</span>
+                                <div class = "best-voucher"  ng-class="{'visibilityDiv':!item.IsBset}"><span class="voucher_best_icon"></span>手气最佳</div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+
+
+                <ion-infinite-scroll on-infinite="loadMore()" ng-if="renderListData.length == 10" distance="1%"
+                                     immediate-check="false">
+                </ion-infinite-scroll>
+            </div>
+        </div>
+    </div>
+</div>
+<my-footer></my-footer>
+
+<!--} page 4-->

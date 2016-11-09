@@ -1,0 +1,721 @@
+﻿$rate: 1;
+$editrate: 0.8;
+
+@function temSize($num,$rate: 1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+}
+    .assistant {
+        .vegetables_bg {
+            background-size:100% 100% !important;
+        }
+        // 微助力模板编辑页
+        .preview .vegetables_bg {
+            padding: temSize(40) temSize(30) temSize(30);
+        }
+
+        .preview .vegetables_boxOuter {
+            width: temSize(580);
+            padding: temSize(20) temSize(20) temSize(28);
+        }
+
+        .preview .vegetables_boxOuter .vegetables_box_2 .vegetables_text1 .contacting {
+            display: inline-block;
+        }
+
+        .preview .vegetables_boxOuter .vegetables_box_2 .vegetables_text1 .contacting.addre {
+            float: left;
+        }
+
+        .preview .vegetables_boxOuter .vegetables_box_2 .vegetables_text1 .contacting.addre2 {
+            width: temSize(400,$rate);
+        }
+
+        .preview .vegetables_boxOuter .vegetables_box_2 .vegetables_text1 .addresscontact {
+            overflow: auto;
+            zoom: 1;
+        }
+        .grass2_edit_box{  
+            .vegetables_bg{
+                padding:temSize(50,$rate) temSize(30,$editrate) temSize(30,$editrate);
+                height:100%;
+            }
+
+            .vegetables_boxOuter {
+                width: temSize(575,$editrate);
+                padding: temSize(20,$editrate) temSize(20,$editrate) temSize(28,$editrate);
+            }
+
+            .vegetables_boxOuter.contact {
+                height: temSize(180,$editrate);
+            }
+
+            .vegetables_boxOuter.contact.contact2 {
+                padding: temSize(20,$editrate) temSize(20,$editrate) temSize(28,$editrate);
+            }
+
+            .vegetables_boxOuter .vegetables_box_1 .vegetables_title1.titl {
+                margin-bottom: temSize(0);
+                font-size: temSize(40,$editrate);
+            }
+
+            .vegetables_boxOuter.contact.contact2 .vegetables_box_2 .vegetables_text1 {
+                font-size: temSize(28,$editrate);
+            }
+
+
+            .vegetables_boxOuter.contact {
+                height: temSize(180,$editrate);
+            }
+
+            .vegetables_boxOuter.contact.contact2 {
+                margin-top: temSize(40,$editrate);
+                min-height: temSize(180,$rate);
+                height:auto;
+            }
+
+            .vegetables_boxOuter.contact .vegetables_text1 {
+                height: 100%;
+                font-size: temSize(40,$editrate);
+            }
+            .vegetables_boxOuter.contact .vegetables_box_2 {
+                line-height: 100%;
+            }
+
+            .vegetables_boxOuter.contact .vegetables_box_2 .vegetables_text1 {
+                line-height: normal;
+            }
+
+            .vegetables_boxOuter.contact .vegetables_box_2.phone {
+                text-align: center;
+            }
+        }
+        //报名页
+        .header_box_big .notice {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin: temSize(-15,$rate) temSize(-200,$rate);
+            width: temSize(200,$rate);
+            height: temSize(124,$rate);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+        }
+
+        &.microactivity-vegetables .grow_vegetables_plural .grow_vegetables_gif {
+            width: 50%;
+        }
+
+        .header_box_big:before {
+            display: none;
+        }
+        //助力列表页
+        .vegetables_box2_3 .division {
+            height: 1px;
+        }
+
+        .vegetables_box2_3 {
+            border-bottom: none !important;
+            box-shadow: none !important;
+        }
+
+        // 报名表单页
+        .grow_vegetables_tree_box.enrolling .form_info_box {
+            margin: temSize(20) auto 0;
+        }
+
+        .grow_vegetables_tree_box.enrolling .form_info_box .form_info_1.name {
+            padding-top: temSize(28.8);
+            width: temSize(460);
+            height: temSize(120);
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            position:relative;
+            z-index: 5;
+        }
+
+        .grow_vegetables_tree_box.enrolling .form_info_box .form_info_1.name .form_info_1_text {
+            width: temSize(300);
+            margin: 0 temSize(60);
+            font-size: temSize(24);
+        }
+
+        .grow_vegetables_tree_box.enrolling .form_info_box .form_info_2.phone .form_info_2_text {
+            width: temSize(460);
+            height: temSize(120);
+            margin-top: temSize(0);
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+        }
+
+        .grow_vegetables_tree_box.enrolling .form_info_box .form_info_2.phone {
+            width: temSize(460);
+            height: temSize(120);
+            margin-top: temSize(10);
+            margin: temSize(10) auto 0;
+            position:relative;
+            z-index: 5;
+        }
+
+        .grow_vegetables_tree_box.enrolling .grow_vegetables_btn_group1 {
+            width: 100%;
+            height: temSize(280);
+            margin: 0 auto auto temSize(-320);
+        }
+
+        .grow_vegetables_tree_box.enrolling .grow_vegetables_btn_group1.assistant_register{
+            margin:0;
+            left:0;
+        }
+
+        .grow_vegetables_tree_box.enrolling .grow_vegetables_btn_group1 .form_btn_1 {
+            background: none;
+            width: temSize(300);
+            height: temSize(120);
+            margin-top: temSize(150);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+        }
+        // 同意用户条款
+        .preview .grow_vegetables_tree_box.enrolling .form_info_usertems2_new {
+            width: temSize(200);
+            height: temSize(50);
+            padding-top: temSize(0);
+            line-height: temSize(50);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            text-align: center;
+            font-size: 0;
+            //margin: temSize(30) auto 0;
+            position: absolute;
+            left:50%;
+            margin-left:temSize(-100);
+            z-index: 5;
+        }
+
+        .preview .grow_vegetables_tree_box.enrolling .form_info_usertems2_new .user_terms_checkbox {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            vertical-align: middle;
+            width: temSize(30);
+            height: temSize(30);
+            margin-left: temSize(4);
+            display: inline-block;
+            margin-right: temSize(5);
+        }
+
+        .preview .grow_vegetables_tree_box.enrolling .form_info_usertems2_new .form_info_usertems21 {
+            font-size: temSize(20,$rate);
+            color: #333333;
+            vertical-align: middle;
+            line-height: 100%;
+            display: inline-block;
+        }
+
+        .preview .grow_vegetables_tree_box.enrolling .form_info_usertems2_new .form_info_usertems21.span2 {
+            font-weight: bold;
+            color: #7ce3f6;
+            margin-left: temSize(10);
+        }
+        // 下拉引导
+        .preview .grow_vegetables_tree_box.enrolling .slidedown {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            position: absolute;
+            z-index: 0;
+            right: temSize(0);
+            width: temSize(640);
+            height: temSize(320);
+            margin-top: temSize(-0);
+        }
+        // 报名页头像
+        &.microactivity-vegetables .preview .grow_vegetables_tree_box.enrolling .header_box_big {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSize(160);
+            height: temSize(160);
+            margin: temSize(40) auto 0;
+        }
+
+        &.microactivity-vegetables .preview .grow_vegetables_tree_box.enrolling .header_box_big img {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSize(160);
+            height: temSize(160);
+            margin: 0 auto;
+        }
+
+        &.microactivity-vegetables .preview .grow_vegetables_tree_box.enrolling .header_border_big {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSize(160);
+            height: temSize(160);
+            margin: 0 auto;
+        }
+        // .grow_vegetables_tree_box.enrolling .header_box_big img{background:none;background-repeat:no-repeat;background-position:center center;background-size:100% 100%;width:temSize(160);height:temSize(160);margin:0 auto;}
+        .grow_vegetables_tree_box.enrolling .header_border_big {
+            margin: 0 auto;
+        }
+
+        &.microactivity-vegetables .preview .grow_vegetables_tree_box.enrolling .header_border_big {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSize(160);
+            height: temSize(160);
+            margin: 0 auto;
+        }
+        // 编辑表单页
+        .grow_vegetables_tree_box.editing .form_info_box .form_info_1 {
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSizebyEdit(460);
+            height: temSizebyEdit(120);
+            padding-top: temSizebyEdit(25);
+        }
+
+        .grow_vegetables_tree_box.editing .form_info_box .form_info_1 .form_info_1_text {
+            width: temSize(280);
+        }
+
+        .grow_vegetables_tree_box.enrolling {
+            background-image: none;
+        }
+
+        &.microactivity-vegetables .grow_vegetables_tree_box {
+            background: none;
+        }
+
+        &.microactivity-vegetables .preview .assistant_mask {
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            height: temSize(2016,$rate);
+            width: temSize(2016,$rate);
+            position: absolute;
+            left: 51%;
+            top: 0;
+            z-index: 199;
+            margin-left: temSize(-1020,$rate);
+            margin-top: temSize(-400,$rate);
+            animation: shining 1.5s linear 0.1s 1;
+            -webkit-animation: shining 1.5s linear 0.1s 1;
+            -webkit-transform: rotate(360deg);
+        }
+
+        &.microactivity-vegetables .preview .vegetables_box2Outer .item-ranking {
+            width: temSize(70,$rate);
+            height: temSize(70,$rate);
+            padding-left: 0;
+            background-size: temSize(70,$rate) !important;
+        }
+
+        &.microactivity-vegetables {
+            .preview{ 
+                .section2 {
+                    padding-top: temSize(50,$rate);
+                    padding-bottom: 0;
+                }
+                .section3 {
+                    padding-top: temSize(80,$rate);
+                    padding-bottom: 0;
+                }
+                .section4 {
+                    padding-top: temSize(80,$rate);
+                    padding-bottom: 0;
+                    background-size:100%;
+                }
+            }
+        }
+    }
+
+@keyframes shining {
+    0% {
+        -webkit-transform: rotate(0deg);
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    90% {
+        -webkit-transform: rotate(324deg);
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        background-color: rgba(0,0,0,1);
+    }
+}
+
+@-webkit-keyframes shining {
+    0% {
+        -webkit-transform: rotate(0deg);
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    90% {
+        -webkit-transform: rotate(324deg);
+        background-color: rgba(0,0,0,0.3);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+        background-color: rgba(0,0,0,1);
+    }
+}
+
+.self_left_btn {
+    float: left !important;
+}
+
+.self_right_btn {
+    float: right !important;
+}
+
+@mixin base($rate: 1) {
+    .sea_bg {
+        position: relative;
+        margin-top: temSize(84,$rate);
+    }
+
+    .sea_box {
+        position: relative;
+        height: temSize(120,$rate);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .sea_boxhead1 {
+        position: absolute;
+        left: temSize(8,$rate);
+        top: temSize(4,$rate);
+        width: temSize(90,$rate);
+        height: temSize(90,$rate);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        z-index: 2;
+
+        img, .header_border_big {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: none;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 100% 100%;
+            width: temSize(90,$rate);
+            height: temSize(90,$rate);
+            margin: 0 auto;
+        }
+    }
+
+    .sea_boxhead1bg {
+        position: absolute;
+        left: temSize(52,$rate);
+        top: temSize(15,$rate);
+        width: temSize(370,$rate);
+        height: temSize(70,$rate);
+        line-height: temSize(70,$rate);
+        font-size: temSize(24,$rate);
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    .sea_boxhead2 {
+        position: absolute;
+        right: temSize(100,$rate);
+        top: temSize(4,$rate);
+        width: temSize(90,$rate);
+        height: temSize(90,$rate);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        z-index: 2;
+    }
+
+    .sea_boxhead2bg {
+        position: absolute;
+        right: temSize(8,$rate);
+        top: temSize(15,$rate);
+        width: temSize(120,$rate);
+        height: temSize(70,$rate);
+        line-height: temSize(70,$rate);
+        text-align: center;
+        font-size: temSize(24,$rate);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+
+    .sea_intro {
+        width: temSize(580,$rate);
+        height: temSize(190,$rate);
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+        font-size: temSize(24,$rate);
+        padding: temSize(15,$rate);
+
+        .title {
+            width: temSize(400,$rate);
+            height: temSize(50,$rate);
+            line-height: temSize(50,$rate);
+            margin: 0 auto temSize(15,$rate);
+            text-align: center;
+        }
+
+        .desc {
+            width: temSize(480,$rate);
+            height: temSize(80,$rate);
+            margin: 0 auto;
+            text-align: center;
+        }
+    }
+}
+
+.assistant {
+    @include base($editrate);
+
+    .sea_intro {
+        .title {
+            margin: 0 auto temSize(10,$editrate);
+        }
+
+        .desc {
+            width: temSize(480,$editrate);
+            height: temSize(100,$editrate);
+            line-height: temSize(28,$rate);
+        }
+    }
+}
+
+.assistant .preview .vegetables_box3Outer .vegetables_box2_4 .item-content2 {
+    color: #fff;
+    font-size: temSize(24,$rate);
+
+    em {
+        color: #fff;
+        opacity: 0.4;
+    }
+}
+
+.assistant .preview .vegetables_box3Outer .item-text {
+    color: #fff;
+    font-size: temSize(20,$rate);
+    opacity: 0.4;
+}
+
+.assistant .preview {
+    @include base($rate);
+}
+
+.assistant.aquarium.microactivity-vegetables.xmas_bg {
+    position: relative;
+}
+
+.assistant_footer {
+    position: absolute;
+    height: 7rem;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background-size: 100% 100%;
+}
+
+.assistant .preview .grow_vegetables_btn_group1 {
+    height: temSize(120,$rate);
+    bottom: temSize(10,$rate);
+    top: initial;
+}
+
+.assistant .preview .grow_vegetables_btn_group1 .xmas_btn1_1, .assistant .preview .grow_vegetables_btn_group1 .xmas_btn1_2 {
+    height: temSize(120,$rate);
+}
+
+.assistant .vegetables_box2Outer {
+    overflow: hidden;
+
+    .assistant-ranking {
+        margin: 0 temSize(10,$rate) 0 temSize(5,$rate) !important;
+        width: temSize(70,$rate);
+        height: temSize(70,$rate);
+        line-height: temSize(72,$rate);
+        font-size: temSize(28,$rate);
+        text-align: center;
+        padding-left: temSize(4,$rate);
+    }
+
+    .assistant-pic {
+        margin-right: temSize(18,$rate);
+    }
+
+    .assistant-text {
+        font-size: temSize(24,$rate);
+        width: temSize(192,$rate);
+        text-align: right;
+        padding-right: temSize(48,$rate);
+        em {
+            font-size: temSize(32,$rate);
+        }
+
+        .assistant-text1 {
+            text-align: center;
+        }
+    }
+
+    .assistant-content {
+        width: temSize(150,$rate) !important;
+        font-size: temSize(24,$rate);
+    }
+
+    .assistant-pic {
+        width: temSize(60,$rate);
+        height: temSize(60,$rate);
+
+        img {
+            @include face-radius;
+            width: 100%;
+            height: 100%;
+            vertical-align: top;
+        }
+    }
+}
+
+.assistant .preview .vegetables_box2Outer .vegetables_box2_2 {
+    width: 100%;
+    height: temSize(130,$rate);
+    margin: temSize(-16,$rate) auto;
+    background: url("../img/grow_vegetable_2_bg1.png") $img-pozC;
+    @include background-size100;
+}
+
+.assistant .preview .vegetables_item:nth-last-child(2) {
+    background-size: 100% 100% !important;
+}
+
+.assistant .preview .vegetables_box2Outer .vegetables_box2_1.list_box_bg {
+    padding-bottom: temSize(100,$rate);
+}
+
+
+.catchFish_btn_group {
+    text-align: center;
+}
+/*双按钮*/
+.catchFish_btn1_1, .catchFish_btn1_2, .catchFish_btn1_3 {
+    width: temSize(260);
+    height: temSize(120);
+    font-size: temSize(28);
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.catchFish_btn1_1 {
+    padding-right: temSize(30);
+}
+/*单按钮*/
+.catchFish_btn1_3 {
+    width: temSize(300);
+    height: temSize(120);
+}
+
+/*===============================*/
+/*=图片上传功能新增修改 by 陈天宇*/
+/*===============================*/
+
+
+.microactivity-vegetables .vegetables_adjust{
+    position: absolute;
+    margin:0;
+    top:0;
+    left:50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    height: temSize(700, $rate);
+    padding: 0;
+    width: temSize(480, $rate);
+    border-radius: 0 0 temSize(16, $rate) temSize(16, $rate);
+}
+
+/*上传图片按钮样式*/
+.vegetables_uploadImg{
+    width:temSize(160, $rate);
+    height: temSize(60, $rate);
+    font-size: temSize(24, $rate);
+    color: #ff6622;
+    text-align: center;
+    line-height: temSize(60, $rate);
+    border-radius: temSize(27, $rate);
+    margin:0 auto;
+    margin-top: temSize(20, $rate);
+    background:#fff;
+    -webkit-box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+/*图片滚动区域ion-scroll*/
+.vegetables_contentWrap{
+    width: 100%;
+    height: 100%;
+    padding: 0 temSize(20, $rate);
+}
+.vegetables_contentWrap_imgWrap{
+   &:first-of-type{ margin-top: temSize(40, $rate);}
+   &:last-of-type{ padding-bottom: temSize(20, $rate);}
+    width:100%;
+    .vegetables_imgContent{
+        position:relative;
+        .imgDel{
+            position:absolute;
+            top:0;
+            right:0;
+            -webkit-transform: translateY(temSize(-10, $rate)) translateX(temSize(10, $rate));
+                    transform: translateY(temSize(-10, $rate)) translateX(temSize(10, $rate));
+            width:temSize(46, $rate);
+            height:temSize(46, $rate);
+            background:url("../img/vegetablr-imgs-del.png")no-repeat center center;
+            -webkit-background-size:100% 100%;
+                    background-size:100% 100%;
+        }
+        img{
+        width:100%;
+        height:auto;
+        margin-bottom: temSize(20, $rate);
+    }
+    }
+}
+//滚动区域块级格式化上下文修复
+.microactivity-vegetables .vegetables_box6Outer .vegetables_box_3 .vegetables_title1{
+ margin-top:0;
+ padding-top: temSize(26, $rate);
+}
+/*===============================*/
+/*=图文上传修改 by 陈天宇*/
+/*===============================*/
+.microactivity-vegetables .preview .vegetables_boxOuter .vegetables_box_4 .imgbox-upload{
+    &.imgbox-upload-h0{
+        height:auto;
+        .uploadimg{position: static;}
+        .uploadimg img{position: static;}
+    }
+}

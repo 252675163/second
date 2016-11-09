@@ -1,0 +1,19 @@
+<ion-view cache-view="false" >
+    <ion-content scroll="false" class="ion-content_patch" has-bouncing="false">
+        <div id="container">
+
+            <micro-site-preview-view site-model="siteModel"></micro-site-preview-view>
+            <div style="display:{{isBottom ? 'block':'none'}}" class="footer-copyright" bind-html="footer"></div>
+        </div>
+        <div class="btnGroup4">
+            <button type="button" class="btnG4_edit" ng-click="goToEdit()"><span>编辑</span></button>
+            <button type="button" class="btnG4_share" ng-click="goToPublish()"><span>分享</span></button>
+        </div>
+        <div class="foot-tab-bg hide-on-keyboard-open">
+            <a class="btn_about" ng-class="{'active': siteModel.currentPageIndex==0}" ng-click="pickPage(0)">{{siteModel.pages[0].pageName}}</a>
+            <a class="btn_show" ng-class="{'active': siteModel.currentPageIndex==1}" ng-click="pickPage(1)">{{siteModel.pages[1].pageName}}</a>
+            <a class="btn_course" ng-class="{'active': siteModel.currentPageIndex==2}" ng-click="pickPage(2)">{{siteModel.pages[2].pageName}}</a>
+        </div>
+    </ion-content>
+
+</ion-view>

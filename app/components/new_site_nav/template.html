@@ -1,0 +1,14 @@
+<!-- 锚点菜单 {-->
+<div class="newSite_menuOuter" ng-class="{'newSite_menuClosed':navData.isHideNavBox}">
+    <button type="button" class="newSite_menu_btn" ng-click="navData.isHideNavBox = !navData.isHideNavBox"></button>
+    <div class="newSite_menu_box" >
+        <span ng-click = "goAnchor(0)" ng-show="isUseableList[moduleElemnetId[0]]">首页</span>
+        <span ng-click = "goAnchor(1)" ng-show="isUseableList[moduleElemnetId[1]]">最新动态</span>
+        <span ng-click = "goAnchor(2)" ng-show="isUseableList[moduleElemnetId[2]]">机构介绍</span>
+        <span ng-click = "goAnchor(3)"  ng-show="isUseableList[moduleElemnetId[3]]">精品课程</span>
+        <span ng-click = "goAnchor(4)"  ng-show="isUseableList[moduleElemnetId[4]]">名师风采</span>
+        <span ng-click = "goAnchor(5)"  ng-show="isUseableList[moduleElemnetId[5]]">联系我们</span>
+        <span ng-click = "goAnchor(6)" ng-show="isUseableList[moduleElemnetId[6]]">二维码名片</span>
+    </div>
+</div>
+<!--} 锚点菜单 -->

@@ -1,0 +1,29 @@
+<div class="microposter2 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter2-by7">
+            <div class="poster2_box_top">
+                <div class="poster2_text_top"></div>
+                <div ng-if="!isEdit" class="poster1-title canShow" ng-bind-html="templateModel.description[0]|newlines|recogUrl"></div>
+                <!--<textarea ng-if="!isEdit"  new-custom-input class="poster1-title canShow" rows="2" type="text"
+                    ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>-->
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster1-title canEdit editBorder" rows="7"
+                    type="text" ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            </div>
+            <div class="title_box">
+                <textarea ng-if="!isEdit"   class="poster1-title canShow" rows="2" type="text"
+                    ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[1]}}" new-custom-input class="poster1-title canEdit editBorder" rows="2"
+                    type="text" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <div class="title_bg"></div>
+            </div>
+            <div class="poster2_box_bot">
+                <div class="poster2_text_bot"></div>
+                  <div ng-if="!isEdit" class="poster1-title canShow" ng-bind-html="templateModel.description[1]|newlines|recogUrl"></div>
+                <!--<textarea ng-if="!isEdit"  class="poster1-title canShow" rows="2" type="text"
+                    ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>-->
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster1-title canEdit editBorder" rows="7"
+                    type="text" ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            </div>
+        </div>
+    </div>
+</div>

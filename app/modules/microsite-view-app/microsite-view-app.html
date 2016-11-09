@@ -1,0 +1,15 @@
+<ion-view cache-view="false">
+    <ion-content  class="ion-content_patch" has-bouncing="false">
+        <div id="container">
+
+            <micro-site-view-view site-model="siteModel"></micro-site-view-view>
+            <div style="display:{{isBottom ? 'block':'none'}}" class="footer-copyright" bind-html="data.Footer"></div>
+        </div>
+        <div class="foot-tab-bg hide-on-keyboard-open ">
+            <a class="btn_about" ng-class="{'active': siteModel.currentPageIndex==0}" ng-click="pickPage(0)">{{siteModel.pages[0].pageName}}</a>
+            <a class="btn_show" ng-class="{'active': siteModel.currentPageIndex==1}" ng-click="pickPage(1)">{{siteModel.pages[1].pageName}}</a>
+            <a class="btn_course" ng-class="{'active': siteModel.currentPageIndex==2}" ng-click="pickPage(2)">{{siteModel.pages[2].pageName}}</a>
+        </div>
+    </ion-content>
+ 
+</ion-view>

@@ -1,0 +1,136 @@
+<div class="feedback-form">
+    <div class="lockMask"></div>
+
+    <!--举报界面-->
+    <div class="report-port" style="display:{{ ifShow=='report' ? 'block':'none'; }}">
+        <div style="display:{{ step==1 ? 'block':'none'; }}" class="report-box">
+            <div class="report-title"><span>请选择举报的原因</span></div>
+            <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+            <form class="report-selectbox-step1">
+                <ul>
+                    <li ng-repeat="reason in reportList">
+                        <label class="checkbox report-check">
+                                <input type="radio" checked="false" name="feedbackreason" ng-model="selectreason" ng-click="selectReason(reason)" value="{{reason.Id}}">
+                                <span>{{reason.reasonText}}</span>
+                        </label>
+                    </li>
+                </ul>
+            </form>
+            <div class="report-btnbox">
+                <button class="report-btn report-fullbtn" ng-click="gostep2()" ng-class="!selectreason?'report-btn-disabled':''" >下一步</button>
+            </div>
+        </div>
+        <div style="display:{{ step==2 ? 'block':'none'; }}" class="report-box">
+            <div class="report-title"><span>请填写详细信息</span></div>
+            <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+            <div class="report-selectbox-step2">
+                <div class="report-reason">
+                    <textarea name="" id="" cols="30" rows="10" maxlength="60" placeholder="请说明举报的详细原因，并上传违规页面截图。" ng-model="feedbackreason"></textarea>
+                    <div class="report-count">{{feedbackreason.length}}/60</div>
+                </div>
+                <div class="report-reason-img">
+
+                    <div class="report-upload-img-holder" ng-repeat="img in reportImgs">
+                        <div class="report-upload-img-del" ng-click="delteImg(img)"></div>
+                        <div class="report-reason-img-box">
+                            <img ng-src="{{img}}" class="report-upload-img-img">
+                        </div>
+                    </div>
+                    <div class="report-upload-img-holder" ng-click="uploadImg()" ng-show="reportImgs.length<1">
+                        <img ng-src="{{placeimg}}" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="report-phonebox">
+                <input class="report-phoneboxinput" type="tel" placeholder="手机号  （选填，方便工作人员联系你）" ng-model="feedbackphone">
+            </div>
+            <div class="report-btnbox">
+                <button ng-click="gostep1()" class="report-btn report-halfbtn report-laststep">上一步</button>
+                <button class="report-btn report-halfbtn" ng-click="confirm(1)" ng-class="!feedbackreason.length?'report-btn-disabled':(ifsubmit?'report-btn-disabled':'')"
+                    ng-disabled="!feedbackreason.length||ifsubmit">提交</button>
+            </div>
+        </div>
+        <div style="display:{{ step==3 ? 'block':'none'; }}" class="report-box report-box-step3">
+            <div class="report-success-img"></div>
+            <div class="report-success">提交成功</div>
+            <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+            <div class="report-qrcode">
+                <img ng-src="{{logourl}}" alt="" isstopmove="false">
+            </div>
+            <div class="report-invitetips">想要第一时间获取处理进度?<br>长按扫码关注即可</div>
+        </div>
+    </div>
+    <!--申请解冻界面  refreze-->
+    <div class="report-port" style="display:{{ ifShow=='refreze' ? 'block':'none'; }}">
+        <div style="display:{{ step==1 ? 'block':'none'; }}" class="report-box">
+                <div class="report-title"><span>解冻申请</span></div>
+                <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+                <div class="frezereason">
+                    <span class="freze-title">冻结原因</span>
+                    <div class="freze-reason-text">{{frezeinfo.Details}}</div>
+                </div>
+                <div class="frezetime">
+                    <span class="freze-title">冻结时间</span>
+                    <div class="freze-reason-text">{{frezetime|formatJsonDate:'yyyy年MM月dd日HH时mm分'}}</div>
+                </div>
+                <div class="report-reason">
+                    <textarea name="" id="" cols="30" rows="10" maxlength="60" placeholder="申诉理由（建议：根据冻结原因调整模板内容后进行解冻申请）" ng-model="feedbackreason"></textarea>
+                    <div class="report-count">{{feedbackreason.length}}/60</div>
+                </div>
+                <div class="report-phonebox">
+                    <input class="report-phoneboxinput" type="tel" placeholder="手机号  （选填，方便工作人员联系你）" ng-model="feedbackphone">
+                </div>
+                <div class="report-btnbox">
+                    <button class="report-btn report-fullbtn" ng-click="confirm(2)" ng-class="!feedbackreason.length?'report-btn-disabled':(ifsubmit?'report-btn-disabled':'')" ng-disabled="!feedbackreason.length||ifsubmit">提交</button>
+                </div>
+        </div>
+        <div style="display:{{ step==3 ? 'block':'none'; }}">
+            <div class="report-title"><span>申诉提示</span></div>
+            <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+            <div class="frezereason">
+                <div class="freze-reason-text">您的场景涉嫌违规，请调整场景内容，联系客服人员进行解冻申请，感谢您对校宝秀团队工作的理解与支持。</div>
+            </div>
+            <div class="report-btnbox">
+                <button class="report-btn report-fullbtn" ng-click="closeReport()"> 知道了</button>
+            </div>
+        </div>
+    </div>
+
+    <!--建议意见 advice-->
+    <div class="report-port" style="display:{{ ifShow=='advice' ? 'block':'none'; }}">
+        <div style="display:{{ step==1 ? 'block':'none'; }}" class="report-box">
+            <div class="report-title"><span>反馈建议</span></div>
+            <div ng-click="closeReport()" class="feedback-btn-closed"></div>
+            <div class="report-reason advice-reason">
+                <textarea name="" id="" cols="30" rows="10" maxlength="100" placeholder="请简要描述你的反馈建议，可上传截图。如果是产品使用上的疑问，请直接回复校宝秀公众号获取客服帮助。"  ng-model="feedbackreason"></textarea>
+                <div class="report-count">{{feedbackreason.length}}/100</div>
+            </div>
+            <div class="report-reason-img advice-img">
+                <div class="report-upload-img-holder" ng-repeat="img in reportImgs">
+                    <div class="report-upload-img-del" ng-click="delteImg(img)"></div>
+                    <div class="report-reason-img-box">
+                        <img ng-src="{{img}}" class="report-upload-img-img">
+                    </div>
+                </div>
+                <div class="report-upload-img-holder" ng-click="uploadImg()" ng-show="reportImgs.length<1">
+                    <img ng-src="{{placeimg}}" />
+                </div>
+
+            </div>
+            <div class="report-phonebox">
+                <input class="report-phoneboxinput" type="tel" placeholder="手机号  （选填，方便工作人员联系你）" ng-model="feedbackphone">
+            </div>
+            <div class="report-btnbox">
+                <button class="report-btn report-fullbtn" ng-click="confirm(3)" ng-class="!feedbackreason.length?'report-btn-disabled':(ifsubmit?'report-btn-disabled':'')" ng-disabled="!feedbackreason.length||ifsubmit">提交</button>
+            </div>
+        </div>
+    </div>
+    <div style="display:{{ ifShow!='report' ? 'block':'none'; }}" class="report-port report-port-little">
+        <div style="display:{{ step==2 ? 'block':'none'; }}" class="refrezebox">
+            <div class="refreze-success-img"></div>
+            <div class="refreze-success">提交成功!</div>
+            <div class="refreze-success-sub">3秒后自动跳转</div>
+        </div>
+    </div>
+</div>

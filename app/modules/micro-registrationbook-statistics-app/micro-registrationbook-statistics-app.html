@@ -1,0 +1,56 @@
+<ion-view class=" consultbookbg background_gray">
+    <div style="position: absolute;width: 100%;">
+        <div class="nav-top-tabs" ng-hide="showBannerNone">
+            <div class="nav-tab mar-lr-20" ng-click="goAllList()">咨询</div>
+            <div class="nav-tab mar-lr-20 active-blue" ng-click="">日程</div>
+<!--            <em class="item-tabs-icon ng-hide" ng-show="newUserNum>0" ng-bind="newUserNum>999?'999+':newUserNum"></em>-->
+        </div>
+    </div>
+
+    <div class="filter_input_box background_gray statistics_search">
+        <div class="filter_input filter_input_290">
+            <div class="filter_input_text">2016年1月</div>
+            <div class="filter_input_arrow"></div>
+        </div>
+        <div class="filter_input filter_input_290">
+            <div class="filter_input_text">西湖区</div>
+            <div class="filter_input_arrow"></div>
+        </div>
+    </div>
+    <ion-content has-bouncing="false" class="statistics-scroll font-body2">
+
+        <div class="cards margin-lr-20 border-radius-20 consultbook_detail_cards consultbook_detail_cards2">
+            <div class="cards-header border-b-1 pad-lr-20 text-center">销售漏斗图</div>
+            <div class="cards-body">
+                <div class="sales-data-wrap">
+                    <span class="sales-data"><p>咨询量</p><em>{{selectedData.registrationDate}}</em></span>
+                    <span class="sales-data"><p>转化率</p><em>{{selectedData.transferData}}</em></span>
+                </div>
+                <div class="funnel-wrap">
+                    <div class="funnel-item fun-width1"></div>
+                    <div class="funnel-item fun-width2"></div>
+                    <div class="funnel-item fun-width3"></div>
+                    <div class="funnel-item fun-width4"></div>
+                    <div class="funnel-item fun-width5"></div>
+                    <div class="regis-type">
+                        <div class="regis-item" ng-repeat="data in saleData" ng-click="chooseSaleData(data)">{{data.name}}<span class="right-arrow" ng-show="data.selected"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards margin-lr-20 border-radius-20 consultbook_detail_cards consultbook_detail_cards2">
+            <div class="cards-header border-b-1 pad-lr-20 text-center">销售漏斗图</div>
+            <div class="cards-body line_body" id="main">
+            </div>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs">
+        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+
+        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+    </ion-footer-bar>
+</ion-view>

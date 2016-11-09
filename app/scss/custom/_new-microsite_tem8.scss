@@ -1,0 +1,224 @@
+﻿@charset "utf-8";
+//新微官网模板  皮克斯动画培训学校 by weijun 20151216{
+
+.newSite_tem8{
+    &.newSite_Outer{background:#fff;}//定义背景色
+
+//定义标题、按钮、icon基础样式 {
+  .newSite_title_box{width:100%;height:temSize(322);line-height:temSize(360);font-size:temSize(59); text-align:center; color:#fff;
+        span{@include text-shadow-base(0 temSize(4) temSize(10) rgba(4,0,0,.4));}
+  }
+  .newSite_btn_normol{background:#e1473d; @include border-radius-basic(3px); text-align:center; border:none; color:#fff;}
+  .newSite_item-button-right,.newSite_course_listItem .item-button-right,.newSite_aboutUs_listItem .item-divider{padding-right:temSize(240);
+     .newSite_btn_normol{width:temSize(160);height:temSize(50);line-height:temSize(50);font-size:temSize(24); position:absolute; right:temSize(40); top:50%; margin-top:temSize(-25);}
+  }
+  .item{padding-left:temSize(40);}
+  .icon_local:before,.icon_phone:before{content:"";width:temSize(28);height:temSize(34); display:block;}
+  .icon_local:before{background:url("../img/newSite_tem1_icon2.png") $img-pozC;@include background-size100; }
+  .icon_phone:before{background:url("../img/newSite_tem1_icon3.png") $img-pozC;@include background-size100; }
+//} 定义标题、按钮、icon基础样式 
+
+//定义封面样式 {
+  .newSite_cover_Outer{width:100%;min-height:temSize(480);padding:temSize(45) temSize(90) temSize(20);text-align:center; line-height:1.5; color:#fff;
+     .newSite_Org_logo{width:temSize(152); height:temSize(152);margin:0 auto temSize(53);@include box-shadow-base(0 0 0 temSize(4) rgba(0,0,0,0.2));
+        img{width:temSize(152);height:temSize(152);}
+     }
+     .newSite_Org_name{font-size:temSize(48);}
+     .newSite_Org_slogan{font-size:temSize(24); color:#ed362a; margin-top:temSize(4);}
+  }
+//} 定义封面样式 
+//定义动态样式 {
+  .newSite_news_list{width:100%;min-height:temSize(150);padding:0 temSize(20) 0 temSize(100); position:relative;   
+    .newSite_news_listItem{@include item_patch1;@include item_patch2; padding-bottom:temSize(80);margin-top:temSize(-40);
+	    &:first-child{margin-top:temSize(40);}	  
+        &:before{content:""; width:1px; top:temSize(80); left:temSize(-40); bottom:0; background:rgba(225,71,61,.8); position: absolute;}
+	    .newSite_news_listIcon{width:temSize(22);height:temSize(22);background:url("../img/newSite_tem8_icon1.png") $img-pozC;@include background-size100; position:absolute;left:temSize(-50);top:temSize(48); }
+        p{font-size:temSize(20); color:#e1473d; font-weight: bold; }
+        h2{@include item_patch1; font-size:temSize(24); color:#666; line-height: 1.5;}
+        .newSite_news_list_pic{
+            li{margin:temSize(8) temSize(8) 0 0;width:temSize(160);height:temSize(160);float:left; background:#000; overflow:hidden;
+            }
+            li:only-child {width:temSize(492);height:temSize(369);
+            }
+        }
+    }
+  }
+//}定义动态样式
+//定义机构介绍样式 {
+  .newSite_orgInfo_Outer{ background:#f6f6f6;
+    .newSite_title_box{background:url("../img/newSite_tem8_bg3.jpg") $img-pozC;@include background-size100;}
+    .newSite_orgInfo_content{
+        .newSite_orgInfo_text_box{padding:temSize(50) temSize(40) 0;font-size:temSize(26); line-height:1.5;}
+        .newSite_orgInfo_pic_box{width:100%; padding:temSize(100) 0; height:temSize(682); background:url("../img/newSite_tem8_bg7.png") $img-pozC;@include background-size-s1;position: relative;
+            &:before{content:"";width:100%; height:temSize(537);background:url("../img/newSite_tem8_bg8.png") $img-pozC;@include background-size-s3; position:absolute; top:temSize(100); left:0; z-index:2;}
+            li{width:temSize(318); height:temSize(318); background:none; overflow:hidden; position: absolute;
+              &:nth-child(1){left: temSize(161); top:temSize(100);}
+			  &:nth-child(2){left: temSize(-7);top:temSize(263);}
+		      &:nth-child(3){left:temSize(329);top:temSize(264);}
+			  &:nth-child(4){left:temSize(-174); top:temSize(100);}		
+			  &:nth-child(5){left:temSize(493); top:temSize(98);}    
+              &:nth-child(n+6){display:none;}          		 
+			  img{ display:block;overflow: hidden;width:100%; height:100%; background:#e1473d; -webkit-mask-image: url(../img/newSite_tem8_bg6.png);-webkit-mask-size:100% 100%;}
+			}
+
+        }
+    }
+  }
+//} 定义机构介绍样式 
+//定义精品课程样式 {
+  .newSite_course_Outer{ background:#f6f6f6;
+    .newSite_title_box{background:url("../img/newSite_tem8_bg4.jpg") $img-pozC;@include background-size100;}
+    .newSite_course_list{
+        .newSite_course_listItem{
+		&:first-child .item-divider{padding-top:0; border-top:none;}
+            .item{@include item_patch1;background:#f6f6f6;font-size:temSize(24); @include opacity-base($opacity:100); @include transition-s1;
+			   h2{font-size:temSize(24); font-weight:bold;}
+                p{@include item_patch1;color:#888; min-height:temSize(60);font-size:temSize(24);}
+            }
+            .item-divider{background:#fff;font-size:temSize(28); padding-top:temSize(20);padding-bottom:temSize(20);
+                .ion-ios-arrow-down,.ion-ios-arrow-up{font-size:temSize(40);}
+                .ion-ios-arrow-down:before,.ion-ios-arrow-up:before{color:#aaa;}
+            }
+            .ng-hide{
+                .item{@include opacity-base($opacity:0);}
+            }
+        }
+    }
+  }
+//} 定义精品课程样式 
+//定义名师风采样式 {
+  .newSite_teacher_Outer{ background:#f6f6f6;
+    .newSite_title_box{background:url("../img/newSite_tem8_bg3.jpg") $img-pozC;@include background-size100;margin-top: temSize(20);}
+    .newSite_teacher_list{padding-bottom:temSize(30); width:temSize(560); margin:0 auto;
+        .newSite_teacher_listItem{@include item_patch1;@include item_patch2; padding:temSize(40) 0 0 temSize(160); min-height:temSize(180); background:#f6f6f6;
+            &> img:first-child{max-width:temSize(140); max-height:temSize(140); top:temSize(40); left:0;}
+            h2{font-size:temSize(28);margin-bottom:temSize(15);
+               &:before{content:"";width:temSize(22);height:temSize(22);background:url("../img/newSite_tem8_icon1.png") $img-pozC;@include background-size100; display:inline-block; margin-right:temSize(20);}
+            }
+            p{@include item_patch1; font-size:temSize(24); color:#888; line-height:1.3;}
+        }
+    }
+
+  }
+//} 定义名师风采样式
+//定义联系我们样式 {
+  .newSite_aboutUs_Outer{ background:#f6f6f6;
+    .newSite_title_box{background:url("../img/newSite_tem8_bg4.jpg") $img-pozC;@include background-size100;}
+    .newSite_aboutUs_list{
+        .newSite_aboutUs_listItem{
+            .item{@include item_patch1;font-size:temSize(24); color:#888;                 
+            }
+            .item-divider{background:#f6f6f6;padding-top:temSize(20);padding-bottom:temSize(20);color:#333;}
+            .item-icon-right{                 
+                 .ion-ios-arrow-right:before{color:#ccc;font-size:temSize(40);}
+            }
+            .item-icon-left{padding-left:temSize(88);
+                .icon_local,.icon_phone{left:temSize(40);}
+            } 
+            .item-icon-right{padding-right:temSize(140);}
+            .newSite_item-note{font-size:temSize(20); color:#ccc; position:absolute; right:temSize(80);height:temSize(24); line-height:temSize(24); top:50%; margin-top:temSize(-12);}			
+        }
+    }
+  }
+//} 定义联系我们样式 
+
+  //定义二维码样式 {
+   .newSite_qrCode_Outer{padding:temSize(60) 0 temSize(60); background:url("../img/newSite_tem8_bg5.jpg") $img-pozC;@include background-size100;
+    .newSite_qrCode{width:temSize(580); margin:0 auto;padding:temSize(80) 0 temSize(40); text-align:center;
+        .newSite_Org_name{font-size:temSize(50); margin-bottom:temSize(45); color:#fff;}
+        .newSite_Org_tel{font-size:temSize(24); margin-bottom:temSize(72);
+            .icon_phone:before{vertical-align:middle; display:inline-block; margin-right:temSize(20);}
+            a{color:#fff;}
+        }
+        .newSite_qrCode_box{width:temSize(500); margin:0 auto temSize(36); position:relative;
+            .qrcode_logo{position:absolute; top:50%; left:50%;width:temSize(110); height:temSize(110); margin:temSize(-55) 0 0 temSize(-55); -webkit-box-shadow:0px 0px 0px temSize(4) rgba(0,0,0,0.2); box-shadow:0px 0px 0px temSize(4) rgba(0,0,0,0.2);
+                img{width:100%; height:100%;}
+            }
+            .qrcode{width:temSize(500); height:temSize(500);
+                img{width:100%; height:100%;}
+            }                
+        }
+        .newSite_qrCode_text{font-size:temSize(24);color:#fff;}
+
+    }
+  }
+//} 定义二维码样式 
+
+//锚点菜单 {
+  .newSite_menuOuter{
+      .newSite_menu_btn{ width:temSize(151); height:temSize(151);background:url("../img/newSite_tem8_icon2.png") $img-pozC;@include background-size100; position:absolute; bottom:temSize(40); right:temSize(6); z-index:6;
+        &:before{content:"导航"; color:#fff;}
+	  }
+      .newSite_menu_box{@include border-radius-basic(3px);width:temSize(160); position:absolute; bottom:temSize(164); right:1px; z-index:5; @include  transition-base(all .5s ease-in-out); @include opacity-base($opacity:100);	        
+            span{display:block; position:relative;width:temSize(160); height:temSize(88);padding: 0 temSize(48) temSize(24);line-height: 1.2;font-size:temSize(24);color:#fff; text-align:center;@include  transition-base(all .5s ease-in-out);
+                &:first-child{border-top:none; padding-top: temSize(16);}				
+				&:before{content:"";display:block; width:temSize(80); height:temSize(80); background:#e1473d; position: absolute; right:temSize(40); top:temSize(-10); z-index:-1;@include transform-rotate(45deg);}
+                &:last-child{padding: temSize(8) temSize(35) temSize(24);}
+            }
+      }
+  }
+  .newSite_menuClosed{
+      .newSite_menu_box{@include opacity-base($opacity:0);
+        span{display:none;}
+      }
+  }
+  
+//} 锚点菜单 
+
+//遮罩-预约报名 {
+.newSite_PopupForm{position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: 100%; height: 100%; z-index: 7;
+    &:before{content:"";position:absolute; @include mask-base; @include opacity-base;}
+    .newSite_PopupOuter{background:#fff; @include border-radius-basic(5px); @include box-shadow-base(0 temSize(3) temSize(10) rgba(4,0,0,.4)); left:temSize(40); right:temSize(40); position: absolute; height:temSize(820); top:50%; margin-top:temSize(-410);
+    .newSite_Popup_closed{width:temSize(116); height:temSize(116);background:url("../img/icon5.png") no-repeat temSize(40) center;@include background-size(temSize(36),temSize(36)); position: absolute;top:temSize(-116); right:temSize(-40);}
+    }
+    .newSite_Popup_content{padding:temSize(80) temSize(40) 0;
+        .newSite_Popup_title{ font-size:temSize(60); text-align:center; margin:0 auto temSize(60);}
+        .newSite_Popup_text,.newSite_Popup_select{width:100%;height:temSize(80);@include border-radius-basic(5px); border:#ccc 1px solid;@extend .transparencyTextBox;font-size:temSize(28);}
+        .newSite_Popup_text{margin-bottom:temSize(40); text-align:center; padding:0 temSize(20);background:#eee;}
+        .newSite_Popup_select{-webkit-appearance:none;margin-bottom:temSize(55); padding:0 temSize(60) 0 temSize(20); background:url("../img/newSite_tem1_icon5.png") no-repeat temSize(435) center;@include background-size(temSize(16),temSize(12));}
+        .newSite_Popup_submit{width:100%;height:temSize(120);@include border-radius-basic(5px); background:#e1473d; color:#fff; line-height:temSize(120); text-align:center; font-size:temSize(36);}
+    }
+
+}
+//} 遮罩-预约报名 
+
+
+
+  //媒体查询写在这使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603    
+ } 
+   
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+        .newSite_PopupForm .newSite_Popup_content .newSite_Popup_select{background-position:temSize(490) center;}
+        .newSite_orgInfo_Outer .newSite_orgInfo_content .newSite_orgInfo_pic_box{background:url("../img/newSite_tem8_bg7_2.png") $img-pozC;@include background-size(auto,70%);
+            li{
+                &:nth-child(1){left: 4.73rem;}
+			    &:nth-child(2){left: 0.57rem;}
+		        &:nth-child(3){left: 8.93rem;}
+			    &:nth-child(4){left: -3.54rem;}		
+			    &:nth-child(5){left: 13rem;}    
+            }
+         }
+ }
+
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+     .newSite_PopupForm .newSite_Popup_content .newSite_Popup_select{background-position:temSize(572) center;}
+     .newSite_menuOuter .newSite_menu_box span{height: 2.4rem; padding: 0 1.2rem 0.6rem;
+        &:before{top: -0.15rem;}
+     }
+     .newSite_news_list .newSite_news_listItem .newSite_news_list_pic{width: 14.5rem;}
+     .newSite_orgInfo_Outer .newSite_orgInfo_content .newSite_orgInfo_pic_box{background:url("../img/newSite_tem8_bg7_2.png") $img-pozC;@include background-size(auto,70%);
+        li{
+            &:nth-child(1){left: 5.73rem;}
+			&:nth-child(2){left: 1.57rem;}
+		    &:nth-child(3){left: 9.93rem;}
+			&:nth-child(4){left: -2.64rem;}		
+			&:nth-child(5){left: 14rem;}    
+        }
+     }
+     
+ }
+   
+}

@@ -1,0 +1,40 @@
+<!-- page 3  排行榜 {-->
+<div class="microactivity-vegetables bgPan assistant" ng-hide="rankList.length==0">
+    <div ng-class="{'preview':!isEdit}">
+        <div class="vegetables_bg2 section4" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')'}">
+            <div class="vegetables_box2Outer">
+                <div class="vegetables_box2_1 list">
+                    <div class="vegetables_item first_item clearfix" ng-style="{'background-image': 'url(' + getImageDoMain('/ladder_header.png')+ ')','color':templateModel.restTextColor}">
+                        <div ng-hide="userType=='old'">
+                            <span class="item-ranking assistant-ranking">{{userInfo.rank}}</span>
+                            <span class="item-pic assistant-pic"><img ng-src="{{userInfo.headImg||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}"></span>
+                            <span class="item-content assistant-content">{{userInfo.name}}</span>
+                            <span class="item-text assistant-text">
+                                <em>{{userInfo.grassCount}}</em>
+                                <span class="assistant-text1" ng-model="templateModel.unit" readonly="readonly" ng-bind-html="templateModel.unit|newlines"></span>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="vegetables_box2_2" ng-style="{'background-image': 'url(' + getImageDoMain('/ladder_title.png')+ ')'}">
+
+                    <span class="ranking_arrow_left"></span>
+                    <span class="ranking_arrow_right"></span>
+                </div>
+                <div class="vegetables_box2_1 list list_box_bg" ng-style="{'background-image': 'url(' + getImageDoMain('/ladder_bottom.png')+ ')'}">
+                    <div class="vegetables_item" ng-repeat="rank in rankList" ng-style="{'background-image':rankList.length-$index<=1?'':'url(' + getImageDoMain('/ladder_body.png')+ ')','color':templateModel.restTextColor}">
+                        <span class="item-ranking assistant-ranking" ng-class="{'ranking_bg1': $index==0,'ranking_bg2': $index==1,'ranking_bg3': $index==2}" ng-style="{'color':$index<=2?templateModel.topThreeTextColor:templateModel.restTextColor,'background-image':'url(' + getImageDoMain($index==0?'/crown_1.png':$index==1?'/crown_2.png':$index==2?'/crown_3.png':'')+ ')'}">{{$index+1}}</span>
+                        <span class="item-pic assistantm-pic"><img ng-src="{{rank.HeadImg||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}"></span>
+                        <span class="item-content assistant-content">{{rank.Name}}</span>
+                        <span class="item-text assistant-text">
+                            <em>{{rank.Score}}</em>
+                            <span class="assistant-text1" ng-model="templateModel.unit" readonly="readonly" ng-bind-html="templateModel.unit|newlines"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} page 3-->

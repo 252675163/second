@@ -1,0 +1,19 @@
+<ion-view cache-view="false">
+    <div class=" bar bar-header bar-light" style=" height: 1.75rem; z-index:1;">
+        <div class="tabs active_index_Hbox2">
+            <a class="tab-item active" ng-class="{'active':imgTag==1 }" ng-click="changeImgTag(1)" >风景</a>
+            <a class="tab-item"  ng-class="{'active':imgTag==2}" ng-click="changeImgTag(2)">人物</a>
+            <a class="tab-item"  ng-class="{'active':imgTag==3}" ng-click="changeImgTag(3)">卡通</a>
+            <a class="tab-item"  ng-class="{'active':imgTag==4 }" ng-click="changeImgTag(4)">节日</a>
+        </div>
+    </div>
+    <ion-content class="temp-add-wrap" style="z-index:1;" has-bouncing="false">
+        <ion-list>
+            <ion-item ng-click="savePic(back)" class="temp-add-item" ng-repeat="back in backs">
+                <img ng-src="{{back.ThumbnailUrl}}">
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

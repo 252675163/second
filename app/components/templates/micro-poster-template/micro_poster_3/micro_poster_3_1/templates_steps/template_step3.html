@@ -1,0 +1,15 @@
+<div class="poster3-step3">
+    <div class="topbg"></div>
+    <div class="namebox">
+        <input class="poster3-namebox inputtext" placeholder="你的姓名" ng-model="userinfo.name" maxlength="8" change-placeholder-by-focus isdiff="true" />
+    </div>
+    <div class="phonebox">
+        <input class="poster3-phonebox inputtext" placeholder="你的手机号" ng-model="userinfo.phone" type="tel" maxlength="11" change-placeholder-by-focus/>
+    </div>
+    <div class="contentbox">
+        <textarea class="poster3-contentbox inputtext inputarea" placeholder="你想对老师说的话"  ng-model="userinfo.description" maxlength="128" change-placeholder-by-focus rows="3" cols="32"></textarea>
+    </div>
+    <div class="btn-box">
+        <div class="send-btn" ng-click="sendpray()"></div>
+    </div>
+</div>

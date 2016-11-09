@@ -1,0 +1,27 @@
+
+<div class="paneabird1" ng-class="{'maxbox':!isEdit}">
+
+    <div class="temp2_bg_Img">
+        <div class="temp2_theme">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.theme" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.theme" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+
+        <div class="temp2_box1">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.title1" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.title1" ng-trim="false" custom-input readonly="readonly" />
+
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="temp2Text" disabled="disabled" ng-model="templateModel.content1"></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length scroll-top-by-blur class="temp2TextEdit" ng-model="templateModel.content1" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+
+        <div class="temp2_box2">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.title2" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.title2" ng-trim="false" custom-input readonly="readonly" />
+
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="temp2Text" disabled="disabled" ng-model="templateModel.content2"></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length scroll-top-by-blur class="temp2TextEdit" ng-model="templateModel.content2" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+
+    </div>
+</div>

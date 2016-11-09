@@ -1,0 +1,189 @@
+﻿@charset "utf-8";
+//微传单第一套
+.microleaflet1,.microleaflet2,.microleaflet3,.microleaflet4{height: 100%;padding-top:0;position:relative;
+   .editBorder{border-color:#1f4d51;}
+   textarea{overflow-y:hidden;}
+}
+.microleaflet1.leafletbg1{background: url("../img/leaflet_bg1.jpg") $img-pozC;@include background-size-cover;}
+.microleaflet1.leafletbg2{background: url("../img/leaflet_bg2.jpg") $img-pozC;@include background-size-cover;}
+.microleaflet1.leafletbg3{background: url("../img/leaflet_bg3.jpg") $img-pozC;@include background-size-cover;}
+
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+ //下载页
+    .download_pop{width:100%;height:100%;left:0;top:0;position:absolute;
+        .lockMask{opacity:0.8;background-color:#333;}
+        .download-loading{background: url("../img/loading_download.gif") $img-pozC;@include background-size100;position:absolute;left:50%;top:50%;@include box-shadow-base(2px 0 10px rgba(0,0,0,0.3));}
+        .download_pop_content{background: url("../img/leaflet_bg5.jpg") $img-pozC;@include background-size100;position:absolute;left:50%;z-index:130;position:relative;
+            .download_pop_title{background:url("../img/leaflet_smallbg4.png") $img-pozC;@include background-size100;margin:0 auto;color:#c8eef1;text-align:center;}
+            .download_pop_front,.download_pop_back{@include box-shadow-base(0 0 15px rgba(48,50,50,0.8));
+              img{width:100%;height:100%;}
+            }
+             p{color:#333;text-align:center;}
+      .download_pop_close{position:absolute;background:url("../img/leaflet_close.png") $img-pozC;@include background-size100;}
+        }
+}
+        //下载页
+     .download_pop{
+        .download_pop_content{width:temSize(540,1);height:temSize(820,1);margin-left:temSize(-270,1);top:50%;margin-top:temSize(-410,1);
+          .download_pop_title{width:temSize(263,1);height:temSize(75,1);font-size:temSize(30,1);line-height:temSize(75,1);}
+          .download_pop_front,.download_pop_back{width:temSize(225,1);height:temSize(320,1);margin:0 auto;}
+          .download_pop_front{margin-top:temSize(10,1);margin-bottom:temSize(30,1);}
+          p{font-size:temSize(24,1);margin-top:temSize(15,1);}
+          .download_pop_close{width:temSize(42,1);height:temSize(42,1);right:temSize(15,1);top:temSize(15,1);}
+        }
+        .download-loading{width:temSize(240,1);height:temSize(240,1);margin-left:temSize(-120,1);margin-top:temSize(-120,1);border-radius:temSize(40,1);z-index:130;}
+    }
+//预览正反两页样式
+@mixin view-base($rate:1) {
+ 
+  //与数值相关的样式写这里：
+  //正面
+    .microleaflet1_frontOuter{
+      .microleaflet1_front_content{width:temSize(545,$rate);height:temSize(780,$rate);padding-top:temSize(330,$rate);
+        .front_img{width:temSize(80,$rate);height:temSize(80,$rate);}
+        .front_text1{font-size:temSize(52,$rate);margin:temSize(15,$rate) auto temSize(30,$rate) auto;}
+        .front_text2{font-size:temSize(26,$rate);margin:0 auto temSize(20,$rate) auto}
+        .front_img2{width:temSize(130,$rate);height:temSize(130,$rate);border-radius:temSize(10,$rate);padding:temSize(13,$rate);}
+        .front_tip{font-size:temSize(18,$rate);}
+      }
+      .microleaflet1_front_content2{height:temSize(305,$rate);
+         .front_text3Outer,.front_text4Outer{width:temSize(264,$rate);height:temSize(167,$rate);top:temSize(80,$rate);padding:temSize(15,$rate) temSize(15,$rate) temSize(25,$rate);
+           p{font-size:temSize(26,$rate);}
+         }
+        .front_text3Outer{left:temSize(25,$rate);}
+        .front_text4Outer{right:temSize(25,$rate);}
+        .front_text3,.front_text4{font-size:temSize(18,$rate);}
+      }
+      .microleaflet1_front_girl{width:temSize(103,$rate);height:temSize(148,$rate);bottom:temSize(305,$rate);left:temSize(15,$rate);}
+  }
+    //反面
+    .microleaflet1_backOuter{padding-top:temSize(55,$rate);
+     .back_title{font-size:temSize(54,$rate);margin-bottom:temSize(20,$rate);}
+      .microleaflet1_back_content{width:temSize(617,$rate);height:temSize(878,$rate);
+        .back_text1title,.back_text2title,.back_text3title{width:temSize(179,$rate);height:temSize(52,$rate);top:temSize(-52,$rate);font-size:temSize(24,$rate);line-height:temSize(50,$rate);left:50%;margin-left:temSize(-90,$rate);}
+        .back_text1,.back_text2,.back_text3{font-size:temSize(12,$rate);}
+        .back_text3{font-size:temSize(20,$rate);}
+        .back_text1Outer{width:temSize(240,$rate);left:temSize(125,$rate);top:temSize(223,$rate);height:temSize(140,$rate);}
+        .back_text2Outer{width:temSize(260,$rate);right:temSize(60,$rate);top:temSize(446,$rate);height:temSize(140,$rate);}
+        .back_text3Outer{width:temSize(240,$rate);left:temSize(125,$rate);top:temSize(670,$rate);height:temSize(140,$rate);}
+      }
+  }
+}
+//编辑正反两页样式 ,设计稿给出的就是编辑时的设计，按1来写
+
+@mixin edit-base($rate:1) {
+  //与数值相关的样式写这里：
+  .front_editOuter{height:temSize(1000,$rate);font-size:temSize(28,$rate);padding:0 temSize(35,$rate);
+     .front_edit_title{width:temSize(263,$rate);height:temSize(75,$rate);font-size:temSize(30,$rate);line-height:temSize(75,$rate);}
+     .front_edit_text1{right:0;width:temSize(320,$rate);}
+     .front_edit_box1{margin-top:temSize(30,$rate);}
+     .front_edit_box2,.front_edit_box3,.front_edit_box4{margin-top:temSize(20,$rate);}
+     .front_edit_img{width:temSize(140,$rate);height:temSize(140,$rate);margin:temSize(20,$rate) auto;}
+
+     .front_edit2_box2,.front_edit2_box3,.front_edit2_box4{margin-top:temSize(20,$rate);}
+     .front_edit2_text2,.front_edit2_text3{font-size:temSize(20,$rate);}
+  }
+}
+//表单页样式
+@mixin form-base($rate:1) {
+ 
+  //与数值相关的样式写这里：
+  //报名页
+  .microleaflet1_form{padding-top: temSize(135, $rate);
+    .acty22_hand{height: temSize(180, $rate);width: temSize(98, $rate);margin-left:temSize(-49, $rate);}
+    .acty22_mask{margin: 0 auto;background: black;opacity: 0.5;width: temSize(552, $rate);height: temSize(822, $rate);border-radius: temSize(5, $rate);}
+    .acty22_box1Outer{width: 100%;height: temSize(822, $rate);position: absolute;top:temSize(200, $rate);margin-top: temSize(-45, $rate);
+      .acty22_box1{margin-top: temSize(35, $rate);
+      .acty22_inputbox{line-height: temSize(75, $rate);height: temSize(75, $rate);width: temSize(425, $rate);}
+      .edit_info{font-size: temSize(48, $rate);}}
+      .acty22_box2{margin-top: temSize(15, $rate);
+         .acty22_boximg{width: temSize(200, $rate);height: temSize(200, $rate);margin:0 auto;
+                        img{width:100%;height:100%;}
+         }}
+      .acty22_box3{margin-top: temSize(15, $rate);
+      .edit_info{font-size: temSize(30,$rate);width: temSize(425, $rate);height: temSize(75, $rate);line-height: temSize(75, $rate);}}
+      .acty22_box4{margin-top: temSize(20, $rate);}
+      .acty22_box5{margin-top: temSize(31, $rate);}
+      .acty22_box6{margin-top: temSize(40, $rate);}
+      .acty22_box4 input,.acty22_box5 input,.acty22_box6 button{border-radius: temSize(10, $rate);}
+      .edit_info{border-color: #fff;}
+      .info_input{width: temSize(460, $rate);height: temSize(70, $rate);line-height:temSize(70, $rate);font-size: temSize(28, $rate);background: #fff;}
+      .submit_btn{width: temSize(460, $rate);height: temSize(90, $rate);font-size: temSize(36, $rate);}
+      }
+     }
+}
+
+ //与数值无关的样式全部写这里：
+     //预览正面
+ .microleaflet1_frontOuter{
+      .microleaflet1_front_content{background:url("../img/leaflet_smallbg5.png") $img-pozC;@include background-size100;margin:0 auto;position:relative;z-index:10;
+           .front_img{margin:0 auto;
+           img{width:100%;height:100%;}
+           }
+      .front_text1,.front_text2{color:#2a3b1d;text-align:center;}
+      .front_img2{background:#cebd34;margin:0 auto;
+          img{width:100%;height:100%;}
+      }
+      .front_tip{color:#615a27;text-align:center;}
+      }
+      .microleaflet1_front_content2{background:url("../img/leaflet_smallbg1.jpg") $img-pozC;@include background-size100;position:absolute;bottom:0;width:100%;left:0;z-index:5;
+       .front_text3Outer,.front_text4Outer{background:url("../img/leaflet_smallbg2.png") $img-pozC;@include background-size100;position:absolute;
+         p{color:#2a3b1d;}
+       }
+       .front_text3,.front_text4{color:#323333;line-height:1.8}
+      }
+     .microleaflet1_front_girl{background:url("../img/leaflet_girl.png") $img-pozC;@include background-size100;position:absolute;z-index:20;}
+  }
+ //预览反面
+  .microleaflet1_backOuter{
+      .back_title{color:#1e4047;text-align:center;}
+      .microleaflet1_back_content{background:url("../img/leaflet_bg4.png") $img-pozC;@include background-size100;margin:0 auto;position:relative;
+        .back_text1title,.back_text2title,.back_text3title{background:url("../img/leaflet_smallbg3.png") $img-pozC;@include background-size100;position:absolute;color:#e1edc2;text-align:center;}
+        .middle{display:table-cell;width:100%;vertical-align:middle;margin:0 auto;}
+        .back_text1,.back_text2,.back_text3{color:#323333;text-align:left;line-height:1.2;}
+        .back_text2{line-height:2;}
+        .back_text1Outer,.back_text2Outer,.back_text3Outer{position:absolute;display:table;}
+  }
+     }
+      //编辑正面
+     .front_editOuter{width:100%;background: url("../img/leaflet_bg5.jpg") $img-pozC;@include background-size-cover;color:#081314;
+        .front_edit_title{background:url("../img/leaflet_smallbg4.png") $img-pozC;@include background-size100;margin:0 auto;color:#c8eef1;text-align:center;}
+        .front_edit_box1,.front_edit_box2,.front_edit_box3,.front_edit_box4,.front_edit2_box2,.front_edit2_box3,.front_edit2_box4{text-align:left;font-weight:bold;}
+        .front_edit_box1{position:relative;}
+        .front_edit_text1{position:absolute;top:0;}
+        .front_edit_img{
+            img{width:100%;height:100%;}
+        }
+        .front_edit_text2,.front_edit_text3,.front_edit_text4,.front_edit2_text2,.front_edit2_text3,.front_edit2_text4{width:100%;}
+        //编辑反面
+        .front_edit2_text2,.front_edit2_text3{line-height:1.3;}
+     }
+         //报名页
+     .microleaflet1_form{text-align: center;width: 100%;height: 100%;
+        .editBorder{border-color:#fff;}
+     .acty22_box1Outer{position: absolute;}
+     .acty22_mask{z-index: 1;@include box-shadow-base(0 0 0 2px rgba(4,0,0,0.3));}
+     .acty22_hand{background: url("../img/leaflet_hand.png") $img-pozC;@include background-size-cover;position: absolute;z-index: 3;left:50%;top:0;}
+     .acty22_box1 {.edit_info{color:#fff;}}
+     .acty22_box3 {.edit_info{color:#8bbdc8;}}
+     .acty22_inputbox{margin: 0 auto;text-align: center;}
+     .info_input{color: #aaa;}
+     .submit_btn{background: #85c255;color: #fff;}
+     }
+
+$editrate:0.8;
+$viewrate:1;
+//编辑页面
+.isEdit{
+ @include edit-base($viewrate);
+ @include form-base($editrate);
+ 
+}
+ //仅预览页面使用样式写这里
+.preview{
+  @include view-base($viewrate);  
+  @include form-base($viewrate);
+
+}

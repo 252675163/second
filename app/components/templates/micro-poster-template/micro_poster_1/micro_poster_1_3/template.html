@@ -1,0 +1,67 @@
+<div class="microposter1 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter1-by3">
+
+            <textarea ng-if="!isEdit" class="poster1-title canShow" rows="1" ng-model="templateModel.title" ng-disabled="!isEdit" 
+                ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[0]}}" new-custom-input></textarea>
+            <textarea ng-if="isEdit" class="poster1-title canEdit editBorder" rows="1" ng-model="templateModel.title" ng-disabled="!isEdit"
+                 ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[0]}}" new-custom-input></textarea>
+
+            <div class="subjectbox">
+                <div class="subjtitle">
+                    <textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.subject[0]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly" ></textarea>
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.subject[0]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[1]}}"
+                        new-custom-input></textarea>
+                </div>
+                <div class="subjdesc">
+                    <div ng-if="!isEdit" class="poster1-subtitle canShow" ng-bind-html="templateModel.description[0]|newlines|recogUrl"></div>
+                    <!--<textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.description[0]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly" ></textarea>-->
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.description[0]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[2]}}"
+                        new-custom-input></textarea>
+
+                </div>
+            </div>
+            <div class="subjectbox">
+                <div class="subjtitle">
+                    <textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.subject[1]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly" ></textarea>
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.subject[1]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[1]}}"
+                        new-custom-input></textarea>
+                </div>
+                <div class="subjdesc">
+                    <p ng-if="!isEdit" class="poster1-subtitle canShow" ng-bind-html="templateModel.description[1]|newlines|recogUrl"></p>
+                    <!--<textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.description[1]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly" ></textarea>-->
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.description[1]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[2]}}"
+                        new-custom-input></textarea>
+
+                </div>
+            </div>
+            <div class="subjectbox">
+                <div class="subjtitle">
+                    <textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.subject[2]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly" ></textarea>
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.subject[2]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[1]}}"
+                        new-custom-input></textarea>
+                </div>
+                <div class="subjdesc">
+                    <p ng-if="!isEdit" class="poster1-subtitle canShow" ng-bind-html="templateModel.description[2]|newlines|recogUrl"></p>
+                    <!--<textarea ng-if="!isEdit" rows="1" class="poster1-subtitle canShow" cols="16" ng-model="templateModel.description[2]" ng-disabled="!isEdit"
+                         ng-trim="false" isdiff="true" readonly="readonly"></textarea>-->
+                    <textarea ng-if="isEdit" rows="2" class="poster1-subtitle canEdit editBorder" cols="16" ng-model="templateModel.description[2]"
+                        ng-disabled="!isEdit"  ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[2]}}"
+                        new-custom-input></textarea>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

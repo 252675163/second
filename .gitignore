@@ -1,0 +1,9 @@
+config
+!config/default.*
+logs
+npm-debug.log
+node_modules
+public/img
+coverage
+app/img
+app/img.rar

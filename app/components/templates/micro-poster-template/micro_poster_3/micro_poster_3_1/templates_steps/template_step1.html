@@ -1,0 +1,10 @@
+<div class="poster3-step1">
+    <div class="title">
+        <div ng-if="!isEdit" class="poster3-title canShow" ng-bind-html="name|newlines"></div>
+        <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster3-title canEdit editBorder" rows="1"
+            type="text" ng-model="templateModel.name" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+    </div>
+    <div class="view-btnbox">
+        <div class="view-btn" ng-click="viewpray()"></div>
+    </div>
+</div>

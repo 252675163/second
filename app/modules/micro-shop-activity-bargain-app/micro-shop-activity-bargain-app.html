@@ -1,0 +1,86 @@
+﻿<ion-view class="micro-shop-index">
+    <!-- 商品详情页-->
+    <ion-content has-bouncing="false">
+        <div class="top-img">
+            <span class="top-tip">一元砍价</span>
+            <div class="swiper-container" ng-show="isShowslide" id="slide">
+                <div class="swiper-wrapper">
+                    <img ng-repeat="img in productModel.imgList" ng-src="{{img.url}}" class="top-img-size swiper-slide" />
+                </div>
+                <div class="swiper-pagination micro-shop-pagination"></div>
+            </div>
+            <div class="" ng-if="!isShowslide" ng-repeat="img in productModel.imgList">
+                <img ng-src="{{img.url}}" class="top-img-size" />
+            </div>
+        </div>
+        <div class="top-information-ware">
+            <div class="user-information">
+                <div class="user-photo"><img ng-src="{{activityUserInfo.headImageUrl}}" />
+                </div>
+                <span class="user-name" ng-bind="activityUserInfo.userName"></span>
+            </div>
+            <div class="product-name" ng-bind="productModel.name"></div>
+
+            <div class="bargin-bar-box">
+                <div class="bargin-bar-body" ng-style="{width:(currentPrice/diffPrice)*100+'%'}">
+                    <span class="now-lable"></span>
+                </div>
+                <span class="now-price" ng-style="{left:((currentPrice/diffPrice)*100<5?5:(currentPrice/diffPrice)*100)+'%'}">¥{{productModel.originPrice-currentPrice|twoDecimal}}</span>
+                <span class="start-lable"></span>
+                <span class="end-lable"></span>
+                <span class="start-price">¥{{productModel.originPrice|twoDecimal}}</span>
+                <span class="end-price">¥{{productModel.price|twoDecimal}}</span>
+            </div>
+            <div class="product-state clearfix">
+                <span class="product-time" ng-show="productModel.productStateModel.code==0||productModel.productStateModel.code==1">活动倒计时：<span ng-bind="productModel.leftSeconds|leftTimeStr"></span></span>
+                <span class="product-time" ng-show="productModel.productStateModel.code==2||productModel.productStateModel.code==3" ng-bind="productModel.productStateModel.name"></span>
+                <span class="product-surplus">库存<span ng-bind="productModel.stock"></span></span>
+                <span class="border-line">|</span>
+                <span class="product-sale">已抢<span ng-bind="productModel.saleNum"></span></span>
+            </div>
+        </div>
+        <div class="product-introduce">
+            <div class="product-introduce-title clearfix">
+                <div class="product-introduce-tab" ng-click="showTabPage(0)"><span ng-class="tabIndex == 0?'active':''">商品介绍</span></div>
+                <div class="product-introduce-tab" ng-click="showTabPage(1)"><span ng-class="tabIndex == 1?'active':''">活动规则</span></div>
+
+            </div>
+            <div class="product-introduce-body text1">
+                <div ng-bind-html="(tabIndex == 0?productModel.introduction:productModel.activityRule)|newlines">
+                </div>
+                <!--<div ng-show="tabIndex == 0" ng-bind="productModel.introduction|newlines">
+                </div>
+                <div ng-show="tabIndex == 1" ng-bind="productModel.activityRule|newlines">
+                </div>-->
+            </div>
+        </div>
+        <div class="bargain-help">
+            <div class="bargain-help-title">看看谁来帮忙砍价了</div>
+            <ion-list class="bargain-help-body clearfix">
+                <ion-item class="help-item" ng-repeat="helper in helperList">
+                    <span class="help-img"><img ng-src="{{helper.imgUrl}}" /></span>
+                    <div class="help-information">
+                        <p class="help-name" ng-bind="helper.name"></p>
+                        <p class="help-time" ng-bind="helper.helpTime|formatJsonDate:'yyyy-MM-dd HH:mm'"></p>
+                    </div>
+                    <span class="help-price">帮砍<span ng-bind="helper.helpPrice"></span>元</span>
+                </ion-item>
+            </ion-list>
+            <div class="bargain-help-bottom ng-hide" ng-show="helperList.length==0||page.currentIndex == page.totalCount">没有更多内容啦</div>
+            <ion-infinite-scroll on-infinite="loadHelperList()" ng-if="page.currentIndex < page.totalCount" distance="1%" immediate-check="false">
+            </ion-infinite-scroll>
+        </div>
+    </ion-content>
+    <ion-footer-bar class="footer-btn clearfix">
+        <div class="my-product" ng-click="goToMyProduct()">
+            <div class="my-product-bg"></div>
+            <div class="my-product-word">
+                <span class="my-product-text">我的<br />商品</span>
+            </div>
+        </div>
+        <span class="footer-btn-size1 footer-btn-color2" ng-click="goToMyShop()">进入店铺</span>
+        <span class="footer-btn-size1" ng-class="!canParticipate?'footer-btn-color1':'footer-btn-color3'" ng-show="!isSelf" ng-click="toParticipateActivitiy()" ng-bind="hasParticipate?'已参加':'马上参加'"></span>
+        <span class="footer-btn-size1" ng-class="!canAssistant||hasAssistant?'footer-btn-color1-1':'footer-btn-color4-1'" ng-show="!isSelf" ng-click="helpBargain()" ng-bind="hasAssistant?'已砍价':'帮他砍价'"></span>
+        <span class="footer-btn-size2" ng-class="!hasFinished?'footer-btn-color1':'footer-btn-color4'" ng-show="isSelf" ng-click="placeOrder()">可购买</span>
+    </ion-footer-bar>
+</ion-view>

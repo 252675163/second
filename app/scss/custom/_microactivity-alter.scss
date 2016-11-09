@@ -1,0 +1,88 @@
+﻿@charset "utf-8";
+//家长开放日 by wenjun 20151025{
+
+//$tem-edit-num:.75;  已经在 _microactivity-2_1.scss 中定义
+/* px to rem by edit*/
+@function temSize_edit($num) {
+  @return ceil($num /40  * $tem-edit-num*100)/100*1rem;
+}
+/* px to rem */
+@function temSize($num) {
+  @return ceil($num /40*100)/100*1rem;
+}
+
+.microactivity-template10 {
+    .acty10_box6 .acty10_phone_box{font-size:0;width:100%;text-align:center;
+                .acty10_textBox6,.acty10_textBox7{display:inline-block;line-height:150%;font-size:temSize_edit(28);background:none;overflow-y:hidden;vertical-align:top;}
+                .acty10_textBox6{width:temSize_edit(160);text-align:right;}
+                .acty10_textBox7{width:temSize_edit(220);text-align:left;}
+}
+ 
+.maxbox {
+    .acty10_box6 .acty10_phone_box{
+      .acty10_textBox6,.acty10_textBox7{font-size:temSize(28);}
+        .acty10_textBox6{width:temSize(150);}
+                .acty10_textBox7{width:temSize(240);}
+}
+}
+}
+
+.template3-6.edit .box1 .textBox .acty9_phone_box{font-size:0;width:100%;text-align:left;
+ .acty9_textBox3,.acty9_textBox4{display:inline-block;line-height:150%;font-size:temSize_edit(24);background:none;overflow-y:hidden;vertical-align:top;}
+                .acty9_textBox3{width:temSize_edit(170);text-align:left;}
+                .acty9_textBox4{width:temSize_edit(240);text-align:left;}
+}
+.template3-6.edit .box1{position:absolute;z-index:5;}
+.template3-6.edit .beforeGifBox{bottom:0;}
+.template3-6 .box1{position:absolute;z-index:5;}
+.template3-6 .beforeGifBox{bottom:0;}
+
+
+.template3-6 .box1 .textBox .acty9_phone_box{font-size:0;width:100%;text-align:left;
+ .acty9_textBox3,.acty9_textBox4{display:inline-block;line-height:150%;font-size:temSize(24);background:none;overflow-y:hidden;vertical-align:top;}
+                .acty9_textBox3{width:temSize(130);text-align:left;}
+                .acty9_textBox4{width:temSize(220);text-align:left;}
+}
+
+.microactivity-template7{
+     .acty7_box4 .acty7_phone_box{font-size:0;width:100%;text-align:left;margin-left:2.9rem;
+          .acty7_textBox6,.acty7_textBox7{display:inline-block;background: none;text-align: center;line-height: 1.5; overflow-y: hidden; color: #934e32;font-size:temSize_edit(30);background:none;overflow-y:hidden;vertical-align:top;}
+                .acty7_textBox6{width:temSize_edit(170);text-align:left;}
+                .acty7_textBox7{width:temSize_edit(240);text-align:left;}
+
+     }
+     .maxbox{
+          .acty7_box4 .acty7_phone_box{margin-left:3.1rem;
+          .acty7_textBox6,.acty7_textBox7{font-size:temSize(30);background:none;}
+                .acty7_textBox6{width:temSize(170);}
+                .acty7_textBox7{width:temSize(240);}
+
+     }
+     }
+    }
+.oldNew_tempale4.edit .box2 .oldNew_tempale4_phone_box{font-size:0;width:100%;text-align:center;
+ .oldNew_tempale4_textBox1,.oldNew_tempale4_textBox2{display:inline-block; color: #000000;min-height:0;line-height:150%;font-size:temSize_edit(30);background:none;overflow-y:hidden;vertical-align:top;}
+                .oldNew_tempale4_textBox1{width:temSize_edit(180);text-align:right;}
+                .oldNew_tempale4_textBox2{width:temSize_edit(280);text-align:left;}
+
+}
+
+.oldNew_tempale4 .box2 .oldNew_tempale4_phone_box{font-size:0;width:100%;text-align:center;
+ .oldNew_tempale4_textBox1,.oldNew_tempale4_textBox2{display:inline-block; color: #000000;margin-top:0;min-height:0;line-height:150%;font-size:temSize(30);background:none;overflow-y:hidden;vertical-align:top;}
+                .oldNew_tempale4_textBox1{width:temSize(180);text-align:right;}
+                .oldNew_tempale4_textBox2{width:temSize(280);text-align:left;}
+
+}
+.siteTemp1 .box1 input:first-of-type{margin-top:1.5rem;}
+.siteTemp1.edit .box1 input:first-of-type, .has-footer_cover .siteTemp1 .box1 input:first-of-type{margin-top:1.2rem;}
+
+.siteTemp1 .box1 .siteTemp1_phone_box{font-size:0;width:100%;text-align:center;
+                 .siteTemp1_textBox1,.siteTemp1_textBox2{display:inline-block; color: #000000;line-height:150%;font-size:temSize(24);background:none;overflow-y:hidden;vertical-align:top;}
+                    .siteTemp1_textBox1{width:temSize(180);text-align:right;}
+                .siteTemp1_textBox2{width:temSize(280);text-align:left;}
+}
+.siteTemp1.edit .box1 .siteTemp1_phone_box{font-size:0;width:100%;text-align:center;
+                 .siteTemp1_textBox1,.siteTemp1_textBox2{display:inline-block; color: #000000;line-height:150%;font-size:temSize_edit(24);background:none;overflow-y:hidden;vertical-align:top;}
+                    .siteTemp1_textBox1{width:temSize_edit(180);text-align:right;}
+                .siteTemp1_textBox2{width:temSize_edit(220);text-align:left;}
+}

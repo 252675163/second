@@ -1,0 +1,79 @@
+<!--砍价策略编辑 {-->
+<div class="micro_bargain bgPan">
+    <div class="isEdit" ng-show="isEdit">
+        <div class="bargin_edit_bg1">
+            <div class="tactics_Box">
+                <div class="tactics_title">砍价策略制定</div>
+                <p class="tatics_msg">1、校宝秀帮您制定砍价参考方案</p>
+                <button class="tatics_btn1" ng-click="showPop()">制定方案</button>
+                <p class="tatics_msg">2、您可以修改数值，自定义砍价方案</p>
+                <div class="gold_Box"></div>
+                <div class="tatics_Outer" ng-class="{'input_disabled':isActived}">
+                    <div class="tatics_item" ng-click="showTextInput('InitialPrice')">
+                        <span class="tatics_item_name lineH">初始价</span>
+                        <div class="tatic_input" ng-bind="activityOtherConfig.activityExtConfig.InitialPrice"></div>
+                        <span class="tatics_item_piece lineH">元</span>
+                    </div>
+                    <div class="tatics_item" ng-click="showTextInput('PreferentialPricePowerCount')">
+                        <span class="tatics_item_name">初始价到优惠<br>价需几人助力</span>
+                        <div class="tatic_input" ng-bind="activityOtherConfig.activityExtConfig.PreferentialPricePowerCount">
+                        </div>
+                        <span class="tatics_item_piece lineH">人</span>
+                    </div>
+                    <div class="tatics_item" ng-click="BarginNumInput('Preferential')">
+                        <span class="tatics_item_name">优惠价<br>优惠价库存</span>
+                        <div class="tatic_input">
+                            <span class="tatic_textBox1" ng-bind="activityOtherConfig.activityExtConfig.PreferentialPrice"></span>
+                            <span class="tatic_textBox2" ng-bind="activityOtherConfig.activityExtConfig.PreferentialPriceStock"></span>
+                        </div>
+                        <span class="tatics_item_piece">元<br>件</span>
+                    </div>
+                    <div class="tatics_item" ng-click="showTextInput('SpecialPricePowerCount')">
+                        <span class="tatics_item_name">优惠价到特惠<br>价需几人助力</span>
+                        <div class="tatic_input" ng-bind="activityOtherConfig.activityExtConfig.SpecialPricePowerCount"></div>
+                        <span class="tatics_item_piece lineH">人</span>
+                    </div>
+                    <div class="tatics_item" ng-click="BarginNumInput('Special')">
+                        <span class="tatics_item_name">特惠价<br>特惠价库存</span>
+                        <div class="tatic_input">
+                            <span class="tatic_textBox1" ng-bind="activityOtherConfig.activityExtConfig.SpecialPrice"></span>
+                            <span class="tatic_textBox2" ng-bind="activityOtherConfig.activityExtConfig.SpecialPriceStock"></span>
+                        </div>
+                        <span class="tatics_item_piece">元<br>件</span>
+                    </div>
+                </div>
+            </div>
+            <p class="bar_mesg">一旦有人助力/报名，砍价方案不能再改了哦!</p>
+            <div class="bargin_edit_bg2"></div>
+        </div>
+        <!--弹窗-->
+        <div class="tatics_pop" ng-show="isShowPop">
+            <div class="lockMask"></div>
+            <div class="tatics_popBox">
+                <div class="tatics_item">
+                    <span class="tatics_item_name">初始价</span>
+                    <input class="tatic_input" type="tel" ng-keyup="clearNoNum(tempValue,'InitialPrice')" ng-model="tempValue.InitialPrice" maxlength="5" change-placeholder-by-focus my-max-length />
+                    <span class="tatics_item_piece">元</span>
+                </div>
+                <div class="tatics_item">
+                    <span class="tatics_item_name">特惠价</span>
+                    <input class="tatic_input" type="tel" ng-keyup="clearNoNum(tempValue,'SpecialPrice')" ng-model="tempValue.SpecialPrice" maxlength="5" change-placeholder-by-focus my-max-length />
+                    <span class="tatics_item_piece">元</span>
+                </div>
+                <div class="tatics_item">
+                    <span class="tatics_item_name">特惠价库存</span>
+                    <input class="tatic_input" type="tel" ng-keyup="clearNoNum(tempValue,'SpecialPriceStock')" ng-model="tempValue.SpecialPriceStock" maxlength="3" change-placeholder-by-focus my-max-length />
+                    <span class="tatics_item_piece">件</span>
+                </div>
+                <div class="tatics_item">
+                    <span class="tatics_item_name lineH2">初始价到特惠价<br>需几人助力</span>
+                    <input class="tatic_input" type="tel" ng-keyup="clearNoNum(templateModel,'InitialSpecialPower')" ng-model="templateModel.InitialSpecialPower" maxlength="4" change-placeholder-by-focus my-max-length />
+                    <span class="tatics_item_piece">人</span>
+                </div>
+                <button class="tatics_btn1" ng-click="makeTatic()">立即生成方案</button>
+                <button class="clase_pop" ng-click="closePop()"></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} 砍价策略编辑-->

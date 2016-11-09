@@ -1,0 +1,254 @@
+﻿@charset "utf-8";
+//砍价模板
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+
+.microposter2{
+	height: 100%;position: absolute;width: 100%;
+	textarea{width: 100%;color:#333;line-height: 100%;
+		}
+}
+
+@mixin form-base($rate:1){
+  //与数值相关的样式写这里：
+  //第一页 
+  //标题共用样式
+  .poster2_t_common{font-size:temSize(60,$rate);height:temSize(90,$rate);line-height:temSize(90,$rate);}
+  .microposter2-by1{
+      .poster2_logobox{width: 100%;height: temSize(750,$rate);margin-top: temSize(-120,$rate);    
+      }
+      .poster1-hold{width: 100%;height: temSize(750,$rate);margin-top: temSize(-120,$rate);}
+      .poster-logo{width: temSize(220,$rate);height: temSize(220,$rate);margin:0 auto;top: temSize(80,$rate);border-radius: temSize(110,$rate);}
+      .poster2_botbox{width: 100%;height: temSize(416,$rate);margin-top: temSize(-120,$rate);}
+      .poster1-title{font-size: temSize(60,$rate);margin:0 auto;margin-top: temSize(-100,$rate);height: temSize(72,$rate);width: temSize(530,$rate);}
+      .poster1-subtitle{font-size: temSize(36,$rate);margin:0 auto;width: temSize(530,$rate);}
+  }
+      .microposter2-by2{padding-top:temSize(40,$rate);
+        .poster1-title{margin:0 auto;margin-bottom:temSize(25,$rate);width: temSize(554,$rate);}
+        .poster1-logo{width:temSize(515,$rate);height:temSize(515,$rate);
+                       .poster1_logo_bg{width:temSize(554,$rate);height:temSize(554,$rate);top:temSize(-20,$rate);left:temSize(-20,$rate);}
+        }
+        .poster1-content{width:temSize(550,$rate);font-size:temSize(30);margin:temSize(50,$rate) auto 0 auto;height: temSize(270,$rate);}
+    }
+       .microposter2-by3{padding-top:temSize(40,$rate);width:temSize(640,$rate);
+         .poster2_title3_bg{width:temSize(120,$rate);height:temSize(110,$rate);top:temSize(40,$rate);}
+        .poster1-title{margin-bottom:temSize(50,$rate);margin-left:temSize(15,$rate);width: temSize(390,$rate);}
+        .poster2-logo1{width:temSize(355,$rate);height:temSize(355,$rate);margin-left:temSize(35,$rate);@include box-shadow-base(0 0 temSize(200,$rate) temSize(50,$rate) rgba(255,192,57,0.5));
+                   .poster2-logo1_bg{width:temSize(70,$rate);height:temSize(40,$rate);bottom:temSize(-30,$rate);right:temSize(-50,$rate);}
+        }
+        .poster2-content-box{width:temSize(215,$rate);top:temSize(185,$rate);right:temSize(20,$rate);height: temSize(238,$rate);}
+        .poster2-content{font-size:temSize(24,$rate);padding:temSize(15,$rate);max-height: temSize(238,$rate);}
+        .poster2-logo2{width:temSize(445,$rate);height:temSize(265,$rate);margin:temSize(40,$rate) 0 0 temSize(155,$rate);@include box-shadow-base(0 0 temSize(200,$rate) temSize(50,$rate) rgba(255,192,57,0.5));
+                   .poster2-logo2_bg{width:temSize(134,$rate);height:temSize(50,$rate);top:temSize(90,$rate);left:temSize(-95,$rate);}
+        }
+    }
+        .microposter2-by4{padding:temSize(55,$rate) temSize(33,$rate) 0;width:temSize(640,$rate);
+        .poster1-title-box{width:temSize(380,$rate);height:temSize(135,$rate);margin-bottom:temSize(70,$rate);margin-left:temSize(205,$rate);padding-top:temSize(20,$rate);}
+        .poster4-logo1,.poster4-logo2{width:temSize(270,$rate);height:temSize(270,$rate);}
+        .poster4-logo2{margin-left:temSize(15,$rate);}
+        .poster4-logo1-bg,.poster4-logo2-bg{width:temSize(78,$rate);height:temSize(85,$rate);}
+        .poster4-logo1-bg{left:temSize(-30,$rate);top:temSize(-55,$rate);}
+        .poster4-logo2-bg{left:temSize(195,$rate);top:temSize(220,$rate);}
+        .poster4-logo3{width:temSize(570,$rate);height:temSize(300,$rate);margin-top:temSize(30,$rate);
+                       .poster4-logo3-bg{width:temSize(123,$rate);height:temSize(123,$rate);top:temSize(220,$rate);left:temSize(95,$rate);}
+        }
+    }
+
+    
+    .microposter2-by5{width:temSize(640,$rate);
+        .poster2-title{font-size: temSize(60,$rate); margin-top: temSize(64,$rate);height: temSize(72,$rate);width: temSize(290,$rate);}
+        .teach1,.teach2{height: temSize(840,$rate); margin-top: temSize(-50,$rate);}
+        .teach2{ margin-top: temSize(24,$rate);}
+        .poster2-subtitle{margin: 0 auto;font-size: temSize(36,$rate);height: temSize(60,$rate);width: temSize(240,$rate);line-height: temSize(60,$rate);}
+        .poster2-desc{font-size: temSize(24,$rate);height: temSize(150,$rate);line-height: temSize(30,$rate);width: temSize(260,$rate);}
+        .teachimg{
+                width: temSize(290,$rate);height: temSize(572,$rate);border: temSize(4,$rate) solid #fff;
+                border-image: -webkit-linear-gradient(rgba(255,255,255,0.8), rgba(255,97,55,1)) 1 1;
+                border-image: -moz-linear-gradient(rgba(255,255,255,0.8), rgba(255,97,55,1)) 1 1;
+                border-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,97,55,1)) 1 1;
+        }
+        .titlebg{width: temSize(170,$rate);height: temSize(35,$rate);}
+        .teachname{width: temSize(458,$rate);height: temSize(152,$rate);margin-left:temSize(-70,$rate);padding-top:temSize(90,$rate);} 
+    }
+
+    //第六 七页
+    .microposter2-by6,.microposter2-by7{width:temSize(640,$rate);
+        .poster2_box_bot,.poster2_box_top{ width: temSize(468,$rate);height: temSize(416,$rate);
+        .poster1-title{font-size: temSize(30,$rate);}
+        }
+        .poster2_text_top,.poster2_text_bot{ width: 100%;height: 100%;position: absolute;background: #fff;opacity: 0.12;}
+        .poster2_box_top{margin-top: temSize(74,$rate); 
+            .poster1-title{padding: temSize(38,$rate) temSize(30,$rate) temSize(62,$rate) temSize(42,$rate);}
+        }
+        .poster2_box_bot{margin-top: temSize(18,$rate); 
+            .poster1-title{padding: temSize(84,$rate) temSize(30,$rate) temSize(16,$rate) temSize(42,$rate);}
+        }
+         .title_box{font-size: temSize(50,$rate);width: temSize(276,$rate);height: temSize(75,$rate);margin-top: temSize(-30,$rate);line-height: temSize(75,$rate);
+             textarea{line-height: temSize(75,$rate);}
+         }
+         .title_bg{
+             width: temSize(142,$rate);height: temSize(40,$rate);margin-top: temSize(8,$rate);
+         } 
+    }
+    .microposter2-by6{width:temSize(640,$rate);
+        .poster2_box_bot,.poster2_box_top{margin-left: temSize(124,$rate);}
+        .title_box{margin-left: temSize(32,$rate);}
+        .title_bg{margin-left: temSize(36,$rate);}
+    }
+    .microposter2-by7{width:temSize(640,$rate);
+        .poster2_box_bot,.poster2_box_top{margin-left: temSize(48,$rate);}
+        .title_box{margin-left: temSize(340,$rate);}
+        .title_bg{margin-left: temSize(96,$rate);}
+    }
+
+
+//第八页
+    .microposter2-by8{width:temSize(640,$rate);
+        .poster2_8bg{width: temSize(552,$rate);height: temSize(550,$rate);margin: temSize(40,$rate) temSize(44,$rate) 0;}
+        .poster2_mask,.form-box{width: temSize(552,$rate);height: temSize(822,$rate);margin: temSize(117,$rate) temSize(44,$rate) auto;}
+        .form-box{padding: 0 temSize(44,$rate);}
+       .poster2_mask{border: temSize(4,$rate) solid #aaa;border-radius: temSize(6,$rate);}
+       .poster2-title{font-size: temSize(48,$rate);margin-top: temSize(38,$rate);height: temSize(60,$rate);}
+       .poster2-subtitle{font-size: temSize(24,$rate);margin-top: temSize(13,$rate);height: temSize(58,$rate);line-height: 1.2}
+       .poster2-address,.poster2-phone{font-size: temSize(26,$rate);}
+       .poster2-phonebox{margin-top: temSize(43,$rate);
+        span{font-size: temSize(26,$rate);display: inline-block;width: 35%;}
+        textarea{    width: 65%;display: inline-block;}}
+		.poster2-qrcode{width: temSize(200,$rate);margin: temSize(20,$rate) auto temSize(13,$rate) auto;height: temSize(200,$rate);
+			img{width: 100%;height: 100%;line-height: temSize(200,$rate);text-align: center;font-size: temSize(24,$rate);}
+		}
+        .acty12_form{margin-top: temSize(35,$rate);
+            input{border-radius: temSize(14,$rate);margin-top: temSize(11,$rate);width: temSize(460,$rate);}}
+        .poster2_form_btn{font-size: temSize(36,$rate);width: temSize(460,$rate);height: temSize(100,$rate);line-height: temSize(100,$rate);margin: 0 auto;margin-top: temSize(18,$rate);}
+    }
+}
+
+ //与数值无关的样式全部写这里：
+.microposter2{
+	//数值无关
+    textarea{color:#fff5cb;}
+    .poster2_t_common{overflow: hidden;}
+    //第一页
+    .microposter2-by1{
+        .poster2_logobox{position: absolute;z-index: 3;
+            background:url("../img/poster2_1_tbg.png") $img-pozC;@include background-size100;
+        }
+        .poster1-hold{position: absolute;z-index: 1;
+            background:url("../img/poster2_1_mbg.png") $img-pozC;@include background-size100;
+        }
+        .poster-logo{position: relative;z-index: 2;overflow: hidden;
+            img{width: 100%;}
+        }
+        .poster2_botbox{position: absolute;bottom: 0;z-index: 3;
+            background:url("../img/poster2_1_bbg.png") $img-pozC;@include background-size100;
+        }
+        .poster1-title{color:#fff5cb;text-align: center;}
+        .poster1-subtitle{color:#fbe3c1;text-align: center;}
+    }
+    .microposter2-by2{
+        .poster1-title{width:100%;text-align:center;background:url("../img/poster2_2star.png") $img-pozC;@include background-size100;}
+        .poster1-logo{margin:0 auto;position:relative;
+                      img{width:100%;height:100%;}
+                      .poster1_logo_bg{background:url("../img/poster2_2bg.png") $img-pozC;@include background-size100;position:absolute;z-index:10;}
+        }
+        .poster1-content{line-height: 1.5;color: #fff5cb;}
+    }
+    .microposter2-by3{margin:0 auto;position:relative;
+        .poster2_title3_bg{background:url("../img/poster2_3bg1.png") $img-pozC;@include background-size100;position:absolute;}
+        .poster1-title{width:100%;text-align:left;}
+        .poster2-logo1{position:relative;
+                      img{width:100%;height:100%;position:relative;}
+                    .poster2-logo1_bg{background:url("../img/poster2_3bg2.png") $img-pozC;@include background-size100;position:absolute;}
+        }
+        .poster2-content-box{position:absolute;border:1px solid #fff;}
+                .poster2-logo2{position:relative;
+                      img{width:100%;height:100%;position:relative;}
+                    .poster2-logo2_bg{background:url("../img/poster2_3bg3.png") $img-pozC;@include background-size100;position:absolute;z-index:1;}
+        }
+        .poster2-content{line-height: 1.3;height: 100%; overflow: hidden;color: #fff5cb;}
+    }
+        .microposter2-by4{margin:0 auto;
+        .poster1-title-box{background:url("../img/poster2_4bg4.png") $img-pozC;@include background-size100;}
+        .poster1-title{width:100%;text-align:left;}
+        .poster4-logo1,.poster4-logo2,.poster4-logo3{position:relative;display:inline-block;
+                      img{width:100%;height:100%;position:relative;z-index:1;}
+        }
+        .poster4-logo1-bg,.poster4-logo2-bg{background:url("../img/poster2_4bg1.png") $img-pozC;@include background-size100;position:absolute;z-index:2;}
+        .poster4-logo2-bg{transform:rotate(-90deg);}
+        .poster4-logo3-bg{background:url("../img/poster2_4bg3.png") $img-pozC;@include background-size100;position:absolute;z-index:2;}
+    }
+
+    .microposter2-by5{margin:0 auto;position:relative;
+        .poster2-title,.poster2-subtitle,.poster2-desc{color: #fff5cb;overflow: hidden;}
+        .poster2-desc{margin: 0 auto;overflow: hidden;}
+        .teach1,.teach2{display: inline-block;width: 50%;}
+        .teach1{float: left;}
+        .teach2{float: right;}
+        .teachimg{margin: 0 auto;
+        img{width: 100%;height: 100%;}}
+        .titlebg{background:url("../img/poster2_5_line.png") $img-pozC;@include background-size100;position:absolute;z-index:2;}
+        .teachname{position: relative;margin: 0 auto;background:url("../img/poster2_5namebg.png") $img-pozC;@include background-size100;z-index:2;
+            textarea{text-align: center;}
+        }
+    }
+
+    //第六 七页
+    .microposter2-by6,.microposter2-by7{margin:0 auto;position:relative;
+        .poster2_box_bot,.poster2_box_top{ position: relative;
+        .poster1-title{height: 100%;color: #fff5cb;position: relative;z-index: 3; line-height: 1.3;}
+        }
+        .title_box{position: absolute;background: #f34274;
+            textarea{width: 100%;height: 100%;font-size: 100%;text-align: center;overflow: hidden;color: #fff;}
+        }
+        
+    }
+    .microposter2-by6{background:url("../img/poster2_4line_1.png") $img-pozC;@include background-size100;
+        .title_bg{background:url("../img/poster2_dot_1.png") $img-pozC;@include background-size100;}
+    }
+    .microposter2-by7{background:url("../img/poster2_4line_2.png") $img-pozC;@include background-size100;
+        .title_bg{background:url("../img/poster2_dot_2.png") $img-pozC;@include background-size100;}
+    }
+//第八页
+    .microposter2-by8{margin:0 auto;position:relative;
+        .poster2_8bg{background:url("../img/poster2_8bg.png") $img-pozC;@include background-size100;position: absolute;}
+        .poster2_mask{background: #333;opacity: 0.4;position: absolute;}
+        .form-box{text-align: center; position: absolute;}
+        .poster2-qrcode{background: #fff;}
+        .poster2-title{color: #fff5cb;text-align: center;}
+        .poster2-subtitle{color: #f7b676;text-align: center;}
+        .poster2-address,.poster2-phone,.poster2-phonebox{color: #e6cea9;text-align: center;}
+        .acty12_form{
+            input{background: #fff;margin: 0 auto;text-align: center;}}
+        .poster2_form_btn{background:url("../img/poster2_8btn.png") $img-pozC;@include background-size100;color: #fff;}
+
+    }
+}
+  
+$editrate:0.8;
+$viewrate:1;
+//编辑页面
+.microposter2{
+
+ @include form-base(0.8);
+    .microposter2-by1{
+        .poster-logo{z-index: 3;}
+    }
+    .microposter2-by2{
+        .poster1-content{font-size:temSize(20);}
+    }
+    .microposter2-by8{
+        .poster2_mask,.form-box{height: temSize(738,$rate);margin-top: temSize(40,$rate);}
+    }
+
+}
+ //仅预览页面样式写这里
+.microposter2 .preview{
+    .microposter2-by1{
+        .poster-logo{z-index: 2;}
+    }
+    .microposter2-by6,.microposter2-by7{
+        .title_box{z-index: 2;}
+    }
+  @include form-base(1);
+}

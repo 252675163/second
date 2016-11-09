@@ -1,0 +1,20 @@
+<ion-view cache-view="false" >
+    <div class=" bar bar-header bar-light" style=" height: 1.75rem; z-index: 2;">
+        <div class="tabs active_index_Hbox2">
+            <a class="tab-item active" ng-class="{'active':type=='all' }" ng-click="changeType('all')" >模板</a>
+            <a class="tab-item"  ng-class="{'active':type=='index' }" ng-click="changeType('index')">封面</a>
+            <a class="tab-item"  ng-class="{'active':type=='imageOrText'}" ng-click="changeType('imageOrText')">图文</a>
+            <a class="tab-item"  ng-class="{'active':type=='form' }" ng-click="changeType('form')">报名表</a>
+        </div>
+    </div>
+    <ion-content scroll="false" class="temp-add-wrap" has-bouncing="false">
+        <ion-list>
+            <div class="tips_success_wrap temp-tips">请选择您想添加的页面样式</div><!--增加选择模板文字提示-->
+            <ion-item ng-click="saveMould(section.templateName,section.backgroundImage)" class="temp-add-item" ng-repeat="section in sections.templates">
+                <img ng-src="{{section.templateUrl}}">
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

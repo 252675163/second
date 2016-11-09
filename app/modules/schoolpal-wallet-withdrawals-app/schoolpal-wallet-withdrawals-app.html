@@ -1,0 +1,37 @@
+<ion-view class="schoolpal-wallet-withdrawals">
+    <div class="remainder">
+        <div class="left">
+            <p class="left-p1">账户余额</p>
+            <p class="left-p2">￥<span ng-bind="account.balance | twoDecimal"></span></p>
+        </div>
+        <div class="right">
+            <button class="micro-shop-btn withdraw-btn" ng-click="withDraw()">提现</button>
+        </div>
+    </div>
+    <p class="payments">收支明细</p>
+    <ion-content class="payments-box" has-bouncing="false">
+        <div class="noRecords ng-hide" ng-show="cashDetailsList.length<1">近期无记录</div>
+        <ion-list class="payments-list">
+            <ion-item class="payments-item" collection-repeat="cashItem in cashDetailsList" ng-click="toDetail(cashItem.id,cashItem.type)">
+                <div class="payments-detail inline-item">
+                    <div class="inline-item" ng-class="cashItem.type==1?'detail-icon1':'detail-icon2'"> </div>
+                    <div class="detail-type inline-item">
+                        <div ng-bind="cashItem.type==1?'订单收入':'提现'"></div>
+                        <div ng-bind="cashItem.data |parseJsonDate| date:'yyyy.MM.dd HH:mm'"></div>
+                    </div>
+                </div>
+                <div class="payments-status inline-item">
+                    <div class="inline-item" ng-if="cashItem.type==1">+<span ng-bind="cashItem.money | twoDecimal"></span></div>
+                    <div class="inline-item" ng-if="cashItem.type==2">-<span ng-bind="cashItem.money | twoDecimal"></span></div>
+                    <div ng-show="cashItem.state==0" class="state1 ng-hide">等待中</div>
+                    <div ng-show="cashItem.state==1" class="state1 ng-hide">成功</div>
+                    <div ng-show="cashItem.state==2" class="state1 ng-hide">已失败</div>
+
+                </div>
+            </ion-item>
+
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

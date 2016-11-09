@@ -1,0 +1,76 @@
+<ion-view class="micro-shop-management-none ">
+    <ion-content has-bouncing="false">
+        <div class="no-shop-bg ng-hide" ng-show="showApply">
+
+        </div>
+        <div class="shop-desc ng-hide" ng-show="showApply">
+            校宝微店现处于共创阶段，首批用户仅开放100个席位，点击下方按钮免费申请！
+        </div>
+        <div class="micro-shop-btn create-shop-btn ng-hide" ng-click="toMicroShopApply()" ng-show="showApply">
+            免费申请
+        </div>
+        <div class="no-shop-bg no-shop-bg2" ng-if="showOpened">
+
+        </div>
+        <div class="shop-desc ng-hide" ng-show="showOpened">
+            恭喜您！您已经通过审核<br />快点击下方按钮免费开通属于自己的微店吧！
+        </div>
+        <div class="micro-shop-btn create-shop-btn ng-hide" ng-click="showCreatePopup()" ng-show="showOpened">
+            免费开通
+        </div>
+
+        <div class="create-shop-popup" ng-if="showCreateShopPopup">
+            <div class="org-contact">
+                <div class="org-name">
+                    <div class="title">店铺名称</div>
+                    <div class="value" ng-model="shop.name" ng-trim ng-bind="shop.name" maxlength="18" custom-input></div>
+
+                </div>
+                <div class="org-address">
+                    <div class="title">详细地址</div>
+                    <div class="value" ng-model="shop.address" ng-trim ng-bind="shop.address" maxlength="40" custom-input></div>
+                </div>
+                <div class="org-phone">
+                    <div class="title">联系电话</div>
+                    <div class="value" ng-model="shop.contact" ng-trim ng-bind="shop.contact" maxlength="20" custom-input></div>
+                </div>
+            </div>
+            <div class="org-introduction org-contact">
+                <div class="org-name">
+                    <div class="title">机构介绍</div>
+                    <div class="value" ng-model="shop.introduce" ng-trim maxlength="500" custom-input></div>
+                </div>
+                <div class="introduction-text introduction-content" ng-trim ng-model="shop.introduce" ng-bind="shop.introduce" maxlength="500" custom-input>
+
+                </div>
+            </div>
+            <div class="upload-image">
+                <multi-image-upload upload-config="uploadConfig"></multi-image-upload>
+            </div>
+            <div class="license-desc">
+                营业执照：
+            </div>
+            <div class="upload-image license-image">
+                <multi-image-upload upload-config="licenseUploadConfig"></multi-image-upload>
+            </div>
+            <div class="license-info">如没有营业执照，请上传身份证正反面，我们会进行审核。</div>
+            <div class="micro-shop-common2">
+                <div class="form_info_usercheckbox_warp">
+                    <div ng-class="{'user_checkbox1_checked':isAgreeUserTerms}" ng-click="toggleUserTerms()"></div>
+                    <span>同意</span><span class="form_info_userterms_text_blue" ng-click="showMicroshopUserTerms()">《校宝微店用户条款》</span>
+                </div>
+            </div>
+         
+            <div class="micro-shop-btn create-popup-btn" ng-click="createMicroShop()">
+                免费开通
+            </div>
+        </div>
+    </ion-content>
+
+</ion-view>
+<ion-footer-bar class="bar bar-footer footer_book new_tabs">
+    <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+    <a class="new_tab_item active" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+    <a class="new_tab_item" ng-click="goRegistrationBook()"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+    <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+</ion-footer-bar>

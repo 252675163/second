@@ -1,0 +1,314 @@
+﻿@charset "utf-8";
+//微传单第二套  第二套微传单的样式有与第一套复用
+
+
+//<--下载弹窗
+.download_pop_style_1 {
+  .download_pop_content {
+    background: url("../img/leaflet2_download_pop_bg1.jpg") $img-pozC;
+    @include background-size100;
+    width: temSize(540,1);
+    height: temSize(820,1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto auto;
+    .download_pop_title {
+      background: url("../img/leaflet2_download_pop_bg2.png") $img-pozC;
+      @include background-size100;
+      margin: 0 auto;
+      color: #fae959;
+      text-align: center;
+      line-height: temSize(128,1);
+      width: temSize(312, 1);
+      height: temSize(114,1);
+      font-size: temSize(30,1);
+    }
+    p {
+      color: #333;
+      text-align: center;
+    }
+    .download_pop_close {
+      position: absolute;
+      background: url("../img/leaflet2_download_pop_close.png") $img-pozC;
+      @include background-size100;
+    }
+    .download_pop_front,.download_pop_back{
+      box-shadow: 5px 5px 1px rgba(100, 90, 36, 0.4);
+    }
+    .download_pop_front{
+      margin-top: 0;
+      margin-bottom: temSize(17,1);
+    }
+
+  }
+}
+//下载弹窗-->
+//微传单第二套  第二套微传单的样式有与第一套复用
+.microleaflet2.leafletbg1,
+.microleaflet2.leafletbg3{background: url("../img/leaflet2_cartoon_textures.png")no-repeat;background-size:100% auto;background-color:#ffe44b;}
+.microleaflet2.leafletbg3{background-size: cover;}
+.microleaflet2.leafletbg2{background: #FEF3BB;}
+
+@function temSize($num,$rate:1) {
+  @return ceil($num /40*100)/100*$rate*1rem;
+}
+
+/***step3预览页使用了相同的标签，提取出公共样式作为引用***/
+@mixin baseStep3($rate:1){
+  .leaflet2-girls-with-strips{width: temSize(640, $rate);height: temSize(621, $rate);margin-top: temSize(66, $rate)}
+  .leaflet2_mask_adjustfy{width: temSize(552, $rate)!important;top: temSize(34, $rate)!important;margin-top: temSize(-36, $rate)!important;padding-top: temSize(56, $rate);
+    .acty22_box1{margin-top: 0!important;}
+    .acty22_box3{font-size: temSize(24, $rate)!important;
+      textarea{width: temSize(480, $rate)!important;}
+    }
+  }
+  .noLogo{
+    .acty22_box4,
+    .acty22_box5,
+    .acty22_box6{margin-top: 0!important;}
+    .acty22_box3{margin-bottom: temSize(140, $rate)}
+    .acty22_box4{margin-bottom: temSize(40, $rate)!important;}
+    .acty22_box5{margin-bottom: temSize(100, $rate)!important;}
+    .acty22_box3 textarea{font-size: temSize(36, $rate)!important;}
+  }
+}
+
+/*******************微传单预览页*****************/
+
+//微传单预览 数值相关样式
+//微传单预览 step1
+$rate:1;
+.leaflet2-wrap{
+  .leaflet2-top{
+    .leaflet2-light{width: temSize(593);height: temSize(492,$rate );}
+
+    .front-text-group{top: temSize(127, $rate);width:100%;
+      .leaflet2-logo{width: temSize(55, $rate);height: temSize(55, $rate);line-height: temSize(55,$rate);font-size: temSize(18, $rate);margin-left:  temSize(-268, $rate);}
+      .front-text1{font-size: temSize(48, $rate);margin-bottom: temSize(19, $rate)}
+      .front-text2{font-size: temSize(28, $rate);margin-bottom: temSize(22, $rate)}
+      .leaflet2-girl{width: temSize(602, $rate);height: temSize(639, $rate);}
+
+    }
+  }
+
+
+  .leaflet2-bottom{width:100%;height: temSize(342, $rate);padding-top: temSize(77, $rate);
+    .board-box{margin:0 auto;width: temSize(580, $rate);}
+    p{font-size: temSize(24, $rate)}
+    .leaflet2-blue-board01{width: temSize(377, $rate); height: temSize(216, $rate);padding-top: temSize(30, $rate);
+      .leaflet2-qrcode{width: temSize(158, $rate); height: temSize(120, $rate);}
+      .front_tip{font-size: temSize(18, $rate);}
+      .front_text4{width: temSize(205, $rate);height: temSize(130, $rate);font-size: temSize(16, $rate);margin-left: temSize(14, $rate);
+        p{margin-bottom: temSize(20, $rate);}
+        div{line-height: temSize(28, $rate);}
+      }
+    }
+    .leaflet2-blue-board02{width: temSize(193, $rate); height: temSize(216, $rate);padding-top: temSize(30, $rate);
+      .front-text3{padding-left: temSize(24.8, $rate); padding-right: temSize(24.8, $rate);
+        p{margin-bottom: temSize(20, $rate);}
+        div{font-size: temSize(16, $rate);line-height: temSize(28, $rate);}
+      }
+    }
+  }
+}
+//微传单预览 step2
+.leaflet2-step2-wrap{padding-top: temSize(48, $rate);
+  .leaflet2-house{width: temSize(639, $rate);height: temSize(246, $rate);}
+  .leaflet2-dance-stage-group{width: temSize(640, $rate);height: temSize(1070, $rate);margin-top: temSize(-358, $rate)!important;}
+  .back_title{top: temSize(132, $rate);left: temSize(90, $rate); width: temSize(447, $rate);height: temSize(148, $rate);padding-top: temSize(16, $rate);padding-bottom: temSize(42, $rate);line-height: temSize(90, $rate);text-align: center;}
+  .leaflet2-people-balls{top: temSize(112, $rate);left: temSize(24, $rate); width: temSize(612, $rate);height: temSize(302, $rate);}
+  .back_text1title,
+  .back_text2title,
+  .back_text3title,
+  .back_text4title{width: temSize(129, $rate);height: temSize(94, $rate);font-size: temSize(18, $rate);padding-top: temSize(40, $rate);padding-bottom: temSize(32, $rate);line-height: temSize(22, $rate); }
+  .back_text1title{top: temSize(512, $rate);left: temSize(48, $rate);
+    .middle{
+      .back_text1{width: temSize(389, $rate);height: temSize(72, $rate);
+        font-size: temSize(14, $rate); margin-top: temSize(-34, $rate);left: temSize(145, $rate);
+      }
+    }
+  }
+  .back_text2title{top: temSize(662, $rate); right: temSize(68, $rate);
+    .middle{width: temSize(389, $rate); height: temSize(64, $rate);;margin-top: temSize(-40, $rate);right: temSize(145, $rate);
+      .back_text2{
+        font-size: temSize(18,$rate)}
+    }
+  }
+  .back_text3title{top: temSize(770, $rate); left: temSize(48, $rate);
+    .middle{width: temSize(389, $rate); height: temSize(64, $rate);margin-top: temSize(-40, $rate);left: temSize(145, $rate);
+      .back_text3{
+        font-size: temSize(18,$rate);}
+    }
+  }
+  .back_text4title{top: temSize(876, $rate); right: temSize(68, $rate);
+    .middle{width: temSize(389, $rate); height: temSize(64, $rate);margin-top: temSize(-40, $rate);right: temSize(145, $rate);
+      .back_text4{
+        font-size: temSize(18,$rate);}
+    }
+  }
+}
+
+//微传单预览 step3
+
+.preview{
+
+  @include  baseStep3(1);
+}
+
+
+
+//微传单预览页 数值无关样式
+//微传单预览页 step1
+.leaflet2-wrap{
+  .leaflet2-top{
+    .leaflet2-light{background:url(../img/leaflet2_light_with_balls.png)no-repeat;background-size:100% auto;position: relative;margin:0 auto;}
+    .front-text-group{position:absolute;text-align:center;
+      .leaflet2-logo{display:inline-block; position: absolute;color:#dc3249;}
+      .front-text1{color:#191515;}
+      .front-text2{color:#1e1d18;}
+      .leaflet2-girl{position:relative;margin:0 auto;background:url(../img/leaflet2_girls_with_dance.png)no-repeat;background-size:100% auto;z-index:6;}
+    }
+
+  }
+
+
+
+
+  .leaflet2-bottom{position:absolute;bottom:0;background:url(../img/leaflet2_bule_bg.png)no-repeat;background-size:100% auto;
+    .leaflet2-blue-board01{overflow:hidden;float:left;background:url(../img/leaflet2_blue_board01.png)no-repeat;background-size:100% auto;
+      .leaflet2-qrcode{float:left;text-align: center;
+        .qrcode{display:inline-block;width:temSize(118);height:temSize(118)}
+        img{width:temSize(118);height:temSize(118);}
+      }
+      .front_tip{color:#231b29;text-align: center;display: block;}
+      .front_text4{display: inline-block;vertical-align: top;color:#17131c;
+        p{color:#231b29;vertical-align: top;}
+      }
+    }
+    .leaflet2-blue-board02{overflow:hidden;float:left;background:url(../img/leaflet2_blue_board02.png)no-repeat;background-size:100% auto ;}
+    .front-text3{
+            p{color:#231629;}
+            div{color:#17131c;}
+        }
+  }
+
+
+}
+
+//微传单预览页 step2
+.leaflet2-step2-wrap{
+  .leaflet2-house{position:relative;margin:0 auto;background:url(../img/leaflet2_house_bg.png)no-repeat;background-size:100% auto;}
+  .leaflet2-dance-stage-group{position:relative;margin:0 auto;
+    background: url(../img/leaflet2_dance_stage_with_pipe.png)no-repeat; background-size: 100% auto;}
+  .back_title{position:absolute;background: url(../img/leaflet2_light_title.png)no-repeat;background-size: 100% auto;}
+  .leaflet2-people-balls{background: url(../img/leaflet2_people_balls.png)no-repeat;background-size: 100% auto;position: absolute;}
+  .back_text1title,
+  .back_text2title,
+  .back_text3title,
+  .back_text4title{position:absolute;background: url(../img/leaflet2_blue_board.png)no-repeat;background-size: 100% auto;color:#fae959;text-align: center;font-weight:bold;}
+
+  .back_text1title .middle .back_text1,
+  .back_text2title .middle .back_text2,
+  .back_text3title .middle .back_text3,
+  .back_text4title .middle .back_text4{
+    position: absolute;color:#333;word-break:break-word;
+  }
+  .back_text1title .middle .back_text1,
+  .back_text3title .middle .back_text3
+  {text-align:left;}
+  .back_text2title .middle .back_text2,
+  .back_text4title .middle .back_text4
+  {text-align:right;}
+  .middle .back_text1,.middle .back_text2, .middle .back_text3, .middle .back_text4{font-weight:normal;}
+  .back_text1title .middle .back_text1{line-height:1.4;}
+
+}
+.back_text2title .middle{display:table;position: absolute;
+  .back_text2{position:static!important;display:table-cell;vertical-align: middle;}
+}
+.back_text3title .middle{display:table;position: absolute;
+  .back_text3{position:static!important;display:table-cell;vertical-align: middle;}
+}
+.back_text4title .middle{display:table;position: absolute;
+  .back_text4{position:static!important;display:table-cell;vertical-align: middle;}
+}
+
+//微传单预览页 step3
+
+.preview{
+
+  .leaflet2-girls-with-strips{position:absolute;z-index:0;background: url(../img/leaflet2_girls_with_strips.png)no-repeat;background-size: 100% auto;}
+  .leaflet2_mask_adjustfy{position: relative!important; z-index: 5;background: rgba(0,0,0,.5)!important;opacity: 1!important;
+  .acty22_box6 button{background: #f4ac11;}
+  }
+}
+  .microleaflet2 .microleaflet1_form .acty22_box3 .edit_info{color: #f6de49;}
+  
+
+/*******************微传单编辑页*****************/
+//微传单编辑 数值相关样式
+//微传单编辑 common
+
+.microleaflet2 .isEdit .front_editOuter .front_edit_box3,
+.microleaflet2 .isEdit .front_editOuter .front_edit_box4,
+.microleaflet2 .isEdit .front_editOuter .front_edit_box5{
+  margin-top: temSize(20, $rate)!important;
+}
+
+//微传单编辑 step1
+.front_edit_title2{font-size: temSize(30, $rate);width: temSize(312, $rate);height: temSize(144, $rate);padding-top: temSize(60, $rate);}
+.front_edit_box1{margin-top: temSize(9, $rate)!important;
+
+}
+.front_edit_img{width: temSize(100, $rate)!important;height: temSize(100, $rate)!important;}
+.front_edit_box2{margin-top: temSize(-28, $rate)!important;}
+
+.front_edit_box5{margin-top: temSize(20, $rate);
+  .front_edit_text5{width: temSize(320, $rate)}
+}
+//微传单编辑 step2
+.front_edit2_text2{font-size: temSize(18, $rate)!important;}
+.front_edit2_text4{font-size: temSize(22, $rate)!important;}
+.front_edit_title2 {padding-top: temSize(40, $rate)!important; height: temSize(114, $rate)!important; padding-bottom: temSize(28, $rate);line-height: temSize(46, $rate); }
+.front_edit2_box5{margin-top: temSize(22, $rate);
+  .front_edit2_text5{width: 100%;font-size: temSize(22, $rate)!important;}
+  .front_edit2_text6{font-size: temSize(28, $rate);margin-bottom: temSize(5, $rate);width: temSize(135, $rate)}
+}
+
+//微传单编辑 step3
+
+.isEdit{
+  .microleaflet1_form{padding-top: temSize(76,$rate)!important;}
+  @include  baseStep3(0.8);
+}
+
+
+
+//微传单编辑 与数值无关样式
+//微传单编辑 step1
+.front_editOuter2{background:url(../img/leaflet2_Rectangle_7.png)no-repeat center center!important;background-size:cover !important;
+  .front_edit_box1{
+    .front_edit_text1{color:#333;}
+  }
+}
+.front_edit_title2{background: url(../img/leaflet2_edit_title_board.png) no-repeat center center;-webkit-background-size: 100% 100%;background-size: 100% 100%;margin: 0 auto;color: #f2e362;text-align: center;}
+
+.front_edit_img{background-size: 100% auto;}
+.front_edit_box5{position:relative;font-weight: bold;
+  .front_edit_text5{position:absolute;right:0;top:0;}
+}
+//微传单编辑 step2
+.front_edit2_text6{display:inline-block;font-weight: bold;}
+
+
+//微传单编辑 step3
+.isEdit{
+  .leaflet2-girls-with-strips{position:absolute;z-index:0;background: url(../img/leaflet2_girls_with_strips.png)no-repeat;background-size: 100% auto;}
+  .leaflet2_mask_adjustfy{position: relative!important; z-index: 5;background: rgba(0,0,0,.5)!important;opacity: 1!important;
+    .acty22_box3 textarea{color: #f6de49;}
+    .acty22_box6 button{background: #f4ac11;}
+  }
+}

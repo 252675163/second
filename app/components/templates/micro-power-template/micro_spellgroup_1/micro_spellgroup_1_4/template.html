@@ -1,0 +1,20 @@
+<!--游戏规则-->
+<div class="micro_spellgroup " ng-show="isEdit||templateModel.description[0]||templateModel.title" ng-cloak>
+    <div ng-class="{true: 'isEdit', false: 'preview'}[isEdit]" ng-if="true">
+        <div class="introduce padding_bottom30 ">
+            <div class="form">
+                <div class="title" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title"
+                     ng-trim="false" custom-input readonly="readonly" maxlength="16" isdiff="true"><span ng-bind-html="templateModel.title"></span></div>
+                <div class="body">
+                    <div class="body_text_content" ng-show="!isEdit" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]"
+                         ng-trim="false" custom-input maxlength="800" isdiff="true" ng-bind-html="templateModel.description[0]|newlines|recogUrl:isView|recogTel"></div>
+                    <ion-scroll ng-show="isEdit" has-bouncing="false" class="body_text_content" style="width: 9.36rem;height: 13.6rem;padding: 0;" ng-class="{'editBorder':isEdit}">
+                        <div style="height:auto;padding: 0.38rem;" ng-model="templateModel.description[0]" ng-trim="false"
+                             custom-input readonly="readonly" maxlength="800" isdiff="true" ng-bind-html="templateModel.description[0]|newlines|recogUrl:isView|recogTel"></div>
+                    </ion-scroll>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--}page 4-->

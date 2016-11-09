@@ -1,0 +1,9 @@
+﻿@charset "UTF-8";
+$ionicons-font-path: "../libs/ionic/fonts" !default;
+// Include all of Ionic
+@import "../../libs/ionic/scss/ionic",
+"common", 
+"animation",
+"media-style";
+
+

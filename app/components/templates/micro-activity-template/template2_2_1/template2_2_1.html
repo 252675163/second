@@ -1,0 +1,21 @@
+<!--冬令营活动-->
+<!--No.1模板页 {-->
+<div class="paneabird1 microactivity-template8 acty8_bg1">
+    
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty8_box1_1">
+            <input ng-if="!isEdit" class="acty8_textBox1_1 canShow" type="text" ng-model="templateModel.title1" ng-disabled ="!isEdit" ng-trim="false"  readonly="readonly"  />
+            <input ng-if="isEdit" class="acty8_textBox1_1 canEdit" type="text" ng-model="templateModel.title1" inputconfig="{{inputconfig[0]}}" ng-disabled="!isEdit" ng-trim="false" new-custom-input readonly="readonly" />
+            <input ng-if="!isEdit" class="acty8_textBox1_2 canShow" type="text" ng-model="templateModel.title2" ng-disabled="!isEdit" ng-trim="false"  readonly="readonly" />
+            <input ng-if="isEdit" class="acty8_textBox1_2 canEdit" type="text" ng-model="templateModel.title2" inputconfig="{{inputconfig[1]}}" ng-disabled="!isEdit" ng-trim="false" new-custom-input readonly="readonly" />
+        </div>
+        <div class="acty8_box1_2">
+            <input ng-if="!isEdit" class="acty8_textBox2_1 canShow" type="text" ng-model="templateModel.title3" ng-disabled="!isEdit" ng-trim="false"  readonly="readonly" />
+            <input ng-if="isEdit" class="acty8_textBox2_1 canEdit" type="text" ng-model="templateModel.title3" inputconfig="{{inputconfig[2]}}" ng-disabled="!isEdit" ng-trim="false" new-custom-input readonly="readonly" />
+            <input ng-if="!isEdit" class="acty8_textBox2_2 canShow" type="text" ng-model="templateModel.title4" ng-disabled="!isEdit" ng-trim="false"  readonly="readonly" />
+            <input ng-if="isEdit" class="acty8_textBox2_2 canEdit" type="text" ng-model="templateModel.title4" inputconfig="{{inputconfig[3]}}" ng-disabled="!isEdit" ng-trim="false" new-custom-input readonly="readonly" />
+        </div>
+        
+    </div>
+</div>
+<!--} No.1模板页-->

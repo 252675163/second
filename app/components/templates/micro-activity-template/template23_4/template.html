@@ -1,0 +1,25 @@
+<!-- page 4 水族馆记录 {-->
+<div class="microactivity-vegetables bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-show="isView && grassRecordList.length">
+        <div class="vegetables_box3Outer" ng-style="{'background-image': 'url(' + getImageDoMain('/template4_page_bg.jpg')+ ')'}">
+            <div class="vegetables_box2_3" ng-style="{'border-bottom':'1px #29425f solid','box-shadow':'0px 1px 0px #4979ad'}">
+                <div class="vegetables_title1" ng-class="{'editBorder':isEdit}">看看谁帮你捕鱼啦</div>
+            </div>
+            <div class="vegetables_box2_4 list">
+                <div class="vegetables_item2 clearfix" ng-repeat="item in grassRecordList">
+                    <span class="item-pic"><img ng-src="{{item.HeadImgUrl||defaultHeadImg1|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg1}}"></span>
+                    <span class="item-content2">
+                        {{item.Nickname||defaultName}}<br />
+                        <em>帮你捕了一条鱼</em>
+                    </span>
+                    <span class="item-text">{{item.CreatedAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</span>
+                </div>
+                <ion-infinite-scroll on-infinite="loadMore()" ng-if="renderListData.length == 10" distance="1%" immediate-check="false">
+                </ion-infinite-scroll>
+            </div>
+        </div>
+    </div>
+</div>
+<my-footer></my-footer>
+
+<!--} page 4-->

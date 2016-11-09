@@ -1,0 +1,62 @@
+﻿<ion-view class="koubei-locate">
+    <ion-content has-bouncing="false">
+        <div class="box">
+            <div class="box-left">省 / 市 / 区：</div>
+            <input class="box-right box-c" type="text" ng-model="addressObj.districtStr" ng-click="toggleSelectDistrict(true)" readonly="readonly" maxlength="4" placeholder="请选择" />
+            <span class="icon-right"></span>
+        </div>
+        <div class="box">
+            <div class="box-left">详细地址：</div>
+            <input class="box-right box-c" type="text" ng-model="addressObj.address" readonly="readonly" maxlength="50" custom-input placeholder="请填写" change-placeholder-by-focus />
+            <span class="icon-right"></span>
+        </div>
+        <div class="introduction">
+            <span class="title">请按格式填写地址，避免影响门店搜索及活动报名；</span>
+            <br />
+            <span class="tip">例1：道路+门牌号，“人民东路18好”；</span>
+            <br/>
+            <span class="tip">例2：道路+门牌号+标志性建筑+楼层，“四川北路1552号欢乐广场1楼”；</span>
+        </div>
+        <div class="box locate-container">
+            <span class="locate-title box-left">定位图标到填写的地图位置</span>
+            <span class="locate-btn box-right" ng-click="locate()" ng-class="{'enable':checkAddress()}">定位</span>
+        </div>
+        <div id="map">
+
+        </div>
+
+    </ion-content>
+    <ion-footer-bar>
+        <div class="save" ng-click="saveAddress()">
+            确认
+        </div>
+    </ion-footer-bar>
+    <div class="ng-hide" ng-show="isShowDistrictSelect">
+        <div class="lockMask"></div>
+        <div class="address-btn">
+            <span class="btn btn-cancel" ng-click="toggleSelectDistrict(false)">取消</span>
+            <span class="btn btn-save" ng-click="saveDistrict()">确定</span>
+        </div>
+        <div class="swiper">
+
+            <div class="swiper-container" id="province">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="province in provinceList" ng-bind="province.name"></div>
+                </div>
+                <!--<div class="swiper_active"></div>-->
+            </div>
+            <div class="swiper-container" id="city">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="city in cityList" ng-bind="city.name"></div>
+                </div>
+                <!--<div class="swiper_active"></div>-->
+            </div>
+            <div class="swiper-container" id="district">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" ng-repeat="district in districtList" ng-bind="district.name"></div>
+                </div>
+                <!--<div class="swiper_active"></div>-->
+            </div>
+        </div>
+    </div>
+</ion-view>

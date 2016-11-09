@@ -1,0 +1,74 @@
+.box-content1 {
+        width: 12.8rem;
+        height: 4.4rem;
+        margin: 3.5rem auto 0;
+        background: url("../img/temp4_img-bg.png") no-repeat center center;
+        background-size: 100%;
+    }
+
+	.box-content2 textarea.canEdit, .box-content2 textarea.canShow{
+		width: 12.8rem;
+        height: 8rem;
+		background: none;
+		margin: 1rem auto 0;
+	}
+
+    .content_title1, .content_title2 {
+        text-align: center;
+		margin-bottom: 0.1rem;
+    }
+
+
+    .content_title1 input.canEdit, .content_title1 input.canShow {
+        height: 2.4rem;
+        width: 12.3rem;
+        line-height: 2.6rem;
+        margin-top: 0.1rem;
+        display: inline-block;
+        font-size: 1.2rem;
+        text-align: center;
+        background: none;
+		//font-family:"STHupo",$font-family-base;
+		@include text-shadow-s2(#a85c06);
+		color:#fff;
+    }
+
+    .content_title1 input.canEdit,.content_title2 input.canEdit,.box-content2 textarea.canEdit{
+         border: #ccc 1px dashed;
+         overflow-y: hidden;
+    }
+
+
+
+    .content_title2 input.canEdit, .content_title2 input.canShow {
+		height: 1.2rem;
+		line-height: 1.2rem;
+		padding-top: 0;
+		display: inline-block;
+		font-size: 0.7rem;
+		text-align: center;
+		background: none;
+		width: 90%;	
+		//font-family:"STHupo",$font-family-base;
+		@include text-shadow-s2(#a85c06);
+		color:#fff;
+		}
+
+	.has-footer_cover .maxbox{
+		.box-content1{ 
+			width: 12.8rem;
+			height: 4.4rem;
+		}
+		.content_title1 input.canShow{height: 2.4rem; width: 12.3rem; font-size: 1.2rem;}
+		.box-content2 textarea.canShow{height: 8rem;overflow-y: hidden;}
+	}
+
+	.maxbox .box-content1{width: 14.8rem;height: 5.4rem;}
+	.maxbox .content_title1 input.canShow{ height: 3rem;line-height: 3.3rem;width: 13.5rem; font-size: 1.3rem;}
+	.maxbox .content_title2 input.canShow{font-size: 0.8rem;}
+	.maxbox .box-content2 textarea.canShow{height: 11rem;overflow-y: hidden;}
+
+    @media screen and (min-height: 567px) {
+		
+		.maxbox .content_title2 input.canShow{font-size: 0.8rem;}
+    }

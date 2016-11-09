@@ -1,0 +1,197 @@
+﻿//下一页
+.nextButton1 {
+  width: 68/40*1rem;
+  height: 38/40*1rem;
+  background: url("../img/oldnew_next2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-origin: border-box;
+  background-origin: border-box;
+  z-index: 6;
+  left: 50%;
+  bottom: 0;
+  margin-left: -.85rem;
+  position: absolute;
+}
+//下一页
+.nextButton2 {
+  width: 212/40*1rem;
+  height: 27/40*1rem;
+  background: url("../img/activity_button_2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -webkit-background-origin: border-box;
+  background-origin: border-box;
+  z-index: 6;
+  left: 50%;
+  bottom: 72/40*1rem;
+  margin-left: -212/40/2*1rem;
+  position: absolute;
+}
+
+@function temSize_edit($num) {
+  @return ceil($num /40  * $tem-edit-num*100)/100*1rem;
+}
+/* px to rem */
+@function temSize($num) {
+  @return ceil($num /40*100)/100*1rem;
+}
+
+.oldNew_tempale2{
+.inputBox{
+  width: 100%;
+  height:100%;
+  z-index: 6;
+  position: absolute;
+  background-color: #9dabbb;
+
+  .inputText{
+    width: 14rem;
+    height: 50%;
+    top: 18px;
+    position: absolute;
+    margin-left: -7rem;
+    left: 50%;
+    padding: .5rem;
+    border: #ccc 1px dashed;
+
+  }
+  .buttonGroupBox{
+    width: 100%;
+    position: absolute;
+    bottom: 4rem;
+  }
+  .saveButton{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius:1.2rem;
+    background-color: #2070bb;
+    color:#fff;
+    right: 20px;
+    position: absolute;
+
+  }
+  .cancelButton{
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius:1.2rem;
+    background-color: #2070bb;
+    color:#fff;
+    left: 20px;
+    position: absolute;
+
+
+  }
+}
+
+
+
+.acty2_title1, .acty2_title2, .acty2_box {
+  text-align: center;
+}
+
+.acty2_box_pic_box1{position: absolute;left:50%;margin-left:temSize_edit(-100);width:temSize_edit(200);height:temSize_edit(200);margin-top:temSize_edit(150);
+      img{border-radius:100%;width: 100%;height: 100%;border: 2px solid #614c3f;}
+}
+.acty2_box {
+  width: temSize_edit(593);
+  height:temSize_edit(315);
+  margin: 0.5rem auto 0;
+  padding-top: 0.25rem;
+  background: url("../img/acty2_content_bg2.png") no-repeat center center;
+  background-size: 95%;
+  text-align: center;
+  overflow: hidden;
+  margin-top:5rem;
+}
+
+.TitleImg {
+  height: 5.8rem;
+  margin: 0.3rem auto;
+  padding-top: 0.25rem;
+  background: url("../img/acty2_title-bg.png") no-repeat center center;
+  background-size: 96%;
+  text-align: center;
+  overflow: hidden;
+}
+
+.acty2_title1 input.canEdit, .acty2_title1 input.canShow {
+  height: 1.8rem;
+  width: 11.5rem;
+  line-height: 1rem;
+  margin-top: 1.95rem;
+  display: inline-block;
+  font-size: .9rem;
+  text-align: center;
+  background: none;
+  color: #fff;
+}
+
+.acty2_title2 input.canEdit, .acty2_title2 input.canShow {
+  height: 1.2rem;
+  width: 7rem;
+  line-height: 1rem;
+  margin-top: 0.2rem;
+  display: inline-block;
+  font-size: .7rem;
+  text-align: center;
+  background: none;
+  color: #FF0000;
+}
+
+.acty2_box textarea.acty2Text, .acty2_box textarea.acty2TextEdit {
+  overflow-y: hidden;
+  display: inline-block;
+  width: 80%;
+  border-radius: 3px;
+  background: none;
+  font-size: 0.8rem;
+  line-height: 1rem;
+  margin-top: 2rem;
+  padding: 0.2rem;
+  text-align: center;
+  color: #333;
+  opacity: 1;
+  height: auto;
+}
+
+.acty2_title1 input.canEdit, .acty2_title2 input.canEdit, .acty2_box textarea.acty2TextEdit {
+  border: #ccc 1px dashed;
+}
+
+.maxbox .TitleImg {
+  height: 6.8rem;
+}
+
+.maxbox .acty2_title1 input.canShow {
+  height: 2.2rem;
+  font-size: 1.05rem;
+  width: 13rem;
+  margin-top: 2.2rem;
+}
+
+.maxbox .acty2_title2 input.canShow {
+  height: 1.5rem;
+  width: 7.2rem;
+  margin-top: 0;
+  font-size: .9rem;
+}
+
+.maxbox .acty2_box {
+  width: temSize(593);
+  height:temSize(315);
+  margin-top:6.2rem;
+}
+
+.maxbox .acty2_box textarea.acty2Text {
+  margin-top: 2.8rem;
+  height: auto;
+}
+
+.maxbox{
+    .acty2_box_pic_box1{margin-left:temSize(-100);width:temSize(200);height:temSize(200);margin-top:temSize(150); }
+
+    input.canShow,textarea{overflow-y: hidden;}
+    .acty2_box .acty2Text,.acty3_box textarea{color:#000!important;}
+}
+}

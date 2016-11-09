@@ -1,0 +1,97 @@
+<ion-view cache-view="false">
+    <ion-pane >
+        <my-audio audio-src="musicUrl " audio-handle="audioHandle" ng-if="templateExtConfig.isHaveBackgroundMusic"></my-audio>
+        <div class="lockMask_box" style="z-index: 250;" ng-style="{'display':isPublish?'block':'none'}">
+            <div class="lockMask"></div>
+            <div class="lockMask_content">
+                <div class="lock_title" ng-class="{'lock_fail_title': isPublishFail}"></div>
+                <div class="lock_text" ng-class="{'lock_fail_text': isPublishFail}">
+                    <div class="ps_success">{{isPublishFail?"保存失败！":"保存成功！"}}</div>
+                    <div class="ps_text">{{calMessage}}正在为您跳转{{isPublishFail?"回编辑页面":"到我的场景"}}...</div>
+                </div>
+            </div>
+        </div>
+        <div id="container" class="scroll-content">
+            
+            <ion-content has-bouncing="false" scrollbar-y = "false">
+                <micro-activity-old-and-new-preview-view site-model="siteModel" template-ext-config="templateExtConfig" activity-other-config="activityOtherConfig"></micro-activity-old-and-new-preview-view>
+            </ion-content>
+            <my-footer ng-style="{'display':isBottom&&templateExtConfig.isUseFooter?'block':'none'}" class="footer-copyright hide-on-keyboard-open"></my-footer>
+        </div>
+        <div class="btnGroup4">
+            <button type="button" class="btnG4_edit" ng-click="goToEdit()">
+                <span>编辑</span></button>
+            <button  ng-if="templateExtConfig.isHaveShareByPreview" type="button" class="btnG4_share" ng-click="changeShareTitle()">
+                <span>分享</span></button>
+            <!-- 微传单 todo -->
+            <button  ng-if="templateExtConfig.isHaveDownload" type="button" class="btnG4_download" ng-click=" goDownload()" >
+                <span>下载</span>
+            </button>
+        </div>
+        <div ng-class="audioPosClass" class="audio_pos">
+            <button type="button" ng-class="!isOpen?'btnG3_music':'btnG3_musicon'" ng-click="closeAndOpenMusic()" ng-if="templateExtConfig.isHaveBackgroundMusic"></button>
+        </div>
+        <!-- <div class="nextButton mantra" ng-hide="isBottom" ng-click="sectionJump()"></div>-->
+        <div ng-hide="isBottom"  ><next-button activity-template-id = "templateId" next-button-type="templateExtConfig.nextButtonType"></next-button></div>
+
+    </ion-pane>
+    <div ng-style="{'display':isShowShareTitlePop?'block':'none'}">
+        <button type="button" class="btn-closed" style="z-index:8;" ng-click="colseShareTitlePop()"></button>
+        <div class="lockMask" style="z-index:7;"></div>
+        <div class="popup-tips-s1" style="z-index:7;"></div>
+        <div class="popup-wrap-s1" style="z-index:7;">
+            <div class="popup-share-head">
+                <div class="popup-text-span">标题：</div>
+                <input ng-model="showShareTitlePopModel.shareTitle" />
+            </div>
+            <div class="popup-content">
+                <div class="popup-box clearfix">
+                    <div class="popup-boxL" ng-click="changeShareImage(0)"><img ng-src="{{showShareTitlePopModel.imageUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button></div>
+                    <!--<span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>-->
+                    <div class="popup-boxR">
+                        <textarea placeholder="分享内容：" class="popup_textbox" maxlength="100" ng-model="showShareTitlePopModel.desc"></textarea>
+                        <span class="popup-box_total"><span>{{showShareTitlePopModel.desc.length||0}}</span> / 100</span>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-buttons">
+                <div class="button-share-left" ng-click="showShareTitlePopModel.saveShareTitleFunction('goIndex')">
+                    仅保存
+                </div>
+                <div class="button-share-right" ng-click="showShareTitlePopModel.saveShareTitleFunction('goShare')">
+                    立刻分享
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--分享遮罩 {-->
+    <div ng-style="{'display':isShare?'block':'none'}">
+        <div class="lockMask"></div>
+        <!--    <div class="lockMask_activity_share"></div>-->
+        <div class="lockMask_activity_share4"></div>
+    </div>
+    <!--} 分享遮罩-->
+<!--下载这遮罩-->
+    <div class="preview" ng-style="{'display':leafletImgBox.isShowMask?'block':'none'}"  ng-class = "templateExtConfig.downloadPopStyle">
+        <div class="download_pop">
+            <div class="lockMask"></div>
+            <div class="download-loading"   ng-style="{'display':leafletImgBox.isLoading?'block':'none'}" ></div>
+            <div class="download_pop_content"   ng-style="{'display':!leafletImgBox.isLoading?'block':'none'}" >
+                <div class="download_pop_close" ng-click="setLeafletImgBoxIsShow(false)"></div>
+                <div class="download_pop_title">打印页</div>
+                <div class="download_pop_front">
+                    <!--下载图片路径-->
+                    <img ng-src="{{leafletImgBox.imgUrl[0]}}" alt="" isstopmove="false" />
+                </div>
+                <div class="download_pop_back">
+                    <img ng-src="{{leafletImgBox.imgUrl[1]}}" alt="" isstopmove="false" />
+                </div>
+                <p>分别长按下载后即可打印成传单</p>
+            </div>
+        </div>
+    </div>
+</ion-view>
+
+
+

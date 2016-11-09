@@ -1,0 +1,227 @@
+<ion-view class="content-bg consultbookbg background_gray">
+    <div class="regis-tab" style="position: absolute;width: 100%;">
+        <div class="nav-top-tabs" ng-if="!showBannerNone">
+            <div class="nav-tab mar-lr-80 active-blue" ng-click="">咨询</div>
+            <div class="nav-tab mar-lr-80" ng-click="goSchedule()">任务</div>
+        </div>
+        <div class="consultbook-select " ng-if="moreSelect">已选中{{selectList.length}}条咨询</div>
+        <!--无数据loading样式-->
+        <div class="regs-list-load" ng-class="{'regs-list-load-done':hasregDone}" ng-style="{'display':(!hasregDone)?'block':'none'}">
+            <div class="filter_input_box background_gray">
+                <div class="filter_input filter_input_320">
+                    <div class="loading-tag tag-width1"></div>
+                </div>
+                <div class="filter_input filter_input_120">
+                    <div class="loading-tag tag-width2"></div>
+                </div>
+                <div class="filter_input filter_input_120">
+                    <div class="loading-tag tag-width3"></div>
+                </div>
+            </div>
+            <div class="load_animation"></div>
+        </div>
+
+        <div class="filter_input_box background_gray" ng-style="{'display':(hasregDone)?'block':'none'}">
+
+            <!--搜索框todo-->
+            <div class="consultbook-search ng-hide" ng-show="searchShow && !showSort && !moreSelect && !showFilter" ng-click="showSearch()">
+                <i class="consultbook-searchImg"></i>搜索
+            </div>
+            <div class="filter_box">
+                <div class="filter_input filter_input_320" ng-class="{'select':showSort}" ng-click="toggleSort()">
+                    <div class="filter_input_text filter_input_text2">{{sortList.con}}</div>
+                    <i class="filter_input_icon {{sortList.arrowClass}}"></i>
+                </div>
+                <div class="filter_input filter_input_120" ng-class="{'select':showFilter,'show_filter':showFilter,'has_filter_condition':hasFilterCondition}" ng-click="toggleFilter()">
+                    <div class="filter_input_text filter_input_text1">筛选</div>
+                    <div class="filter_input_arrow"></div>
+                </div>
+                <div class="filter_input filter_input_120" ng-class="{'select':moreSelect}" ng-click="regMoreSelect()">
+                    <div class="filter_input_text">{{chooseSelect()}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!--<div ng-if="allListEmpty&&showAllList">
+            <img ng-src="{{baseImgUrl+'consultbook_bg1.png'}}" class="consultNone" />
+            <div class="consultNoneText_book">还没有人来报名哦~</div>
+        </div>-->
+    </div>
+    <!--未知重新加载-->
+    <div class="reg-unknow ng-hide" ng-show="showReload && hasregDone" style="z-index:2;">
+        <div class="unknow-bg"></div>
+        <div class="unknow-info">您的网络不太顺畅</div>
+        <div class="btn-size-180 btn-blue unknow-btn" ng-click="reFreshList()">重新加载</div>
+    </div>
+    <!--没有咨询-->
+    <div class="reg-prompt-info ng-hide" ng-show="allListEmpty && hasregDone">
+        没有咨询<br />
+        请新建咨询或前往pc端批量导入
+    </div>
+    <ion-scroll class="list-scroll" on-drag-down="dragDown()" ng-class="{'list-drop':searchShow && !showSort && !moreSelect && !showFilter}">
+        <ion-content delegate-handle="all" class="consultlist_book registrationlist" has-bouncing="false" ng-class="{'noFooter':!showFooterTab}">
+            <!--全部列表-->
+            <ion-list class="alllist">
+                <ion-item class="consultItem_book" type="item-text-wrap" ng-style="{'display':(hasregDone)?'block':'none'}">
+                    <div class="myrow_book1 myrow_book_after clearfix border-bottom-1" ng-repeat="regUser in allListNormalData" ng-click="toDetailPage(regUser.Id,regUser)">
+                        <div class="consultbook_name">
+                            <div class="consult_select" ng-if="moreSelect" ng-class="{'consult_selected1':regUser.isSelected}"></div>
+                            <div class="consult_user_head1 {{'consult_user_head1_icon'+regUser.Interest}}" ng-class="{consult_user_head11:moreSelect}"></div>
+                            <div class="consult_username1">{{regUser.Name | Maxlength:7}}</div>
+                            <div class="consult_state">
+                                <span ng-show="currentUserLocation.Id >0 && currentUserLocation.Id == regUser.DistrictId">本地</span>
+                                <!--<span ng-show="regUser.Enrolled==true">已报名</span>-->
+                                <span ng-show="regUser.Enrolled==false">未报名</span>
+                            </div>
+                        </div>
+                        <div class="reg-follow">
+                            <div ng-show="regUser.FollowUpStatus==1" class="reg-follow-state1 clearfix btn-yellow">待跟进</div>
+                            <div ng-show="regUser.FollowUpStatus==2" class="reg-follow-state1 clearfix btn-blue">跟进中</div>
+                            <div ng-show="regUser.FollowUpStatus==5" class="reg-follow-state1 clearfix btn-red">已到访</div>
+                            <div ng-show="regUser.FollowUpStatus==3" class="reg-follow-state1 clearfix btn-green">已成交</div>
+                            <div ng-show="regUser.FollowUpStatus==4" class="reg-follow-state1 clearfix btn-darkgray">已失效</div>
+                            <div class="reg-follow-time clearfix ng-hide" ng-show="regUser.EditDate" ng-bind="regUser.EditDate| date:'yyyy-MM-dd HH:mm'"></div>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+            <ion-infinite-scroll on-infinite="loadAllList()" ng-if="allListPage.currentIndex < allListPage.totalCount" distance="1%" class="LoadStyle" immediate-check="false">
+            </ion-infinite-scroll>
+        </ion-content>
+    </ion-scroll>
+
+    <!--筛选弹窗-->
+    <ion-content delegate-handle="filter" class="filter_container ng-hide" ng-show="showFilter" has-bouncing="false">
+        <div class="filter_follow">
+            <div class="title">跟进类型</div>
+            <div class="tag_list" id="regTabSelect">
+                <span class="tag btn btn-size-130" ng-repeat="tab in statusModel | orderBy:'order'" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="regStateTabSelect(tab)">
+                    {{tab.con}}
+                </span>
+            </div>
+        </div>
+        <div class="filter_follow">
+            <div class="title">销售</div>
+            <div class="tag_list" id="regTabSelect" ng-show="!salesManLevel">
+                <span class="tag btn btn-size-130" ng-repeat="tab in salesmanListStatues track by $index " ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="regStateTabSelect(tab)">
+                    {{tab.viewName}}
+                </span>
+            </div>
+            <!--销售员自己-->
+            <div class="tag_list" id="regTabSelect" ng-show="salesManLevel">
+                <span class="tag btn btn-size-130 btn-blue">{{ErpUserInfo.UserName}}</span>
+            </div>
+        </div>
+        <div class="filter_follow">
+            <div class="title">星标</div>
+            <div class="tag_list" id="regTabSelect">
+                <span class="tag btn btn-size-130" ng-repeat="tab in searchCollectModel | orderBy:'order'" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="regStateTabSelect(tab)">
+                    {{tab.con}}
+                </span>
+            </div>
+        </div>
+        <div class="filter_follow">
+            <div class="title">意向度</div>
+            <div class="tag_list" id="regTabSelect">
+                <span class="tag btn btn-size-130" ng-repeat="tab in interestsModel" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="regStateTabSelect(tab)">
+                    <span class="intention-icon {{tab.addclass}}"></span>
+                </span>
+            </div>
+        </div>
+        <div class="filter_follow">
+            <div class="title">标签</div>
+            <div class="tag_list" id="regTabSelect">
+                <span class="tag btn btn-size-130" ng-repeat="tab in searchTagsModel | orderBy:'order'" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="regStateTabSelect(tab)">
+                    {{tab.con}}
+                </span>
+            </div>
+        </div>
+        <div class="filter_scene">
+            <div class="title">来源</div>
+            <div class="tag_list" id="regListSelect">
+                <div class="tag btn" ng-repeat="list in filterSelectList track by $index" ng-class="{true :'btn-blue', false :'btn-lightgray'}[list.status]" ng-click="regStateTabSelect(list)">
+                    {{list.Title}}
+                </div>
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="loadSceneList()" ng-if="filterSelectPage.currentIndex < filterSelectPage.totalCount" distance="1%" class="LoadStyle" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+    <div class="filter_container sort_container ng-hide" ng-show="showSort">
+        <div class="sort-wrap sort1">
+            <span class="tag btn-size-420" ng-repeat="tab in sortStatusModel" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="sigleTabSelect(tab,sortStatusModel)">
+                按{{tab.con}}排序
+            </span>
+        </div>
+        <div class="sort-wrap sort2">
+            <span class="tag btn-size-120" ng-repeat="tab in orderBysModel" ng-class="{true :'btn-blue', false :'btn-lightgray'}[tab.status]" ng-click="selectOrderBy(tab)">
+                <span class="intention-icon {{tab.className}}"></span>
+            </span>
+        </div>
+
+    </div>
+
+    <!--选择销售员-->
+    <div ng-show="isSalesmanShow" class="salesmanList ng-hide">
+        <div class="mask"></div>
+        <div class="listBox">
+            <div class="listHeader border-b-1"><i></i>请选择销售</div>
+            <div class="reg-prompt-info  list-info ng-hide" style="z-index:110 " ng-show="salesmanListData.length<1">
+                没有销售员<br />请前往PC端添加销售员
+            </div>
+            <ion-content class="listContent listContent1" has-bouncing="true">
+                <div ng-repeat="item in salesmanListData track by $index " ng-show="salesmanListData.length>0" class="selectItem border-b-1 ng-hide" ng-click="chooseSalesman(item)">
+                    <div class="img" ng-style="{'background':getHeadImageBg(item)}" ng-bind="item[0].toUpperCase()"></div>
+                    <div class="name">{{item}}</div>
+                </div>
+            </ion-content>
+            <div class="bottom1  border-t-1" ng-click="closeSalesman()">关闭</div>
+        </div>
+    </div>
+
+    <ion-footer-bar align-title="left" ng-show="showSort" class="filter_btn ng-hide">
+        <div class="btn btn-size-160 btn-blue-outline new_tab_item" ng-click="regSorClear()">重置</div>
+        <div class="btn btn-size-160 btn-blue filter_submit new_tab_item" ng-click="regSelectSubmit()">排序</div>
+    </ion-footer-bar>
+
+    <ion-footer-bar align-title="left" ng-show="showFilter" class="filter_btn ng-hide">
+        <div class="btn btn-size-160 btn-blue-outline new_tab_item" ng-click="regSelectClear()">重置</div>
+        <div class="btn btn-size-160 btn-blue filter_submit new_tab_item" ng-click="regSelectSubmit()">筛选</div>
+    </ion-footer-bar>
+
+    <!--todo 添加按钮，在其他页面时，隐藏-->
+    <div class="position-fixed-btn registrationbook_add ng-hide" ng-click="addConsult()" ng-if="userAddLevel" ng-hide="showSort || moreSelect || showFilter || !hasregDone">
+        <span class="position-fixed-icon"></span>
+    </div>
+    <!--新增咨询-->
+    <div ng-show="consultAddBox" class="consult-add-box ng-hide">
+        <div class="mask"></div>
+        <div class="consultAddBox">
+            <div class="add-box">
+                <div class="box-title">快速新增咨询</div>
+                <div class="box-content">
+                    <div><input type="text" maxlength="15" ng-model="newData.name" change-placeholder-by-focus><span>姓名</span></div>
+                    <div class="box-mid"><input type="tel" maxlength="11" ng-model="newData.phone" change-placeholder-by-focus><span>手机号</span></div>
+                    <div><input type="text" maxlength="30" ng-model="newData.wechat" change-placeholder-by-focus><span>微信号(选填)</span></div>
+                </div>
+            </div>
+            <div class="bottom1">
+                <div class="left" ng-click="escAddBox()">取消</div>
+                <div ng-click="affirmAddBox()">确定</div>
+            </div>
+        </div>
+    </div>
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs ng-hide" ng-show="!moreSelect && showFooterTab">
+        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+    </ion-footer-bar>
+    <!--多选底部导航-->
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs ng-hide" ng-show="moreSelect">
+        <a class="new_tab_item" ng-click="regfSelectAll()"><div class="regf_select" ng-if="moreSelect" ng-class="{'consult_selected1':selectAll}"></div><span class="regf-span">全选</span></a>
+        <a class="new_tab_item" ng-click=""><!--<i class="regf-icon regf-delete"></i><span class="footerbook_text">删除</span>--></a>
+        <a class="new_tab_item" ng-click="showSalesman()"><i class="regf-icon" ng-class="{'regf-allot1':graySale(),'regf-allot':!graySale()}"></i><span class="footerbook_text" ng-class="{'regf-colorg':graySale()}">分配咨询</span></a>
+        <a class="new_tab_item" ng-click="sendMsgs()"><i class="regf-icon" ng-class="{'regf-phone1':grayMsg(),'regf-phone':!grayMsg()}"></i><span class="footerbook_text" ng-class="{'regf-colorg':grayMsg()}">群发短信</span></a>
+    </ion-footer-bar>
+</ion-view>

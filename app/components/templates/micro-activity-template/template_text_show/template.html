@@ -1,0 +1,23 @@
+<!--No.9模板页  活动详情模块{-->
+<div class="microactivity-vegetables bgPan assistant">
+    <div ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+        <div class="vegetables_bg section2" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')'}">
+            <div class="vegetables_boxOuter" ng-style="{'background': templateModel.bgColor,'border-radius':templateModel.radius/40 +'rem' }">
+                <div class="vegetables_box_1">
+                    <div class="vegetables_title1" ng-style="{'color':templateModel.titleColor}" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title"
+                        ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="8" ng-bind-html="templateModel.title|newlines"></div>
+                </div>
+                <div class="vegetables_box_2">
+                    <div class="vegetables_text1" ng-style="{'color':templateModel.descriptionColor}" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="400" ng-bind-html="templateModel.description|newlines|recogTel|recogUrl:isView"></div>                </div>
+                <div ng-if="!isEdit" class="vegetables_box_4">
+                    <div class="imgbox-upload imgbox-upload-h0" ng-repeat="img in TempImgLists.imgs track by $index" ng-if="img!=0">
+                        <div class="uploadimg">
+                            <img ng-src="{{img}}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} No.9模板页-->

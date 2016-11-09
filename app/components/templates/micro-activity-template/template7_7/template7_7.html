@@ -1,0 +1,28 @@
+<!--微课堂-->
+<!--No.7模板页 -->
+<div class="paneabird1 microactivity-template12">
+    
+    <div class="acty12_box7" ng-class="{'maxbox':!isEdit}">
+        <div class="acty12_box7_1">
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="acty12_textBox7_1 canShow" rows="2" type="text"  ng-model="templateModel.title" ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length class="acty12_textBox7_1 canEdit" rows="2" type="text" ng-model="templateModel.title" ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+        <div class="acty12_box7_2">
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="acty12_textBox7_2 canShow" rows="5" type="text"  ng-model="templateModel.description" ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly" ></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length class="acty12_textBox7_2 canEdit" rows="5" type="text" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+
+            <div class="acty12_form" >
+                <input placeholder="您的姓名" class="acty12_form_text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length  />
+                <input placeholder="您的手机号" class="acty12_form_text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length  />
+
+                <div class="acty12_form_btn" ng-click="submitInfo()">
+                    <input ng-if = "isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}"  maxlength="200" my-max-length ng-trim="false" custom-input readonly="readonly" /><!--默认文案为 我要报名 -->
+                    <input ng-if = "!isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}"  maxlength="200" my-max-length ng-trim="false"  readonly="readonly" /><!--默认文案为 我要报名 -->
+                </div>
+           </div>
+
+        </div>
+    </div>
+
+</div>
+<!-- No.7模板页-->

@@ -1,0 +1,222 @@
+﻿//公开课翻页动画效果{
+.mantra {
+  -webkit-animation-name: mantra-keyframes;
+  -webkit-animation-duration: 1300ms;
+  -webkit-animation-delay: 0ms;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: mantra-keyframes;
+  animation-duration: 1300ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes mantra-keyframes {
+  0% {-webkit-transform: translateY(0px); -webkit-opacity: 0;opacity: 0;}
+  2.56% {-webkit-transform: translateY(-0.0108px);}
+  5.13% {-webkit-transform: translateY(-0.0863px);}
+  7.69% {-webkit-transform: translateY(-0.2913px);}
+  10.26% {-webkit-transform: translateY(-0.6905px);}
+  12.82% {-webkit-transform:translateY(-1.3486px);}
+  15.38% {-webkit-transform:translateY(-2.3305px);}
+  17.95% {-webkit-transform:translateY(-3.7007px);}
+  20.51% {-webkit-transform:translateY(-5.524px);}
+  23.08% {-webkit-transform:translateY(-7.8653px);}
+  25.64% {-webkit-transform: translateY(-10.7497px);}
+  28.21% {-webkit-transform: translateY(-13.3741px);}
+  30.77% {-webkit-transform: translateY(-15.4483px);}
+  33.33% {-webkit-transform: translateY(-17.037px);}
+  35.9% {-webkit-transform: translateY(-18.205px);}
+  38.46% {-webkit-transform: translateY(-19.0168px);}
+  41.03% {-webkit-transform: translateY(-19.5374px);}
+  43.59% {-webkit-transform: translateY(-19.8314px);}
+  46.15% {-webkit-transform: translateY(-19.9636px);}
+  48.72% {-webkit-transform: translateY(-19.9987px);}
+  51.28% {-webkit-transform: translateY(-20.0003px); -webkit-opacity: 1;  opacity:1;}
+  53.85% {-webkit-transform: translateY(-20.0091px);}
+  56.41% {-webkit-transform: translateY(-20.0421px);}
+  58.97% {-webkit-transform: translateY(-20.1156px);}
+  61.54% {-webkit-transform: translateY(-20.2458px);}
+  64.1% {-webkit-transform: translateY(-20.4488px);}
+  66.67% {-webkit-transform: translateY(-20.7407px);}
+  69.23% {-webkit-transform: translateY(-21.1379px);}
+  71.79% {-webkit-transform: translateY(-21.6565px);}
+  74.36% {-webkit-transform: translateY(-22.3126px);}
+  76.92% {-webkit-transform: translateY(-23.1224px);}
+  79.49% {-webkit-transform: translateY(-24.1022px);}
+  82.05% {-webkit-transform: translateY(-25.2681px);}
+  84.62% {-webkit-transform: translateY(-26.6363px);}
+  87.18% {-webkit-transform: translateY(-28.223px);}
+  89.74% {-webkit-transform: translateY(-30.0443px);}
+  92.31% {-webkit-transform: translateY(-32.1165px);}
+  94.87% {-webkit-transform: translateY(-34.4557px);}
+  97.44% {-webkit-transform: translateY(-37.0782px);}
+  100% {-webkit-transform: translateY(-40px); -webkit-opacity: 0; opacity: 0;}
+}
+@keyframes mantra-keyframes {
+  0% {transform: translateY(0px);-webkit-opacity: 0;opacity: 0;}
+  2.56% {transform: translateY(-0.0108px);}
+  5.13% {transform: translateY(-0.0863px);}
+  7.69% {transform: translateY(-0.2913px);}
+  10.26% {transform: translateY(-0.6905px);}
+  12.82% {transform:translateY(-1.3486px);}
+  15.38% {transform:translateY(-2.3305px);}
+  17.95% {transform:translateY(-3.7007px);}
+  20.51% {transform:translateY(-5.524px);}
+  23.08% {transform:translateY(-7.8653px);}
+  25.64% {transform: translateY(-10.7497px);}
+  28.21% {transform: translateY(-13.3741px);}
+  30.77% {transform: translateY(-15.4483px);}
+  33.33% {transform: translateY(-17.037px);}
+  35.9% {transform: translateY(-18.205px);}
+  38.46% {transform: translateY(-19.0168px);}
+  41.03% {transform: translateY(-19.5374px);}
+  43.59% {transform: translateY(-19.8314px);}
+  46.15% {transform: translateY(-19.9636px);}
+  48.72% {transform: translateY(-19.9987px);}
+  51.28% {transform: translateY(-20.0003px); -webkit-opacity: 1;  opacity:1;}
+  53.85% {transform: translateY(-20.0091px);}
+  56.41% {transform: translateY(-20.0421px);}
+  58.97% {transform: translateY(-20.1156px);}
+  61.54% {transform: translateY(-20.2458px);}
+  64.1% {transform: translateY(-20.4488px);}
+  66.67% {transform: translateY(-20.7407px);}
+  69.23% {transform: translateY(-21.1379px);}
+  71.79% {transform: translateY(-21.6565px);}
+  74.36% {transform: translateY(-22.3126px);}
+  76.92% {transform: translateY(-23.1224px);}
+  79.49% {transform: translateY(-24.1022px);}
+  82.05% {transform: translateY(-25.2681px);}
+  84.62% {transform: translateY(-26.6363px);}
+  87.18% {transform: translateY(-28.223px);}
+  89.74% {transform: translateY(-30.0443px);}
+  92.31% {transform: translateY(-32.1165px);}
+  94.87% {transform: translateY(-34.4557px);}
+  97.44% {transform: translateY(-37.0782px);}
+  100% {transform: translateY(-40px); -webkit-opacity: 0; opacity: 0;}
+}
+//}公开课翻页动画效果
+
+
+//翻页动画效果2{
+.mantra2 {
+  -webkit-animation-name: mantra2-keyframes;
+  -webkit-animation-duration: 1300ms;
+  -webkit-animation-delay: 0ms;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: mantra2-keyframes;
+  animation-duration: 1300ms;
+  animation-delay: 0ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@-webkit-keyframes mantra2-keyframes {
+  0% {-webkit-transform: translateX(0px); -webkit-opacity: 1;opacity: 1;}
+  2.56% {-webkit-transform: translateX(-0.0108px);}
+  5.13% {-webkit-transform: translateX(-0.0863px);}
+  7.69% {-webkit-transform: translateX(-0.2913px);}
+  10.26% {-webkit-transform: translateX(-0.6905px);}
+  12.82% {-webkit-transform:translateX(-1.3486px);}
+  15.38% {-webkit-transform:translateX(-2.3305px);}
+  17.95% {-webkit-transform:translateX(-3.7007px);}
+  20.51% {-webkit-transform:translateX(-5.524px);}
+  23.08% {-webkit-transform:translateX(-7.8653px);}
+  25.64% {-webkit-transform: translateX(-10.7497px);}
+  28.21% {-webkit-transform: translateX(-13.3741px);}
+  30.77% {-webkit-transform: translateX(-15.4483px);}
+  33.33% {-webkit-transform: translateX(-17.037px);}
+  35.9% {-webkit-transform: translateX(-18.205px);}
+  38.46% {-webkit-transform: translateX(-19.0168px);}
+  41.03% {-webkit-transform: translateX(-19.5374px);}
+  43.59% {-webkit-transform: translateX(-19.8314px);}
+  46.15% {-webkit-transform: translateX(-19.9636px);}
+  48.72% {-webkit-transform: translateX(-19.9987px);}
+  51.28% {-webkit-transform: translateX(-20.0003px); }
+  53.85% {-webkit-transform: translateX(-20.0091px);}
+  56.41% {-webkit-transform: translateX(-20.0421px);}
+  58.97% {-webkit-transform: translateX(-20.1156px);}
+  61.54% {-webkit-transform: translateX(-20.2458px);}
+  64.1% {-webkit-transform: translateX(-20.4488px);}
+  66.67% {-webkit-transform: translateX(-20.7407px);}
+  69.23% {-webkit-transform: translateX(-21.1379px);}
+  71.79% {-webkit-transform: translateX(-21.6565px);}
+  74.36% {-webkit-transform: translateX(-22.3126px);}
+  76.92% {-webkit-transform: translateX(-23.1224px);}
+  79.49% {-webkit-transform: translateX(-24.1022px);}
+  82.05% {-webkit-transform: translateX(-25.2681px);-webkit-opacity: 0; opacity: 0;}
+  84.62% {-webkit-transform: translateX(-26.6363px);}
+  87.18% {-webkit-transform: translateX(-28.223px);}
+  89.74% {-webkit-transform: translateX(-30.0443px);}
+  92.31% {-webkit-transform: translateX(-32.1165px);}
+  94.87% {-webkit-transform: translateX(-34.4557px);}
+  97.44% {-webkit-transform: translateX(-37.0782px);}
+  100% {-webkit-transform: translateX(-40px); -webkit-opacity: 0; opacity: 0;}
+}
+@keyframes mantra2-keyframes {
+  0% {transform: translateX(0px);-webkit-opacity:1; opacity: 1;}
+  2.56% {transform: translateX(-0.0108px);}
+  5.13% {transform: translateX(-0.0863px);}
+  7.69% {transform: translateX(-0.2913px);}
+  10.26% {transform: translateX(-0.6905px);}
+  12.82% {transform:translateX(-1.3486px);}
+  15.38% {transform:translateX(-2.3305px);}
+  17.95% {transform:translateX(-3.7007px);}
+  20.51% {transform:translateX(-5.524px);}
+  23.08% {transform:translateX(-7.8653px);}
+  25.64% {transform: translateX(-10.7497px);}
+  28.21% {transform: translateX(-13.3741px);}
+  30.77% {transform: translateX(-15.4483px);}
+  33.33% {transform: translateX(-17.037px);}
+  35.9% {transform: translateX(-18.205px);}
+  38.46% {transform: translateX(-19.0168px);}
+  41.03% {transform: translateX(-19.5374px);}
+  43.59% {transform: translateX(-19.8314px);}
+  46.15% {transform: translateX(-19.9636px);}
+  48.72% {transform: translateX(-19.9987px);}
+  51.28% {transform: translateX(-20.0003px);}
+  53.85% {transform: translateX(-20.0091px);}
+  56.41% {transform: translateX(-20.0421px);}
+  58.97% {transform: translateX(-20.1156px);}
+  61.54% {transform: translateX(-20.2458px);}
+  64.1% {transform: translateX(-20.4488px);}
+  66.67% {transform: translateX(-20.7407px);}
+  69.23% {transform: translateX(-21.1379px);}
+  71.79% {transform: translateX(-21.6565px);}
+  74.36% {transform: translateX(-22.3126px);}
+  76.92% {transform: translateX(-23.1224px);}
+  79.49% {transform: translateX(-24.1022px);}
+  82.05% {transform: translateX(-25.2681px);-webkit-opacity: 0;opacity: 0;}
+  84.62% {transform: translateX(-26.6363px);}
+  87.18% {transform: translateX(-28.223px);}
+  89.74% {transform: translateX(-30.0443px);}
+  92.31% {transform: translateX(-32.1165px);}
+  94.87% {transform: translateX(-34.4557px);}
+  97.44% {transform: translateX(-37.0782px);}
+  100% {transform: translateX(-40px); -webkit-opacity: 0;opacity: 0;}
+}
+//}翻页动画效果
+
+/*旋转效果*/
+@-webkit-keyframes circle {
+  0% {
+
+            -webkit-transform: rotate(0deg);
+
+                    transform: rotate(0deg); }
+  100% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg); } }
+@keyframes circle {
+  0% {
+
+            -webkit-transform: rotate(0deg);
+
+                    transform: rotate(0deg); }
+  100% {
+            -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg); } }

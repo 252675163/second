@@ -1,0 +1,14 @@
+<div class="microposter1 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter1-by4">
+            <textarea ng-if="!isEdit" class="poster1-title canShow" rows="1" ng-model="templateModel.title" ng-disabled="!isEdit" 
+                ng-trim="false" isdiff="true" readonly="readonly" ></textarea>
+            <textarea ng-if="isEdit" class="poster1-title canEdit editBorder" rows="1" ng-model="templateModel.title" ng-disabled="!isEdit"
+                 ng-trim="false" isdiff="true" readonly="readonly" inputconfig="{{inputconfig[0]}}" new-custom-input></textarea>
+            <div class="poster1-img" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <img ng-src="{{templateModel.imageUrl[0]}}" />
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+﻿
+<!--微拼团成团成功后的提升遮罩-->
+<div class="cty-mask">
+    <div class="spellgroup_popup_participate bg_orange_gradient h400 w540">
+        <!--关闭按钮-->
+        <i class="spellgroup_icon_close orange_gradient_adjust" ng-click="hideMask()"></i>
+        <!--用户头像（部分）-->
+        <div class="spellgroup_participated popup_adjiust">
+            <!--1-3人团 .parti_item3 四-六人团 .parti_item6 6-10人团 .parti_item10-->
+            <ul class="participated_box  popup_item_adjust" ng-class="{'parti_item3':spellgroupDefaultUserList.length<=3,'parti_item6':(3<spellgroupDefaultUserList.length)&&(spellgroupDefaultUserList.length<=6),'parti_item10':6<spellgroupDefaultUserList.length}">
+                <li ng-repeat="applyer in spellgroupDefaultUserList track by $index">
+                    <div class="parti_userWrap">
+                        <div class="parti_avator popup_adjust_avator"><img class="cty-wh-100" ng-src="{{(applyer.HeadImgUrl||defaultHeadImg)|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}" /></div>
+                    </div>
+                    <div class="parti_name cty-ell popup_parti_name_adjust" ng-bind-html="applyer.Name"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

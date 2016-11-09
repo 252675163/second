@@ -1,0 +1,982 @@
+﻿@charset "utf-8";
+//活动海报模板样式 by wenjun 20151025{
+
+//水平线
+.hr {
+  margin: 2px 0px 0px;
+  width: temSize(415);
+  color: #ffffff;
+  border-top: 1px solid #ffffff;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  opacity: 1;
+}
+
+.microactivity-template9 {
+  height: 100%;
+  textarea.canEdit, input.canEdit, .editBorder {
+    border: #fff 2px dashed;
+  }
+  //本活动文本框编辑框样式
+  .acty9_title1, .acty9_textBox1, .acty9_textBox2 {
+    color: #fff;
+    background: none;
+  }
+  //本活动所有文本框定义通用样式，新增样式需加入此处
+  .acty9_textBox1, .acty9_textBox2 {
+    overflow-y: hidden;
+    line-height: 1.2;
+  }
+  //本活动所有textarea定义除上述之外的通用样式，新增样式需加入此处
+  .acty9_box1, .acty9_box2 {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  .acty9_pic_box1{width: 100%;height: temSize_edit(421);position: absolute;bottom: 0;
+        img{width: 100%;height: 100%;-webkit-mask-image: url(../img/acty9_box-bg1_1.png);-webkit-mask-size: 100% 100%;}
+    }
+  .acty9_box1 {
+    height: 4.42rem;width: 11rem;margin-left: 1rem;z-index: 11;
+    
+    .acty9_title1, .acty9_textBox1 {
+      text-align: right;
+      width: 100%;
+    }
+    .acty9_title1 {
+      height: temSize_edit(50*1.5);
+      font-size: temSize_edit(50);
+      line-height: 1.5;
+    }
+    .acty9_textBox1 {
+      margin-top: temSize_edit(15);
+     // height: temSize_edit(128);
+      font-size: temSize_edit(26);
+    }
+  }
+  .acty9_box2 {
+    height: temSize_edit(260);
+    padding: temSize_edit(25) temSize_edit(20) 0 temSize_edit(120);
+    .acty9_textBox2 {
+      width: 100%;
+      font-size: temSize_edit(24);
+      line-height: 0.6rem;
+    }
+
+  }
+
+  .maxbox {
+    .acty9_pic_box1{height: temSize(421);}
+    .acty9_box1 {
+      height: temSize(421);
+      width: 100%;
+      margin-left: 0;
+      padding: temSize(188) temSize(30) 0 temSize(40);
+      .acty9_title1 {
+        height: temSize(50*1.5);
+        font-size: temSize(50);
+        line-height: 1.5;
+      }
+      .acty9_textBox1 {
+        margin-top: temSize(15);
+        //height: temSize(108);
+        font-size: temSize(26);
+      }
+    }
+    .acty9_box2 {
+      height: temSize(260);
+      padding: temSize(25) temSize(20) 0 temSize(120);
+      .acty9_textBox2 {
+        width: 100%;
+        line-height: 0.8rem;
+        font-size: temSize(24);
+      }
+    }
+
+  }
+}
+
+.microactivity-template9.acty9_bg1 {
+  background: url("../img/body_bg_09_1.jpg") $img-pozC;
+  @include background-size100;
+  position: relative;
+}
+
+.microactivity-template9.acty9_bg2 {
+  background: url("../img/body_bg_09_2.jpg") $img-pozC;
+  @include background-size100;
+  position: relative;
+}
+
+//推荐模板第三个页面
+.template3-3 {
+  .box1 {
+    margin-top: temSize(600);
+    position: relative;
+    .box1-1 {
+      width: temSize(514);
+      height: temSize(248);
+      opacity: 0.85;
+      padding: 0 temSize(30);
+      z-index: 2;
+      .textBox1 {
+        width: temSize(420);
+        // height: temSize(45);
+        color: #fff;
+        font-size: temSize(28);
+      }
+      hr {
+        @extend .hr;
+        width: temSize(415);
+      }
+      .textBox2 {
+        width: temSize(465);
+        //height: temSize_edit(160);
+        color: #fff;
+        overflow-y: hidden;
+        font-size: temSize(24);
+        line-height: 1.5;
+        padding: 0;
+        margin: 0;
+        margin-top: 0.3rem;
+      }
+    }
+
+  }
+}
+
+.template3-3.edit {
+  .box1 {
+    margin-top: temSize_edit(580);
+    .box1-1 {
+      width: temSize_edit(514);
+      height: temSize_edit(248);
+      padding: temSize_edit(21) temSize_edit(30);
+      padding-top:0;
+      .textBox1 {
+        width: temSize_edit(420);
+        font-size: temSize_edit(28);
+        // height: temSize_edit(45);
+      }
+      hr {
+        width: temSize_edit(415);
+      }
+      .textBox2 {
+        width: temSize_edit(466);
+        // height: temSize_edit(160);
+        font-size: temSize_edit(24);
+
+      }
+    }
+    &:before {
+      width: temSize_edit(493);
+      height: temSize_edit(172);
+      left: temSize_edit(85);
+      top: temSize_edit(109);
+    }
+  }
+}
+
+//推荐模板第四个页面
+
+.template3-4 {
+  padding: 0px;
+  color: #fff;
+  hr {
+    @extend .hr;
+    margin: 0.4rem 0px 0.15rem;
+  }
+  .box1 {
+    position: relative;
+    //width: temSize_edit(640);
+    width: 100%;
+    height: temSize(330);
+    .textBox {
+      width: temSize(308);
+      height: temSize(270);
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      .title {
+        text-align: right;
+        color: #fff;
+        line-height: 1.2;
+        font-size: temSize(28);
+        width: temSize(300);
+        height:auto;
+      }
+      hr {
+
+      }
+      textarea {
+        color: #fff;
+        overflow-y: hidden;
+        line-height:1.3;
+        font-size: temSize(24);
+        width: temSize(300);
+        //height: temSize(230);
+        line-height: 1.3;
+      }
+    }
+    .imgBox_1 {
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+  .box2 {
+    position: relative;
+    width: 100%;
+    height: temSize(345);
+    .box2_1 {
+      width: temSize(238);
+      height: 100%;
+      /*background-color: #238dd8;*/
+      padding: temSize(26) temSize(7) 0;
+      hr {
+      width:temSize(200)
+      }
+      input {
+        font-size: temSize(28);
+        line-height: normal;
+        color: #fff;
+        width: temSize(220);
+      }
+      textArea {
+        font-size: temSize(24);
+        overflow-y: hidden;
+        line-height: 1.3;
+        color:#fff;
+        width: temSize(220);
+        //height: temSize(240);
+      }
+
+    }
+    .box2_2 {
+      position: absolute;
+      right: 0px;
+      width: temSize(404);
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .box3 {
+    position: relative;
+    //width: temSize(640);
+    width: 100%;
+    height: temSize(340);
+    .box3_1 {
+      z-index: 2;
+      width: temSize(308);
+      height: temSize(250);
+      position: absolute;
+      right: temSize(6);
+      top: temSize(26);
+      hr {
+
+      }
+      input {
+        text-align: right;
+        color: #fff;
+        line-height: normal;
+        font-size: temSize(28);
+        width: temSize(300);
+      }
+      textArea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize(24);
+        width: temSize(300);
+        //height: temSize(230);
+        line-height: 1.3;
+
+      }
+
+    }
+    .box3_2 {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+}
+
+.template3-4.edit {
+
+  height: 19.57rem;
+  .box1 {
+    width: 100%;
+    height: temSize_edit(300);
+    .textBox {
+      width: temSize_edit(308);
+      height: temSize_edit(270);
+      right: 10px;
+      top: 10px;
+      z-index:11;
+      input {
+        font-size: temSize_edit(28);
+        width: temSize_edit(300);
+        line-height: 1.2;
+        height:auto;
+      }
+      hr {
+
+      }
+      textarea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize_edit(24);
+        width: temSize_edit(300);
+        height: auto;
+       // height: temSize_edit(230);
+      }
+    }
+    .imgBox_1 {
+      width: 100%;
+      height: 100%;
+
+    }
+  }
+  .box2 {
+    width: 100%;
+    height: temSize_edit(345);
+    .box2_1 {
+      width: temSize_edit(330);
+      height: 100%;
+      padding: temSize_edit(26) temSize_edit(7) 0;
+      hr {
+        width:temSize_edit(200);
+      }
+      input {
+        font-size: temSize_edit(28);
+        width: temSize_edit(220);
+      }
+      textArea {
+        font-size: temSize_edit(24);
+        width: temSize_edit(220);
+        //height: temSize_edit(240);
+        margin: 0;
+      }
+
+    }
+    .box2_2 {
+
+      right: 0px;
+      width: temSize_edit(404);
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .box3 {
+    //width: temSize_edit(640);
+    width: 100%;
+    height: temSize_edit(340);
+    .box3_1 {
+      width: temSize_edit(308);
+      height: temSize_edit(250);
+      right: temSize_edit(6);
+      top: temSize_edit(26);
+      z-index:3;
+      hr {
+
+      }
+      input {
+        line-height: normal;
+        line-height: normal;
+        font-size: temSize_edit(28);
+        width: temSize_edit(300);
+
+      }
+      textArea {
+        font-size: temSize_edit(24);
+        width: temSize_edit(300);
+       // height: temSize_edit(230);
+
+      }
+
+    }
+    .box3_2 {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+}
+
+//推荐模板第五个页面
+.template3-5 {
+  padding: 0px;
+  color: #fff;
+  .box1 {
+    position: relative;
+    width: 100%;
+    height: temSize(300);
+    /*background-color: #fa823a;*/
+    .textBox {
+      width: temSize(320);
+      height: 100%;
+      padding: temSize_edit(25);
+      textarea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize(24);
+        width: temSize(280);
+        //height: temSize(304);
+      }
+    }
+    .imgBox1 {
+      //width: temSize(320);
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      z-index: 2;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  .box2 {
+    position: relative;
+    width: 100%;
+    height: temSize(357);
+    /*background-color: #2f7bd1;*/
+    .textBox {
+      width: temSize(320);
+      height: 100%;
+      right:0;
+      position: absolute;
+      padding: temSize_edit(25);
+      textarea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize(24);
+        width: temSize(280);
+      }
+    }
+    .imgBox1 {
+      width: 50%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+
+      }
+
+    }
+  }
+  .box3 {
+    position: relative;
+    width: 100%;
+    height: temSize(357);
+    .textBox {
+      width: temSize(320);
+      height: 100%;
+      padding: temSize_edit(25);
+      textarea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize(24);
+        width: temSize(280);
+      }
+    }
+    .imgBox1 {
+      width: 50%;
+      height: 100%;
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      img {
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+  }
+
+}
+
+.template3-5.edit {
+  color: #fff;
+  .box1 {
+    width: 100%;
+    height: temSize_edit(300);
+    .textBox {
+      width: temSize_edit(320);
+      height: 100%;
+      padding: temSize_edit(25);
+      textarea {
+        font-size: temSize_edit(24);
+        width: temSize_edit(280);
+      }
+    }
+    .imgBox1 {
+      width: 50%;
+      height: 100%;
+      right: 0px;
+      top: 0px;
+      z-index: 2;
+    }
+  }
+  .box2 {
+    width: 100%;
+    height: temSize_edit(357);
+    .textBox {
+      width: temSize_edit(320);
+      textarea {
+        font-size: temSize_edit(24);
+        width: temSize_edit(300);
+      }
+    }
+    .imgBox1 {
+      width: 50%;
+      height: 100%;
+
+    }
+  }
+  .box3 {
+    width: 100%;
+    height: temSize_edit(345);
+    //background-color: #31a5f6;
+    .textBox {
+      width: temSize_edit(320);
+      height: 100%;
+
+      textarea {
+        font-size: temSize_edit(24);
+        width: temSize_edit(300);
+        //height: temSize_edit(230);
+        bottom: temSize_edit(80);
+        left: temSize_edit(10);
+      }
+    }
+    .imgBox1 {
+      width: 50%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+
+      }
+    }
+  }
+
+}
+
+//final推荐模板第六个页面
+.template3-6 {
+  color: #fff;
+  position: relative;
+  .box1 {
+    position: relative;
+    width: 100%;
+    height: temSize(357);
+    .textBox {
+      width: temSize(468);
+      height: temSize(688);
+      margin: 0 auto;
+      padding: temSize(25);
+      input {
+        color: #fff;
+        line-height: 1.5;
+        overflow-y: hidden;
+        font-size: temSize(54);
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+        height:temSize(54*1.5);
+      }
+      hr {
+        width: 100%;
+        @extend .hr;
+        margin: temSize_edit(30) 0 temSize_edit(30) 0;
+        border-top: 2px solid #ffffff;
+      }
+      textarea {
+        color: #fff;
+        line-height: 1.3;
+        overflow-y: hidden;
+        font-size: temSize(26);
+        width: 100%;
+       // height: temSize(568);
+        font-weight: bold;
+      }
+    }
+
+  }
+  .beforeGifBox {
+    content: "";
+    width: temSize(500);
+    height: temSize(400);
+    display: block;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    bottom: temSize(79);
+//    background: url("../img/template3by3_1.gif") $img-pozC;
+//    @include background-size100;
+    img{
+      width: 100%;
+      height:100%;
+    }
+    z-index: 2;
+  }
+}
+
+.template3-6.edit {
+
+  .box1 {
+    height: temSize_edit(357);
+    .textBox {
+      width: temSize_edit(468);
+      height: temSize_edit(688);
+      padding: temSize_edit(25);
+      input {
+        font-size: temSize_edit(54);
+        height:temSize_edit(54*1.5);
+      }
+      hr {
+        margin: temSize_edit(30) 0 temSize_edit(30) 0;
+      }
+      textarea {
+        font-size: temSize_edit(26);
+        //height: temSize_edit(568);
+      }
+    }
+
+  }
+  .beforeGifBox {
+    width: temSize_edit(500);
+    height: temSize_edit(400);
+    position: absolute;
+    bottom: temSize_edit(79);
+    z-index: 2;
+  }
+
+}
+
+.template3-7 {
+  position: relative;
+  padding: 0px;
+  .box1 {
+    position: relative;
+    width: 100%;
+    height: temSize(324);
+    .imgBox {
+      //position: absolute;
+      //top: 0px;
+      width: 100%;
+      //height: auto;
+      -webkit-mask-image: url(../img/acty_3_7_mask.png);-webkit-mask-size: 100% 100%;
+    }
+    .textBox {
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      padding: temSize(25);
+      position: absolute;
+      top: 0px;
+      input {
+        color: #fff;
+        line-height: 1.5;
+        overflow-y: hidden;
+        font-size: temSize(72);
+        height:temSize(72*1.5);
+        font-weight: bold;
+        width: temSize(503);
+        text-align: center;
+        margin: auto;
+        margin-top: temSize(90);
+        display: inherit;
+      }
+
+    }
+  }
+
+  .box2 {
+    width: 100%;
+    height: temSize(823);
+    position: relative;
+    /*background-color: #30aff7;*/
+     img{width: 100%;height: 100%;-webkit-mask-image: url(../img/acty9_mask_bg2.png);-webkit-mask-size: 100% 100%;}
+    .formBox {
+      width: temSize(503);
+      height: temSize(554);
+      top: 0px;
+      margin: auto;
+      padding: temSize(37) 0 0 0;
+      input, input::-webkit-input-placeholder {
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        line-height: 2.2;
+        font-size: temSize(34);
+        height: temSize(2.2*34);
+
+      }
+      input {
+        border: #fff 1px solid;
+        @include border-radius-basic(5px);
+
+      }
+      textArea  {
+        width: 100%;
+        font-size: temSize(34);
+        line-height: 1.5;
+        border: #fff 1px solid;
+        @include border-radius-basic(5px);
+        color: #ffffff;
+        text-align: left;
+        overflow-y: hidden;
+        height :temSize(34*1.5*3);
+      padding: 0px 3px;
+      }
+      textArea::-webkit-input-placeholder {
+//        font-size: temSize(35);
+//        line-height: 4.3;//34*1.5*3行/35
+        font-size: temSize(34);
+        color: #ffffff;
+        line-height: 1.5;
+      }
+
+    }
+    .marginTop{
+      margin-top:temSize(32) ;
+    }
+    .buttonDiv{
+      padding: 1px;
+      margin-top:temSize(45) ;
+      input{
+        border: #fff 1px solid;
+        font-size: temSize(45);
+        @include border-radius-basic(5px);
+        line-height: 1.9;
+        height: temSize(1.9*45);
+      }
+    }
+
+  }
+}
+
+.template3-7.edit {
+
+  .box1 {
+    height: temSize_edit(324);
+
+    .imgBox {
+
+    }
+    .textBox {
+      padding: temSize_edit(25);
+      z-index:11;
+      input {
+        color: #fff;
+        font-size: temSize_edit(72);
+        height:temSize(72*1.5);
+        width: temSize_edit(503);
+        margin-top: temSize_edit(90);
+      }
+
+    }
+
+  }
+
+  .box2 {
+         height: temSize_edit(823);
+    .formBox {
+      width: temSize_edit(503);
+      height: temSize_edit(554);
+
+      padding: temSize_edit(37) 0 0 0;
+      input, input::-webkit-input-placeholder {
+        font-size: temSize_edit(34);
+        height: temSize_edit(2.2*34);
+      }
+      input {
+
+
+      }
+      textArea  {
+        font-size: temSize_edit(34);
+      height :temSize_edit(34*1.5*3)
+      }
+      textArea::-webkit-input-placeholder {
+//        font-size: temSize_edit(35);
+        font-size: temSize_edit(34)
+      }
+
+    }
+    .marginTop{
+      margin-top:temSize_edit(32) ;
+    }
+    .buttonDiv{
+      margin-top:temSize_edit(45) ;
+
+
+      input{
+        font-size: temSize_edit(45);
+        height: temSize_edit(1.9*45);
+      }
+    }
+
+  }
+}
+
+
+//第八个模板
+.template3-8 {
+  color: #fff;
+  position: relative;
+  .box1 {
+    z-index: 3;
+    position: relative;
+    width: 100%;
+    height: temSize(357);
+    top: temSize(200);
+    .textBox {
+      width: temSize(468);
+      height: temSize(688);
+      margin: 0 auto;
+      padding: temSize(25);
+      input {
+        color: #fff;
+        line-height: 1.5;
+        overflow-y: hidden;
+        font-size: temSize(54);
+        font-weight: bold;
+        width: 100%;
+        text-align: left;
+        height:temSize(54*1.5);
+      }
+      hr {
+        width: 100%;
+        @extend .hr;
+        margin: temSize_edit(30) 0 temSize_edit(30) 0;
+        border-top: 2px solid #ffffff;
+      }
+      textarea {
+        color: #fff;
+        line-height: 1.5;
+        overflow-y: hidden;
+        font-size: temSize(26);
+        width: 100%;
+        //height: temSize(568);
+        font-weight: bold;
+      }
+    }
+
+  }
+
+  .beforeGifBox {
+    content: "";
+    width: temSize(500);
+    height: temSize(400);
+    display: block;
+    opacity: 1;
+    position: absolute;
+    right: 1px;
+    top: 0;
+//    background: url("../img/blue_top.gif") $img-pozC;
+//    @include background-size100;
+    z-index: 2;
+    img{
+      width:100%;
+      height:100%;
+    }
+
+  }
+  .afterGifBox {
+    content: "";
+    width: temSize(500);
+    height: temSize(400);
+    display: block;
+    opacity: 1;
+    position: absolute;
+    left: 0;
+    bottom: temSize(79);;
+    z-index: 2;
+    img{
+      width:100%;
+      height:100%;
+    }
+  }
+}
+
+.template3-8.edit {
+  .box1 {
+    position: relative;
+    height: temSize_edit(357);
+    top: temSize_edit(200);
+    .textBox {
+      width: temSize_edit(468);
+      height: temSize_edit(688);
+      padding: temSize_edit(25);
+      input {
+        font-size: temSize_edit(54);
+        height:temSize_edit(54*1.5);
+      }
+      hr {
+        @extend .hr;
+        margin: temSize_edit(30) 0 temSize_edit(30) 0;
+      }
+      textarea {
+        font-size: temSize_edit(26);
+        width: 100%;
+        font-weight: bold;
+      }
+    }
+
+  }
+  .beforeGifBox {
+    width: temSize_edit(500);
+    height: temSize_edit(400);
+
+  }
+  .afterGifBox {
+    width: temSize_edit(500);
+    height: temSize_edit(400);
+    bottom: temSize_edit(79);;
+
+  }
+}
+
+//}推荐模板样式
+
+@media screen and (min-height: 600px) {
+  //兼容微信下微信下iphone6&6p分辨率
+  .template3-4 {
+  .box1 {
+    height: temSize(357);
+  }
+  }
+  .template3-5 {
+  .box1 {
+    height: temSize(357);
+  }
+  }
+}

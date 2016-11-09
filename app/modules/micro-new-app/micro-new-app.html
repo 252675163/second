@@ -1,0 +1,37 @@
+﻿<ion-view cache-view="false" style="background: #eee;">
+    <div class="bar bar-header bar-light active_index_header" ng-style="{'height':showSwitchTab?'none':'2.25rem'} " style="  z-index: 2;">
+        <div class="active_choose_tips"><i class="icon_tips"></i>请从模板库中选择您喜欢的主题样式</div>
+        <!--<div class="tabs active_index_Hbox2" ng-show="showSwitchTab">-->
+            <!-- <a class="tab-item" ng-click="switchType(100)" ng-class="{'active':type == 100}">全部</a>-->
+            <!--<a class="tab-item" ng-click="switchType(1)" ng-class="{'active':type == 1}">微活动</a>
+            <a class="tab-item" ng-click="switchType(0)" ng-class="{'active':type == 0}">微官网</a>
+        </div>-->
+
+    </div>
+    <ion-content has-bouncing="false" style="  z-index: 1;">
+
+        <div class="active_choose_box clearfix" ng-style="{'padding-top':showSwitchTab?'none':'2.8rem'}">
+            <div class="active_choose_item" ng-repeat="Template in TemplateList">
+                <img ng-src="{{Template.PreviewImg}}" class="active_pic" ng-click="goPreview(Template.Id,Template.Type,Template.IsVip)" /><!-- 图为正方形 -->
+                <span class="active_tag2" ng-click="goPreview(Template.Id,Template.Type,Template.IsVip)">{{Template.Name}}</span>
+                <span class="active_tag3" ng-if="Template.tagShow['vip']"></span>
+                <span class="active_tag4" ng-if="Template.tagShow['new']"></span>
+                <span class="active_tag5" ng-if="Template.tagShow['hot']"></span>
+                <div class="active_Masktag" ng-if="Template.Type==0"><span>即将开启</span></div>
+                <!--<button type="button" class="active_btn_review" ng-click="goPreview(Template.Id,Template.Type)" style="display:none;">
+                    <em class="a_icon_review"></em>预览
+                </button>-->
+
+            </div>
+            <!--编辑 ng-click="goEditView(activityTemplate.Id)"-->
+            <!--<div class="active_choose_item">-->
+            <!--<img src="img/grass-share.jpg"  class="active_pic" />&lt;!&ndash; 图为正方形 &ndash;&gt;-->
+            <!--<span class="active_tag tag_blue">种草小游戏</span>-->
+            <!--<button type="button" class="active_btn_review" ng-click="goPreview(activityTemplate.Id)"><em class="a_icon_review"></em>预览</button>-->
+            <!--</div>-->
+
+        </div>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

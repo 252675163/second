@@ -1,0 +1,64 @@
+﻿<ion-view class="body-bg-s1">
+    <!--<div class="body-bg-s1">-->
+        <preview-btn ng-if="ispreview=='true'"></preview-btn>
+        <div style="right:1.6rem;position: absolute;top: .8rem">
+            <button type="button" ng-click="pause(flg)" ng-class="!flg?'btnG3_music':'btnG3_musicon'"></button>
+        </div>
+        <!-- 操作按钮 {-->
+        <div class="btnGroup1" style="top:4.8rem;" ng-show="isAllowGrow">
+            <button id="btnRace" type="button" class="btn-chooseType" ng-click="chooseGrass()"></button>
+        </div>
+
+        <!--} 操作按钮 -->
+
+        <div class="person_box" id="animateContainer">
+
+            <div class="person_head unhappy">
+                <!-- 开心的表情样式 把 unhappy 换成 happy -->
+                <div class="flowers"></div>
+                <img ng-src="{{avatar}}" class="person_head-face" />
+            </div>
+            <div class="person_dialogBox_big" style="display: none;"><p class="person_dialogText">我的头上还没有草<br>一棵都没有…</p></div>
+            <div class="person_dialogBox_small" style="display: none;"><p class="person_dialogText">我有6棵草哟...</p></div>
+
+            <img  ng-src="{{grassGrowUrl}}" class="person_head_grass  one" id="grass" ng-show="isGrow" />
+            <img  ng-src="{{grassDanceUrl}}" class="person_head_grass  one" id="grassDance" ng-show="isDance" />
+
+        </div>
+
+        <!-- 操作按钮 {-->
+        <div class="btnGroup2">
+            <button type="button" class="btn_style1" ng-click="goConsult()">喊人帮我种草</button>
+        </div>
+
+        <div ng-show="isChoose">
+            <div class="lockMask"></div><!--遮罩 -->
+
+            <div class="page_box1_wrap">
+                <div class="page_box1_head">选择你喜欢的草</div>
+                <button type="button" class="btn_round_close" ng-click="closeGrass()"></button>
+                <div class="page_box1 clearfix">
+                    <button type="button" class="page_box1_item item1" ng-click="chooseGrassAction(1)"><span class="page_box1_text">小豆芽</span></button>
+                    <button type="button" class="page_box1_item item2" ng-click="chooseGrassAction(2)"><span class="page_box1_text">蕨菜</span></button>
+                    <button type="button" class="page_box1_item item3" ng-click="chooseGrassAction(3)"><span class="page_box1_text">小树苗</span></button>
+                    <button type="button" class="page_box1_item item4" ng-click="chooseGrassAction(4)"><span class="page_box1_text">幸运草</span></button>
+                    <button type="button" class="page_box1_item item5" ng-click="chooseGrassAction(5)"><span class="page_box1_text">小花花</span></button>
+                    <button type="button" class="page_box1_item item6" ng-click="chooseGrassAction(6)"><span class="page_box1_text">蒲公英</span></button>
+                    <button type="button" class="page_box1_item item7" ng-click="chooseGrassAction(7)"><span class="page_box1_text">向日葵</span></button>
+                    <button type="button" class="page_box1_item item8" ng-click="chooseGrassAction(8)"><span class="page_box1_text">小雏菊</span></button>
+                    <button type="button" class="page_box1_item item9" ng-click="chooseGrassAction(9)"><span class="page_box1_text">小蘑菇</span></button>
+
+                </div>
+            </div>
+        </div>
+        <!--} 操作按钮 -->
+        <!--遮罩层(加载动画) {-->
+        <!--<div class="lockMask-loading" style="display:none"></div>-->
+        <div class="lockMask-loading-grass" ng-show="isLoging"></div>
+        <!--} 遮罩层(加载动画) -->
+        <audio >
+            <source ng-src="{{musicUrl}}" type="audio/mpeg" />
+            Your browser does not support the audio element.
+        </audio>
+    <!--</div>-->
+</ion-view>

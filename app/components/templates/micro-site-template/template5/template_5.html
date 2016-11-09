@@ -1,0 +1,23 @@
+<!--<div style = ""  class = "section " config = "config">  </div>-->
+
+<div class="paneabird1" ng-class="{'maxbox':!isEdit}">
+    <div class="temp5_bg_Img">
+        <div class="temp5_theme">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.title" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.title" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+
+        <div class="temp5_action_name">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text" readonly="true" ng-model="templateModel.actionName" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.actionName" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+
+        <div class="temp5_box">
+            <textarea ng-if="!isEdit" maxlength="200" my-max-length class="temp5Text" disabled="disabled" ng-model="templateModel.description"></textarea>
+            <textarea ng-if="isEdit" maxlength="200" my-max-length scroll-top-by-blur class="temp5TextEdit" ng-model="templateModel.description" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+    </div>
+</div>
+
+
+   

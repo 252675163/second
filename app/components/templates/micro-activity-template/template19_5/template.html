@@ -1,0 +1,34 @@
+<!-- page 3种草排行榜 {-->
+<div class="microactivity-vegetables bgPan" ng-hide="rankList.length==0">
+    <div ng-class="{'preview':!isEdit}">
+        <div class="vegetables_bg2">
+            <div class="vegetables_box2Outer">
+                <div class="vegetables_box2_1 list" >
+                    <div class="vegetables_item first_item clearfix">
+                        <div ng-hide="userType=='old'">
+                            <span class="item-ranking">{{userInfo.rank}}</span>
+                            <span class="item-pic"><img ng-src="{{userInfo.headImg}}"></span>
+                            <span class="item-content">{{userInfo.name}}</span>
+                            <span class="item-text"><em>{{userInfo.grassCount}}</em>棵</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="vegetables_box2_2">
+
+                    <span class="ranking_arrow_left"></span>
+                    <span class="ranking_arrow_right"></span>
+                </div>
+                <div class="vegetables_box2_1 list list_box_bg">
+                    <div class="vegetables_item" ng-repeat="rank in rankList">
+                        <span class="item-ranking " ng-class="{'ranking_bg1': $index==0,'ranking_bg2': $index==1,'ranking_bg3': $index==2}">{{$index+1}}</span>
+                        <span class="item-pic"><img ng-src="{{rank.HeadImg||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg}}"></span>
+                        <span class="item-content">{{rank.Name}}</span>
+                        <span class="item-text"><em>{{rank.Score}}</em>棵</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} page 3-->

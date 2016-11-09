@@ -1,0 +1,41 @@
+<ion-view cache-view="false" scroll="false">
+    <ion-header-bar class="bar-header-style" align-title="center">
+        <h2 class="title"><span class="title_name_box">{{usableModules[siteModel.currentModuleIndex].title}}</span><span class="title_number_box">{{siteModel.currentModuleIndex+1}} / {{usableModules.length}}</span></h2>
+        <a href="javascript:void(0)" class="button button-icon  ion-ios-arrow-left " ng-click="upIcon()" ng-class="{'button-icon-leftdis':siteModel.currentModuleIndex<=0}" ng-disabled="siteModel.currentModuleIndex<=0"></a>
+        <a href="javascript:void(0)" class="button button-icon  ion-ios-arrow-right" ng-click="downIcon()" ng-class="{'button-icon-rightdis':siteModel.currentModuleIndex>=(usableModules.length-1)}" ng-disabled="siteModel.currentModuleIndex>=(usableModules.length-1)"></a>
+    </ion-header-bar>
+    <ion-content class="ion_content_bg " has-bouncing="false" scroll="false" scrollbar-y="false">
+        <div id="editdiv" class="editdiv_content" on-swipe-left="onSwipeUp()" on-swipe-right="onSwipeDown()">
+            <micro-site-edit-view site-model="siteModel"></micro-site-edit-view>
+        </div>
+    </ion-content>
+
+    <ion-footer-bar class="HOKO_new_supply" class="hide-on-keyboard-open">
+        <ion-tabs class="tabs-icon-top editPage-tabs active_tabs_new active_tabs_new_supply">
+            <ion-tab title="更换风格" icon-off="siteeditor" icon-on="siteeditor" ng-click="goChooseStyle()">
+            </ion-tab>
+            <ion-tab title="更换方案" icon-off="siteeditadd" icon-on="siteeditadd" ng-click="chooseMode()">
+            </ion-tab>
+            <ion-tab title="保存" icon-off="siteeditsave" icon-on="siteeditsave" ng-click="save()">
+            </ion-tab>
+            <ion-tab title="预览" icon-off="siteeditpreview" icon-on="siteeditpreview" ng-click="preview()">
+            </ion-tab>
+        </ion-tabs>
+    </ion-footer-bar>
+
+    <!-- 免责弹窗 -->
+    <!--分享遮罩 {-->
+    <div ng-style="{'display':isShowDisclaimerBox?'block':'none'}">
+        <div class="lockMask"></div>
+        <!--    <div class="lockMask_activity_share"></div>-->
+        <div class="lockMask_disclaimer_box">
+            <div class="lockMask_disclaimer_box_text">“校宝秀”是一个健康、绿色的平台，请勿发布任何非法信息、上传非法图片，如有违规，我们将对场景进行冻结，详见<span ng-click="showUserTerms()">用户条款</span>。</div>
+            <div class="lockmask_disclaimer_box_btn" ng-click="hideDisclaimerBox()">我知道了</div>
+        </div>
+    </div>
+    <!--} 分享遮罩-->
+
+    <text-input></text-input>
+    <website-upload-img></website-upload-img>
+    <show-image-big></show-image-big>
+</ion-view>

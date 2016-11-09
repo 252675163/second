@@ -1,0 +1,78 @@
+﻿/*广告banner页面*/
+
+/*banner*/
+.advertisement-banner .banner {
+    position: relative;
+    width: 100%;
+    height: temSize(220);
+    background: url(../img/advertisement-banner.jpg) $img-poz;
+    @include background-size100;
+}
+
+.advertisement-banner .banner > div {
+    position: absolute;
+    bottom: 10%;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    width: temSize(160);
+    padding: temSize(2) temSize(4);
+}
+
+.advertisement-banner .banner-title {
+    left: 50%;
+    margin-left: temSize(-80);
+    font-size: temSize(24);
+}
+
+.advertisement-banner .user-center-link {
+    right: temSize(20);
+    bottom: temSize(25);
+    font-size: temSize(20);
+    background: rgba(0,0,0,0.3);
+    @include border-radius-basic(10px);
+}
+/*列表*/
+.advertisement-item .title-container {
+    position: relative;
+}
+
+.advertisement-item .title-container:before {
+    content: "";
+    position: absolute;
+    width: 87.5%;
+    border: 1px solid #ddd;
+    left: temSize(40);
+    top: 50%;
+}
+
+.advertisement-list .item-title {
+    position: relative;
+    font-size: temSize(20);
+    width: temSize(200);
+    margin: temSize(20) auto;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    background-color: #fff;
+}
+
+.img-container {
+    position: relative;
+    margin: temSize(10);
+}
+
+.img-container:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    @include border-radius-basic(10px);
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+    @include border-radius-basic(10px);
+}

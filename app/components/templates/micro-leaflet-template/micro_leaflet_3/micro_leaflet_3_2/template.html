@@ -1,0 +1,62 @@
+<!-- 微传单反面  -->
+<div class="microleaflet3 leafletbg2 bgPan">
+        <!--预览-->
+        <div class="preview" ng-if="!isEdit">
+            <div class="leafletbg2_title">
+                <div class="leafletbg2_title_text">
+                    <p readonly="readonly" ng-trim="false" ng-bind-html="templateModel.title|newlines"></p>
+                </div>
+            </div>
+            <div class="leafletbg2_content_box">
+                <div class="leafletbg2_content">
+                    <div class="content_texttitle1">机构介绍
+                        <div class="content">
+                            <div class="content_text1" ng-bind-html="templateModel.description[0]|newlines"></div>
+                        </div>
+                    </div>
+                    <div class="content_texttitle2">班型
+                        <div class="content">
+                            <div class="content_text2" ng-bind-html="templateModel.description[1]|newlines"></div>
+                        </div>
+                    </div>
+                    <div class="content_texttitle3"><span ng-bind-html="templateModel.description[2]|newlines"></span>
+                        <div class="content">
+                            <div class="content_text3" ng-bind-html="templateModel.description[3]|newlines"></div>
+                        </div>
+                    </div>
+                    <div class="content_texttitle4"><span ng-bind-html="templateModel.description[4]|newlines"></span>
+                        <div class="content">
+                            <div class="content_text4" ng-bind-html="templateModel.description[5]|newlines"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--编辑-->
+        <div class="isEdit" ng-if="isEdit">
+            <div class="front_editOuter front_editOuter3">
+                <div class="front_edit_title2 ">传单反面</div>
+                <div class="front_edit_box1">
+                    机构名称:
+                    <textarea class="front_edit_text1" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" maxlength="16" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="front_edit2_box2">
+                    机构介绍:
+                    <textarea class="front_edit2_text2" rows="7" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" maxlength="254" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="front_edit2_box3">
+                    班型:
+                    <textarea class="front_edit2_text3" rows="2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]" maxlength="72" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="front_edit2_box5">
+                    <textarea class="front_edit2_text6" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[2]" maxlength="8" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>:
+                    <textarea class="front_edit2_text5" rows="2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[3]" maxlength="72" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+                <div class="front_edit2_box5">
+                    <textarea class="front_edit2_text6" rows="1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[4]" maxlength="8" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>:
+                    <textarea class="front_edit2_text5" rows="2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[5]" maxlength="72" my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly"></textarea>
+                </div>
+            </div>
+        </div>
+</div>
+<!--微传单反面-->

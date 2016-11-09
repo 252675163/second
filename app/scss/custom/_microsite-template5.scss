@@ -1,0 +1,210 @@
+/*΢����ģ��5ʹ�õ���ʽ*/
+ .temp5_bg_Img {
+       height: 15.8rem;
+		margin: auto;
+		background: url("../img/temp5_bg.png") no-repeat center 0.1rem;
+		background-size: 94% 94%;
+		text-align: center;
+		overflow: hidden;
+		margin-top: 0;
+    }
+
+    .temp5_theme{
+        /*���⣬������ʽ ����*/
+        text-align: center;		
+    }
+
+    .temp5_action_name {
+        /*���⣬������ʽ ����*/
+        text-align: center;
+        margin-top:1.3rem;
+    }
+
+    .temp5_box {
+        margin-top:1rem;
+    }
+     .temp5_theme input.canShow, .temp5_theme input.canEdit {
+        /*������ʽ*/
+        height: 1.2rem;
+        width: 8rem;
+        line-height: 1.2rem;
+        display: inline-block;
+        font-size: 0.7rem;
+		padding-top: 0;
+        text-align: center;
+        background: none;
+		//font-family:"STHupo",$font-family-base;
+		@include text-shadow-s2(#266364);
+		color:#fff;
+    }
+
+        .temp5_action_name input.canShow, .temp5_action_name input.canEdit {
+            /*������ʽ*/
+            height: 1.2rem;
+            width: 8rem;
+            line-height: 1rem;
+            display: inline-block;
+            font-size: 0.7rem;
+            text-align: center;
+            background: none;
+			//font-family:"STHupo",$font-family-base;
+			@include text-shadow-s2_1(#333);
+		    color:#fff;
+        }
+
+    .temp5_box textarea.temp5Text, .temp5_box textarea.temp5TextEdit {
+        /*//��1,2�ı���ʽ;*/
+		overflow-y: hidden;
+        background: none;
+		margin: auto;
+		width: 83%;
+		height: 9.5rem;
+		font-size: 0.5rem;
+		padding: 0.2rem;
+		font-family:$font-family-base;
+		@include text-shadow-s2_1(#444);
+		color:#fff;
+		font-weight: bold;
+		opacity: 1;
+    }
+
+	.temp5_theme input.canEdit, .temp5_box textarea.temp5TextEdit,.temp5_action_name input.canEdit {
+        border: #ccc 1px dashed;
+    }
+
+	//��ҳ��ʽ
+	.has-footer_cover .maxbox{
+	
+	.temp5_bg_Img {
+        height: 15.8rem;
+		background-size: 94% 94%;
+		margin-top: 0;
+    }
+
+    .temp5_theme input.canShow {
+        height: 1.2rem;
+        font-size: 0.7rem;
+    }
+
+    .temp5_action_name input.canShow {
+        height: 1.2rem;
+        font-size: 0.7rem;
+    }
+
+    .temp5_box textarea.temp5Text {
+        height: 9.5rem;
+        font-size: 0.5rem;
+		width: 83%;
+		padding: 0.2rem;
+    }
+	}
+
+
+    .maxbox .temp5_bg_Img {
+        height: 21.3rem;
+		background-size: 86%;
+		margin-top: 0.1rem;
+    }
+
+    .maxbox .temp5_theme input.canShow {
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .maxbox .temp5_action_name input.canShow {
+        height: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .maxbox .temp5_box textarea.temp5Text {
+        height: 14rem;
+        font-size: 0.7rem;
+		width: 80%;
+		padding: 0.5rem;
+    }
+
+
+    @media screen and (min-height: 567px) {
+
+		//��ҳ��ʽ
+		.has-footer_cover .maxbox{
+		
+		.temp5_bg_Img {
+            height: 19rem;
+			background-size: 96%;
+			margin-top: 0;
+        }
+
+        .temp5_theme input.canShow {
+            height: 1.6rem;
+            font-size: 1rem;
+			line-height:1.2rem;
+        }
+
+        .temp5_action_name input.canShow {
+            height: 1.6rem;
+            font-size: 0.9rem;
+        }
+
+        .temp5_box textarea.temp5Text {
+            height: 12rem;
+			font-size: 0.6rem;
+			padding: 0.2rem;
+			width: 11.2rem;
+			line-height: 0.8rem;
+        }
+		}
+
+        .temp5_bg_Img {
+            height: 19rem;
+			background-size: 96%;
+			margin-top: 0;
+        }
+
+        .temp5_theme input.canShow, .temp5_theme input.canEdit {
+            height: 1.6rem;
+            font-size: .9rem;			
+			line-height:1.2rem;			
+        }
+
+        .temp5_action_name input.canShow, .temp5_action_name input.canEdit {
+            /*������ʽ*/
+            height: 1.6rem;
+            font-size: 0.9rem;
+
+        }
+        .temp5_box textarea.temp5Text, .temp5_box textarea.temp5TextEdit {
+            height: 12rem;
+			font-size: 0.6rem;
+			padding: 0.2rem;
+			width: 11.2rem;
+			line-height: 0.8rem;
+        }
+
+        .maxbox .temp5_bg_Img {
+            height: 22.5rem;
+			background-size: 94%;
+			margin-top: 0;
+        }
+
+        .maxbox .temp5_theme input.canShow {
+            height: 1.9rem;
+            font-size: 1.2rem;
+        }
+
+        .maxbox .temp5_action_name input.canShow {
+            height: 1.6rem;
+            font-size: 1rem;
+        }
+
+        .maxbox .temp5_box textarea.temp5Text {
+            height: 15.5rem;
+			font-size: 0.67rem;
+			width: 13.2rem;
+			overflow-y: auto;
+			line-height: 1rem;
+        }
+    }
+
+
+

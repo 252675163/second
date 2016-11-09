@@ -1,0 +1,57 @@
+<div class="paneabird1 microactivity-template8">
+    <div class="acty8_box7_bg" ng-class="{'maxbox':!isEdit}">
+        <div class="acty8_box7">
+            <textarea ng-if="!isEdit" ng-model="templateModel.description"  rows="4" class="acty8_textBox7 canShow" disabled="disabled" scroll-top-by-blur  ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            <textarea ng-if="isEdit" ng-model="templateModel.description"  rows="4" class="acty8_textBox7 canEdit" scroll-top-by-blur  ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[0]}}" new-custom-input readonly="readonly"></textarea>
+
+            <div class="acty8_form" id="">
+                <input placeholder="宝贝姓名：" class="acty8_form_text1" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length   readonly="readonly" />
+                <input placeholder="手机号码：" class="acty8_form_text2" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length  readonly="readonly" />
+
+                <!--<button ng-click="submitInfo()" ng-show="userType=='new'">点我报名</button>-->
+                <div class="buttonDiv" ng-click="submitInfo()">
+                    <input ng-if="isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" ng-disabled="!isEdit"  ng-trim="false" inputconfig="{{inputconfig[1]}}" new-custom-input readonly="readonly" />
+                    <input ng-if="!isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" ng-readonly="!isEdit"  ng-trim="false" />
+
+                </div>
+            </div>
+        </div>
+        <input ng-if="!isEdit" class="acty8_textBox7_1 canShow" type="text" ng-model="templateModel.title1" ng-disabled="!isEdit" ng-trim="false" readonly="readonly" />
+        <input ng-if="isEdit" class="acty8_textBox7_1 canEdit" type="text" ng-model="templateModel.title1" ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[2]}}" new-custom-input readonly="readonly" />
+
+        <!--<div class = "acty8_textBox7_4">-->
+        <!--<textarea ng-if="!isEdit" class="acty8_textBox7_2 canShow" ng-model="templateModel.address" readonly="true" maxlength="200" scroll-top-by-blur my-max-length></textarea>-->
+        <!--<textarea ng-if="isEdit" class="acty8_textBox7_2 canEdit" ng-model="templateModel.address" maxlength="200" scroll-top-by-blur my-max-length></textarea>-->
+        <!--<textarea ng-if="!isEdit" class="acty8_textBox7_3 canShow" ng-model="templateModel.telephone" readonly="true" maxlength="200" scroll-top-by-blur my-max-length></textarea>-->
+        <!--<textarea ng-if="isEdit" class="acty8_textBox7_3 canEdit" ng-model="templateModel.telephone" maxlength="200" scroll-top-by-blur my-max-length></textarea>-->
+        <!--</div>-->
+
+        <div class="infoBox">
+            <div class="infoRow">
+                <div class="infoLeft">
+                    <div class=" iconHome"></div>
+                    <textarea ng-if="!isEdit" rows="1" class="acty8_textInfo1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.content1" ng-disabled="!isEdit" scroll-top-by-blur ng-trim="false" readonly="readonly"></textarea>
+                    <textarea ng-if="isEdit" rows="1" class="acty8_textInfo1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.content1" ng-disabled="!isEdit" scroll-top-by-blur ng-trim="false" inputconfig="{{inputconfig[3]}}" new-custom-input readonly="readonly"></textarea>
+                </div>
+                <div class="infoRight">
+                    <div ng-if="!isEdit" class="acty8_textBox7_2 canShow acty8_textBox7_2_adwh" ng-bind-html="templateModel.address"  ng-trim="false" ></div>
+                    <textarea ng-if="isEdit" rows="2" class="acty8_textBox7_2 canEdit" ng-model="templateModel.address" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[4]}}" new-custom-input readonly="readonly"></textarea>
+                </div>
+            </div>
+            <div class="infoRow">
+                <div class="infoLeft">
+                    <div class="iconPhone"></div>
+                    <textarea ng-if="!isEdit" rows="1" class="acty8_textInfo2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.content2" ng-disabled="!isEdit" scroll-top-by-blur ng-trim="false" readonly="readonly"></textarea>
+                    <textarea ng-if="isEdit" rows="1" class="acty8_textInfo2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.content2" ng-disabled="!isEdit" scroll-top-by-blur ng-trim="false" inputconfig="{{inputconfig[5]}}" new-custom-input readonly="readonly"></textarea>
+                </div>
+                <div class="infoRight">
+                    <div ng-if="!isEdit" class="acty8_textBox7_3 canShow" ng-bind-html="templateModel.telephone|recogTel:false " ng-disabled="!isEdit" ng-trim="false"   ></div>
+                    <textarea ng-if="isEdit" type="tel" rows="1" class="acty8_textBox7_3 canEdit" ng-model="templateModel.telephone" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[6]}}" new-custom-input readonly="readonly"></textarea>
+                    <div ng-if="!isEdit" class="acty8_textBox7_5" ng-class="{'editBorder':isEdit}" ng-bind-html="templateModel.teacher"  ng-trim="false" ></div><!--宋老师-->
+                    <textarea ng-if="isEdit" rows="1" class="acty8_textBox7_5" ng-class="{'editBorder':isEdit}" ng-model="templateModel.teacher" ng-disabled="!isEdit" scroll-top-by-blur ng-trim="false" inputconfig="{{inputconfig[7]}}" new-custom-input readonly="readonly"></textarea><!--宋老师-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿<!--代金券使用条件模板页 {-->
+<div class="paneabird microactivity-voucher xmas_bg bgPan" ng-show="isEdit">
+    <div ng-class="{'preview':!isEdit,'voucher_edit':isEdit}">
+        <div class="voucher_bg">
+            <div class="help_voucher_edit_box1">
+                <!--  <div class="voucher_boxOuter">-->
+                <div class="voucher_input_detail">
+                    <div class="title_box">
+                        <div class="title">使用条件</div>
+                    </div>
+                    <div class="description" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input isdiff="true" readonly="readonly" maxlength="114" ng-bind-html="templateModel.description|newlines"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} 代金券使用条件模板页-->

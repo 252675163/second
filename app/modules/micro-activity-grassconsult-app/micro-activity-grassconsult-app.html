@@ -1,0 +1,40 @@
+﻿<ion-view  class="content_bg_s2">
+    <preview-btn ng-if="ispreview=='true'"></preview-btn>
+    <error-remind my-remind="remind" is-show="isShow"></error-remind>
+    <div class="consult_title"></div>
+    <div class="list list-inset ">
+
+        <label class="item item-input item-input-wrapper">
+            <span class="consult_text">姓名</span>
+            <input type="text" placeholder="" ng-model="people.Name" my-max-length maxlength="15">
+        </label>
+        <br />
+        <label class="item item-input item-input-wrapper">
+            <span class="consult_text">电话</span>
+            <input type="tel" placeholder="" ng-model="people.Phone" my-max-length maxlength="12">
+        </label>
+    </div>
+    <br />
+    <div class="padding">
+        <button class="btn_style1" ng-click="callSomeone()">立刻喊人</button>
+    </div>
+
+    <div  ng-style="{'display':isShowShare}">
+        <div class="lockMask lcstyle"></div><!-- <div class="lockMask-loading-grass"></div>  遮罩层(种草专用加载动画) -->
+        <div class="lockMask_index popup-tips">
+            即将为您跳转到分享页面
+            <br />
+            记得点击下一页右上角分享哦~
+        </div>
+        <div class="lockMask_loading_normol">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div><!--loading效果  -->
+    </div>
+
+
+
+</ion-view>

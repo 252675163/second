@@ -1,0 +1,19 @@
+<ion-view>
+    <prompt-bar></prompt-bar>
+    <div class="ktqxwarp">
+        <div class="ktqx_bottom" ng-show="!hasAply">
+            <div class="introduce">为了更好的提供微店的服务，需要您提供以下信息</div>
+            <div class="ninput">
+                <input ng-model="apply.name" type="text" maxlength="8" placeholder="请输入您的姓名">
+                <input ng-model="apply.mechanism" type="text" maxlength="18" placeholder="请输入机构的名称">
+                <input ng-model="apply.position" type="text" maxlength="8" placeholder="您所在机构的职位">
+                <input ng-model="apply.phone" type="tel" maxlength="15" placeholder="请输入您的手机号">
+            </div>
+            <div class="submit" ng-click="submitAply()">提交申请</div>
+        </div>
+        <div class="ktqx_bottom ng-hide" ng-show="hasAply">
+            <div class="success">您的申请提交成功！</div>
+            <div class="detiles">您开设微店的申请已经提交成功，校宝秀工作人员 会尽快与您联系。</div>
+        </div>
+    </div>
+</ion-view>

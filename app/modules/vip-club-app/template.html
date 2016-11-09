@@ -1,0 +1,36 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<ion-content style="bottom:10px;" has-bouncing="false" scrollbar-y="true" class="scroll-content ionic-scroll">
+    <div class="page">
+        <div class="advertisement-banner">
+            <div class="banner">
+                <div class="banner-title">VIP兑换活动</div>
+                <div class="user-center-link" ng-click="toUserCenter()">
+                    进入用户中心
+                </div>
+            </div>
+            <div class="advertisement-list">
+                <!--<div class="advertisement-item">
+                    <div class="title-container">
+                        <div class="item-title">邀请有礼</div>
+                    </div>
+                    <div class="img-container">
+                        <img src="http://cdn.schoolpal.cn/shiningstar/ActivityTemplate/20160401115312-2d483.jpg" />
+                    </div>
+                </div>-->
+                <div class="advertisement-item" ng-repeat="data in list">
+                    <div class="title-container">
+                        <div class="item-title">{{data.Title}}</div>
+                    </div>
+                    <a data-link="{{data.Link}}" ng-click="toBannerLink(data.Link,data.Id)">
+                        <div class="img-container">
+                            <img ng-src="{{data.BannerImgUrl}}" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ion-content>
+
+

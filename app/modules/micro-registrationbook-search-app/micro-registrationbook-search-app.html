@@ -1,0 +1,95 @@
+﻿<ion-view class="regbook-search-bg">
+    <!--搜索页面-->
+    <div class="regbook-search-box">
+        <div class="regbook-search">
+            <form ng-submit="searchPost()">
+                <input ng-model="search" maxlength="100" class="regbook-search-input-style" type="search" placeholder="搜索">
+            </form>
+            <em class="regbook-search-input-icon"></em>
+            <span class="regbook-search-remove" ng-click="hideSearch()">取消</span>
+        </div>
+    </div>
+
+    <!--未知重新加载-->
+    <div class="reg-unknow ng-hide" ng-show="showReload">
+        <div class="unknow-bg"></div>
+        <div class="unknow-info">您的网络不太顺畅</div>
+        <div class="btn-size-180 btn-blue unknow-btn" ng-click="searchPost()">重新加载</div>
+    </div>
+
+    <!--没有咨询-->
+    <div class="reg-prompt-info" ng-style="{'display':(showNoData)?'block':'none'}">
+        没有结果<br />
+        请尝试搜索其他关键词
+    </div>
+
+    <ion-content class="regbook-search-content" ng-style="{'display':(!showNoData)?'block':'none'}" has-bouncing="showNoData">
+        <ion-item class="regbook-search-item item ng-hide" type="item-text-wrap" ng-show="!showReload && !showNoData">
+            <div class="regbook-search-title" ng-style="{'display':(dataList.nameList.length > 0)?'block':'none'}">姓名</div>
+            <ion-item ng-show="dataList.nameList.length > 0" class="item-avatar regbook-search-area  ng-hide" type="item-text-wrap">
+                <div class="regbook-search-list regbook-search-list-after clearfix" ng-repeat="data in dataList.nameList">
+                    <div class="regbook-search-dev" ng-click="goRegistrationBookDetail(data.Id)">
+                        <div class="consult_user_head2 {{data.InterestClass}}"></div>
+<!--                        <div ng-if="!data.HeadImgUrl" class="consult_user_head2" ng-style="{'background':getHeadImageBg(data.Name)}" ng-bind="data.Name[0].toUpperCase()"></div>-->
+                        <div class="regbook-search-bottom">
+                            <div class="regbook-search-name2" ng-bind-html="data.cname"></div>
+                            <div class="consult_state">
+                                <span ng-show="userDistrictId >0 && userDistrictId == data.DistrictId">本地</span>
+                                <span ng-show="data.Enrolled==false">未报名</span>
+                            </div>
+                        </div>
+                        <div class="reg-follow">
+                            <div class="reg-follow-state1 clearfix {{data.FollowStatusModel.className}}">{{data.FollowStatusModel.content}}</div>
+                            <div class="reg-follow-time clearfix ng-hide" ng-show="data.EditDate!='/Date(-62135596800000)/'">{{formatDateByStatistics(data.EditDate) | date:'yyyy-MM-dd HH:mm'}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="searchListNamePage.currentIndex < searchListNamePage.totalCount" class="regbook_search_lastline ng-hide" ng-click="showMoreResult('name')">
+                    <span class="regbook_search_more">查看更多</span>
+                    <em class="regbook_search_down"></em>
+                </div>
+            </ion-item>
+
+            <div class="regbook-search-title" ng-style="{'display':(dataList.phoneList.length > 0)?'block':'none'}">手机号</div>
+            <ion-item ng-show="dataList.phoneList.length > 0" class="item-avatar regbook-search-area  ng-hide" type="item-text-wrap">
+                <div class="regbook-search-list regbook-search-list-after clearfix" ng-repeat="data in dataList.phoneList">
+                    <div class="regbook-search-dev" ng-click="goRegistrationBookDetail(data.Id)">
+                        <div class="consult_user_head2  {{data.InterestClass}}"></div>
+                        <div class="regbook-search-bottom">
+                            <div class="regbook-search-name2" ng-bind-html="data.cname"></div>
+                            <div class="regbook-search-number" ng-bind-html="data.phone"></div>
+                        </div>
+                        <div class="reg-follow">
+                            <div ng-show="1" class="reg-follow-state1 clearfix {{data.FollowStatusModel.className}}">{{data.FollowStatusModel.content}}</div>
+                            <div class="reg-follow-time clearfix ntg-hide" ng-show="data.EditDate!='/Date(-62135596800000)/'">{{formatDateByStatistics(data.EditDate) | date:'yyyy-MM-dd HH:mm'}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="searchListPhonePage.currentIndex < searchListPhonePage.totalCount" class="regbook_search_lastline ng-hide" ng-click="showMoreResult('phone')">
+                    <span class="regbook_search_more">查看更多</span>
+                    <em class="regbook_search_down"></em>
+                </div>
+            </ion-item>
+
+            <div class="regbook-search-title" ng-style="{'display':(dataList.contentList.length > 0)?'block':'none'}">沟通记录</div>
+            <ion-item ng-show="dataList.contentList.length > 0" class="item-avatar regbook-search-area  ng-hide" type="item-text-wrap">
+                <div class="regbook-search-list2 regbook-search-list-after2 clearfix" ng-repeat="data in dataList.contentList">
+                    <div class="regbook-search-dev2" ng-click="goRegistrationBookDetail(data.Id)">
+                        <div class="consult_user_head2  {{data.InterestClass}}"></div>
+                        <div class="regbook-search-bottom">
+                            <div class="regbook-search-name2" ng-bind-html="data.cname"></div>
+                            <div class="regbook-search-number" ng-bind-html="data.content"></div>
+                        </div>
+                        <div class="reg-follow">
+                            <div ng-show="1" class="reg-follow-state1 clearfix {{data.FollowStatusModel.className}}">{{data.FollowStatusModel.content}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="searchListContentPage.currentIndex < searchListContentPage.totalCount" class="regbook_search_lastline ng-hide" ng-click="showMoreResult('content')">
+                    <span class="regbook_search_more">查看更多</span>
+                    <em class="regbook_search_down"></em>
+                </div>
+            </ion-item>
+        </ion-item>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+.nnn{background: #100}
+.content_bg{ width:100%; background: url("../img/images/body_bg_02.png") center center; background-size: cover;}
+.sds{color:#000; background: #000;}
+.nav_bottom{  width: 344px; height: 38px; position: absolute; bottom: 57px; left: 15px;padding-top: 4px; padding-left: 19px}
+.nav_bottom_item{ display: inline-block; width:30%; height:30px; background:#fec536; }
+.my-style{bottom:52px; background: url("../img/images/nav_bottom_bg_03.png") no-repeat center center; background-size: 98%;}
+.btn_about,.btn_things,.btn_Introduction{ border:none;margin-left:-1px;}
+.btn_about{ margin-left:0; background: url("../img/images/foot-tab-bg_left.png") no-repeat center center; background-size: 95%; width:100px; }
+.btn_things{background: url("../img/images/foot-tab-bg_center.png") no-repeat center center; background-size: 95%; width:100px; }
+.btn_Introduction{backgro
+und: url("../img/images/foot-tab-bg_right.png") no-repeat center center; background-size: 95%; width:102px; }

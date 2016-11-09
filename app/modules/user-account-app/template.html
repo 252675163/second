@@ -1,0 +1,107 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<div class="user_account">
+
+    <div class="account_content" ng-show="!TransferData">
+        <ion-content has-bouncing="false" class="account-scroll">
+            <!--accountList列表第一个数据是当前机构-->
+            <div ng-if="accountList[0].IsChecked">
+                <div class="current_account_item " ng-class="{'account_disabled':!accountList[0].Enable||isUnusualOrg(accountList[0])}">
+                    <div class="pad30">
+                        <div class="item_title" ng-if="accountList[0].Enable">当前机构账号</div>
+                        <div class="item_title2" ng-if="!accountList[0].Enable">当前机构账号已禁用</div>
+                        <div class="item_title2" ng-if="isUnusualOrg(accountList[0]) && accountList[0].Enable">当前机构账号不可用</div>
+                        <div class="account_title">{{accountList[0].SchoolPalOrgName|Maxlength:14}}</div>
+                        <div class="item_msg"><span class="item_user"><i class="account_icon1"></i>{{accountList[0].SchoolPalOrgUserName}}</span><span class="item_degree"><i class="account_icon2"></i>{{accountList[0].LevelName}}</span></div>
+                        <button class="remove_account" ng-click="removeSchoolPalLink(accountList[0].SchoolPalOrgId,accountList[0].SchoolPalOrgUserId)" ng-show="accountList[0].Crmver!='个人版' && (checkNormalOrgNum(accountList) || !accountList[0].Enable||isUnusualOrg(accountList[0]))">解绑</button>
+                        <button class="remove_data" ng-click="goTransferList()" ng-show="accountList[0].Crmver=='个人版' && checkNormalOrgNum(accountList) && accountList[0].Enable">迁移数据</button>
+                    </div>
+                    <div class="remove_data_reminder borderT1 text-center" ng-click="showReminder()" ng-show="accountList[0].Crmver=='个人版' && checkNormalOrgNum(accountList) && accountList[0].Enable"><i class="icon-question"></i>迁移数据是什么</div>
+                </div>
+
+            </div>
+            <!--当前机构为空时显示-->
+            <div class="current_account_item current_null current_account_item pad30" ng-show="!accountList[0].IsChecked">
+                <div class="item_title">当前机构</div>
+                当前机构为空，请设置关联机构
+            </div>
+            <span class="split_line"></span>
+            <div class="account_item" ng-class="{'item_forbidden':!item.Enable}" ng-repeat="item in accountList" ng-if="!item.IsChecked">
+                <div class="pad30">
+                    <span class="item_disabled" ng-show="!item.Enable">已禁用</span>
+                    <div class="account_contentBox" ng-click="changeAcount(item)">
+                        <div class="account_title">{{item.SchoolPalOrgName|Maxlength:14}}</div>
+                        <div class="item_msg"><span class="item_user"><i class="account_icon3"></i>{{item.SchoolPalOrgUserName}}</span><span class="item_degree"><i class="account_icon4"></i>{{item.LevelName}}</span></div>
+                    </div>
+                    <button class="remove_account" ng-click="removeSchoolPalLink(item.SchoolPalOrgId,item.SchoolPalOrgUserId)" ng-show="item.Crmver!='个人版' && (checkNormalOrgNum(accountList) || !item.Enable|| isUnusualOrg(item))">
+                        解绑
+                    </button>
+                    <button class="remove_data" ng-click="goTransferList()" ng-show="item.Crmver=='个人版' && checkNormalOrgNum(accountList) && item.Enable">迁移数据</button>
+                </div>
+                <div class="remove_data_reminder borderT1 text-center" ng-click="showReminder()" ng-show="item.Crmver=='个人版' && checkNormalOrgNum(accountList) && item.Enable"><i class="icon-question"></i>迁移数据是什么</div>
+
+            </div>
+            <!--撑高列表高度，使不被按钮覆盖-->
+            <div style="height:2.25rem"></div>
+        </ion-content>
+        <button class="add_account" ng-click="goBindSchoolPal()"><em>+ </em>添加绑定</button>
+        <span class="btn_shadow"></span>
+    </div>
+
+    <div class="account_transfer" ng-show="TransferData">
+        <ion-content has-bouncing="false">
+            <div class="transfer_item">
+                <div class="account_title">{{personal.SchoolPalOrgName|Maxlength:14}}</div>
+                <div class="item_msg"><span class="item_user"><i class="account_icon1"></i>{{personal.SchoolPalOrgUserName}}</span><span class="item_degree"><i class="account_icon2"></i>{{personal.LevelName}}</span></div>
+                <div class="transfering">准备迁移</div>
+            </div>
+            <div class="transfer_msg">请点击选择目标机构，迁移数据不可撤销</div>
+            <div class="transfer_item border" ng-repeat="item in accountList" ng-show="item.Crmver!='个人版'&& item.Enable && !isUnusualOrg(item)" ng-click="chooseTransferAccount(item)">
+                <div class="account_title">{{item.SchoolPalOrgName|Maxlength:14}}</div>
+                <div class="item_msg"><span class="item_user"><i class="account_icon1"></i>{{item.SchoolPalOrgUserName}}</span><span class="item_degree"><i class="account_icon2"></i>{{item.LevelName}}</span></div>
+                <p class="transportable">可迁移</p>
+            </div>
+        </ion-content>
+    </div>
+    <!-- 数据迁移中遮罩 -->
+    <div class="data_migrationing" ng-show="showTransferingMask">
+        <div class="mask_lock"></div>
+        <div class="mask_bg">
+            <div class="migration_box">
+                <div class="data_migrationline"></div>
+                <div class="load_reminds">数据迁移中</div>
+            </div>
+        </div>
+    </div>
+    <!-- 数据迁移成功遮罩 -->
+    <div class="data_migrationing" ng-show="showTransferSuccessMask">
+        <div class="mask_lock"></div>
+        <div class="mask_bg">
+            <div class="migration_box">
+                <div class="migration_success"></div>
+                <div class="load_reminds2">迁移成功</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="bindScoolPalBox">
+    <div class="mask"></div>
+    <div class="bindBox">
+        <button ng-click="closeBindScoolPalBox()" class="bindBoxClose"></button>
+        <div class="bindheader">校宝ERP机构账号绑定</div>
+        <div class="bind_inputBox">
+            <span class="uc_icon8"></span><input type="text" class="bindBox_text" placeholder="机构后缀" ng-model="schoolPalInfo.web"
+                                                 change-placeholder-by-focus />
+        </div>
+        <div class="bind_inputBox">
+            <span class="uc_icon9"></span><input type="text" class="bindBox_text" placeholder="用户名" ng-model="schoolPalInfo.account"
+                                                 change-placeholder-by-focus />
+        </div>
+        <div class="bind_inputBox">
+            <span class="uc_icon10"></span><input type="password" class="bindBox_text" placeholder="密码" ng-model="schoolPalInfo.password"
+                                                  change-placeholder-by-focus />
+        </div>
+        <button class="bindBox_button" ng-click="bindSchoolPal()">一键绑定</button>
+    </div>
+</div>

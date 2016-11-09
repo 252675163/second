@@ -1,0 +1,70 @@
+﻿@charset "utf-8";
+//冬令营模板样式 by wenjun 20151025{
+
+//$tem-edit-num:.75;  已经在 _microactivity-2_1.scss 中定义
+/* px to rem by edit*/
+@function temSize_edit($num) {
+  @return ceil($num /40  * $tem-edit-num*100)/100*1rem;
+}
+/* px to rem */
+@function temSize($num) {
+  @return ceil($num /40*100)/100*1rem;
+}
+
+.consultbook{height: 100%;padding:0;
+
+  .consultNone{margin-top: 6rem;margin-left: 5.8rem;width:temSize(200);height:temSize(277);}
+  .consultNoneText{font-size: 0.65rem;color: #aaaaaa;margin-left: 4.5rem;margin-top: 2rem;}
+
+  .bannerNone{width:temSize(44);height:temSize(44);margin-top: -0.2rem;}
+
+  .mybanner{height:temSize(94);line-height:temSize(94); text-align: center;border-color: #ddd;background-color: #ffffff;color: #444;position: relative;border-width: 1px;border-style: solid;font-size: temSize(32);z-index:101;
+            .bg1{width: 4rem;position: absolute;height:temSize(94);right: 0px;top: 0;
+                .bg{height:temSize(24);width:temSize(30);position:absolute;top:50%;margin-top:temSize(-12);right:temSize(30);background:url("../img/consultbook_bg2.png") $img-pozC;@include background-size100;}
+            }
+  }
+  .consultlist{z-index: 6;top:2rem;
+      .dateItem{padding: 0rem;text-align: center;background-color: #eeeeee;    border-color: #eeeeee;
+                .date{font-size:temSize(24)}
+      }
+      .consultItem{ padding: 0rem;text-align: left;margin-bottom:temSize(10);margin-top:temSize(7);min-height:0;border-bottom-color: #cbced7;
+               .myrow{padding:0 temSize(40);margin:0;border-bottom: #eeeeee 1px solid;height:temSize(79);}
+               .consult_name,.consult_phone{
+                   float:left;font-size:temSize(24); line-height:temSize(79);width:temSize(220);@include t_overflow;color:#aaa;}
+                   span{margin-left:temSize(20);color:#333;}
+               .consult_name{ 
+                   padding-right:temSize(20);}
+               .consult_phone{width:temSize(250);
+                   span{color:#3391ff;}}
+               .consult_content{margin-top:temSize(19);margin-bottom:temSize(22);margin-left:temSize(40);font-size:temSize(24);color:#aaa;                    
+                    .consult_content1{font-weight: normal;width:temSize(540);color:#333;}
+               }
+               .consult_ranking,.consult_count{font-size:temSize(24);color:#aaa;padding:0;line-height:temSize(79); float:left;width:temSize(220);@include t_overflow;
+                    span{margin-left:temSize(20);color:#333;}
+               }
+               .consult_ranking{ padding-right:temSize(20);}
+               .updateisDelete{width: temSize(120);border-radius: temSize(25);float: left;
+                    div{margin-top: temSize(15);border-radius: temSize(25);font-size: temSize(20);text-align: center;height: temSize(50);line-height: temSize(50);}
+                   .cancel{color:#ff6622;background: white;border: 1px solid #ff6622;}
+                   .reborn{color: white;background: #ff6622;}
+               }
+               .nonborder{border-bottom: none;}
+      }
+      
+  }
+}
+
+
+.consultbooklist{padding:0;z-index:103;height: 13.5rem;
+    .consultlist_item{background: #fff;position: relative;text-align: center;
+         .consultlist_info_box {height:temSize(90);line-height:temSize(90);border-bottom:1px solid #e0dfdf; position: relative;font-size:temSize(28);color: #333; 
+         }
+    }
+    .LoadStyle{background: #fff;height: 2.2rem;}
+}
+.bg2{z-index:104;width: 3rem;position: absolute;height: temSize(90);right: 0;top: 0;
+    .consultlist_close{height:temSize(30);width:temSize(30);background:url("../img/consultlist_close.png") $img-pozC;@include background-size100;position:fixed;top:0.7rem;right:temSize(35);z-index:105;}
+}
+
+.consultbooklistMask{position: absolute;z-index: 102;left: 0;top: 0;right: 0;bottom: 0;width: 100%;height: 100%;background-color: #000;-khtml-opacity: 0.7;-moz-opacity: 0.7;opacity: 0.7;}
+

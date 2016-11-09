@@ -1,0 +1,25 @@
+<!--冬令营活动-->
+<!--No.2模板页 {-->
+<div class="paneabird1 microactivity-template8">
+    
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty8_box5_1">
+            <div class="image1" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <img ng-src="{{templateModel.imageUrl[0]}}" class="canEdit">
+            </div>
+        </div>
+        <div class="acty8_box5_2">
+            <div class="image2" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(1)">
+                <img ng-src="{{templateModel.imageUrl[1]}}" class="canEdit">
+            </div>
+        </div>
+        <div class="acty8_box5_3">            
+            <input ng-if="!isEdit" class="acty8_textBox5_1 canShow" type="text"  ng-model="templateModel.title" ng-disabled ="!isEdit" ng-trim="false" readonly="readonly"  />
+            <input ng-if="isEdit" class="acty8_textBox5_1 canEdit" type="text" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[0]}}" new-custom-input readonly="readonly" />
+            <textarea ng-if="!isEdit"  class="acty8_textBox5_2 canShow" ng-model="templateModel.description" rows="6"  scroll-top-by-blur ng-disabled ="!isEdit" ng-trim="false" readonly="readonly" ></textarea>
+            <textarea ng-if="isEdit" class="acty8_textBox5_2 canEdit" ng-model="templateModel.description" rows="6" scroll-top-by-blur ng-disabled="!isEdit" ng-trim="false" inputconfig="{{inputconfig[1]}}" new-custom-input readonly="readonly"></textarea>
+        </div>
+        
+    </div>
+</div>
+<!--} No.2模板页-->

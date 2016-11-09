@@ -1,0 +1,35 @@
+﻿<ion-view class="paneabird" >
+    
+    <!--<div class="btnGroup3" style="z-index:100" ng-show="ispreview">
+            <button type="button" class="btnG3_publish" ng-click="save()" ng-click="save()"><span>发布</span></button>
+            <button type="button" class="btnG3_edit" ng-click="goToEdit()" ng-click="goToEdit()"><span>编辑</span></button>
+        </div>-->
+    <preview-btn ng-if="ispreview=='true'"></preview-btn>
+    <div class="grass_head_bg">
+        <div class="grass_title1"></div>
+        <div class="textarealbl" ng-bind-html="title"></div>
+        <div class="textarealbl1" ng-if="score>0">我是{{name}}，我头上已经有{{score}}棵草</div>
+        <div class="textarealbl1" ng-if="score<=0">我是{{name}}，我头上一棵草都没有</div>
+    </div>
+
+    <div class="person_box" id="animateContainer">
+
+        <div class="person_head unhappy">
+            <!-- 开心的表情样式 把 unhappy 换成 happy -->
+            <img ng-src="{{headImg}}" class="person_head-face" />
+        </div>
+
+
+        <img ng-src="{{grassUrl}}"  ng-if="isShow" class="person_head_grass {{grassClass}}" />
+
+
+        <!--<div class="person_dialogBox_small" ng-show="isShow"><p class="person_dialogText">我有{{score}}棵草哟...</p></div>
+            <div class="person_dialogBox_big" ng-show="score<=0"><p class="person_dialogText">我的头上还没有草<br>一棵都没有…</p></div>-->
+    </div>
+    <div class="btnGroup2">
+        <button type="button" class="btn_style2" ng-click="goGrow()">帮TA种草</button>
+        <button type="button" class="btn_style1" ng-click="goConsult()">我也要喊人种草</button>
+    </div>
+    <div class="footer-copyright" bind-html="foot"></div>
+</ion-view>
+

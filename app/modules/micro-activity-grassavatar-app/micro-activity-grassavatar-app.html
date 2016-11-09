@@ -1,0 +1,49 @@
+﻿<ion-view class="body-bg-s1" >
+    <!--<div class="body-bg-s1">-->
+
+        <preview-btn ng-if="ispreview=='true'"></preview-btn>
+
+        <!--<div style="" class="section " upload-img finish-function="upLoadFinish" config="config" ng-if="isUpdateImg" image-type="2">  </div>-->
+        <div class="template6 section6 " ng-class="{'edit':isEdit, 'show': !isEdit}" ng-show="!isUpdateImg">
+
+            <!-- 操作按钮 {-->
+            <div class="btnGroup1" style="top:4.8rem;">
+                <button type="button" class="btn-changeFace" ng-click="updateImg()"></button>
+            </div>
+            <div style="right:1.3rem;position: absolute;top: .49rem">
+                <button type="button" ng-class="!flg?'btnG3_music':'btnG3_musicon'" ng-click="pause(flg)"></button>
+            </div>
+            <!--} 操作按钮 -->
+            <div class="vatar-tips"></div><!--换头像提示文字-->
+
+            <div class="person_box" id="animateContainer">
+
+                <div class="person_head unhappy">
+                    <!-- 开心的表情样式 把 unhappy 换成 happy -->
+                    <div class="flowers"></div>
+                    <img ng-src="{{imageUrl}}" class="person_head-face" />
+                </div>
+                <div class="person_dialogBox_big" style="display: none;"><p class="person_dialogText">我的头上还没有草<br>一棵都没有…</p></div>
+                <div class="person_dialogBox_small" style="display: none;"><p class="person_dialogText">我有6棵草哟...</p></div>
+
+                <img src="http://cdn.schoolpal.cn/shiningstar/app/img/mushroom_grow.gif" class="person_head_grass one" id="grass" style="display: none" />
+                <img src="http://cdn.schoolpal.cn/shiningstar/app/img/mushroom_dance.gif" class="person_head_grasss one" id="grassDance" style="display: none" />
+
+            </div>
+
+            <!-- 操作按钮 {-->
+            <div class="btnGroup2">
+                <button type="button" class="btn_style1" ng-click="goConsult()">喊人帮我种草</button>
+            </div>
+
+            <!--} 操作按钮 -->
+            <!--遮罩层(加载动画) {-->
+            <div class="lockMask-loading" style="display:none;"></div>
+            <!--} 遮罩层(加载动画) -->
+            <audio >
+                <source ng-src="{{musicUrl}}" type="audio/mpeg" />
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    <!--</div>-->
+</ion-view>

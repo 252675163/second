@@ -1,0 +1,20 @@
+<ion-view class=" consultbookbg background_gray">
+    <div style="position: absolute;width: 100%;">
+        <div class="nav-top-tabs" ng-hide="showBannerNone">
+            <div class="nav-tab mar-lr-20" ng-click="goAllList()">咨询</div>
+            <div class="nav-tab mar-lr-20 active-blue" ng-click="">日程</div>
+        </div>
+    </div>
+    <ion-content has-bouncing="false" class="">
+        <div>来源模块</div>
+    </ion-content>
+
+    <ion-footer-bar class="bar bar-footer footer_book new_tabs">
+        <a class="new_tab_item" ng-click="goMyScenes()"><i class="footerbook_icon1"></i><span class="footerbook_text">我的场景</span></a>
+        
+        <a class="new_tab_item" ng-click="goMicroShop()"><i class="micro-shop-ico"></i><span class="footerbook_text">我的微店</span></a>
+        <a class="new_tab_item active"><i class="footerbook_icon2"></i><span class="footerbook_text">咨询本</span></a>
+        <a class="new_tab_item" ng-click="goUserCenter()"><i class="footerbook_icon3"></i><span class="footerbook_text">用户中心</span></a>
+    </ion-footer-bar>
+</ion-view>
+

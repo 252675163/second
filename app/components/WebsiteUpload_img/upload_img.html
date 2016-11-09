@@ -1,0 +1,29 @@
+<div>
+    <div id="showResult"  style="display: none;" >
+        <div style="width: 50%;margin: 0 auto;margin-top: 10px;">
+            <input id="image" type="file" capture="camera" />
+        </div>
+        <div style="width: 80%;margin: 0 auto;margin-top: 10px;">
+            <div id='elapsedTime' style="margin-bottom: 10px"></div>
+            <p id='zipResult'></p>
+            <div id='ua'></div>
+        </div>
+        <div id="changeAvatar" style="margin-top: 35px;">
+            <img src="" style="width: 100px;margin-top: 10px;margin: 0 auto;display:block;">
+        </div>
+    </div>
+
+    <div id="showEdit" style="display: none;width:100%;height: 100%;position: absolute;top:0;left: 0;z-index: 9; background-color: #09090A; ">
+                <div style="width:100%;position: absolute;bottom:10px;left:0px;   z-index: 1;">
+                    <!--<button class="mui-btn" data-mui-style="fab" id='cancleBtn' style="margin-left: 10px;   color: #ffffff;  font-weight: bold;font-size: large;">取消</button>-->
+                    <!--<button class="mui-btn" data-mui-style="fab" data-mui-color="primary" id='confirmBtn' style="float:right;margin-right: 10px;  color: #368af1;font-weight: bold;font-size: large;">确定</button>-->
+                    <button class="" data-mui-style="fab" id='cancleBtn' style="margin-left: 10px;   color: #ffffff;  font-weight: bold;font-size: large;">取消</button>
+                    <button class="" data-mui-style="fab" data-mui-color="primary" id='confirmBtn' style="float:right;margin-right: 10px;  color: #368af1;font-weight: bold;font-size: large;">确定</button>
+                </div>
+                <div id="websiteReport">
+                    <!--<img src="mei.jpg" style="width: 300px;height:300px"> -->
+                </div>
+    </div>
+    <error-remind my-remind="remind" is-show="isShowError" ></error-remind>
+</div>
+

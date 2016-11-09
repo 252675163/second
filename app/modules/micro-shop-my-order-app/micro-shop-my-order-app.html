@@ -1,0 +1,49 @@
+<ion-view class="micro-shop-my-order ">
+    <div class="micro-shop-common1-nosth " ng-if="orderList.length==0">
+        <div class="background-img background-img-order top-img1"></div>
+        <div class="text1 top-text1">您还没有订单哦！</div>
+    </div>
+    <ion-content has-bouncing="false">
+        <div class="micor-shop-usermsg">
+            <div class="head-portrait">
+                <img ng-src={{user.headImageUrl}}>
+            </div>
+            <div class="name-tel">
+                <p ng-bind="user.name"></p>
+                <p class="tel-num" ng-bind="user.phone"></p>
+            </div>
+        </div>
+        <ion-list ng-if="orderList.length>0">
+            <ion-item class="micro-shop-common1" collection-repeat="order in orderList">
+                <div class="micro-shop-common1-top">
+                    <div class="img">
+                        <img ng-src={{order.imgUrl}}>
+                    </div>
+                    <div class="micro-shop-common1-text micro-shop-my-order-text ">
+                        <div class="title">
+                            <h3 ng-bind="order.productName"></h3>
+                            <h6 class="{{order.orderStateModel.className}}" ng-bind="order.orderStateModel.name"></h6>
+                            <div class="discount-activity {{order.activityTypeModel.className}}" ng-bind="order.activityTypeModel.name"></div>
+                        </div>
+                        <div class="price">
+                            <span class="present-order-price">￥</span>
+                            <span class="present-order-price" ng-bind="order.price|twoDecimal"></span>
+                        </div>
+                        <div class="name-and-tel">
+                            <span class="name-and-tell" ng-bind="order.userName"></span><span>|</span><span class="name-and-telr" ng-bind="order.phone"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom" ng-style="{'margin-top':$index==(orderList.length-1)?'1px':0}">
+                    <div class="micro-shop-btn" ng-click="toPay(order)" ng-show="order.orderStateModel.code==0">去支付</div>
+                    <div class="order-details">
+                        <div class="order-number order-details-text">订单号：<span ng-bind="order.orderNumber"></span></div>
+                        <div class="order-time order-details-text">下单时间：<span ng-bind="order.orderDate |parseJsonDate| date:'yyyy.MM.dd HH:mm'"></span></div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+</ion-view>

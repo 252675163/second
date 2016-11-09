@@ -1,0 +1,44 @@
+﻿<ion-view cache-view="false" >
+    <prompt-bar></prompt-bar>
+
+    <!--tab置顶 todo 实现方式待优化-->
+    <div ng-class="{'header_tab_fixed':isFixedNav}" ng-show = "isFixedNav">
+        <div class="header_tab" >
+            <a class="header_tab_item" ng-click="switchType(0)" ng-class="{'active':type == 0}">微官网<span class="header_tab_number">{{consultCountForSite}}</span></a>
+            <a class="header_tab_item" ng-click="switchType(1)" ng-class="{'active':type == 1}">微活动<span class="header_tab_number"> {{consultCountForActivity}}</span></a>
+        </div>
+    </div>
+
+    <ion-content  style="" has-bouncing="false" scrollbar-y ="false"  on-scroll = "locationNav()"><!-- 顶部通告条没有的时候，此处top值修改为   top: 2.3rem; -->
+        <div ng-class="{'visibilityDiv':isFixedNav}" >
+            <div class="header_banner" style = "height: 6.5rem;"  return-element-height-by-style element-data = "headBox">
+                <div class="header_time">{{startDate}}至{{endDate}}</div>
+            </div>
+            <div class="header_tab" ng-class = "{'bar-header':isFixedNav}">
+                <a class="header_tab_item" ng-click="switchType(0)" ng-class="{'active':type == 0}">微官网<span class="header_tab_number">{{consultCountForSite}}</span></a>
+                <a class="header_tab_item" ng-click="switchType(1)" ng-class="{'active':type == 1}">微活动<span class="header_tab_number"> {{consultCountForActivity}}</span></a>
+            </div>
+        </div>
+        <div class="list">
+            <div class="item header_list" ng-repeat="activityModel in data" ng-click = "goConsult(activityModel.Id,activityModel.Type,activityModel.TemplateCode,activityModel.TemplateType)">
+                <span class="active_text1 header_list_notes">{{activityModel.Title}}</span>
+                <!--todo-->
+                <!--{{activityModel.ConsultCount}}-->
+                <em class="header_list_icon"></em>
+                <span class="header_list_number">{{activityModel.Consults}}</span>
+            </div>
+        </div>
+
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex<page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+    </ion-content>
+
+
+
+</ion-view>
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+<div class="paneabird1 microactivity-template7 bgPan" >
+    <div ng-class="{'maxbox':!isEdit}">
+        <div class="acty7_title1 copy_s1">
+            <input ng-if="!isEdit" maxlength="200" my-max-length class="canShow" type="text"  ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />
+            <input ng-if="isEdit" maxlength="200" my-max-length class="canEdit" type="text" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" />
+        </div>
+
+        <div class="acty7_box4">
+            <textarea rows="5" ng-if="!isEdit" maxlength="200" my-max-length class="acty7_textBox5" disabled="disabled" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+            <textarea rows="5" ng-if="isEdit" maxlength="200" my-max-length scroll-top-by-blur class="acty7_textBox5 canEdit" ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+            <!--todo-->
+            <!--<div class="acty7_phone_box">-->
+                <!--<textarea rows="1" class="acty7_textBox6" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-readonly="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>-->
+                <!--<textarea rows="1" class="acty7_textBox7" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description" ng-disabled="!isEdit" ng-readonly="!isEdit" maxlength="200" scroll-top-by-blur my-max-length ng-trim="false" custom-input readonly="readonly"></textarea>-->
+            <!--</div>-->
+
+            <div class="acty7_form" id="">
+                <input placeholder="您的姓名" class="acty7_form_text" ng-model="userInfo.name" type="text" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+                <input placeholder="您的手机号" class="acty7_form_text" ng-model="userInfo.phone" type="tel" maxlength="15" ng-readonly="isEdit" ng-disabled="isEdit" change-placeholder-by-focus my-max-length />
+
+                <div class="acty7_form_btn" ng-click="submitInfo()">
+                    <input ng-if="isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" maxlength="200" my-max-length ng-trim="false" custom-input readonly="readonly" /><!--默认文案为 我要报名 -->
+                    <input ng-if="!isEdit" ng-model="templateModel.submitName" ng-class="{'editBorder':isEdit}" ng-readonly="!isEdit" maxlength="200" my-max-length /><!--默认文案为 我要报名 -->
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

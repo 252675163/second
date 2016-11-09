@@ -1,0 +1,26 @@
+<!--No.9模板页 添加图片页 {-->
+<div class="microactivity-vegetables bgPan" ng-show = "isEdit">
+    <div ng-class="{'preview':!isEdit,'grass2_edit_box':isEdit}">
+        <div class="vegetables_bg" ng-style="{'background-image': 'url(' + getImageDoMain('/minor_bg.png')+ ')','background-color':templateModel.bigBgColor}">
+            <div class="vegetables_box6Outer" ng-style="{'background':templateModel.bgColor,'border-radius':templateModel.radius/40 +'rem'}">
+                <div class="vegetables_box_3">
+                    <div class="vegetables_title1" ng-style="{'color':templateModel.titleColor}">*图片选传，展示在上一页文字下方</div>
+                </div>
+                <div class="vegetables_box_4">
+                    <div class="imgbox-upload" ng-repeat="img in templateModel.imgs track by $index">
+                        <div class="imgdel" ng-click="delimg($index)" ng-if="img!=0"></div>
+
+                        <div class="uploadimg" ng-click="addimg($index)" ng-if="img!=0">
+                            <div class="imgboxhold"></div>
+                            <img ng-src="{{img}}" alt="">
+                        </div>
+                        <div class="imgbox" ng-click="addimg($index)" ng-if="img==0">
+                            <div class="imgboxhold"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} No.9模板页-->

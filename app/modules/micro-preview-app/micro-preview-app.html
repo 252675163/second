@@ -1,0 +1,25 @@
+<ion-view cache-view="false">
+    <ion-pane>
+        <my-audio ng-if="templateExtConfig.isHaveBackgroundMusic" audio-src="musicUrl " audio-handle="audioHandle"></my-audio>
+        
+        <div id="container" class="scroll-content">
+            <div id="iSlider-wrapper"></div>
+            <ion-content has-bouncing="false" scrollbar-y="false">
+                <micro-preview site-model="siteModel" template-ext-config="templateExtConfig"></micro-preview>
+            </ion-content>
+            <div ng-show="isBottom&&templateExtConfig.isUseFooter" class="footer-copyright hide-on-keyboard-open" bind-html="footer"></div>
+        </div>
+        
+        <div ng-class="audioPosClass" class="audio_pos">
+            <button ng-if="templateExtConfig.isHaveBackgroundMusic" type="button" ng-class="!isOpen?'btnG3_music':'btnG3_musicon'" ng-click="closeAndOpenMusic()"></button>
+        </div>
+        <!-- <div class="nextButton mantra" ng-hide="isBottom" ng-click="sectionJump()"></div>-->
+        <div ng-hide="isBottom"><next-button activity-template-id="templateId" next-button-type="templateExtConfig.nextButtonType"></next-button></div>
+
+    </ion-pane>
+
+
+</ion-view>
+
+
+

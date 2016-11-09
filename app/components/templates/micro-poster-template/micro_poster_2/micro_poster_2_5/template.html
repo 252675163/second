@@ -1,0 +1,44 @@
+<div class="microposter2 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter2-by5">
+            <textarea ng-if="!isEdit"  class="poster2-title canShow" type="text"
+                ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster2-title canEdit editBorder" rows="1" type="text"
+                ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            <div class="titlebg"></div>
+            <div class="teach1">
+                <div class="teachname">
+                    <textarea ng-if="!isEdit"  class="poster2-subtitle canShow" rows="2" type="text"
+                        ng-model="templateModel.name[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                    <textarea ng-if="isEdit" inputconfig="{{inputconfig[1]}}" new-custom-input class="poster2-subtitle canEdit editBorder" rows="1" type="text"
+                        ng-model="templateModel.name[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                </div>
+                <div class="teachimg" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                    <img ng-src="{{templateModel.imageUrl[0]}}" />
+                </div>
+                <div ng-if="!isEdit" class="poster2-desc canShow" ng-bind-html="templateModel.description[0]|newlines|recogUrl"></div>
+                <!--<textarea ng-if="!isEdit"  class="poster2-desc canShow" rows="2" type="text"
+                    ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>-->
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[2]}}" new-custom-input class="poster2-desc canEdit editBorder" rows="4" type="text"
+                    ng-model="templateModel.description[0]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            </div>
+            <div class="teach2">
+                <div class="teachname">
+                    <textarea ng-if="!isEdit"  class="poster2-subtitle canShow" rows="2" type="text"
+                        ng-model="templateModel.name[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                    <textarea ng-if="isEdit" inputconfig="{{inputconfig[1]}}" new-custom-input class="poster2-subtitle canEdit editBorder" rows="1" type="text"
+                        ng-model="templateModel.name[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                </div>
+                <div class="teachimg" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(1)">
+                    <img ng-src="{{templateModel.imageUrl[1]}}" />
+                </div>
+                <div ng-if="!isEdit" class="poster2-desc canShow" ng-bind-html="templateModel.description[1]|newlines|recogUrl"></div>
+                <!--<textarea ng-if="!isEdit"  class="poster2-desc canShow" rows="2" type="text"
+                    ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>-->
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[2]}}" new-custom-input class="poster2-desc canEdit editBorder" rows="4" type="text"
+                    ng-model="templateModel.description[1]" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            </div>
+
+        </div>
+    </div>
+</div>

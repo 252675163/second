@@ -1,0 +1,29 @@
+<!-- page 3种草排行榜 {-->
+<div class="microactivity-grass bgPan" ng-hide="rankList.length==0">
+    <div ng-class="{'preview':!isEdit}">
+        <div class="grass2_box3Outer">
+            <div class="grass2_box3_3 list" ng-hide="userType=='old'">
+                <div class="item noborder">
+                    <span class="item-ranking">{{userInfo.rank}}</span>
+                    <span class="item-pic"><img ng-src="{{userInfo.headImg==defaultHeadImg2?defaultHeadImg:userInfo.headImg}}"></span>
+                    <h2>{{userInfo.name}}</h2>
+                    <span class="item-note"><em>{{userInfo.grassCount}}</em>棵</span>
+                </div>
+            </div>
+            <div class="ranking_box">
+                种草排行榜
+                <span class="ranking_arrow_left"></span>
+                <span class="ranking_arrow_right"></span>
+            </div>
+            <div class="grass2_box3_3 list">
+                <div class="item" ng-repeat="rank in rankList">
+                    <span class="item-ranking " ng-class="{'ranking_bg1': $index==0,'ranking_bg2': $index==1,'ranking_bg3': $index==2}">{{$index+1}}</span>
+                    <span class="item-pic"><img ng-src="{{rank.HeadImg||defaultHeadImg}}"></span>
+                    <h2>{{rank.Name}}</h2>
+                    <span class="item-note"><em>{{rank.Score}}</em>棵</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--} page 3-->

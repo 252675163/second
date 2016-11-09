@@ -1,0 +1,47 @@
+<!--
+    /**
+ * author :
+ * time:
+ * description:
+ */
+-->
+<div>
+    <div class="search-box-body">
+        <div class="search-box">
+            <div class="search-city" ng-class="{'search-city-manual':!ifAuto }">
+                <input class="search-input-style" placeholder="搜索" type="text" maxlength="100" ng-model="searchText" ng-keyup="searchFuc()" ng-change="searchFuc()" ng-focus="showSearchList(false)"  id="searchbox"/>
+                <em class="search-input-icon" ng-click="searchFuc()"></em>
+                <span class="search-remove" ng-click="showSearchList(true)" ng-show="!ifAuto">取消</span>
+            </div>
+        </div>
+
+        <ion-content class="search-city-list auto-list" on-touch="touchFuc()">
+            <div class="present-city" ng-style="{'display':ifAuto?'block':'none'}">
+                <div class="present-city-left present-icon" ng-click="selectCity(address)" ng-class="{'present-icon-fali':address.Id == '0' }">{{address.cityName}}</div>
+                <!-- 右侧刷新按钮  <div class="present-city-right"  ></div>-->
+            </div>
+            <div class="city-item-box" ng-repeat="(alpha,datas) in citydatas" ng-style="{'display':datas.length>0?'block':'none'}">
+                <a name="{{alpha | uppercase }}" ng-style="{'display':ifAuto?'block':'none'}"><h3 class="city-item-title">{{alpha | uppercase }}</h3></a>
+                <ul class="city-item-content" ng-style="{'display':(ifAuto||searchText.length>0)?'block':'none'}">
+                    <li ng-repeat="city in datas | filterdistrictName :['DistrictName','PinYin','PinYinForShort'] :searchText" ng-click="selectCity(city)">
+                        <span class="span-city-name">{{city.DistrictName }}</span>
+                    </li>
+                </ul>
+            </div>
+
+        </ion-content>
+        <div ng-style="{'display':ifNoData?'block':'none'}" class="nodata-tips">
+            <p>没有搜索结果</p>
+        </div>
+        <div class="sideAlpha" ng-style="{'display':ifAuto?'block':'none'}">
+            <div ng-repeat="alpha in AlphaList" class="alpha">
+                <div  on-swipe="scrollto(alpha)" on-touch="scrollto(alpha)">
+                    {{alpha}}
+                </div>
+            </div>
+        </div>
+        <div class="centerAlpha" ng-style="{'display':showAlpha?'block':'none'}">
+            {{alpha}}
+        </div>
+    </div>
+</div>

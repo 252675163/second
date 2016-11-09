@@ -1,0 +1,23 @@
+<!--兑换VIP码-->
+<div class="exchange_code">
+    <prompt-bar></prompt-bar>
+    <!--兑换前窗口-->
+    <div ng-show="!exchangeState" class="exchange_card">
+        <input class="exchange_card_input" maxlength="30" chinese-word-count placeholder="请输入VIP码" change-placeholder-by-focus ng-model="VipCode" />
+    </div>
+
+    <!--兑换成功后窗口-->
+    <div ng-show="exchangeState" class="exchange_card_success">
+        <div class="success_tick"></div>
+        <span class="exchange_message">兑换成功！VIP + <em>{{vipDateRest}}</em>天</span>
+    </div>
+
+    <button ng-show="!exchangeState" class="exchange_sure_button" ng-click="exchangeVipCode()">兑换</button>
+
+    <button ng-show="exchangeState" class="exchange_back_button" ng-click="goUserCenter()">返回</button>
+
+    <a class="exchange_instruction" ng-href="{{showVipExplain}}">VIP码兑换说明></a>
+
+    <button class="Vip_list" ng-click="goUserOrderList()">VIP码兑换记录</button>
+</div>
+

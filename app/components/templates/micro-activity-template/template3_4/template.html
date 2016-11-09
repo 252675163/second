@@ -1,0 +1,36 @@
+<div class="paneabird1 microactivity-template9 template3-4 bgPan  " ng-class="{'edit':isEdit}">
+    <div class="box1" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(0)">
+        <img class="imgBox_1 " ng-src="{{templateModel.imageUrl[0]}}">
+
+        <div class="textBox">
+            <input class="title" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title[0]" ng-disabled="!isEdit"
+                   maxlength="11" scroll-top-by-blur my-max-lengthng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" type="text" />
+            <hr />
+            <textarea rows="6" class="content" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[0]" maxlength="60" scroll-top-by-blur my-max-length ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+    </div>
+    <div class="box2">
+        <div class="box2_2" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(1)">
+            <img ng-src="{{templateModel.imageUrl[1]}}" />
+        </div>
+        <div class="box2_1">
+            <input class="textBox1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title[1]"    ng-disabled="!isEdit" maxlength="7" scroll-top-by-blur my-max-length  ng-trim="false" custom-input readonly="readonly" type="text"/>
+            <hr/>
+            <textarea rows="6" class="textBox2" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[1]"    maxlength="42" scroll-top-by-blur my-max-length   ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+    </div>
+    <div class="box3">
+        <div class="box3_1">
+            <input ng-class="{'editBorder':isEdit}" ng-model="templateModel.title[2]"     maxlength="11" scroll-top-by-blur my-max-length ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly" type="text"/>
+            <hr/>
+            <textarea rows="6" ng-class="{'editBorder':isEdit}" ng-model="templateModel.description[2]"  maxlength="66" scroll-top-by-blur my-max-length
+                      ng-disabled ="!isEdit" ng-trim="false" custom-input readonly="readonly"></textarea>
+        </div>
+        <div class="box3_2" ng-class="{'editBorder imgGuideMask':isEdit}" ng-click="updateImg(2)">
+            <img ng-src="{{templateModel.imageUrl[2]}}" />
+        </div>
+
+
+    </div>
+
+</div>

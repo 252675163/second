@@ -1,0 +1,9 @@
+<div ng-show="isShow" class="new_text_input">
+    <div class="lockMask_editor1" on-swipe="onSwipe($event)"></div>
+    <div class="editor_wrap1" on-swipe="onSwipe($event)">
+        <textarea class="editor_text_box" id="customInput" ng-model="inputModel" ng-trim="false"></textarea>
+        <span type="button" class="editor_label">还可以输入<span class="remaining-words">{{remainingWords}}</span>字</span>
+        <!--<span class="editor_text"><label>{{currentLength}}</label>&nbsp;&frasl;&nbsp;<label>{{maxLength}}</label></span>-->
+        <button type="button" class="button-sure" ng-click="close()">确定</button>
+    </div>
+</div>

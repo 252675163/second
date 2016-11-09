@@ -1,0 +1,67 @@
+<!--No.9模板页 {-->
+<div class="paneabird microactivity-vegetables xmas_bg bgPan">
+    <!-- page 1 {-->
+    <div ng-class="{'preview':!isEdit}" style="">
+        <div class="xmas_box1">
+            <div class="xmas_title1" ng-class="{'editBorder':isEdit}" ng-model = "templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "11"   ng-bind-html="templateModel.title|newlines" ></div>
+            <div class="xmas_text1" ng-class="{'editBorder':isEdit}" ><span  ng-model = "templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength = "40"  ng-bind-html="templateModel.description|newlines" ></span></div>
+        </div>
+        <!--第一步：种草展示（首页）-->
+        <div ng-if = "step==1">
+            <template19by1-step1></template19by1-step1>
+        </div>
+        <!--第二步：填写表单页-->
+        <div ng-if = "step==2">
+            <template19by1-step2 status = 'status'></template19by1-step2>
+        </div>
+        <!--选择草-->
+        <div ng-style="{'display':isShowGrassList?'block':'none'}" >
+                <div class="lockMask"></div><!--遮罩 -->
+                <div class="grow_choosegift">                    
+                    <!--<button type="button" class="btn_round_close" ng-click="closeGrass()"></button>-->
+                    <div class="grow_choosegift_box clearfix">
+                        <!--todo-->
+                        <button type="button" class="grow_choosegift_item vegetables1" ng-click="chooseGrassAction(1)"><span class="vegetables_name">胡萝卜</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables2" ng-click="chooseGrassAction(2)"><span class="vegetables_name">菠菜</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables3" ng-click="chooseGrassAction(3)"><span class="vegetables_name">西红柿</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables4" ng-click="chooseGrassAction(4)"><span class="vegetables_name">茄子</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables5" ng-click="chooseGrassAction(5)"><span class="vegetables_name">青椒</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables6" ng-click="chooseGrassAction(6)"><span class="vegetables_name">玉米</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables7" ng-click="chooseGrassAction(7)"><span class="vegetables_name">西兰花</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables8" ng-click="chooseGrassAction(8)"><span class="vegetables_name">黄瓜</span></button>
+                        <button type="button" class="grow_choosegift_item vegetables9" ng-click="chooseGrassAction(9)"><span class="vegetables_name">南瓜</span></button>
+                    </div>
+                </div>
+       </div>
+
+        <!--验证码弹窗-->
+        <div class="maskConfirm imgVerify" ng-style="{'display':isShowVerify?'block':'none'}">
+            <div class="imgVerifyBody">
+                <h1 class="imgVerify_title">请填入“ ? ”处的值</h1>
+
+                <div class="imgVerify_box ">
+                    <img class="imgVerify_img" ng-src="{{imgurl}}" alt="验证码图片">
+                    <input type="text" ng-model="captcha" maxlength="4" class="imgVerify_text">
+                </div>
+                <a class="imgVerify_change" href="" ng-click="reGetVerifyCode()">换一个验证码</a>
+                <div class="popup-buttons imgVerify_buttons">
+                    <button class="button  button-default" ng-click="closeVerify()">取消</button>
+                    <button class="button  button-positive" ng-click="cilckVerifyConfirm()" ng-disabled="">确认</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!--旋转金光特效-->
+        <div class="grow_vegetables_foxed"  ng-style="{'display':isGrow?'block':'none'}" >
+            <div class="grow_vegetables_mask">
+            </div>
+            <div class="vegetables_pic {{giftObj.className}}"></div>
+        </div>
+
+    </div>
+</div>
+<div class="grow_vegetable_bgpic" ng-show = "!isEdit">
+    <div class="grow_vegetable_content"></div>
+</div>

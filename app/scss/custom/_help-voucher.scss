@@ -1,0 +1,473 @@
+﻿@charset "utf-8";
+//助力代金券
+.microactivity-voucher{height: 100%; padding-top:0; position:relative;}
+@function temSize($num,$rate:1) {
+    @return ceil($num /40*100)/100*$rate*1rem;
+  }
+@mixin base($rate:1) {
+  //与数值相关的样式写这里：
+  //机构名的box
+   .xmas_box1{position:relative;width:temSize(640,$rate);margin:0 auto;
+       .voucher_coin1{width:temSize(634,$rate);height:temSize(329,$rate);top:temSize(-25,$rate);}
+       .voucher_coin2{width:temSize(640,$rate);height:temSize(257,$rate);top:temSize(115,$rate);}
+       .voucher_box1_1{width:temSize(633,$rate);height:temSize(175,$rate);left:temSize(4,$rate);top:temSize(10,$rate);}
+       .voucher_box1_2{width:temSize(560,$rate);height:temSize(84,$rate);left:50%;margin-left:temSize(-280,$rate);top:temSize(145,$rate);}
+       .xmas_title1{height:temSize(80,$rate);width:temSize(560,$rate);line-height:temSize(80,$rate); font-size:temSize(28,$rate);left:50%;margin-left:temSize(-280,$rate);top:temSize(147,$rate);}
+  }
+   //刮刮卡
+   .voucher_back_Box{width:temSize(538,$rate);top:temSize(285,$rate);margin-left:temSize(-269,$rate);
+     .voucher_back_box2{height:temSize(570,$rate);border-radius:temSize(20,$rate);}
+     .voucher_back_box1{height:temSize(25,$rate);width:temSize(555,$rate);border-radius:temSize(12,$rate);top:temSize(551,$rate);margin-left:temSize(-277,$rate);}
+     }
+     //头像和XXX的代金券
+   .voucher_view_box1{top:temSize(-40,$rate);
+       .voucher_head{height:temSize(80,$rate);width:temSize(80,$rate);border:temSize(5,$rate) solid #fff;}
+       .voucher_text_box{font-size:temSize(24,$rate);margin-bottom: temSize(5,$rate);margin-top:temSize(10,$rate);}
+ }
+ //代金券
+ .voucher_scrachCard{width:temSize(480,$rate);height:temSize(324,$rate);padding:temSize(8,$rate);margin-left:temSize(-240,$rate);top:temSize(100,$rate);border-radius:temSize(10,$rate);
+    .finish_Amount{font-size:temSize(90,$rate);line-height:temSize(300,$rate);
+        em{font-size:temSize(30,$rate);}
+    }
+    .voucher_message_1{height:temSize(150,$rate);width:temSize(400,$rate);font-size:temSize(90,$rate);
+         em{font-size:temSize(30,$rate);}
+    }
+    .voucher_message_2{font-size:temSize(24,$rate);padding:0 temSize(30,$rate);height:temSize(110,$rate);line-height:temSize(28,$rate);overflow:hidden;}
+ }
+ .preview_message_tips{font-size:temSize(20,$rate);margin-top:temSize(370,$rate);}
+ .preview_message_tips2{font-size:temSize(20,$rate);}
+   //进度条
+   .voucher_bar_box{width:temSize(480,$rate);height:temSize(30,$rate);border-radius:temSize(16,$rate);margin-left:temSize(-240,$rate);top:temSize(455,$rate);z-index:100;
+         &:before{content:"";display:block;height:temSize(22,$rate);border-radius:temSize(22,$rate);}
+       .voucher_bar{min-width:temSize(30,$rate);height:temSize(34,$rate);border-radius:temSize(15,$rate);
+                    &:before{content:"";display:block;height:temSize(24,$rate);border-radius:temSize(12,$rate);}
+}
+        .voucher_bar_numer{font-size:temSize(24,$rate);height:temSize(30,$rate);line-height:temSize(32,$rate);}
+   }
+   //5个按钮，喊人，保存，我要领取
+    .voucher_btn1_1,.voucher_btn1_2,.voucher_btn1_3,.voucher_btn1_4,.voucher_btn1_5{width:temSize(314,$rate); height:temSize(94,$rate); font-size:temSize(28,$rate);top:temSize(885,$rate);left:50%;margin-left:temSize(-157,$rate);}
+    //助力人打开助力中的页面
+    .voucher_helped_view{
+        .voucher_scrachCard{top:temSize(211,$rate);@include box-shadow-base(0 0 temSize(60,$rate) rgba(255,224,149,0.8));}
+        .voucher_bar_box{width:temSize(480,$rate);top:temSize(635,$rate);}
+        .voucher_btn1_5{top:temSize(810,$rate);}
+        .preview_message_tips2{position:absolute;top:temSize(680,$rate);}
+    }
+  //表单页的上传头像
+   .header_box_big{height:temSize(110,$rate);width:temSize(110,$rate);border-radius:50%;border:temSize(6,$rate) solid #fff;
+     &:before{margin: temSize(25,$rate) temSize(-200,$rate);width:temSize(186,$rate); height:temSize(77,$rate);}
+   } 
+      //前台无助力页与报名页共同样式
+      .invite_message{top:temSize(340,$rate);font-size:temSize(24,$rate);}
+      .voucher_name_input,.voucher_phone_input{width:temSize(300,$rate);height:temSize(60,$rate);font-size: temSize(24,$rate);border:temSize(6,$rate) solid #fff;}
+      
+      // 用户条款
+      .voucher_useritems{
+        width:temSize(300,$rate);text-align:right;margin:temSize(18,$rate) auto 0;font-size:0;
+      }
+      .voucher_useritems2{margin-top:temSize(10,$rate)}
+      .voucher_useritems_text{
+        font-size: temSize(22,$rate);color:#333333;vertical-align: middle;
+      }
+      .voucher_useritems_text.span2{font-weight:bold;color:#2c7fdd;}
+      //前台无助力页
+     .help_voucher_info_box{top:temSize(295,$rate);
+        .voucher_scrachCard{top:0;}
+      .form_info_box2{height:temSize(340,$rate);top:temSize(370,$rate);padding-left:temSize(240,$rate);padding-top:temSize(25,$rate);
+         .header_box_big{left:temSize(100,$rate);top:temSize(30,$rate);
+             &:before{content:"";width:temSize(135,$rate);height:temSize(141,$rate);margin-left:temSize(-95,$rate);margin-top:temSize(60,$rate);} 
+         }
+          .voucher_name_input{margin-bottom:temSize(15,$rate);}
+          .voucher_phone_input{margin-bottom:0;}
+      }
+      .voucher_btn1_2{top:temSize(580,$rate);}
+     }
+     //step2报名页
+      .help_voucher_enroll_box{top:0;
+       .coin_box2{height:temSize(562,$rate);width:temSize(640,$rate);top:temSize(-25,$rate);}
+      .voucher_scrachCard{top:temSize(80,$rate);}
+      .form_info_box2{height:temSize(500,$rate);top:temSize(510,$rate);
+         .header_box_big{
+             &:before{content:"";width:temSize(186,$rate);height:temSize(77,$rate);margin-left:temSize(-200,$rate);margin-top:temSize(25,$rate);} 
+         }
+          .voucher_name_input,.voucher_phone_input{margin:temSize(25,$rate) auto 0 auto;}
+      }
+      .voucher_btn1_3{top:temSize(860,$rate);}
+     }
+      .voucher_title1{font-size:temSize(24,$rate);  color:#fff;width:temSize(248,$rate);height:temSize(86,$rate);}
+     //编辑
+    .help_voucher_edit_box{top:temSize(290,$rate);
+    .voucher_input_Amount,.voucher_input_Count{width:temSize(480,$rate);margin:0 auto temSize(55,$rate) auto;}
+    .Amount_message{height:temSize(86,$rate);width:temSize(248,$rate);margin-left:temSize(-125,$rate);font-size:temSize(24,$rate);top:temSize(-28,$rate);line-height:temSize(50,$rate);padding:temSize(15,$rate) temSize(20,$rate) temSize(30,$rate) temSize(15,$rate);}
+    .Amount_input_box{height:temSize(150,$rate);border-radius:temSize(14,$rate);font-size:temSize(70,$rate);}
+    }
+ //编辑页面表单信息
+  .form_info_box{margin-top:temSize(20,$rate);margin-bottom:temSize(75,$rate);
+    .form_info_1 input{width:temSize(320,$rate);height:temSize(60,$rate);font-size: temSize(24,$rate);border:temSize(6,$rate) solid #fff;border-radius:5px;}
+  }
+  //使用条件、机构介绍编辑页
+    .help_voucher_edit_box1{top:temSize(60,$rate);}
+   .address_detail{
+        .description{height:temSize(140,$rate) !important;}
+   }
+    .voucher_input_detail{width:temSize(560,$rate);margin:0 auto;margin-bottom:temSize(60,$rate);padding-top:temSize(70,$rate);border-radius:temSize(14,$rate);
+    .title_box{height:temSize(86,$rate);width:temSize(248,$rate);line-height:temSize(50,$rate);font-size:temSize(24,$rate);margin-left:temSize(-125,$rate);top:temSize(-28,$rate);padding:temSize(15,$rate) temSize(20,$rate) temSize(30,$rate) temSize(15,$rate);}
+    .title{line-height:temSize(50,$rate);height:temSize(50,$rate);font-size:temSize(24,$rate);
+    }
+    .description{font-size:temSize(24,$rate);height:temSize(260,$rate);border-radius:temSize(14,$rate);padding:temSize(20,$rate);}
+    .description_phone{height:temSize(100,$rate);}
+    }
+
+
+
+        /*代金券盒子动画1*/
+        @-webkit-keyframes animate5 {
+            0%{-webkit-transform:translateY(8%);height:temSize(540,$rate);}
+            100%{-webkit-transform:translateY(0);height:temSize(570,$rate);}
+        }
+        @keyframes animate5 {
+            0%{transform:translateY(8%);height:temSize(540,$rate);}
+            100%{transform:translateY(0);height:temSize(570,$rate);}
+        }
+
+   @content;
+  //媒体查询写在这里  使用宽高比覆盖--仅适用微信内页开发
+   @media screen and (min-aspect-ratio:414/672) { //iphone6/6p 414*672/375*603
+    
+ } 
+   
+   @media screen and (aspect-ratio:320/504) { // iphone5/小米2S/小米2A/三星galaxy S6  320*504/360*567
+    
+ }
+   @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+
+
+ }
+
+   @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){  //iphone4/魅族MX2（有smartbar）	 320*416/384*519
+ }
+
+
+}
+$editrate:0.8;
+$viewrate:1;
+.microactivity-voucher{
+ @include base($editrate){
+    //commonclass  与数值无关的样式写这里
+     .voucher_back_Box{position:absolute;left:50%;
+     .voucher_back_box2{position:relative;width:100%;background:url("../img/help_voucher_bg3.png")  no-repeat top center;background-size:100% auto;}
+     .voucher_back_box1{position:absolute;background:rgba(79,17,17,0.7);left:50%;@include box-shadow-base(0 1px 0 rgba(255,255,255,0.2));}
+     }
+     //头像和XXX的代金券
+   .voucher_view_box1{position:relative;text-align:center;
+       .voucher_head{border:temSize(5) solid #fff;border-radius:50%;@include box-shadow-base(0 1px 2px rgba(30,40,76,0.5));margin:0 auto;
+          img{width:100%;height:100%;border-radius:50%;}
+       }
+       .voucher_text_box{display:block;color:#fff;@include text-shadow-s1(#12274c);}
+ }
+    .voucher_helped_view{
+        .voucher_bar_box{background:#2d100a;@include box-shadow-base(1px 1px 0 #a63529);
+                         &:before{content:"";background:#3e140b;}
+        }
+     }
+ //代金券
+ .voucher_scrachCard{background:url("../img/help_voucher_bg5.png") $img-pozC;@include background-size100;position:absolute;left:50%;z-index:10;
+   .finish_Amount{color:#fff;@include text-shadow-s2_4(rgba(151,62,19,0.6));height:100%;width:100%;text-align:center;}
+   .voucher_message_1{display:block;line-height:1.8;color:#fff;text-align:center;margin:0 auto;border-bottom:1px solid #e14e0c;@include text-shadow-s2_4(rgba(151,62,19,0.6));}
+   .voucher_message_2{display:block;width:100%;line-height:1.2;color:#fff;text-align:left;margin-top:temSize(20);@include text-shadow-s1(rgba(151,62,19,0.6));}
+ canvas{position:static;border-radius:temSize(5);}
+ }
+ .voucher_scrachcard_bg{background-image:url("../img/help_voucher_scrachCard_bg.png") !important; width:200px;}
+
+ .preview_message_tips,.preview_message_tips2{width:100%;color:#fff;text-align:center;}
+ .preview_message_tips{@include text-shadow-s1(#62718b);}
+ .preview_message_tips2{@include text-shadow-s1(#472737);}
+   //进度条
+   .voucher_bar_box{background:#232c57;position:absolute;left:50%;@include box-shadow-base(1px 1px 0 #c2d7f1);
+                    &:before{content:"";display:block;width:100%;background:#313d6f;left:0;bottom:0;position:absolute;}
+       .voucher_bar{position:absolute;left:0;top:0;background:#ef8411;transition:width 208ms linear 667ms;
+                    &:before{content:"";position:absolute;left:0;top:0;width:100%;
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff26f), color-stop(100%, #ff9b1f));
+        background: -webkit-linear-gradient(top, #fff26f 0%, #ff9b1f 100%);
+        background: linear-gradient(to bottom, #fff26f 0%, #ff9b1f 100%);
+        }
+}
+        .voucher_bar_numer{color:#fff;width:100%;text-align:center;position:absolute;z-index:10;letter-spacing:2px;
+                          @include text-shadow-s1(#12274c);
+        }
+   }
+   .voucher_btn1_1,.voucher_btn1_2,.voucher_btn1_3,.voucher_btn1_4,.voucher_btn1_5{position:absolute;}
+   .voucher_btn1_1{background:url("../img/help_voucher_button1.png") $img-pozC;@include background-size100;}
+   .voucher_btn1_2{background:url("../img/help_voucher_button2.png") $img-pozC;@include background-size100;}
+   .voucher_btn1_3{background:url("../img/help_voucher_button3.png") $img-pozC;@include background-size100;}
+   .voucher_btn1_4{background:url("../img/help_voucher_button4.png") $img-pozC;@include background-size100;}
+   .voucher_btn1_5{background:url("../img/help_voucher_button5.png") $img-pozC;@include background-size100;}
+
+
+   .header_box_big{margin:0 auto;position: relative;z-index:100;@include box-shadow-base(0 2px 2px rgba(30,40,76,0.5));
+     img{width:100%;height:100%; border-radius:50%;}
+     &:before{content:"";position: absolute;background:url("../img/help_voucher_bg6.png") $img-pozC;@include background-size100; }
+   }
+   .form_info_box{
+     .form_info_1 input{padding-top:0;text-align:center;color:#ffffff; margin:0 auto;background:#5c1c1b;}
+     .form_info_1 input::-webkit-input-placeholder{color:#fff;}
+   }
+   //报名页与无助力共同样式
+   .invite_message{position:absolute;width:100%;text-align:center;color:#fff;}
+     .voucher_name_input,.voucher_phone_input{text-align:center;border:temSize(6) solid #fff;border-radius:5px;color:#fff;background:#5c1c1b;}
+      .voucher_name_input::-webkit-input-placeholder ,.voucher_phone_input::-webkit-input-placeholder {color:#fff;}
+   //前台无助力
+    .help_voucher_info_box{position:relative;
+      .voucher_scrachCard{top:0;}
+      .form_info_box2{width:100%;position:absolute;
+         .header_box_big{position:absolute;
+             &:before{content:"";display:block;background:url("../img/help_voucher_bg10.png") $img-pozC;@include background-size100;} 
+         }
+      }
+     }
+       //报名页
+    .help_voucher_enroll_box{position:relative;
+      .coin_box2{background:url("../img/help_voucher_coin3.png") $img-pozC;@include background-size100;margin:0 auto;position:relative;z-index:1;}
+      .form_info_box2{width:100%;position:absolute;text-align:center;
+         .header_box_big{position:relative;
+             &:before{content:"";display:block;background:url("../img/help_voucher_bg6.png") $img-pozC;@include background-size100;} 
+         }
+      }
+     }
+       //编辑
+   .help_voucher_edit_box{position:relative;
+     .voucher_input_Amount,.voucher_input_Count{position:relative;}
+    .Amount_message{position:absolute;left:50%;background:url("../img/help_voucher_bg8.png") $img-pozC;@include background-size100;text-align:center;color:#fff;}
+    .Amount_input_box{background:rgba(5,0,1,0.2);color:#fff;text-align:center;line-height:2.8;}
+   }
+   .xmas_box1{margin:0 auto; position:relative; z-index:2;
+       .voucher_coin1{position:absolute;z-index:10; background:url("../img/help_voucher_coin1.png") $img-pozC;@include background-size100; }
+       .voucher_coin2{position:absolute;z-index:1;background:url("../img/help_voucher_coin2.png") $img-pozC;@include background-size100;}
+       .voucher_box1_1{position:absolute;z-index:8; background:url("../img/help_voucher_bg1.png") $img-pozC;@include background-size100;}
+       .voucher_box1_2{position:absolute;z-index:5; background:url("../img/help_voucher_bg2.png") $img-pozC;@include background-size100;}
+     //满天星教育集团
+     .xmas_title1{text-align:center;overflow: hidden; color:#fff;position:absolute;z-index:50;@include text-shadow-s2_3(#12274c);}
+     }
+   //机构介绍，联系方式
+   .help_voucher_edit_box1{position:relative;}
+    .voucher_input_detail{position:relative;color:#fff;background:rgba(5,0,1,0.3);}
+    .title_box{position:absolute;left:50%;z-index:1;text-align:center;background:url("../img/help_voucher_bg8.png") $img-pozC;@include background-size100;}
+    .title{text-align:center;color:#fff;
+    }
+    .description{color:#fff;overflow:hidden;}
+    .description_phone{text-align:center;}
+    .description_phone a{position:static !important;color:#fff;}
+    .voucher_bg{width:100%;background:url("../img/help_voucher_preview_bg.jpg") $img-pozC;@include background-size100;height:temSize(800);}
+    .down_arrow_btn{background:url("../img/down_arrow_btn.png") $img-pozC;@include background-size100;height: temSize(16);width: temSize(30);bottom: temSize(20);position: absolute;left: 50%;margin-left: temSize(-15);}
+ }
+  @media screen and (min-aspect-ratio:384/567) and (max-aspect-ratio:360/519){ //魅族MX2（无smartbar）/华为荣耀7/华为荣耀6 384*567/360*525/360*519
+   // @include base(0.94*0.8);
+
+  }
+  @media screen and (min-aspect-ratio:384/519) and (max-aspect-ratio:320/416){
+   // @include base(0.88*0.8);
+  }
+}
+.microactivity-voucher .preview{
+  @include base($viewrate);  
+  //仅预览页面使用样式写这里
+  .xmas_box1 .xmas_title1{z-index:6;}
+  //电话地址
+  .voucher_box_2 .voucher_text1{height:auto;}
+  .voucher_phone a{position:absolute;display:block;height:100%;z-index:100;left:temSize(120);top:0;width:100%;}
+  .voucher_phone_text,.voucher_address_text{color:#fff;background:none;}
+  .voucher_contact_box .voucher_input_detail{margin-bottom:0;border-radius:temSize(14) temSize(14) 0 0;
+       a{position:absolute;display:block;height:50%;z-index:100;left:temSize(75);bottom:0;width:50%;}
+    .description_phone{padding:0;height:temSize(40);text-align:left;padding-left:temSize(75);position:relative;color:#61aef0;line-height:1.5;
+                       &:before{content:"";display:block;position:absolute;width:temSize(30);height:temSize(40);background: url("../img/help_voucher_phone.png") $img-pozC;@include background-size100;left:temSize(30);}
+    }
+  }
+  .voucher_contact_box .address_detail{padding-top:0;border-radius:0 0 temSize(14) temSize(14);margin-bottom:temSize(50);
+     .description{padding-left:temSize(75);
+                   &:before{content:"";display:block;position:absolute;width:temSize(30);height:temSize(40);background: url("../img/help_voucher_location.png") $img-pozC;@include background-size100;left:temSize(30);top:temSize(15);}
+     }
+  }
+  .voucher_bg{height:100%;padding-bottom:temSize(60);}
+
+//助力排行榜
+
+  .voucher_box3Outer{  
+    //background: url("../img/grow_vegetable_2_bg2.jpg") repeat center center;
+    background-color: #420e11;
+		.voucher_box2_3{ width:temSize(521); height:temSize(66); line-height:temSize(112);  margin: 0 auto; text-align: center;
+		   .voucher_title1{color:#fff;background: url("../img/help_voucher_bg8.png")$img-pozC;@include background-size100;   margin: temSize(-26) auto 0;position: absolute;left: 0; right: 0;}
+	        .voucher_title1_text{position: absolute; margin: 0 auto;left: 0; right: 0;top: temSize(-18);}
+        }
+	  .voucher_box2_4{ width:temSize(580); margin: 0 auto;
+		  .voucher_item2{
+            height:temSize(95); line-height: temSize(100); vertical-align: middle; text-align: left;position:relative;box-shadow: 0px 1px 0px #691d22;padding-left: temSize(10);
+              .Amount_best{position:absolute;right:0;top:0;color:#000;}
+		  }
+		  .item-content2{width:temSize(280); line-height:temSize(32); font-size:temSize(24);text-align: left;color:#fff;
+
+		  }
+        .item-right{ position: absolute;right: 0; top: 2px;text-align: right;}
+        .item-right-inner{  display: table-cell;vertical-align: middle;height: temSize(95);}
+
+	   }
+      .item-time{font-size:temSize(20);  color: rgba(222,255,223,0.4);}
+	  .item-pic,.item-content2,.item-note,.item-time{ display:inline-block; vertical-align: middle;}
+	  .item-pic{ width:temSize(60);height:temSize(60);vertical-align:temSize(-18);
+					  img{@include face-radius;width:100%; height:100%;vertical-align:top;}
+			   }
+	  .item-text1{ font-size:temSize(24);color:#fff;}
+      .item-text2{font-size:temSize(28);color:#fff; em{color:#fff;}}
+      .best-voucher{color:#ffbb29;font-size: temSize(20);}
+      .voucher_best_icon{   width: temSize(48);height: temSize(42);background: url("../img/voucher_best_icon.png") $img-pozC;background-size: 100%;position: absolute;margin-left: temSize(-46);bottom: 7px;}
+
+  }
+    //}动画样式
+    .animation{display:block !important;
+        .voucher_box1_1{opacity:0;animation:opacity1 292ms linear 333ms forwards,animate1 667ms linear 333ms forwards;-webkit-animation:opacity1 292ms linear 333ms forwards,animate1 667ms linear 333ms forwards;}
+        .voucher_box1_2{opacity:0;animation:opacity1 100ms linear 792ms forwards,animate2 625ms linear 792ms forwards;-webkit-animation:opacity1 100ms linear 792ms forwards,animate2 625ms linear 792ms forwards;}
+        .xmas_title1{opacity:0;animation:opacity1 100ms linear 792ms forwards,animate2 625ms linear 792ms forwards;-webkit-animation:opacity1 100ms linear 792ms forwards,animate2 625ms linear 792ms forwards;}
+        .voucher_coin1{opacity:0;animation:opacity1 333ms linear 667ms forwards,animate3 10s linear 0ms infinite;-webkit-animation:opacity1 333ms linear 667ms forwards,animate3 10s linear 0ms infinite;}
+        .voucher_coin2{opacity:0;animation:opacity1 333ms linear 500ms forwards,animate4 10s linear 0ms infinite;-webkit-animation:opacity1 333ms linear 500ms forwards,animate4 10s linear 0ms infinite;}
+        .voucher_back_box1{opacity:0;animation:opacity1 167ms linear 1000ms forwards;-webkit-animation:opacity1 167ms linear 1000ms forwards;}
+        .voucher_back_Box .voucher_back_box2{opacity:0;animation:opacity1 250ms linear 1083ms forwards,animate5 560ms linear 958ms forwards;-webkit-animation:opacity1 250ms linear 1083ms forwards,animate5 560ms linear 958ms forwards;}
+        //.voucher_scrachCard{opacity:0;animation:opacity1 250ms linear 1083ms forwards,animate6 560ms linear 958ms forwards;-webkit-animation:opacity1 250ms linear 1083ms forwards,animate6 560ms linear 958ms forwards;}
+        .voucher_btn1_5{opacity:0;animation:opacity1 208ms linear 1417ms forwards;-webkit-animation:opacity1 208ms linear 1417ms forwards;}
+    }
+            /*透明度动画*/
+        @keyframes opacity1 {0%{opacity: 0;}100%{opacity: 1;}}
+        @-webkit-keyframes opacity1 {0%{opacity: 0;}100%{opacity: 1;}}
+
+        /*标题1动画*/
+        @-webkit-keyframes animate1 {
+            0%{-webkit-transform: scale(1.2) translate3d(0,-50%,0);}
+            56%{-webkit-transform: scale(1) translate3d(0,10%,0);}
+            100%{-webkit-transform: scale(1) translate3d(0,0,0);}
+        }
+        @keyframes animate1 {
+            0%{transform: scale(1.2) translate3d(0,-50%,0);}
+            56%{transform: scale(1) translate3d(0,10%,0);}
+            100%{transform: scale(1) translate3d(0,0,0);}
+        }
+        /*标题2动画*/
+        @-webkit-keyframes animate2 {
+            0%{-webkit-transform:translate3d(0,-90%,0);}
+            100%{-webkit-transform:translate3d(0,0,0);}
+        }
+        @keyframes animate2 {
+            0%{transform:translate3d(0,-90%,0);}
+            100%{transform:translate3d(0,0,0);}
+        }
+        /*金币1动画*/
+        @-webkit-keyframes animate3 {
+            0%{-webkit-transform:translate3d(0,-7%,0);}
+            50%{-webkit-transform:translate3d(0,0,0);}
+            100%{-webkit-transform:translate3d(0,-7%,0);}
+        }
+        @keyframes animate3 {
+            0%{transform:translate3d(0,-7%,0);}
+            50%{transform:translate3d(0,0,0);}
+            100%{transform:translate3d(0,-7%,0);}
+        }
+        /*金币2动画*/
+        @-webkit-keyframes animate4 {
+            0%{-webkit-transform:translate3d(0,10%,0);}
+            50%{-webkit-transform:translate3d(0,0,0);;}
+            100%{-webkit-transform:translate3d(0,10%,0);}
+        }
+        @keyframes animate4 {
+            0%{transform:translate3d(0,10%,0);}
+            50%{transform:translate3d(0,0,0);;}
+            100%{transform:translate3d(0,10%,0);}
+        }   
+        /*代金券动画*/
+        @-webkit-keyframes animate6 {
+            0%{-webkit-transform:translate3d(0,14%,0);}
+            100%{-webkit-transform:translate3d(0,0,0);}
+        }
+        @keyframes animate6 {
+            0%{transform:translate3d(0,14%,0);}
+            100%{transform:translate3d(0,0,0);}
+        }
+
+        //跳转动画
+        //代金券动画
+        @-webkit-keyframes animate7 {
+            0%{-webkit-transform:scale(0) translate3d(0,80%,0);}
+            40%{-webkit-transform:scale(0.8) translate3d(0,-20%,0);}
+            60%{-webkit-transform:scale(1.2) translate3d(0,-10%,0);;}
+            80%{-webkit-transform:scale(1.1) translate3d(0,0,0);}
+            100%{-webkit-transform:scale(1) translate3d(0,0,0);}
+        }
+        @keyframes animate7 {
+            0%{transform:scale(0) translate3d(0,80%,0);}
+            40%{transform:scale(0.8) translate3d(0,-20%,0);}
+            60%{transform:scale(1.2) translate3d(0,-10%,0);}
+            80%{transform:scale(1.1) translate3d(0,0,0);}
+            100%{transform:scale(1) translate3d(0,0,0);}
+        }
+        //进度条数字动画
+        @-webkit-keyframes animate8 {
+            0%{-webkit-transform:scale(1);}
+            50%{-webkit-transform:scale(1.2);}
+            100%{-webkit-transform:scale(1);}
+        }
+        @keyframes animate8 {
+            0%{transform:scale(1);}
+            50%{transform:scale(1.2);}
+            100%{transform:scale(1);}
+        }
+         //文案提示动画
+        @-webkit-keyframes animate9 {
+            0%{-webkit-transform:scale(0);}
+            50%{-webkit-transform:scale(1.2);}
+            75%{-webkit-transform:scale(0.8);}
+            100%{-webkit-transform:scale(1);}
+        }
+        @keyframes animate9 {
+            0%{transform:scale(0);}
+            50%{transform:scale(1.2);}
+            75%{transform:scale(0.8);}
+            100%{transform:scale(1);}
+        }
+
+        .animation2{
+            .voucher_scrachCard{opacity:0;animation:opacity1 167ms linear forwards,animate7 667ms linear forwards;-webkit-animation:opacity1 167ms linear forwards,animate7 667ms linear forwards;}
+            .voucher_bar_box{opacity:0;animation:opacity1 125ms linear 542ms forwards;-webkit-animation:opacity1 125ms linear 542ms forwards;}
+            .voucher_bar_numer{animation:animate8 208ms linear 959ms forwards;-webkit-animation:animate8 208ms linear 959ms forwards;}
+            .preview_message_tips2{opacity:0;animation:opacity1 208ms linear 1125ms forwards,animate9 375ms linear 1125ms forwards;-webkit-animation:opacity1 208ms linear 1125ms forwards,animate9 375ms linear 1125ms forwards;}
+            .voucher_btn1_5{opacity:0;animation:opacity1 208ms linear 1125ms forwards;-webkit-animation:opacity1 208ms linear 1125ms forwards;}
+        }
+}
+.microactivity-voucher.xmas_bg{background: url("../img/help_voucher_bg.jpg") $img-pozC;@include background-size-cover;}
+
+/*保存代金券页面*/
+.help_voucher_save_box {position:relative;top:temSize(310);
+    .voucher_scrachCard1{width:temSize(480);height:temSize(324);padding:temSize(10);background: url("../img/help_voucher_bg5.png") no-repeat center center;-webkit-background-size: 100% 100%;background-size: 100% 100%;margin:0 auto;
+    .voucher_save_head_box{padding:temSize(30) temSize(35) temSize(35) temSize(35);text-shadow:0 temSize(5) temSize(5) #a54b14;color:#fff;
+        .box1{border-bottom: 1px solid rgba(0,0,0,0.2);
+            .voucher_head{display:inline-block;margin-bottom:temSize(30);margin-right:temSize(30);vertical-align:top;height:temSize(80);width:temSize(80);border:temSize(5) solid #fff;border-radius:50%;@include box-shadow-base(0 2px 2px rgba(30,40,76,0.5));
+             img{width:100%;height:100%;border-radius:50%;}
+            }
+            .voucher_head_title{display:inline-block;vertical-align:top;
+                .title{font-size:temSize(24);margin:0 0 temSize(10) temSize(5)}
+                .money{font-size:temSize(48);}
+            }
+        }
+        .box2{padding:temSize(30) 0;font-size:temSize(24);}
+    }
+    }
+    .voucher_input_contact{position:relative;margin-top:temSize(55);font-size:temSize(24);color:#fff;
+        .contact_message{position: absolute;left: 50%;height:temSize(60);width:temSize(220);margin-left:temSize(-120);font-size:temSize(24);top:temSize(-20);background: url("../img/help_voucher_bg8.png") $img-pozC;@include background-size100;text-align: center;line-height:temSize(50);}
+        .contact_detail{width:temSize(580);height:temSize(260);background-color:rgba(0,0,0,0.3);margin:0 auto;@include border-radius-basic(temSize(10));padding:temSize(80) temSize(30) 0 temSize(30);text-align:left;
+            >div{position:relative;padding-left:temSize(50);margin-bottom:temSize(16);
+                .icon{width:temSize(35);height:temSize(40);position:absolute;left:0;top:temSize(-5)}
+                .text{width:temSize(430);margin-bottom:temSize(20)}
+                .phone_icon{background: url("../img/help_voucher_phone.png") $img-pozC;@include background-size100; width:temSize(30);height:temSize(40)}
+                .phone_text{color:#5cadf2;height:temSize(40)}
+                a{position:absolute;width:100%;left:temSize(50);height:100%;display:block;z-index:100;top:0;}
+                .location_icon{background: url("../img/help_voucher_location.png") $img-pozC;@include background-size100;}
+                
+            }
+        }
+    }
+}

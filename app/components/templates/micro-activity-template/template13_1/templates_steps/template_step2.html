@@ -1,0 +1,21 @@
+<!--种草表单页-->
+<div class="grass2_box4">
+    我是<input placeholder="XXX" class="grass2_text4" ng-model="userInfo.name" type="text" maxlength="15" change-placeholder-by-focus my-max-length />
+</div>
+<!--换头像按钮-->
+<div class="btnGroup1 btnGroup1Patch">
+    <button type="button" class="btn-changeFace" ng-click="updateHeadImg()"></button>
+</div>
+
+<div class="person_box grass2_person" id="animateContainer">
+    <!--换头像-->
+    <div class="person_head unhappy" ng-class="{'editBorder':isEdit}" >
+        <!-- 开心的表情样式 把 unhappy 换成 happy -->
+        <img ng-src="{{userInfo.headImg}}" class="person_head-face">
+    </div>
+</div>
+
+<div class="grass2_btn_group2">
+    <input placeholder="请输入您的手机号" class="grass2_text5" ng-model="userInfo.phone" style="position: relative" type="tel" maxlength="15"  change-placeholder-by-focus my-max-length />
+    <button type="button" class="grass2_btn1_2" ng-click="submitInfo()">立即喊人种草</button>
+</div>

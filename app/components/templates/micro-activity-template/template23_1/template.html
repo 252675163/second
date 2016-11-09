@@ -1,0 +1,63 @@
+<!--No.9模板页 {-->
+<div class="paneabird microactivity-vegetables xmas_bg bgPan aquarium" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_page_bg.jpg')+ ')','background-size':'100% 100%'}">
+    <!-- page 1 {-->
+    <div ng-class="{'preview':!isEdit}" style="">
+        <div class="xmas_box1" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_header_bg.png')+ ')'}">
+            <div class="xmas_title1" ng-class="{'editBorder':isEdit}" ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="11" ng-bind-html="templateModel.title|newlines"></div>
+            <div class="xmas_text1" ng-class="{'editBorder':isEdit}"><span ng-model="templateModel.description" ng-disabled="!isEdit" ng-trim="false" custom-input readonly="readonly" maxlength="40" ng-bind-html="templateModel.description|newlines"></span></div>
+        </div>
+        <!--第一步：水族馆展示（首页）-->
+        <div ng-if="step==1">
+            <template23by1-step1></template23by1-step1>
+        </div>
+        <!--第二步：填写表单页-->
+        <div ng-if="step==2">
+            <template23by1-step2 status='status' image-file-name="templateExtConfig.imageFolderName" share-config-by-visitor="templateExtConfig.shareConfigByVisitor"></template23by1-step2>
+        </div>
+        <!--选鱼-->
+        <div ng-style="{'display':isShowGrassList?'block':'none'}">
+            <div class="lockMask"></div><!--遮罩 -->
+            <div class="grow_choosegift" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_popup_bg.png')+ ')'}">
+                <!--<button type="button" class="btn_round_close" ng-click="closeGrass()"></button>-->
+                <div class="grow_choosegift_box clearfix">
+                    <!--todo-->
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(1)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item1_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(2)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item2_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(3)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item3_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(4)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item4_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(5)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item5_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(6)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item6_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(7)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item7_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(8)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item8_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                    <button type="button" class="grow_choosegift_item chooseitem" ng-click="chooseGrassAction(9)" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_item9_bg.png')+ ')'}"><span class="vegetables_name"></span></button>
+                </div>
+            </div>
+        </div>
+        <!--旋转金光特效-->
+        <div class="grow_vegetables_foxed" ng-style="{'display':isGrow?'block':'none'}">
+            <div class="grow_vegetables_mask" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_shining_bg.png')+ ')'}">
+            </div>
+            <div class="vegetables_pic " ng-style="{'background-image':!itemGifUrl?'':'url(' + getImageDoMain(itemGifUrl)+ ')'}"></div>
+        </div>
+        <!--验证码弹窗-->
+        <div class="maskConfirm imgVerify" ng-style="{'display':isShowVerify?'block':'none'}">
+            <div class="imgVerifyBody">
+                <h1 class="imgVerify_title">请填入“ ? ”处的值</h1>
+
+                <div class="imgVerify_box ">
+                    <img class="imgVerify_img" ng-src="{{imgurl}}" alt="验证码图片">
+                    <input type="text" ng-model="captcha" maxlength="4" class="imgVerify_text">
+                </div>
+                <a class="imgVerify_change" href="" ng-click="reGetVerifyCode()">换一个验证码</a>
+                <div class="popup-buttons imgVerify_buttons">
+                    <button class="button  button-default" ng-click="closeVerify()">取消</button>
+                    <button class="button  button-positive" ng-click="cilckVerifyConfirm()" ng-disabled="">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grow_vegetable_bgpic aquarium" ng-show="!isEdit">
+    <div class="grow_vegetable_content" ng-style="{'background-image': 'url(' + getImageDoMain('/template1_footer_bg.png')+ ')'}"></div>
+</div>

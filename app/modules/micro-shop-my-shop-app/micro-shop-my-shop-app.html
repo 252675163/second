@@ -1,0 +1,73 @@
+<ion-view class="micro-shop-index">
+    <div class="microshop_btnGroup ng-hide" ng-show="isPreview">
+        <button type="button" class="btnG4_share" ng-click="share()">
+            <span>分享</span>
+        </button>
+        <button type="button" class="btnG4_cogradient" ng-click="syn()">
+            <span>同步</span>
+        </button>
+    </div>
+    <ion-content has-bouncing="false">
+        <div class="microshop_infos">
+            <div class="microshop_imgs" ng-style="{'background-image':'url(' + shopinfos.imageUrl + ')'}">
+            </div>
+            <!-- 名称地址电话 -->
+            <div class="microshop_contacts">
+                <div class="microshop_name" ng-bind="shopinfos.name"></div>
+                <div class="microshop_contact">
+                    <p class="microshop_address"><span class="address_icon"></span><span class="address" ng-bind-html="shopinfos.address|newlines"></span></p>
+                    <p class="microshop_phone">
+                        <span class="phone_icon"></span><a class="address" ng-bind="shopinfos.contact" href="tel:{{shopinfos.contact}}"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <ion-list class="goodsBox" ng-if="productList.length>0">
+            <ion-item class="goods_list collections" collection-repeat="ite in productList">
+                <div class="goods_imgs" ng-click="goDetail(ite.id)">
+                    <ion-slide-box class="img" ng-if="ite.imgList.length>1" active-slide="0" does-continue="true" auto-play="true" slide-interval="2000" show-pager="false">
+                        <ion-slide ng-repeat="img in ite.imgList" class="slideHcack">
+                            <div class="goods_box " ng-style="{'background-image':'url(' + img.url + ')'}"></div>
+                        </ion-slide>
+                    </ion-slide-box>
+                    <div class="img" ng-if="ite.imgList.length<=1" ng-repeat="img in ite.imgList">
+                        <div class="goods_box" ng-style="{'background-image':'url(' + img.url + ')'}"></div>
+                    </div>
+                </div>
+
+                <div class="goods_infomation">
+                    <div class="top-tip shop_index" ng-bind="ite.marketMode|marketModeStr"></div>
+                    <div class="goodsimg-foot " ng-class="{'goodsimg-foot-yellow':ite.productStateCodeModel.code <2,'goodsimg-foot-gray':ite.productStateCodeModel.code >=2}">
+                        <span class="goodsimg-foot-left">已抢{{ite.saleNum}}件</span>
+                        <span class="goodsimg-foot-right text-center" ng-show="ite.productStateCodeModel.code<2">
+                            <i class="icon-alarm"></i>
+                            活动倒计时：
+                            <span ng-bind="ite.leftSeconds|leftTimeStr"></span>
+                        </span>
+                        <span class="goodsimg-foot-right text-center" ng-hide="ite.productStateCodeModel.code <2"><i class="icon-alarm" ng-show="ite.productStateCodeModel.code == 3"></i>{{ite.productStateCodeModel.name}}</span>
+                    </div>
+
+                    <div class="goods_show">
+                        <p class="goods_name" ng-bind="ite.name"></p>
+                        <p class="goods_price">
+                            ￥<span class="firstspan" ng-bind="ite.price|twoDecimal"></span><span class="initialPrice">
+                                价格<span class="price">￥<span ng-bind="ite.originPrice|twoDecimal"></span></span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="micro-shop-btn goods_status" ng-class="!(ite.productStateCodeModel.code==0 || ite.productStateCodeModel.code==1)?'stateActive':''">
+                        <div ng-click="goMargin(ite)" ng-bind="ite|btnStateStr"></div>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+        <ion-infinite-scroll on-infinite="loadMore()" ng-if="page.currentIndex < page.totalCount" distance="1%" immediate-check="false">
+        </ion-infinite-scroll>
+
+        <div class="agency_introduction" ng-if="productList.length==0||page.currentIndex == page.totalCount">
+            <div class="introduction_title">机构介绍</div>
+            <div class="introduction_content" ng-bind-html="shopinfos.introduce|newlines"></div>
+        </div>
+        <my-footer ng-if="productList.length==0||page.currentIndex == page.totalCount"></my-footer>
+    </ion-content>
+</ion-view>

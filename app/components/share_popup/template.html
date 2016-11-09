@@ -1,0 +1,36 @@
+<div ng-style="{'display':config.isShow?'block':'none'}">
+    <button type="button" class="btn-closed" style="z-index:8;" ng-click="closePopup()"></button>
+    <div class="lockMask" style="z-index:7;"></div>
+    <div class="popup-tips-s1" style="z-index:7;"></div>
+    <div class="popup-wrap-s1" style="z-index:7;">
+        <div class="popup-share-head">
+            <div class="popup-text-span">标题：</div>
+            <input ng-model="config.shareModel.title" />
+        </div>
+        <div class="popup-content">
+            <div class="popup-box clearfix">
+                <div class="popup-boxL" ng-click="changeShareImage(0)"><img ng-src="{{config.shareModel.imgUrl}}" /><button type="button" class="popup-boxL_btn">更换封面</button></div>
+                <!--<span class="popup-box-text">{{showShareTitlePopModel.desc}}</span>-->
+                <div class="popup-boxR">
+                    <textarea placeholder="分享内容：" class="popup_textbox" maxlength="100" ng-model="config.shareModel.desc"></textarea>
+                    <span class="popup-box_total"><span ng-bind="config.shareModel.desc.length||0"></span> / 100</span>
+                </div>
+            </div>
+        </div>
+        <div class="popup-buttons">
+            <div class="button-share-left" ng-click="save()">
+                仅保存
+            </div>
+            <div class="button-share-right" ng-click="share('goShare')">
+                立刻分享
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--分享遮罩 {-->
+<div ng-style="{'display':config.isShare?'block':'none'}">
+    <div class="lockMask"></div>
+    <!--    <div class="lockMask_activity_share"></div>-->
+    <div class="lockMask_activity_share4"></div>
+</div>

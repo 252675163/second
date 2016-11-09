@@ -1,0 +1,47 @@
+<!--<div ng-style="{'display':siteFormData.isShow?'block':'none'}">-->
+    <!--<input ng-model="userInfo.name"/>-->
+    <!--<input type="number" ng-model="userInfo.phone"/>-->
+    <!--&lt;!&ndash;下拉列表&ndash;&gt;-->
+    <!--<div>这是选中项</div>-->
+
+    <!--<div>-->
+        <!--<div ng-repeat="courseType in siteFormData.courseModel.list">-->
+            <!--<ion-item ng-repeat="course in courseType.list"  ng-click = "chooseCourse(courseType,course)">-->
+                <!--{{course.name}}-->
+            <!--</ion-item>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<button ng-click = "submitInfo()"> 提交</button>-->
+    <!--<button ng-click = "hideForm()"> 关闭</button>-->
+
+<!--</div>-->
+<!--todo-->
+<div ng-style="{'display':siteFormData.isShow?'block':'none'}" >
+    <div class="newSite_PopupForm"  >
+        <div class="newSite_PopupOuter">
+            <button type="button" class="newSite_Popup_closed" ng-click = "hideForm()"></button>
+            <dl class="newSite_Popup_content">
+                <dt class="newSite_Popup_title">免费预约</dt>
+                <dd><input placeholder="姓名" type="text" class="newSite_Popup_text"  ng-model="userInfo.name" change-placeholder-by-focus /></dd>
+                <dd><input placeholder="手机号" type="tel" class="newSite_Popup_text" ng-model="userInfo.phone"  change-placeholder-by-focus/></dd>
+                <dd>
+                    <select placeholder="意向课程" class="newSite_Popup_select" ng-model = "siteFormData.currentIndex" ng-if = "siteFormData.from=='course'" >
+                        <option ng-repeat="courseInfo in siteFormData.viewList" value = {{$index}}   ng-selected="$index==siteFormData.currentIndex" >{{courseInfo.course.name}} </option>
+                    </select>
+
+                    <select placeholder="选择校区" class="newSite_Popup_select" ng-model = "siteFormData.currentIndex" ng-if = "siteFormData.from=='campus'" >
+                        <option ng-repeat="campusInfo in siteFormData.viewList" value = {{$index}}   ng-selected="$index==siteFormData.currentIndex" >{{campusInfo.campusName}} </option>
+                    </select>
+                </dd>
+
+                <dd><button type="button" class="newSite_Popup_submit" ng-click = "submitInfo()">免费预约</button></dd>
+            </dl>
+        </div>
+    </div>
+    <!--} 遮罩--预约报名  -->
+</div>
+
+
+
+
+

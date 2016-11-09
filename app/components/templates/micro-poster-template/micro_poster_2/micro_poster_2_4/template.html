@@ -1,0 +1,24 @@
+<div class="microposter2 bgPan">
+    <div ng-class="{'preview':!isEdit}" ng-if="true">
+        <div class="microposter2-by4">
+            <div class="poster1-title-box">
+                <textarea ng-if="!isEdit"  class="poster1-title poster2_t_common canShow" rows="1" type="text"
+                          ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+                <textarea ng-if="isEdit" inputconfig="{{inputconfig[0]}}" new-custom-input class="poster1-title poster2_t_common canEdit editBorder" rows="1" type="text"
+                          ng-model="templateModel.title" ng-disabled="!isEdit" ng-trim="false" readonly="readonly"></textarea>
+            </div>
+            <div class="poster4-logo1" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(0)">
+                <div class="poster4-logo1-bg"></div>
+                <img ng-src="{{templateModel.imageUrl[0]}}" />
+            </div>
+            <div class="poster4-logo2" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(1)">
+                <div class="poster4-logo2-bg"></div>
+                <img ng-src="{{templateModel.imageUrl[1]}}" />
+            </div>
+            <div class="poster4-logo3" ng-class="{'imgGuideMask':isEdit}" ng-click="updateImg(2)">
+                <div class="poster4-logo3-bg"></div>
+                <img ng-src="{{templateModel.imageUrl[2]}}" />
+            </div>
+        </div>
+    </div>
+</div>

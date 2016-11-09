@@ -1,0 +1,30 @@
+<prompt-bar></prompt-bar>
+<custom-mask></custom-mask>
+<div class="page">
+    <div class="user_bind">
+        <div class="header">
+            <div class="face"><img ng-src="{{userInfo.Photo}}"/></div>
+        </div>
+        <div class="bind_middle">
+            <div class="phone">
+                <em>{{userInfo.Tel}}</em>
+            </div>
+            <div class="bind_form">
+
+                <input type="text" class="input_web" placeholder="校宝网址后缀" ng-model = "schoolPalInfo.web" change-placeholder-by-focus/>
+                <div class="web_prompt">*网址是schoolpal.cn/abc 则输入abc</div>
+                <input type="text" class="input_account" placeholder="校宝账号" ng-model = "schoolPalInfo.account" change-placeholder-by-focus/>
+                <input type="password" class="input_password" placeholder="校宝密码" ng-model = "schoolPalInfo.password" change-placeholder-by-focus/>
+                <button class="bind_button_submit" ng-click="bindSchoolPal()">一键绑定校宝账号</button>
+            </div>
+        </div>
+        <!--<div class="maskBox" ng-style="{'display':isShowBindSuccessBox?'block':'none'}" >
+            <div class="mask"></div>
+            <div class="bind_success_box">
+                <div class="tick"></div>
+                <div class="bind_success_text">绑定成功！</div>
+                <div class="bind_turning"><span>3</span>秒后自动跳转</div>
+            </div>
+        </div>-->
+    </div>
+</div>

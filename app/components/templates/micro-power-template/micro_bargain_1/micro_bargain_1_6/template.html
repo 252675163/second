@@ -1,0 +1,26 @@
+<div class="micro_bargain bgPan">
+    <div class="ranking_list" ng-class="{'preview':!isEdit}" ng-show="isView && bargaininfoList.length">  <!-- ng-show="isView && bargaininfoList.length" -->
+        <div class="ranking_box">
+            <div class="ranking_box_1">
+                <div class="ranking_box_11"></div>
+                <span>大侠风云榜</span>
+            </div>
+            <!-- 助力记录 -->
+            <div class="ranking_box_2">
+                <div class="lists" ng-repeat="list in bargaininfoList">
+                    <span class="list_pic"><img ng-src="{{list.HeadImgUrl||defaultHeadImg|transformWeixinHeadImg:96}}" err-src="{{defaultHeadImg1}}" /></span>
+                    <span class="list_content">
+                        <span>{{list.Nickname||defaultName}}</span><br />
+                        <em>{{list.CreatedAt|formatJsonDate:"yyyy-MM-dd HH:mm"}}</em>
+                    </span>
+                    <span class="list_text">帮砍<span ng-bind="list.Amount"></span>元</span>
+                </div>
+                <div class="ranking_box_bottom"ng-click="loadMore()"><button ng-if="renderListData.length == 5" >显示更多</button></div>
+            </div>
+            
+            
+
+        </div>
+    </div>
+</div>
+<my-footer></my-footer>
